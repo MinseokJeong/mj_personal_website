@@ -39,6 +39,7 @@ dependencies:
       url: https://github.com/tsvillain/Flutter-Neumorphic.git
   google_fonts: ^2.1.0
   hexcolor: ^3.0.1
+  animated_text_kit: ^4.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -75,6 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Horizon
+      fonts:
+        - asset: assets/Horizon.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
