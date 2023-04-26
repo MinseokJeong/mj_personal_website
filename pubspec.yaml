@@ -38,6 +38,7 @@ dependencies:
     git:
       url: https://github.com/tsvillain/Flutter-Neumorphic.git
   google_fonts: ^2.1.0
+  hexcolor: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

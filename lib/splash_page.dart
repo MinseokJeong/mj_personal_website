@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mj_portfolio_web/top_section.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -42,9 +43,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
     _aniContrl =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     _textIndexAnimation = Tween(begin: 0.0, end: 8.0).animate(_aniContrl);
 
     _screenSlideUpAnimationController = AnimationController(
@@ -83,34 +83,40 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     return Scaffold(
       backgroundColor: Colors.red,
-      body: AnimatedBuilder(
-        animation: _screenSlideUpAnimation,
-        builder: (context, child) {
-          final calculatedOffsetY = Tween(begin: 0.0, end: -windowSize.height)
-              .evaluate(_screenSlideUpAnimation);
-          return Transform.translate(
-            offset: Offset(0.0, calculatedOffsetY),
-            child: child,
-          );
-        },
-        child: Container(
-          width: windowSize.width,
-          height: windowSize.height,
-          color: Colors.black,
-          child: Center(
-            child: AnimatedBuilder(
-              animation: _textIndexAnimation,
-              builder: (context, child) {
-                final index = _textIndexAnimation.value.toInt();
-                print('${index}');
-                return Text(
-                  '# ${_helloTextsInDifferentLanguage.elementAt(index)}',
-                  style: TextStyle(fontSize: 96.0, color: Colors.white),
-                );
-              },
+      body: Stack(
+        children: [
+          AnimatedBuilder(
+            animation: _screenSlideUpAnimation,
+            builder: (context, child) {
+              final calculatedOffsetY =
+                  Tween(begin: 0.0, end: -windowSize.height)
+                      .evaluate(_screenSlideUpAnimation);
+              return Transform.translate(
+                offset: Offset(0.0, calculatedOffsetY),
+                child: child,
+              );
+            },
+            child: Container(
+              width: windowSize.width,
+              height: windowSize.height,
+              color: Colors.black,
+              child: Center(
+                child: AnimatedBuilder(
+                  animation: _textIndexAnimation,
+                  builder: (context, child) {
+                    final index = _textIndexAnimation.value.toInt();
+                    print('${index}');
+                    return Text(
+                      '# ${_helloTextsInDifferentLanguage.elementAt(index)}',
+                      style: TextStyle(fontSize: 96.0, color: Colors.white),
+                    );
+                  },
+                ),
+              ),
             ),
           ),
-        ),
+          TopSection(),
+        ],
       ),
     );
   }
