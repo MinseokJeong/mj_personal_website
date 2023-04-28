@@ -21,8 +21,10 @@ class MainPage extends StatelessWidget {
           visible: true,
           child: SizedBox(
             width: windowSize.width,
-            height: windowSize.height,
-            child: TopSection(),
+            height: 2000,
+            child: TopSection(
+              scrollController: _scrollController,
+            ),
           ),
         ),
         Visibility(
