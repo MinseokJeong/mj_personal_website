@@ -12,6 +12,7 @@ class MyWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: TopSection(),
+      //home: SplashPage(),
       debugShowCheckedModeBanner: false,
     );
   }

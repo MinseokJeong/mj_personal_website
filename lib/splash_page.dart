@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mj_portfolio_web/rotate_sphere.dart';
 import 'package:mj_portfolio_web/top_section.dart';
 
 class SplashPage extends StatefulWidget {
@@ -115,7 +116,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
             ),
           ),
-          TopSection(),
+          //TopSection(),
         ],
       ),
     );

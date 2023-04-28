@@ -6,6 +6,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/horizontal_moving_text.dart';
 import 'package:mj_portfolio_web/top_button.dart';
+import 'package:mj_portfolio_web/world_sphere_rotate.dart';
+
+import 'rotate_sphere.dart';
 
 class TopSection extends StatelessWidget {
   const TopSection({Key? key}) : super(key: key);
@@ -51,6 +54,11 @@ class TopSection extends StatelessWidget {
               ],
             ),
             HorizontalMovingText(),
+            WorldSphereRotate(),
+            CustomPaint(
+              painter: RotateSphereCustomPainter(1.0),
+              size: Size(48, 48),
+            ),
           ],
         ),
       ),
