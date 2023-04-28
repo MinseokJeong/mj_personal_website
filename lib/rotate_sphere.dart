@@ -4,6 +4,59 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math' as math;
 
+class RotateSphereWidget extends StatefulWidget {
+  const RotateSphereWidget(
+      {Key? key, required this.width, required this.height})
+      : super(key: key);
+
+  final double width;
+  final double height;
+
+  @override
+  State<RotateSphereWidget> createState() => _RotateSphereWidgetState();
+}
+
+class _RotateSphereWidgetState extends State<RotateSphereWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _rotateAnimationController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _rotateAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+
+    _rotateAnimationController.repeat();
+  }
+
+  @override
+  void dispose() {
+    _rotateAnimationController.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: widget.width,
+      height: widget.height,
+      child: AnimatedBuilder(
+        animation: _rotateAnimationController,
+        builder: (context, child) {
+          return CustomPaint(
+            painter:
+                RotateSphereCustomPainter(_rotateAnimationController.value),
+          );
+        },
+      ),
+    );
+  }
+}
+
 class RotateSphereCustomPainter extends CustomPainter {
   RotateSphereCustomPainter(this.percentage);
 

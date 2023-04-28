@@ -55,9 +55,9 @@ class TopSection extends StatelessWidget {
             ),
             HorizontalMovingText(),
             WorldSphereRotate(),
-            CustomPaint(
-              painter: RotateSphereCustomPainter(1.0),
-              size: Size(48, 48),
+            RotateSphereWidget(
+              width: 48,
+              height: 48,
             ),
           ],
         ),

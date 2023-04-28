@@ -83,7 +83,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     final windowSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           AnimatedBuilder(

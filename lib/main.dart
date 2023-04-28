@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mj_portfolio_web/splash_page.dart';
 import 'package:mj_portfolio_web/top_section.dart';
+import 'main_page.dart';
 
 void main() => runApp(MyWeb());
 
@@ -11,7 +12,7 @@ class MyWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TopSection(),
+      home: MainPage(),
       //home: SplashPage(),
       debugShowCheckedModeBanner: false,
     );
