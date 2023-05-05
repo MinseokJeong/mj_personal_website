@@ -6,19 +6,30 @@ import 'dart:math' as math;
 
 class RotateSphereWidget extends StatefulWidget {
   const RotateSphereWidget(
-      {Key? key, required this.width, required this.height})
-      : super(key: key);
+      {Key? key,
+      required this.width,
+      required this.height,
+      Color? color,
+      double? lineThickness})
+      : color = color ?? Colors.white,
+        lineThickness = lineThickness ?? 2.0,
+        super(key: key);
 
   final double width;
   final double height;
+  final Color color;
+  final double lineThickness;
 
   @override
   State<RotateSphereWidget> createState() => _RotateSphereWidgetState();
 }
 
 class _RotateSphereWidgetState extends State<RotateSphereWidget>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _rotateAnimationController;
+
+  late AnimationController _sphereRotateZAnimationController;
+  late Animation<double> _sphereRotateZAnimation;
 
   @override
   void initState() {
@@ -29,7 +40,28 @@ class _RotateSphereWidgetState extends State<RotateSphereWidget>
       duration: Duration(seconds: 2),
     );
 
+    _sphereRotateZAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 10),
+    );
+
+    _sphereRotateZAnimation = TweenSequence<double>(
+      <TweenSequenceItem<double>>[
+        TweenSequenceItem<double>(
+          tween:
+              Tween<double>(begin: -pi / 180.0 * 20.0, end: pi / 180.0 * 20.0),
+          weight: 50.0,
+        ),
+        TweenSequenceItem<double>(
+          tween:
+              Tween<double>(begin: pi / 180.0 * 20.0, end: -pi / 180.0 * 20.0),
+          weight: 50.0,
+        ),
+      ],
+    ).animate(_sphereRotateZAnimationController);
+
     _rotateAnimationController.repeat();
+    _sphereRotateZAnimationController.repeat();
   }
 
   @override
@@ -47,9 +79,14 @@ class _RotateSphereWidgetState extends State<RotateSphereWidget>
       child: AnimatedBuilder(
         animation: _rotateAnimationController,
         builder: (context, child) {
-          return CustomPaint(
-            painter:
-                RotateSphereCustomPainter(_rotateAnimationController.value),
+          return Transform.rotate(
+            angle: _sphereRotateZAnimation.value,
+            child: CustomPaint(
+              painter: RotateSphereCustomPainter(
+                  percentage: _rotateAnimationController.value,
+                  color: widget.color,
+                  lineThickness: widget.lineThickness),
+            ),
           );
         },
       ),
@@ -58,27 +95,45 @@ class _RotateSphereWidgetState extends State<RotateSphereWidget>
 }
 
 class RotateSphereCustomPainter extends CustomPainter {
-  RotateSphereCustomPainter(this.percentage);
+  RotateSphereCustomPainter(
+      {required this.percentage,
+      required this.color,
+      required this.lineThickness});
 
   double percentage; // range between 0.0 to 1.0
+  Color color;
+  double lineThickness;
 
   @override
   void paint(Canvas canvas, Size size) {
     final points = <double>[];
 
-    final step = size.width / 6.0;
-    for (int i = 0; i < 6; ++i) {
+    final pointCount = 3;
+    final step = size.width / pointCount.toDouble();
+    for (int i = 0; i < pointCount; ++i) {
       points.add(step * i.toDouble() + (step * percentage));
     }
 
     final pathPaint = Paint();
-    pathPaint.color = Colors.white;
-    pathPaint.strokeWidth = 2.0;
+    pathPaint.color = color;
+    pathPaint.strokeWidth = lineThickness;
     pathPaint.style = PaintingStyle.stroke;
     pathPaint.strokeCap = StrokeCap.round;
 
     canvas.drawOval(
         Rect.fromLTWH(0.0, 0.0, size.width, size.height), pathPaint);
+    canvas.drawOval(
+        Rect.fromCenter(
+            center: size.center(Offset.zero),
+            width: size.width,
+            height: size.height * 0.7),
+        pathPaint);
+    canvas.drawOval(
+        Rect.fromCenter(
+            center: size.center(Offset.zero),
+            width: size.width,
+            height: size.height * 0.3),
+        pathPaint);
 
     _drawCustomCurvedLine(points[0], size, canvas, pathPaint);
 

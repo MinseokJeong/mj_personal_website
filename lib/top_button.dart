@@ -96,7 +96,7 @@ class _TopButtonState extends State<TopButton>
                 offset: isMouseExit ? currentOffset : _offset,
                 child: Text(
                   _text,
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               );
             },

@@ -14,8 +14,14 @@ const textStyleHeaderLogo = TextStyle(
 
 const textStyleTopSectionLarge = TextStyle(
   color: Colors.white,
-  fontSize: 34.0,
+  fontSize: 28.0,
+);
+
+const textStyleTopSectionRotateSphereSectionLeftText = TextStyle(
+  color: Colors.white,
+  fontSize: 16.0,
 );
 
 //colors
 final topSectionBackgroundColor = HexColor('#999D9D');
+final topSectionHangerBackgroundColor = Color.fromRGBO(28, 29, 32, 1.0);

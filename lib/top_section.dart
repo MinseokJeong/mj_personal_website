@@ -24,44 +24,111 @@ class TopSection extends StatelessWidget {
     });
 
     return Scaffold(
-      backgroundColor: HexColor('#999D9D'),
-      body: Column(
+      backgroundColor: ar.topSectionBackgroundColor,
+      body: Stack(
         children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: DefaultTextStyle(
-                  style: const TextStyle(fontSize: 16.0, color: Colors.white),
-                  child: AnimatedTextKit(
-                    animatedTexts: [
-                      WavyAnimatedText('@ Code by MinseokJeong'),
-                    ],
-                    repeatForever: true,
-                    onTap: null,
-                  ),
-                ),
+          Align(
+              alignment: Alignment.topCenter, child: TopSectionHeaderWidget()),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset(
+              'assets/brushing_mj.png',
+              height: 800,
+            ),
+          ),
+          Align(
+            alignment: Alignment(-1.0, 1.0),
+            child: HorizontalMovingText(
+              text: " Be Good And Do Good And",
+              textStyle: TextStyle(color: Colors.white, fontSize: 150.0),
+              speed: 22000,
+            ),
+          ),
+          Align(
+              alignment: Alignment(-1.0, 0.0),
+              child: TopSectionHangerWidget(windowSize: windowSize)),
+          Align(
+            child: Text(
+              'Software\nEngineer & Developer',
+              style: ar.textStyleTopSectionLarge,
+            ),
+            alignment: Alignment(0.9, 0.0),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class TopSectionHeaderWidget extends StatelessWidget {
+  const TopSectionHeaderWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, top: 4.0, right: 8.0),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+            child: Text(
+              '@ Code by MinseokJeong',
+              style: const TextStyle(fontSize: 16.0, color: Colors.white),
+            ),
+          ),
+          Spacer(),
+          TopButton(text: 'Work'),
+          TopButton(text: 'About'),
+          TopButton(text: 'Contact'),
+          TopButton(text: 'TEST'),
+        ],
+      ),
+    );
+  }
+}
+
+class TopSectionHangerWidget extends StatelessWidget {
+  const TopSectionHangerWidget({
+    Key? key,
+    required this.windowSize,
+  }) : super(key: key);
+
+  final Size windowSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 40.0),
+      decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(64.0),
+              bottomRight: Radius.circular(64.0))),
+      height: windowSize.height * 0.12,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Located\nin the\nSouth Korea',
+            style: ar.textStyleTopSectionRotateSphereSectionLeftText
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w500),
+          ),
+          SizedBox(
+            width: 32.0,
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: CircleAvatar(
+              backgroundColor: ar.topSectionBackgroundColor,
+              radius: 32,
+              child: RotateSphereWidget(
+                width: 36,
+                height: 36,
+                color: Colors.white,
               ),
-              Spacer(),
-              TopButton(text: 'Work'),
-              TopButton(text: 'About'),
-              TopButton(text: 'Contact'),
-              TopButton(text: 'TEST'),
-            ],
-          ),
-          HorizontalMovingText(
-            text: "CAN'T TYPE HANGEUL...",
-            textStyle: TextStyle(color: Colors.white, fontSize: 150.0),
-            speed: 5000,
-          ),
-          WorldSphereRotate(),
-          RotateSphereWidget(
-            width: 48,
-            height: 48,
-          ),
-          Image.asset(
-            'assets/brushing_mj.png',
-            height: 800,
+            ),
           ),
         ],
       ),

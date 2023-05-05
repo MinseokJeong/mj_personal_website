@@ -1,10 +1,5 @@
-import 'dart:html';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
 
 class HorizontalMovingText extends StatefulWidget {
@@ -33,6 +28,7 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
   @override
   void initState() {
     super.initState();
+    _initializeAnimationController();
   }
 
   @override
@@ -77,24 +73,26 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
     textPainterFinal.layout();
     _calculatedLineMetrics = textPainterFinal.computeLineMetrics().first;
 
-    int speed = widget.speed.abs();
-    if (speed == 0) {
-      speed = 1000;
-    }
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: speed));
     _textOffsetAnimation = Tween(
             begin: Offset(0.0, 0.0),
             end: Offset(_calculatedLineMetrics.width, 0.0))
         .animate(_animationController);
   }
 
+  void _initializeAnimationController() {
+    int speed = widget.speed.abs();
+    if (speed == 0) {
+      speed = 1000;
+    }
+    _animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: speed));
+
+    _animationController.repeat();
+  }
+
   @override
   Widget build(BuildContext context) {
     _prepareResources();
-
-    _animationController.repeat();
-
     return AnimatedBuilder(
         animation: _textOffsetAnimation,
         builder: (context, child) {
@@ -103,7 +101,7 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
             clipBehavior: Clip.none,
             children: [
               Transform.translate(
-                offset: currentValue,
+                offset: -currentValue,
                 child: Text(
                   _textToRender,
                   style: widget.textStyle,
@@ -111,10 +109,9 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
                   overflow: TextOverflow.visible,
                 ),
               ),
-
               Transform.translate(
                 offset:
-                    currentValue.translate(-_calculatedLineMetrics.width, 0.0),
+                    -currentValue.translate(-_calculatedLineMetrics.width, 0.0),
                 child: Text(
                   _textToRender,
                   style: widget.textStyle,
@@ -122,22 +119,6 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
                   overflow: TextOverflow.visible,
                 ),
               ),
-              // AnimatedBuilder(
-              //   animation: _textOffsetAnimation,
-              //   builder: (context, child) {
-              //     return Transform.translate(
-              //       offset: _textOffsetAnimation.value
-              //           .translate(-_calculatedLineMetrics.width, 0),
-              //       child: child,
-              //     );
-              //   },
-              //   child: Text(
-              //     _textToRender,
-              //     style: widget.textStyle,
-              //     softWrap: false,
-              //     overflow: TextOverflow.visible,
-              //   ),
-              // ),
             ],
           );
         });

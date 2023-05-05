@@ -22,6 +22,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late AnimationController _screenSlideUpAnimationController;
   late Animation<double> _screenSlideUpAnimation;
 
+  bool _visibility = true;
+
   final _helloTextsInDifferentLanguage = <String>[
     '안녕하세요',
     'Hello'
@@ -56,9 +58,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             parent: _screenSlideUpAnimationController));
   }
 
-  bool forwardCompleted = false;
-  bool backwardCompleted = false;
-
   @override
   void dispose() {
     _aniContrl.dispose();
@@ -75,6 +74,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       _aniContrl.addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           _screenSlideUpAnimationController.forward();
+          _screenSlideUpAnimationController.addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              setState(() {
+                _visibility = false;
+              });
+            }
+          });
         }
       });
       _aniContrl.forward();
@@ -82,42 +88,45 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     final windowSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          AnimatedBuilder(
-            animation: _screenSlideUpAnimation,
-            builder: (context, child) {
-              final calculatedOffsetY =
-                  Tween(begin: 0.0, end: -windowSize.height)
-                      .evaluate(_screenSlideUpAnimation);
-              return Transform.translate(
-                offset: Offset(0.0, calculatedOffsetY),
-                child: child,
-              );
-            },
-            child: Container(
-              width: windowSize.width,
-              height: windowSize.height,
-              color: Colors.black,
-              child: Center(
-                child: AnimatedBuilder(
-                  animation: _textIndexAnimation,
-                  builder: (context, child) {
-                    final index = _textIndexAnimation.value.toInt();
-                    print('${index}');
-                    return Text(
-                      '# ${_helloTextsInDifferentLanguage.elementAt(index)}',
-                      style: TextStyle(fontSize: 96.0, color: Colors.white),
-                    );
-                  },
+    return Visibility(
+      visible: _visibility,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            AnimatedBuilder(
+              animation: _screenSlideUpAnimation,
+              builder: (context, child) {
+                final calculatedOffsetY =
+                    Tween(begin: 0.0, end: -windowSize.height)
+                        .evaluate(_screenSlideUpAnimation);
+                return Transform.translate(
+                  offset: Offset(0.0, calculatedOffsetY),
+                  child: child,
+                );
+              },
+              child: Container(
+                width: windowSize.width,
+                height: windowSize.height,
+                color: Colors.black,
+                child: Center(
+                  child: AnimatedBuilder(
+                    animation: _textIndexAnimation,
+                    builder: (context, child) {
+                      final index = _textIndexAnimation.value.toInt();
+                      print('${index}');
+                      return Text(
+                        '# ${_helloTextsInDifferentLanguage.elementAt(index)}',
+                        style: TextStyle(fontSize: 96.0, color: Colors.white),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-          //TopSection(),
-        ],
+            //TopSection(),
+          ],
+        ),
       ),
     );
   }
