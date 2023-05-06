@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class SecondPart extends StatefulWidget {
-  const SecondPart(
+class AboutPage extends StatefulWidget {
+  const AboutPage(
       {required this.scrollController, Key? key, this.color = Colors.red})
       : super(key: key);
   final Color color;
   final ScrollController scrollController;
-
   @override
-  State<SecondPart> createState() => _SecondPartState();
+  State<AboutPage> createState() => _AboutPageState();
 }
 
-class _SecondPartState extends State<SecondPart> {
+class _AboutPageState extends State<AboutPage> {
   double _translateY = 0.0;
   @override
   void initState() {
     super.initState();
+
     widget.scrollController.addListener(this.scrollListener);
   }
 

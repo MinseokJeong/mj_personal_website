@@ -1,28 +1,15 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:mj_portfolio_web/horizontal_moving_text.dart';
-import 'package:mj_portfolio_web/top_button.dart';
-import 'package:mj_portfolio_web/world_sphere_rotate.dart';
+import '../widget/horizontal_moving_text_widget.dart';
+import '../widget/interaction_menu_button_widget.dart';
+import '../widget/rotate_globe_widget.dart';
+import '../app_design_resources.dart' as ar;
 
-import 'rotate_sphere.dart';
-import 'app_resources.dart' as ar;
-
-class TopSection extends StatelessWidget {
-  const TopSection({Key? key, required this.scrollController})
-      : super(key: key);
-  final ScrollController scrollController;
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final windowSize = MediaQuery.of(context).size;
-    scrollController.addListener(() {
-      print(scrollController.position);
-    });
-
     return Scaffold(
       backgroundColor: ar.topSectionBackgroundColor,
       body: Stack(
@@ -52,7 +39,7 @@ class TopSection extends StatelessWidget {
           ),
           Align(
             alignment: Alignment(-1.0, 0.9),
-            child: HorizontalMovingText(
+            child: HorizontalMovingTextWidget(
               text: "Minseok Jeong ",
               textStyle: TextStyle(
                 color: Colors.white,
@@ -88,9 +75,9 @@ class TopSectionHeaderWidget extends StatelessWidget {
             ),
           ),
           Spacer(),
-          TopButton(text: 'Work'),
-          TopButton(text: 'About'),
-          TopButton(text: 'Contact'),
+          InteractionMenuButtonWidget(text: 'Work'),
+          InteractionMenuButtonWidget(text: 'About'),
+          InteractionMenuButtonWidget(text: 'Contact'),
         ],
       ),
     );
@@ -131,7 +118,7 @@ class TopSectionHangerWidget extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: ar.topSectionBackgroundColor,
               radius: 32,
-              child: RotateSphereWidget(
+              child: RotateGlobeWidget(
                 width: 36,
                 height: 36,
                 color: Colors.white,

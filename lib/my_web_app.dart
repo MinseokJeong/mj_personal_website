@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:mj_portfolio_web/second_part.dart';
-import 'package:mj_portfolio_web/splash_page.dart';
-import 'package:mj_portfolio_web/top_section.dart';
+import 'page/about_page.dart';
+import 'page/splash_page.dart';
+import 'page/home_page.dart';
+import 'page/work_page.dart';
 
-class MainPage extends StatelessWidget {
-  MainPage({Key? key}) : super(key: key);
+class MyWebApp extends StatelessWidget {
+  MyWebApp({Key? key}) : super(key: key);
   late ScrollController _scrollController;
 
   @override
@@ -24,16 +22,19 @@ class MainPage extends StatelessWidget {
               SizedBox(
                 width: windowSize.width,
                 height: windowSize.height,
-                child: TopSection(
+                child: HomePage(),
+              ),
+              SizedBox(
+                width: windowSize.width,
+                height: windowSize.height,
+                child: AboutPage(
                   scrollController: _scrollController,
                 ),
               ),
               SizedBox(
                 width: windowSize.width,
                 height: windowSize.height,
-                child: SecondPart(
-                  scrollController: _scrollController,
-                ),
+                child: WorkPage(),
               ),
             ],
           ),

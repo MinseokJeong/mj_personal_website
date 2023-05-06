@@ -1,18 +1,18 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class TopButton extends StatefulWidget {
-  const TopButton({Key? key, required this.text}) : super(key: key);
+class InteractionMenuButtonWidget extends StatefulWidget {
+  const InteractionMenuButtonWidget({Key? key, required this.text})
+      : super(key: key);
   final String text;
   @override
-  State<TopButton> createState() => _TopButtonState();
+  State<InteractionMenuButtonWidget> createState() =>
+      _InteractionMenuButtonWidgetState();
 }
 
-class _TopButtonState extends State<TopButton>
+class _InteractionMenuButtonWidgetState
+    extends State<InteractionMenuButtonWidget>
     with SingleTickerProviderStateMixin {
   late LineMetrics _calculatedLineMetrics;
   Offset _offset = Offset(0.0, 0.0);

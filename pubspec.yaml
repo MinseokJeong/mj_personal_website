@@ -78,9 +78,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Horizon
-      fonts:
-        - asset: assets/Horizon.otf
     - family: NotoSans
       fonts:
         - asset: fonts/Noto_Sans/NotoSans-Regular.ttf

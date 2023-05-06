@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_resources.dart' show FontName;
+import '../app_design_resources.dart' show FontName;
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);

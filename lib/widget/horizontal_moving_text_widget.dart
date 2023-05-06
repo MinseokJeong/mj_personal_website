@@ -7,8 +7,8 @@ enum MovingTextDirection {
   moving_right,
 }
 
-class HorizontalMovingText extends StatefulWidget {
-  const HorizontalMovingText(
+class HorizontalMovingTextWidget extends StatefulWidget {
+  const HorizontalMovingTextWidget(
       {Key? key,
       required this.text,
       required this.textStyle,
@@ -22,10 +22,11 @@ class HorizontalMovingText extends StatefulWidget {
   final MovingTextDirection direction;
 
   @override
-  State<HorizontalMovingText> createState() => _HorizontalMovingTextState();
+  State<HorizontalMovingTextWidget> createState() =>
+      _HorizontalMovingTextWidgetState();
 }
 
-class _HorizontalMovingTextState extends State<HorizontalMovingText>
+class _HorizontalMovingTextWidgetState extends State<HorizontalMovingTextWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Offset> _textOffsetAnimation;
@@ -45,8 +46,6 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
   }
 
   void _prepareResources() {
-    final textTheme = Theme.of(context).textTheme;
-
     final textPainter = TextPainter(
         text: TextSpan(
           text: widget.text,
@@ -107,7 +106,7 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
   }
 
   @override
-  void didUpdateWidget(covariant HorizontalMovingText oldWidget) {
+  void didUpdateWidget(covariant HorizontalMovingTextWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
   }
 

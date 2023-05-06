@@ -1,11 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'dart:math' as math;
 
-class RotateSphereWidget extends StatefulWidget {
-  const RotateSphereWidget(
+class RotateGlobeWidget extends StatefulWidget {
+  const RotateGlobeWidget(
       {Key? key,
       required this.width,
       required this.height,
@@ -21,10 +19,10 @@ class RotateSphereWidget extends StatefulWidget {
   final double lineThickness;
 
   @override
-  State<RotateSphereWidget> createState() => _RotateSphereWidgetState();
+  State<RotateGlobeWidget> createState() => _RotateGlobeWidgetState();
 }
 
-class _RotateSphereWidgetState extends State<RotateSphereWidget>
+class _RotateGlobeWidgetState extends State<RotateGlobeWidget>
     with TickerProviderStateMixin {
   late AnimationController _rotateAnimationController;
 
@@ -82,7 +80,7 @@ class _RotateSphereWidgetState extends State<RotateSphereWidget>
           return Transform.rotate(
             angle: _sphereRotateZAnimation.value,
             child: CustomPaint(
-              painter: RotateSphereCustomPainter(
+              painter: RotateGlobeCustomPainter(
                   percentage: _rotateAnimationController.value,
                   color: widget.color,
                   lineThickness: widget.lineThickness),
@@ -94,8 +92,8 @@ class _RotateSphereWidgetState extends State<RotateSphereWidget>
   }
 }
 
-class RotateSphereCustomPainter extends CustomPainter {
-  RotateSphereCustomPainter(
+class RotateGlobeCustomPainter extends CustomPainter {
+  RotateGlobeCustomPainter(
       {required this.percentage,
       required this.color,
       required this.lineThickness});
