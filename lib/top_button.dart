@@ -28,6 +28,9 @@ class _TopButtonState extends State<TopButton>
   late AnimationController _textBackToOriginalPositionAnimationController;
   late Animation<double> _textBackToOriginalPositionAnimation;
 
+  final _textStyle =
+      TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400);
+
   @override
   void initState() {
     super.initState();
@@ -52,7 +55,7 @@ class _TopButtonState extends State<TopButton>
   void _calculateSize() {
     final textSpan = TextSpan(
       text: _text,
-      style: TextStyle(color: Colors.white, fontSize: 16),
+      style: _textStyle,
     );
     final textPainter = TextPainter(
         text: textSpan, maxLines: 1, textDirection: TextDirection.ltr);
@@ -96,7 +99,7 @@ class _TopButtonState extends State<TopButton>
                 offset: isMouseExit ? currentOffset : _offset,
                 child: Text(
                   _text,
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: _textStyle,
                 ),
               );
             },

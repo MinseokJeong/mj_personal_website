@@ -15,36 +15,39 @@ class MainPage extends StatelessWidget {
     _scrollController = ScrollController();
     final windowSize = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      controller: _scrollController,
-      child: Stack(children: [
-        Column(
-          children: [
-            SizedBox(
-              width: windowSize.width,
-              height: windowSize.height,
-              child: TopSection(
-                scrollController: _scrollController,
+    return Scaffold(
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        child: Stack(children: [
+          Column(
+            children: [
+              SizedBox(
+                width: windowSize.width,
+                height: windowSize.height,
+                child: TopSection(
+                  scrollController: _scrollController,
+                ),
               ),
-            ),
-            SizedBox(
-              width: windowSize.width,
-              height: windowSize.height,
-              child: SecondPart(
-                scrollController: _scrollController,
+              SizedBox(
+                width: windowSize.width,
+                height: windowSize.height,
+                child: SecondPart(
+                  scrollController: _scrollController,
+                ),
               ),
-            ),
-          ],
-        ),
-        Visibility(
-          visible: true,
-          child: SizedBox(
-            width: windowSize.width,
-            height: windowSize.height,
-            child: SplashPage(),
+            ],
           ),
-        ),
-      ]),
+          Visibility(
+            visible:
+                false, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
+            child: SizedBox(
+              width: windowSize.width,
+              height: windowSize.height,
+              child: SplashPage(),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

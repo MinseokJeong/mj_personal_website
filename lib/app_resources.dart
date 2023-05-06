@@ -24,7 +24,7 @@ const textStyleTopSectionRotateSphereSectionLeftText = TextStyle(
 
 //colors
 final topSectionBackgroundColor = HexColor('#999D9D');
-final topSectionHangerBackgroundColor = Color.fromRGBO(28, 29, 32, 1.0);
+final topSectionHangerBackgroundColor = HexColor('#1C1D20');
 
 //Fonts
 enum FontName {

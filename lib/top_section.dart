@@ -28,22 +28,18 @@ class TopSection extends StatelessWidget {
       body: Stack(
         children: [
           Align(
+            alignment: Alignment.center,
+            child: UnconstrainedBox(
+              clipBehavior: Clip.hardEdge,
+              child: Image.asset(
+                'assets/dennissnellenberg_image.jpeg',
+                height: windowSize.height * 1.2,
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+          ),
+          Align(
               alignment: Alignment.topCenter, child: TopSectionHeaderWidget()),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              'assets/brushing_mj.png',
-              height: 800,
-            ),
-          ),
-          Align(
-            alignment: Alignment(-1.0, 1.0),
-            child: HorizontalMovingText(
-              text: " Be Good And Do Good And",
-              textStyle: TextStyle(color: Colors.white, fontSize: 150.0),
-              speed: 22000,
-            ),
-          ),
           Align(
               alignment: Alignment(-1.0, 0.0),
               child: TopSectionHangerWidget(windowSize: windowSize)),
@@ -53,7 +49,20 @@ class TopSection extends StatelessWidget {
               style: ar.textStyleTopSectionLarge,
             ),
             alignment: Alignment(0.9, 0.0),
-          )
+          ),
+          Align(
+            alignment: Alignment(-1.0, 0.9),
+            child: HorizontalMovingText(
+              text: "Minseok Jeong ",
+              textStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 150.0,
+                fontFamily: ar.FontName.NotoSansKorean.name,
+              ),
+              speed: 22000,
+              direction: MovingTextDirection.moving_left,
+            ),
+          ),
         ],
       ),
     );
@@ -82,7 +91,6 @@ class TopSectionHeaderWidget extends StatelessWidget {
           TopButton(text: 'Work'),
           TopButton(text: 'About'),
           TopButton(text: 'Contact'),
-          TopButton(text: 'TEST'),
         ],
       ),
     );
@@ -100,9 +108,9 @@ class TopSectionHangerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 40.0),
+      padding: EdgeInsets.only(left: 40.0, top: 8.0, bottom: 8.0),
       decoration: BoxDecoration(
-          color: Colors.black,
+          color: ar.topSectionHangerBackgroundColor,
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(64.0),
               bottomRight: Radius.circular(64.0))),
@@ -113,7 +121,7 @@ class TopSectionHangerWidget extends StatelessWidget {
           Text(
             'Located\nin the\nSouth Korea',
             style: ar.textStyleTopSectionRotateSphereSectionLeftText
-                .copyWith(color: Colors.white, fontWeight: FontWeight.w500),
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w400),
           ),
           SizedBox(
             width: 32.0,

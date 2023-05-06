@@ -34,7 +34,21 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.initState();
     _aniContrl =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _textIndexAnimation = Tween(begin: 0.0, end: 8.0).animate(_aniContrl);
+
+    final endComputed =
+        (_helloTextsInDifferentLanguageTextAndFontMap.length - 1).toDouble();
+    _textIndexAnimation =
+        Tween(begin: 0.0, end: endComputed).animate(_aniContrl);
+
+    _textIndexAnimation = TweenSequence([
+      for (int i = 0;
+          i < _helloTextsInDifferentLanguageTextAndFontMap.length;
+          ++i)
+        TweenSequenceItem(
+            tween: Tween(begin: i.toDouble(), end: (i + 1).toDouble()),
+            weight: 1),
+      TweenSequenceItem(tween: ConstantTween(endComputed), weight: 2.0),
+    ]).animate(_aniContrl);
 
     _screenSlideUpAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000));
@@ -49,7 +63,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _aniContrl.dispose();
     _screenSlideUpAnimationController.dispose();
 
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -106,7 +119,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       final font =
                           _helloTextsInDifferentLanguageTextAndFontMap[text];
                       return Text(
-                        'print( ${text} );',
+                        '"${text}"',
                         style: TextStyle(
                             fontSize: 96.0,
                             color: Colors.white,

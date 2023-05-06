@@ -2,17 +2,24 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+enum MovingTextDirection {
+  moving_left,
+  moving_right,
+}
+
 class HorizontalMovingText extends StatefulWidget {
   const HorizontalMovingText(
       {Key? key,
       required this.text,
       required this.textStyle,
-      this.speed = 1000})
+      this.speed = 1000,
+      this.direction = MovingTextDirection.moving_left})
       : super(key: key);
 
   final String text;
   final TextStyle textStyle;
   final int speed;
+  final MovingTextDirection direction;
 
   @override
   State<HorizontalMovingText> createState() => _HorizontalMovingTextState();
@@ -38,6 +45,8 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
   }
 
   void _prepareResources() {
+    final textTheme = Theme.of(context).textTheme;
+
     final textPainter = TextPainter(
         text: TextSpan(
           text: widget.text,
@@ -61,7 +70,7 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
     for (int i = 0; i < cloneStringCount; ++i) {
       textBuffer.add(widget.text);
     }
-    _textToRender = textBuffer.join(' ') + ' ';
+    _textToRender = ' ' + textBuffer.join(' ');
 
     final textPainterFinal = TextPainter(
         text: TextSpan(
@@ -73,10 +82,17 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
     textPainterFinal.layout();
     _calculatedLineMetrics = textPainterFinal.computeLineMetrics().first;
 
-    _textOffsetAnimation = Tween(
-            begin: Offset(0.0, 0.0),
-            end: Offset(_calculatedLineMetrics.width, 0.0))
-        .animate(_animationController);
+    if (widget.direction == MovingTextDirection.moving_left) {
+      _textOffsetAnimation = Tween(
+              begin: Offset(0.0, 0.0),
+              end: Offset(_calculatedLineMetrics.width, 0.0))
+          .animate(_animationController);
+    } else {
+      _textOffsetAnimation = Tween(
+              begin: Offset(0.0, 0.0),
+              end: Offset(-_calculatedLineMetrics.width, 0.0))
+          .animate(_animationController);
+    }
   }
 
   void _initializeAnimationController() {
@@ -91,17 +107,38 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
   }
 
   @override
+  void didUpdateWidget(covariant HorizontalMovingText oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     _prepareResources();
     return AnimatedBuilder(
         animation: _textOffsetAnimation,
         builder: (context, child) {
           final currentValue = _textOffsetAnimation.value;
+
+          Offset firstTextOffset = Offset.zero;
+          Offset secondTextOffset = Offset.zero;
+
+          if (widget.direction == MovingTextDirection.moving_left) {
+            firstTextOffset = Offset(-currentValue.dx, currentValue.dy);
+            secondTextOffset = Offset(
+                -currentValue.dx + _calculatedLineMetrics.width,
+                currentValue.dy);
+          } else {
+            firstTextOffset = Offset(-currentValue.dx, currentValue.dy);
+            secondTextOffset = Offset(
+                -currentValue.dx - _calculatedLineMetrics.width,
+                currentValue.dy);
+          }
+
           return Stack(
             clipBehavior: Clip.none,
             children: [
               Transform.translate(
-                offset: -currentValue,
+                offset: firstTextOffset,
                 child: Text(
                   _textToRender,
                   style: widget.textStyle,
@@ -110,8 +147,7 @@ class _HorizontalMovingTextState extends State<HorizontalMovingText>
                 ),
               ),
               Transform.translate(
-                offset:
-                    -currentValue.translate(-_calculatedLineMetrics.width, 0.0),
+                offset: secondTextOffset,
                 child: Text(
                   _textToRender,
                   style: widget.textStyle,
