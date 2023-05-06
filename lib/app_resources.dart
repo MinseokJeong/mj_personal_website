@@ -25,3 +25,10 @@ const textStyleTopSectionRotateSphereSectionLeftText = TextStyle(
 //colors
 final topSectionBackgroundColor = HexColor('#999D9D');
 final topSectionHangerBackgroundColor = Color.fromRGBO(28, 29, 32, 1.0);
+
+//Fonts
+enum FontName {
+  NotoSans,
+  NotoSansJapanese,
+  NotoSansKorean,
+}

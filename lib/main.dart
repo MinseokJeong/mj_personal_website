@@ -1,10 +1,6 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mj_portfolio_web/second_part.dart';
-import 'package:mj_portfolio_web/splash_page.dart';
-import 'package:mj_portfolio_web/top_section.dart';
 import 'main_page.dart';
+import 'app_resources.dart' show FontName;
 
 void main() => runApp(MyWeb());
 
@@ -14,8 +10,7 @@ class MyWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MainPage(),
-      //home: SecondPart(),
-      //home: SplashPage(),
+      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
       debugShowCheckedModeBanner: false,
     );
   }

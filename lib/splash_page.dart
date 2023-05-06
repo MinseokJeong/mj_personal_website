@@ -1,19 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mj_portfolio_web/rotate_sphere.dart';
-import 'package:mj_portfolio_web/top_section.dart';
-
-enum _FontName {
-  NotoSans,
-  NotoSansJapanese,
-  NotoSansKorean,
-}
+import 'app_resources.dart' show FontName;
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -31,29 +17,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   bool _visibility = true;
 
-  /*
-  10대강국
-  미국,영국 Hello(헬로)
-  중국 你好(니하오)
-  러시아 Здравствуйте(즈드랏스부이쩨)
-  프랑스 Bonjuor(봉쥬흐)
-  일본 こんにちは(곤니찌와)
-  독일 Guten Tag(구텐탁)
-  이탈리아 Buongiorno(본조르노)
-  인도 नमस्ते(나마스떼)
-  한국 안녕하세요
-  */
-
   final _helloTextsInDifferentLanguageTextAndFontMap = <String, String>{
-    'Hello': _FontName.NotoSans.name,
-    '你好': _FontName.NotoSansJapanese.name,
-    'Здравствуйте': _FontName.NotoSans.name,
-    'Bonjuor': _FontName.NotoSans.name,
-    'こんにちは': _FontName.NotoSansJapanese.name,
-    'Guten Tag': _FontName.NotoSans.name,
-    'Buongiorno': _FontName.NotoSans.name,
-    'नमस्ते': _FontName.NotoSans.name,
-    '안녕하세요': _FontName.NotoSansKorean.name,
+    'Hello': FontName.NotoSans.name, //미국,영국 Hello(헬로)
+    '你好': FontName.NotoSansJapanese.name, //중국 你好(니하오)
+    'Здравствуйте': FontName.NotoSans.name, //러시아 Здравствуйте(즈드랏스부이쩨)
+    'Bonjuor': FontName.NotoSans.name, //프랑스 Bonjuor(봉쥬흐)
+    'こんにちは': FontName.NotoSansJapanese.name, //일본 こんにちは(곤니찌와)
+    'Guten Tag': FontName.NotoSans.name, //독일 Guten Tag(구텐탁)
+    'Buongiorno': FontName.NotoSans.name, //프랑스 Bonjuor(봉쥬흐)
+    'नमस्ते': FontName.NotoSans.name, //인도 नमस्ते(나마스떼)
+    '안녕하세요': FontName.NotoSansKorean.name,
   };
 
   @override
@@ -133,7 +106,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       final font =
                           _helloTextsInDifferentLanguageTextAndFontMap[text];
                       return Text(
-                        '# ${text}',
+                        'print( ${text} );',
                         style: TextStyle(
                             fontSize: 96.0,
                             color: Colors.white,
