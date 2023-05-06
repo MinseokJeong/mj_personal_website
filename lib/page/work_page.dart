@@ -16,8 +16,14 @@ class _WorkPageState extends State<WorkPage> {
     final windowSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(children: [
+        Container(
+          color: Colors.pink,
+        ),
         Align(
-          child: Text('WORK PAGE'),
+          child: Text(
+            'WORK PAGE',
+            style: TextStyle(backgroundColor: Colors.pink),
+          ),
           alignment: Alignment.center,
         ),
       ]),
