@@ -37,7 +37,7 @@ dependencies:
   flutter_neumorphic:
     git:
       url: https://github.com/tsvillain/Flutter-Neumorphic.git
-  google_fonts: ^2.1.0
+  google_fonts: ^4.0.4
   hexcolor: ^3.0.1
   animated_text_kit: ^4.2.2
 dev_dependencies:
@@ -81,6 +81,15 @@ flutter:
     - family: Horizon
       fonts:
         - asset: assets/Horizon.otf
+    - family: NotoSans
+      fonts:
+        - asset: fonts/Noto_Sans/NotoSans-Regular.ttf
+    - family: NotoSansJapanese
+      fonts:
+        - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Regular.ttf
+    - family: NotoSansKorean
+      fonts:
+        - asset: fonts/Noto_Sans_KR/NotoSansKR-Regular.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
