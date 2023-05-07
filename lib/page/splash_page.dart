@@ -32,8 +32,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _aniContrl =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _aniContrl = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2000));
 
     final endComputed =
         (_helloTextsInDifferentLanguageTextAndFontMap.length - 1).toDouble();
@@ -51,7 +51,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     ]).animate(_aniContrl);
 
     _screenSlideUpAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2000));
+        vsync: this, duration: Duration(milliseconds: 1400));
     _screenSlideUpAnimation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             curve: Curves.easeInOutQuart,
@@ -109,7 +109,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   offset: Offset(0.0, calculatedOffsetY),
                   child: UnconstrainedBox(
                     alignment: Alignment.topCenter,
-                    clipBehavior: Clip.hardEdge,
+                    clipBehavior: Clip.none,
                     child: Column(children: [
                       child!,
                       Container(

@@ -68,13 +68,17 @@ class _AboutPageState extends State<AboutPage> {
     final size = MediaQuery.of(context).size;
     print(_translateY);
     return Stack(
+      clipBehavior: Clip.hardEdge,
       children: [
-        Align(
-          alignment: Alignment(0.0, (-_translateY * 3).clamp(-1.0, 1.0)),
-          child: Image.asset(
-            'moon.jpeg',
-            height: size.height / 2.0,
-            fit: BoxFit.fitHeight,
+        UnconstrainedBox(
+          clipBehavior: Clip.hardEdge,
+          child: Transform.translate(
+            offset: Offset(0.0, size.height * _translateY * 0.1),
+            child: Image.asset(
+              'moon.jpeg',
+              height: size.height * 2.0,
+              fit: BoxFit.fitHeight,
+            ),
           ),
         ),
 
