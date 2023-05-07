@@ -29,6 +29,5 @@ class InteractWithMousePointerIconWidget extends StatelessWidget {
         color: Colors.white,
       ),
     );
-    ;
   }
 }

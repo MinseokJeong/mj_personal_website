@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -12,10 +13,8 @@ class InteractionMenuButtonWidget extends StatefulWidget {
 }
 
 class _InteractionMenuButtonWidgetState
-    extends State<InteractionMenuButtonWidget>
-    with SingleTickerProviderStateMixin {
+    extends State<InteractionMenuButtonWidget> with TickerProviderStateMixin {
   late LineMetrics _calculatedLineMetrics;
-  Offset _offset = Offset(0.0, 0.0);
   final double _horizontalPadding = 16.0;
   final double _verticalPadding = 16.0;
 
@@ -25,11 +24,14 @@ class _InteractionMenuButtonWidgetState
   double get _containerHeight =>
       _calculatedLineMetrics.height + _verticalPadding * 2;
 
-  late AnimationController _textBackToOriginalPositionAnimationController;
-  late Animation<double> _textBackToOriginalPositionAnimation;
+  late AnimationController
+      _textPositionAnimationWhenMouseEnterAndExitController;
+  late Animation<Offset> _textPositionAnimationWhenMouseEnterAndExit;
 
   final _textStyle =
       TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400);
+
+  final _hoverOffsetStreamController = StreamController<Offset>();
 
   @override
   void initState() {
@@ -37,18 +39,18 @@ class _InteractionMenuButtonWidgetState
 
     _calculateSize();
 
-    _textBackToOriginalPositionAnimationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 400));
-    _textBackToOriginalPositionAnimation = Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(
-            parent: _textBackToOriginalPositionAnimationController,
-            curve: Curves.elasticOut));
+    _textPositionAnimationWhenMouseEnterAndExitController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _textPositionAnimationWhenMouseEnterAndExit =
+        ConstantTween<Offset>(Offset.zero)
+            .animate(_textPositionAnimationWhenMouseEnterAndExitController);
+
+    _textPositionAnimationWhenMouseEnterAndExitController.reset();
   }
 
   @override
   void dispose() {
-    _textBackToOriginalPositionAnimationController.dispose();
-
+    _textPositionAnimationWhenMouseEnterAndExitController.dispose();
     super.dispose();
   }
 
@@ -63,47 +65,110 @@ class _InteractionMenuButtonWidgetState
     _calculatedLineMetrics = textPainter.computeLineMetrics().first;
   }
 
-  bool isMouseExit = true;
+  bool isMouseEnterAndExitState = true;
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (event) {},
+      onEnter: (event) {
+        final localPosition = event.localPosition;
+
+        final currentOffset = Offset(localPosition.dx - _containerWidth / 2.0,
+            localPosition.dy - _containerHeight / 2.0);
+
+        _textPositionAnimationWhenMouseEnterAndExit =
+            Tween<Offset>(begin: Offset.zero, end: currentOffset).animate(
+          CurvedAnimation(
+              parent: _textPositionAnimationWhenMouseEnterAndExitController,
+              curve: Curves.decelerate),
+        );
+        _textPositionAnimationWhenMouseEnterAndExitController.reset();
+        _textPositionAnimationWhenMouseEnterAndExitController.forward();
+
+        isMouseEnterAndExitState = true;
+      },
       onHover: (event) {
         final localPosition = event.localPosition;
-        setState(() {
-          _offset = Offset(localPosition.dx - _containerWidth / 2.0,
-              localPosition.dy - _containerHeight / 2.0);
-        });
-        isMouseExit = false;
+        final currentOffset = Offset(localPosition.dx - _containerWidth / 2.0,
+            localPosition.dy - _containerHeight / 2.0);
+
+        _hoverOffsetStreamController.add(currentOffset);
+
+        if (isMouseEnterAndExitState) {
+          isMouseEnterAndExitState = false;
+        }
       },
       onExit: (event) {
-        _textBackToOriginalPositionAnimationController.reset();
-        _textBackToOriginalPositionAnimationController.forward();
-        _offset = Offset(event.localPosition.dx - _containerWidth / 2.0,
-            event.localPosition.dy - _containerHeight / 2.0);
+        final localPosition = event.localPosition;
 
-        isMouseExit = true;
+        final currentOffset = Offset(localPosition.dx - _containerWidth / 2.0,
+            localPosition.dy - _containerHeight / 2.0);
+
+        _textPositionAnimationWhenMouseEnterAndExit =
+            Tween<Offset>(begin: currentOffset, end: Offset.zero).animate(
+          CurvedAnimation(
+              parent: _textPositionAnimationWhenMouseEnterAndExitController,
+              curve: Curves.decelerate),
+        );
+
+        _textPositionAnimationWhenMouseEnterAndExitController.reset();
+        _textPositionAnimationWhenMouseEnterAndExitController.forward();
+
+        isMouseEnterAndExitState = true;
+
+        //For update isMouse EnterAndExitState
+        _hoverOffsetStreamController.add(Offset.zero);
       },
       child: Container(
         width: _containerWidth,
         height: _containerHeight,
-        child: Center(
-          child: AnimatedBuilder(
-            animation: _textBackToOriginalPositionAnimation,
-            builder: (context, child) {
-              final currentOffset =
-                  Tween<Offset>(begin: _offset, end: Offset(0.0, 0.0))
-                      .evaluate(_textBackToOriginalPositionAnimation);
-
-              return Transform.translate(
-                offset: isMouseExit ? currentOffset : _offset,
-                child: Text(
-                  _text,
-                  style: _textStyle,
-                ),
-              );
-            },
-          ),
+        child: Stack(
+          children: [
+            Center(
+              child: AnimatedBuilder(
+                animation:
+                    _textPositionAnimationWhenMouseEnterAndExitController,
+                builder: (context, child) {
+                  return Visibility(
+                    visible: isMouseEnterAndExitState,
+                    child: Transform.translate(
+                      offset: _textPositionAnimationWhenMouseEnterAndExit.value,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          _text,
+                          style: _textStyle,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: StreamBuilder<Offset>(
+                stream: _hoverOffsetStreamController.stream,
+                builder: (context, snapshot) {
+                  Offset moveOffset = Offset.zero;
+                  if (snapshot.hasData) {
+                    moveOffset = snapshot.data!;
+                  }
+                  return Visibility(
+                    visible: !isMouseEnterAndExitState,
+                    child: Transform.translate(
+                      offset: moveOffset,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          _text,
+                          style: _textStyle,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

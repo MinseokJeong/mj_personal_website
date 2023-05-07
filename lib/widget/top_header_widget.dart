@@ -10,14 +10,18 @@ class TopHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, top: 4.0, right: 8.0),
+      padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
             child: Text(
               '@ Code by MinseokJeong',
-              style: const TextStyle(fontSize: 16.0, color: Colors.white),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400),
             ),
           ),
           Spacer(),
