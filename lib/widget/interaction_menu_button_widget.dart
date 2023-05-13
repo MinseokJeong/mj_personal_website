@@ -107,7 +107,7 @@ class _InteractionMenuButtonWidgetState
             Tween<Offset>(begin: currentOffset, end: Offset.zero).animate(
           CurvedAnimation(
               parent: _textPositionAnimationWhenMouseEnterAndExitController,
-              curve: Curves.decelerate),
+              curve: Curves.bounceOut),
         );
 
         _textPositionAnimationWhenMouseEnterAndExitController.reset();

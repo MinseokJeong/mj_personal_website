@@ -40,7 +40,7 @@ class MyWebApp extends StatelessWidget {
           ),
           Visibility(
             visible:
-                true, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
+                false, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
             child: SizedBox(
               width: windowSize.width,
               height: windowSize.height,
