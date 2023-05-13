@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import '../app_design_resources.dart' show FontName;
 
 class SplashPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _aniContrl = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2000));
+        vsync: this, duration: Duration(milliseconds: 2600));
 
     final endComputed =
         (_helloTextsInDifferentLanguageTextAndFontMap.length - 1).toDouble();
@@ -145,13 +146,75 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                           .elementAt(index);
                       final font =
                           _helloTextsInDifferentLanguageTextAndFontMap[text];
-                      return Text(
-                        '"${text}"',
-                        style: TextStyle(
-                            fontSize: 96.0,
-                            color: Colors.white,
-                            fontFamily: font),
+                      final baseTextStyle = TextStyle(
+                          fontSize: 96.0,
+                          color: Colors.white,
+                          fontFamily: font);
+                      final color1 = HexColor('#DADAAA');
+                      final color2 = HexColor('#5C9EFC');
+                      final color3 = HexColor('#B98C76');
+                      final color4 = HexColor('#D3D3D3');
+
+                      final textToDisplay = Text.rich(
+                        TextSpan(
+                          text: 'print',
+                          style: baseTextStyle.copyWith(
+                            fontSize: 32.0,
+                            color: color1,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: '(',
+                              style: baseTextStyle.copyWith(
+                                fontSize: 32.0,
+                                color: color2,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "'",
+                              style: baseTextStyle.copyWith(
+                                fontSize: 32.0,
+                                color: color3,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '$text',
+                              style: baseTextStyle.copyWith(
+                                color: color3,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "'",
+                              style: baseTextStyle.copyWith(
+                                fontSize: 32.0,
+                                color: color3,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ')',
+                              style: baseTextStyle.copyWith(
+                                fontSize: 32.0,
+                                color: color2,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ';',
+                              style: baseTextStyle.copyWith(
+                                fontSize: 32.0,
+                                color: color4,
+                              ),
+                            ),
+                          ],
+                        ),
                       );
+                      return textToDisplay;
+                      // return Text(
+                      //   '"${text}"',
+                      //   style: TextStyle(
+                      //       fontSize: 96.0,
+                      //       color: Colors.white,
+                      //       fontFamily: font),
+                      // );
                     },
                   ),
                 ),

@@ -26,10 +26,7 @@ class MyWebApp extends StatelessWidget {
               ),
               SizedBox(
                 width: windowSize.width,
-                height: windowSize.height,
-                child: AboutPage(
-                  scrollController: _scrollController,
-                ),
+                child: AboutPage(),
               ),
               SizedBox(
                 width: windowSize.width,
@@ -40,7 +37,7 @@ class MyWebApp extends StatelessWidget {
           ),
           Visibility(
             visible:
-                false, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
+                true, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
             child: SizedBox(
               width: windowSize.width,
               height: windowSize.height,

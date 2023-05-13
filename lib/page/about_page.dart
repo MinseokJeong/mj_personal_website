@@ -10,11 +10,7 @@ class WhoAmIText {
 }
 
 class AboutPage extends StatefulWidget {
-  const AboutPage(
-      {required this.scrollController, Key? key, this.color = Colors.red})
-      : super(key: key);
-  final Color color;
-  final ScrollController scrollController;
+  const AboutPage({Key? key}) : super(key: key);
   @override
   State<AboutPage> createState() => _AboutPageState();
 }
@@ -68,8 +64,6 @@ class _AboutPageState extends State<AboutPage> {
   @override
   void initState() {
     super.initState();
-
-    widget.scrollController.addListener(this.scrollListener);
   }
 
   @override
@@ -77,101 +71,34 @@ class _AboutPageState extends State<AboutPage> {
     super.dispose();
   }
 
-  void scrollListener() {
-    // final possibleMaxOffset = widget.scrollController.position.maxScrollExtent;
-    // final currentOffset = widget.scrollController.offset;
-    // final viewPortSize = widget.scrollController.position.viewportDimension;
-
-    // final windowSize = MediaQuery.of(context).size;
-    // final currentSectionNumber = 2;
-    // final myOffsetLow =
-    //     windowSize.height * (currentSectionNumber - 1).toDouble();
-    // final myOffsetHigh = windowSize.height * currentSectionNumber.toDouble();
-    // final centerOffset = (myOffsetHigh + myOffsetLow) / 2.0;
-
-    // final betweenOffset = centerOffset - (viewPortSize / 2.0 + currentOffset);
-
-    // if (currentOffset + viewPortSize >= myOffsetLow &&
-    //     currentOffset + viewPortSize <= myOffsetHigh) {
-    //   setState(() {
-    //     _translateY = betweenOffset * 0.5;
-    //   });
-    // }
-    //
-    //
-    final scrollable = Scrollable.of(context);
-    final scrollableRenderBox =
-        scrollable.context.findRenderObject() as RenderBox;
-    final myRenderBox = context.findRenderObject() as RenderBox;
-
-    final localToGloabl = myRenderBox.localToGlobal(
-        myRenderBox.size.topLeft(Offset.zero),
-        ancestor: scrollableRenderBox);
-    final scrollFraction =
-        (localToGloabl.dy / scrollable.position.viewportDimension)
-            .clamp(-1.0, 1.0);
-
-    setState(() {
-      _translateY = scrollFraction;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    print(_translateY);
-    return Stack(
-      clipBehavior: Clip.hardEdge,
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
-          width: double.infinity,
-          color: HexColor("#1C1D20"),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(
-              'About\nMinseok Jeong',
-              style:
-                  TextStyle(color: Colors.white, fontSize: 90.0, height: 1.0),
-            ),
-            SizedBox(
-              height: 48.0,
-            ),
-            for (final whoAmITextItem in _whoAmITexts)
-              _describeItemWidget(whoAmITextItem.number, whoAmITextItem.header,
-                  whoAmITextItem.text),
-          ]),
-        ),
-
-        // UnconstrainedBox(
-        //   clipBehavior: Clip.hardEdge,
-        //   child: Transform.translate(
-        //     offset: Offset(0.0, size.height * _translateY * 0.1),
-        //     child: Image.asset(
-        //       'moon.jpeg',
-        //       height: size.height * 2.0,
-        //       fit: BoxFit.fitHeight,
-        //     ),
-        //   ),
-        // ),
-
-        // Container(
-        //   height: 1000,
-        //   width: 1390,
-        //   child: FittedBox(
-        //     fit: BoxFit.fitWidth,
-        //     child: Image.asset(
-        //       'moon.jpeg',
-        //     ),
-        //   ),
-        // )
-      ],
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
+      width: double.infinity,
+      color: HexColor("#1C1D20"),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'About\nMinseok Jeong',
+            style: TextStyle(color: Colors.white, fontSize: 90.0, height: 1.0),
+          ),
+          SizedBox(
+            height: 48.0,
+          ),
+          for (final whoAmITextItem in _whoAmITexts)
+            _describeItemWidget(whoAmITextItem.number, whoAmITextItem.header,
+                whoAmITextItem.text),
+        ],
+      ),
     );
   }
 
   Container _describeItemWidget(int leftNumber, String header, String text) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 40.0),
+      padding: EdgeInsets.symmetric(vertical: 30.0),
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border(
@@ -187,10 +114,13 @@ class _AboutPageState extends State<AboutPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                leftNumber.toString(),
-                textAlign: TextAlign.left,
-                style: TextStyle(color: HexColor('#494A4D'), fontSize: 14.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 4.0),
+                child: Text(
+                  leftNumber.toString(),
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: HexColor('#494A4D'), fontSize: 14.0),
+                ),
               ),
             ],
           ),
@@ -208,7 +138,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               Text(
                 text,
-                style: TextStyle(color: HexColor('#494A4D'), fontSize: 23.0),
+                style: TextStyle(color: HexColor('#494A4D'), fontSize: 18.0),
               ),
             ],
           ),
