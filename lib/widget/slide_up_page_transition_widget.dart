@@ -25,6 +25,13 @@ class _SlideUpPageTransitionWidgetState
 
     _screenSlideUpAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 2800));
+
+    _screenSlideUpAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _visibility = false;
+        setState(() {});
+      }
+    });
     _screenSlideUpAnimationController.reset();
     // _screenSlideUpAnimation2 = Tween(begin: 0.0, end: 1.0).animate(
     //     CurvedAnimation(
@@ -107,15 +114,8 @@ class _SlideUpPageTransitionWidgetState
   Widget build(BuildContext context) {
     _screenSlideUpAnimationController.forward();
 
-    _screenSlideUpAnimationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        setState(() {
-          _visibility = false;
-        });
-      }
-    });
     final windowSize = MediaQuery.of(context).size;
-    final circularBoxHeight = 100.0;
+    final circularBoxHeight = 300.0;
 
     _screenSlideUpAnimation = TweenSequence([
       TweenSequenceItem(
@@ -148,7 +148,6 @@ class _SlideUpPageTransitionWidgetState
     ]).animate(_screenSlideUpAnimationController);
 
     return Visibility(
-      //visible: _visibility,
       visible: _visibility,
       child: Scaffold(
         backgroundColor: Colors.transparent,

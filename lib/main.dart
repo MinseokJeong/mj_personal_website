@@ -5,10 +5,10 @@ import 'app_design_resources.dart' show FontName;
 
 void main() => runApp(
       MaterialApp(
-        //home: MyWebApp(),
-        home: TestPage(
-          number: 0,
-        ),
+        home: MyWebApp(),
+        // home: TestPage(
+        //   number: 0,
+        // ),
         theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
         debugShowCheckedModeBanner: false,
       ),

@@ -42,8 +42,8 @@ class _HomePageState extends State<HomePage> {
               child: UnconstrainedBox(
                 clipBehavior: Clip.hardEdge,
                 child: Image.asset(
-                  'assets/dennissnellenberg_image.jpeg',
-                  height: windowSize.height * 1.2,
+                  'assets/mj_image.png',
+                  height: windowSize.height * 1.0,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
                   color: Colors.white,
-                  fontSize: 150.0,
+                  fontSize: windowSize.width * 0.18,
                   fontFamily: ar.FontName.NotoSansKorean.name,
                 ),
                 speed: 22000,
