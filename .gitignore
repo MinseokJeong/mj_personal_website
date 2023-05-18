@@ -29,7 +29,10 @@
 .packages
 .pub-cache/
 .pub/
-/build/
+#/build/
+#do not ignore build/web folder
+/build/*
+!/build/web
 
 # Web related
 
@@ -46,3 +49,4 @@ app.*.map.json
 
 #ignore this file
 who_am_i.txt
+
