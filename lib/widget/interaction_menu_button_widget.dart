@@ -4,9 +4,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class InteractionMenuButtonWidget extends StatefulWidget {
-  const InteractionMenuButtonWidget({Key? key, required this.text})
+  const InteractionMenuButtonWidget(
+      {Key? key, required this.text, required this.onPressed})
       : super(key: key);
+
   final String text;
+  final VoidCallback onPressed;
+
   @override
   State<InteractionMenuButtonWidget> createState() =>
       _InteractionMenuButtonWidgetState();
@@ -133,7 +137,7 @@ class _InteractionMenuButtonWidgetState
                     child: Transform.translate(
                       offset: _textPositionAnimationWhenMouseEnterAndExit.value,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: widget.onPressed,
                         child: Text(
                           _text,
                           style: _textStyle,
@@ -157,7 +161,7 @@ class _InteractionMenuButtonWidgetState
                     child: Transform.translate(
                       offset: moveOffset,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: widget.onPressed,
                         child: Text(
                           _text,
                           style: _textStyle,

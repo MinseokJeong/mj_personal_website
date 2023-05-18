@@ -24,15 +24,6 @@ class MyWebApp extends StatelessWidget {
                 height: windowSize.height,
                 child: HomePage(),
               ),
-              SizedBox(
-                width: windowSize.width,
-                child: AboutPage(),
-              ),
-              SizedBox(
-                width: windowSize.width,
-                height: windowSize.height,
-                child: WorkPage(),
-              ),
             ],
           ),
           Visibility(

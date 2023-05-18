@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 
 class WhoAmIText {
   final int number;
@@ -73,25 +74,35 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
-      width: double.infinity,
-      color: HexColor("#1C1D20"),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'About\nMinseok Jeong',
-            style: TextStyle(color: Colors.white, fontSize: 90.0, height: 1.0),
-          ),
-          SizedBox(
-            height: 48.0,
-          ),
-          for (final whoAmITextItem in _whoAmITexts)
-            _describeItemWidget(whoAmITextItem.number, whoAmITextItem.header,
-                whoAmITextItem.text),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        width: double.infinity,
+        color: HexColor("#1C1D20"),
+        child: Column(
+          children: [
+            TopHeaderWidget(),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'About\nMinseok Jeong',
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 90.0, height: 1.0),
+                  ),
+                  SizedBox(
+                    height: 48.0,
+                  ),
+                  for (final whoAmITextItem in _whoAmITexts)
+                    _describeItemWidget(whoAmITextItem.number,
+                        whoAmITextItem.header, whoAmITextItem.text),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

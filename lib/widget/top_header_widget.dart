@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/page/about_page.dart';
+import 'package:mj_portfolio_web/page/home_page.dart';
+import 'package:mj_portfolio_web/page/work_page.dart';
 
 import 'interaction_menu_button_widget.dart';
+import '../util/slide_up_page_transition.dart' as pt;
 
 class TopHeaderWidget extends StatelessWidget {
   const TopHeaderWidget({
@@ -25,9 +29,24 @@ class TopHeaderWidget extends StatelessWidget {
             ),
           ),
           Spacer(),
-          InteractionMenuButtonWidget(text: 'Work'),
-          InteractionMenuButtonWidget(text: 'About'),
-          InteractionMenuButtonWidget(text: 'Contact'),
+          InteractionMenuButtonWidget(
+            text: 'Home',
+            onPressed: () {
+              pt.slideUpPageTransition(context, HomePage(), 'Home');
+            },
+          ),
+          InteractionMenuButtonWidget(
+            text: 'Work',
+            onPressed: () {
+              pt.slideUpPageTransition(context, WorkPage(), 'Work');
+            },
+          ),
+          InteractionMenuButtonWidget(
+            text: 'About',
+            onPressed: () {
+              pt.slideUpPageTransition(context, AboutPage(), 'About');
+            },
+          ),
         ],
       ),
     );
