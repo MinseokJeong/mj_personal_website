@@ -32,7 +32,7 @@
 #/build/
 #do not ignore build/web folder
 /build/*
-!/build/web
+#!/build/web
 
 # Web related
 

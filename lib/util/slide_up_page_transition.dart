@@ -7,7 +7,7 @@ Future<void> slideUpPageTransition(
     pageBuilder: (context, animation, secondaryAnimation) {
       return newPage;
     },
-    transitionDuration: Duration(seconds: 1),
+    transitionDuration: const Duration(seconds: 1),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return Stack(children: [
         AnimatedBuilder(

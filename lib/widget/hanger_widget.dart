@@ -15,7 +15,7 @@ class HangerWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: ar.topSectionHangerBackgroundColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topRight: Radius.circular(64.0),
               bottomRight: Radius.circular(64.0))),
       child: Row(
@@ -29,15 +29,15 @@ class HangerWidget extends StatelessWidget {
                   .copyWith(color: Colors.white, fontWeight: FontWeight.w400),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 32.0,
           ),
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
               backgroundColor: ar.topSectionBackgroundColor,
               radius: 32,
-              child: RotateGlobeWidget(
+              child: const RotateGlobeWidget(
                 width: 36,
                 height: 36,
                 color: Colors.white,

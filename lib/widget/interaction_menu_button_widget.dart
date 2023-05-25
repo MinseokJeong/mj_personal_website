@@ -33,7 +33,7 @@ class _InteractionMenuButtonWidgetState
   late Animation<Offset> _textPositionAnimationWhenMouseEnterAndExit;
 
   final _textStyle =
-      TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400);
+      const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400);
 
   final _hoverOffsetStreamController = StreamController<Offset>();
 
@@ -44,7 +44,7 @@ class _InteractionMenuButtonWidgetState
     _calculateSize();
 
     _textPositionAnimationWhenMouseEnterAndExitController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     _textPositionAnimationWhenMouseEnterAndExit =
         ConstantTween<Offset>(Offset.zero)
             .animate(_textPositionAnimationWhenMouseEnterAndExitController);
@@ -122,7 +122,7 @@ class _InteractionMenuButtonWidgetState
         //For update isMouse EnterAndExitState
         _hoverOffsetStreamController.add(Offset.zero);
       },
-      child: Container(
+      child: SizedBox(
         width: _containerWidth,
         height: _containerHeight,
         child: Stack(

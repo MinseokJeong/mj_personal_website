@@ -1,15 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget.dart';
 import '../app_design_resources.dart' as ar;
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
 import '../widget/top_header_widget.dart';
 
-import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -48,19 +45,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Align(alignment: Alignment.topCenter, child: TopHeaderWidget()),
+            const Align(alignment: Alignment.topCenter, child: TopHeaderWidget()),
             Align(
-                alignment: Alignment(-1.0, 0.0),
+                alignment: const Alignment(-1.0, 0.0),
                 child: HangerWidget(windowSize: windowSize)),
-            Align(
+            const Align(
+              alignment: Alignment(0.9, 0.0),
               child: Text(
                 'Software\nEngineer & Developer',
                 style: ar.textStyleTopSectionLarge,
               ),
-              alignment: Alignment(0.9, 0.0),
             ),
             Align(
-              alignment: Alignment(-1.0, 0.9),
+              alignment: const Alignment(-1.0, 0.9),
               child: HorizontalMovingTextWidget(
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
@@ -73,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: Alignment(0.6, -0.3),
+              alignment: const Alignment(0.6, -0.3),
               child: StreamBuilder<Offset>(
                 stream: _mouseHoverStreamController.stream,
                 builder: (context, snapshot) {

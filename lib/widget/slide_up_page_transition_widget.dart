@@ -24,7 +24,7 @@ class _SlideUpPageTransitionWidgetState
     super.initState();
 
     _screenSlideUpAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2800));
+        vsync: this, duration: const Duration(milliseconds: 2800));
 
     _screenSlideUpAnimationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -47,7 +47,7 @@ class _SlideUpPageTransitionWidgetState
   }
 
   Widget _getTextWidget() {
-    final baseTextStyle = TextStyle(
+    const baseTextStyle = TextStyle(
       fontSize: 96.0,
       color: Colors.white,
     );
@@ -79,7 +79,7 @@ class _SlideUpPageTransitionWidgetState
             ),
           ),
           TextSpan(
-            text: '${widget.title}',
+            text: widget.title,
             style: baseTextStyle.copyWith(
               color: color3,
             ),
@@ -115,13 +115,13 @@ class _SlideUpPageTransitionWidgetState
     _screenSlideUpAnimationController.forward();
 
     final windowSize = MediaQuery.of(context).size;
-    final circularBoxHeight = 300.0;
+    const circularBoxHeight = 300.0;
 
     _screenSlideUpAnimation = TweenSequence([
       TweenSequenceItem(
         tween: Tween(
           begin: Offset(0.0, windowSize.height),
-          end: Offset(0.0, -circularBoxHeight),
+          end: const Offset(0.0, -circularBoxHeight),
         ).chain(
           CurveTween(curve: Curves.easeInOutQuart),
         ),
@@ -129,13 +129,13 @@ class _SlideUpPageTransitionWidgetState
       ),
       TweenSequenceItem(
         tween: ConstantTween(
-          Offset(0.0, -circularBoxHeight),
+          const Offset(0.0, -circularBoxHeight),
         ),
         weight: 0.6,
       ),
       TweenSequenceItem(
         tween: Tween(
-          begin: Offset(0.0, -circularBoxHeight),
+          begin: const Offset(0.0, -circularBoxHeight),
           end: Offset(
             0.0,
             -(circularBoxHeight * 2.0 + windowSize.height),
