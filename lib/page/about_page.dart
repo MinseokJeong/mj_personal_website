@@ -74,34 +74,37 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        width: double.infinity,
-        color: HexColor("#1C1D20"),
-        child: Column(
-          children: [
-            const TopHeaderWidget(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'About\nMinseok Jeong',
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 90.0, height: 1.0),
-                  ),
-                  const SizedBox(
-                    height: 48.0,
-                  ),
-                  for (final whoAmITextItem in _whoAmITexts)
-                    _describeItemWidget(whoAmITextItem.number,
-                        whoAmITextItem.header, whoAmITextItem.text),
-                ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          color: HexColor("#1C1D20"),
+          child: Column(
+            children: [
+              const TopHeaderWidget(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 32.0, horizontal: 200.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'About\nMinseok Jeong',
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 90.0, height: 1.0),
+                    ),
+                    const SizedBox(
+                      height: 48.0,
+                    ),
+                    for (final whoAmITextItem in _whoAmITexts)
+                      _describeItemWidget(whoAmITextItem.number,
+                          whoAmITextItem.header, whoAmITextItem.text),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
