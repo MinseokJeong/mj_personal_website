@@ -23,7 +23,7 @@ class InteractWithMousePointerIconWidget extends StatelessWidget {
 
     return Transform.rotate(
       angle: angle,
-      child: Icon(
+      child: const Icon(
         Icons.arrow_right_alt_sharp,
         size: 42,
         color: Colors.white,

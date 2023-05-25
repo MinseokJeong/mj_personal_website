@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mj_portfolio_web/page/about_page.dart';
-import 'package:mj_portfolio_web/page/home_page.dart';
-import 'package:mj_portfolio_web/page/work_page.dart';
-
 import 'interaction_menu_button_widget.dart';
-import '../util/slide_up_page_transition.dart' as pt;
 import '../model/route_name.dart' as rn;
 
 class TopHeaderWidget extends StatelessWidget {
@@ -18,23 +13,22 @@ class TopHeaderWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
             child: Text(
               '@ Code by MinseokJeong',
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.white,
                   fontWeight: FontWeight.w400),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           InteractionMenuButtonWidget(
             text: 'Home',
             onPressed: () {
               Navigator.pushNamed(context, rn.homePage);
-              //pt.slideUpPageTransition(context, HomePage(), 'Home');
             },
           ),
           InteractionMenuButtonWidget(
@@ -48,8 +42,6 @@ class TopHeaderWidget extends StatelessWidget {
             text: 'About',
             onPressed: () {
               Navigator.pushNamed(context, rn.aboutPage);
-
-              //pt.slideUpPageTransition(context, AboutPage(), 'About');
             },
           ),
         ],

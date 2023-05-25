@@ -18,14 +18,14 @@ class TestPage extends StatelessWidget {
         child: TextButton(
           child: Text(
             _texts[idx],
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
           onPressed: () {
             final prb = PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
                 return TestPage(number: number + 1);
               },
-              transitionDuration: Duration(seconds: 1),
+              transitionDuration: const Duration(seconds: 1),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) {
                 return Stack(children: [
@@ -44,7 +44,7 @@ class TestPage extends StatelessWidget {
                         );
                       },
                       child: child),
-                  SlideUpPageTransitionWidget(title: 'haha'),
+                  const SlideUpPageTransitionWidget(title: 'haha'),
                 ]);
               },
             );

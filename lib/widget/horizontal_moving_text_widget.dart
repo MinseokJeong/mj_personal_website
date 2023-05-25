@@ -69,7 +69,7 @@ class _HorizontalMovingTextWidgetState extends State<HorizontalMovingTextWidget>
     for (int i = 0; i < cloneStringCount; ++i) {
       textBuffer.add(widget.text);
     }
-    _textToRender = ' ' + textBuffer.join(' ');
+    _textToRender = ' ${textBuffer.join(' ')}';
 
     final textPainterFinal = TextPainter(
         text: TextSpan(
@@ -83,12 +83,12 @@ class _HorizontalMovingTextWidgetState extends State<HorizontalMovingTextWidget>
 
     if (widget.direction == MovingTextDirection.moving_left) {
       _textOffsetAnimation = Tween(
-              begin: Offset(0.0, 0.0),
+              begin: const Offset(0.0, 0.0),
               end: Offset(_calculatedLineMetrics.width, 0.0))
           .animate(_animationController);
     } else {
       _textOffsetAnimation = Tween(
-              begin: Offset(0.0, 0.0),
+              begin: const Offset(0.0, 0.0),
               end: Offset(-_calculatedLineMetrics.width, 0.0))
           .animate(_animationController);
     }

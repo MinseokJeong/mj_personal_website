@@ -34,7 +34,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _aniContrl = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2600));
+        vsync: this, duration: const Duration(milliseconds: 2600));
 
     final endComputed =
         (_helloTextsInDifferentLanguageTextAndFontMap.length - 1).toDouble();
@@ -52,7 +52,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     ]).animate(_aniContrl);
 
     _screenSlideUpAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1400));
+        vsync: this, duration: const Duration(milliseconds: 1400));
     _screenSlideUpAnimation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             curve: Curves.easeInOutQuart,
@@ -101,7 +101,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     Tween(begin: 0.0, end: -windowSize.height)
                         .evaluate(_screenSlideUpAnimation);
 
-                final circularBoxHeight = 200.0;
+                const circularBoxHeight = 200.0;
                 final bottomCircularBoxHeight = circularBoxHeight -
                     Tween(begin: 0.0, end: circularBoxHeight)
                         .evaluate(_screenSlideUpAnimation);
@@ -178,7 +178,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                               ),
                             ),
                             TextSpan(
-                              text: '$text',
+                              text: text,
                               style: baseTextStyle.copyWith(
                                 color: color3,
                               ),

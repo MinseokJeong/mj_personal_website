@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'page/about_page.dart';
 import 'page/splash_page.dart';
 import 'page/home_page.dart';
-import 'page/work_page.dart';
 
 class MyWebApp extends StatelessWidget {
   MyWebApp({Key? key}) : super(key: key);
@@ -22,7 +20,7 @@ class MyWebApp extends StatelessWidget {
               SizedBox(
                 width: windowSize.width,
                 height: windowSize.height,
-                child: HomePage(),
+                child: const HomePage(),
               ),
             ],
           ),
@@ -32,7 +30,7 @@ class MyWebApp extends StatelessWidget {
             child: SizedBox(
               width: windowSize.width,
               height: windowSize.height,
-              child: SplashPage(),
+              child: const SplashPage(),
             ),
           ),
         ]),

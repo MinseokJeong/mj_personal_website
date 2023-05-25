@@ -17,7 +17,7 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  double _translateY = 0.0;
+  final double _translateY = 0.0;
 
   final _whoAmITexts = <WhoAmIText>[
     WhoAmIText(1, "리더, 동료들과 의견을 맞추고 개인의 목표를 조직 목표와 정렬시킵니다.",
@@ -80,19 +80,19 @@ class _AboutPageState extends State<AboutPage> {
         color: HexColor("#1C1D20"),
         child: Column(
           children: [
-            TopHeaderWidget(),
+            const TopHeaderWidget(),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
+              padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 200.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     'About\nMinseok Jeong',
                     style: TextStyle(
                         color: Colors.white, fontSize: 90.0, height: 1.0),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 48.0,
                   ),
                   for (final whoAmITextItem in _whoAmITexts)
@@ -109,7 +109,7 @@ class _AboutPageState extends State<AboutPage> {
 
   Container _describeItemWidget(int leftNumber, String header, String text) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
+      padding: const EdgeInsets.symmetric(vertical: 30.0),
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border(
@@ -145,7 +145,7 @@ class _AboutPageState extends State<AboutPage> {
             children: [
               Text(
                 header,
-                style: TextStyle(color: Colors.white, fontSize: 24.0),
+                style: const TextStyle(color: Colors.white, fontSize: 24.0),
               ),
               Text(
                 text,

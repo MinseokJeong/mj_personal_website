@@ -35,12 +35,12 @@ class _RotateGlobeWidgetState extends State<RotateGlobeWidget>
 
     _rotateAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     _sphereRotateZAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
 
     _sphereRotateZAnimation = TweenSequence<double>(
@@ -106,7 +106,7 @@ class RotateGlobeCustomPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final points = <double>[];
 
-    final pointCount = 3;
+    const pointCount = 3;
     final step = size.width / pointCount.toDouble();
     for (int i = 0; i < pointCount; ++i) {
       points.add(step * i.toDouble() + (step * percentage));

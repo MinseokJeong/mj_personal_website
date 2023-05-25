@@ -11,9 +11,9 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 final _routes = <String, Widget Function(BuildContext)>{
   rn.rootPage: (bc) => MyWebApp(),
-  rn.homePage: (bc) => HomePage(),
-  rn.aboutPage: (bc) => AboutPage(),
-  rn.workPage: (bc) => WorkPage(),
+  rn.homePage: (bc) => const HomePage(),
+  rn.aboutPage: (bc) => const AboutPage(),
+  rn.workPage: (bc) => const WorkPage(),
 };
 
 void main() {
@@ -23,7 +23,7 @@ void main() {
       //routes: _routes,
       //onGenerateInitialRoutes: ,
       onGenerateRoute: (settings) {
-        final drn = Navigator.defaultRouteName;
+        const drn = Navigator.defaultRouteName;
 
         if (settings.name == rn.rootPage) {
           return MaterialPageRoute(builder: _routes[rn.rootPage]!);
@@ -34,7 +34,7 @@ void main() {
             pageBuilder: (context, animation, secondaryAnimation) {
               return _routes[settings.name!]!(context);
             },
-            transitionDuration: Duration(seconds: 1),
+            transitionDuration: const Duration(seconds: 1),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return Stack(children: [
@@ -59,7 +59,7 @@ void main() {
           );
         }
         // Unknown route
-        return MaterialPageRoute(builder: (_) => UnknownPage());
+        return MaterialPageRoute(builder: (_) => const UnknownPage());
       },
       initialRoute: rn.rootPage,
       theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
