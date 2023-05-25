@@ -1,0 +1,10 @@
+
+version: '3.8'
+services:
+  #portfolio web server
+  portfolio-web-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
