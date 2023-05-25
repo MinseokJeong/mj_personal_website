@@ -7,6 +7,7 @@ import 'page/work_page.dart';
 import 'page/home_page.dart';
 import 'app_design_resources.dart' show FontName;
 import 'model/route_name.dart' as rn;
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 final _routes = <String, Widget Function(BuildContext)>{
   rn.rootPage: (bc) => MyWebApp(),
@@ -16,6 +17,7 @@ final _routes = <String, Widget Function(BuildContext)>{
 };
 
 void main() {
+  usePathUrlStrategy();
   return runApp(
     MaterialApp(
       //routes: _routes,
