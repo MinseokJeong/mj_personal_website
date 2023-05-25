@@ -5,6 +5,7 @@ import 'package:mj_portfolio_web/page/work_page.dart';
 
 import 'interaction_menu_button_widget.dart';
 import '../util/slide_up_page_transition.dart' as pt;
+import '../model/route_name.dart' as rn;
 
 class TopHeaderWidget extends StatelessWidget {
   const TopHeaderWidget({
@@ -32,19 +33,23 @@ class TopHeaderWidget extends StatelessWidget {
           InteractionMenuButtonWidget(
             text: 'Home',
             onPressed: () {
-              pt.slideUpPageTransition(context, HomePage(), 'Home');
+              Navigator.pushNamed(context, rn.homePage);
+              //pt.slideUpPageTransition(context, HomePage(), 'Home');
             },
           ),
           InteractionMenuButtonWidget(
             text: 'Work',
             onPressed: () {
-              pt.slideUpPageTransition(context, WorkPage(), 'Work');
+              Navigator.pushNamed(context, rn.workPage);
+              //pt.slideUpPageTransition(context, WorkPage(), 'Work');
             },
           ),
           InteractionMenuButtonWidget(
             text: 'About',
             onPressed: () {
-              pt.slideUpPageTransition(context, AboutPage(), 'About');
+              Navigator.pushNamed(context, rn.aboutPage);
+
+              //pt.slideUpPageTransition(context, AboutPage(), 'About');
             },
           ),
         ],
