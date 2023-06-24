@@ -23,8 +23,6 @@ void main() {
       //routes: _routes,
       //onGenerateInitialRoutes: ,
       onGenerateRoute: (settings) {
-        const drn = Navigator.defaultRouteName;
-
         if (settings.name == rn.rootPage) {
           return MaterialPageRoute(builder: _routes[rn.rootPage]!);
         } else if (settings.name == rn.aboutPage ||
