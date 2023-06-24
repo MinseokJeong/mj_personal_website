@@ -165,17 +165,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-<<<<<<< HEAD
       sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-=======
-      sha256: "6b0206b0bf4f04961fc5438198ccb3a885685cd67d4d4a32cc20ad7f8adbe015"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
->>>>>>> 14ea8ce17c367746e6d8b5a3f6f86b571a664542
   matcher:
     dependency: transitive
     description:
@@ -353,17 +346,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-<<<<<<< HEAD
       sha256: "1414f27dd781737e51afa9711f2ac2ace6ab4498ee98e20863fa5505aa00c58c"
       url: "https://pub.dev"
     source: hosted
     version: "5.0.4"
-=======
-      sha256: "5a751eddf9db89b3e5f9d50c20ab8612296e4e8db69009788d6c8b060a84191c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.4"
->>>>>>> 14ea8ce17c367746e6d8b5a3f6f86b571a664542
   xdg_directories:
     dependency: transitive
     description:
@@ -373,9 +359,5 @@ packages:
     source: hosted
     version: "1.0.0"
 sdks:
-<<<<<<< HEAD
   dart: ">=3.0.0 <4.0.0"
-=======
-  dart: ">=3.0.0 <=3.0.1"
->>>>>>> 14ea8ce17c367746e6d8b5a3f6f86b571a664542
   flutter: ">=3.3.0"
