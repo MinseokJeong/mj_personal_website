@@ -3,9 +3,9 @@ import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
 
 class TopHeaderWidget extends StatelessWidget {
-  const TopHeaderWidget({
-    Key? key,
-  }) : super(key: key);
+  const TopHeaderWidget({Key? key, required this.textColor}) : super(key: key);
+
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +13,14 @@ class TopHeaderWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
       child: Row(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
             child: Text(
               '@ Code by MinseokJeong',
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 16.0,
-                  color: Colors.white,
+                  color: textColor,
                   fontWeight: FontWeight.w400),
             ),
           ),
@@ -30,6 +30,7 @@ class TopHeaderWidget extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, rn.homePage);
             },
+            textColor: textColor,
           ),
           InteractionMenuButtonWidget(
             text: 'Work',
@@ -37,12 +38,14 @@ class TopHeaderWidget extends StatelessWidget {
               Navigator.pushNamed(context, rn.workPage);
               //pt.slideUpPageTransition(context, WorkPage(), 'Work');
             },
+            textColor: textColor,
           ),
           InteractionMenuButtonWidget(
             text: 'About',
             onPressed: () {
               Navigator.pushNamed(context, rn.aboutPage);
             },
+            textColor: textColor,
           ),
         ],
       ),

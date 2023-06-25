@@ -7,7 +7,6 @@ import '../app_design_resources.dart' as ar;
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
 import '../widget/top_header_widget.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -45,7 +44,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            const Align(alignment: Alignment.topCenter, child: TopHeaderWidget()),
+            const Align(
+                alignment: Alignment.topCenter,
+                child: TopHeaderWidget(
+                  textColor: Colors.white,
+                )),
             Align(
                 alignment: const Alignment(-1.0, 0.0),
                 child: HangerWidget(windowSize: windowSize)),

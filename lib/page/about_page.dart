@@ -81,7 +81,9 @@ class _AboutPageState extends State<AboutPage> {
           color: HexColor("#1C1D20"),
           child: Column(
             children: [
-              const TopHeaderWidget(),
+              const TopHeaderWidget(
+                textColor: Colors.white,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 32.0, horizontal: 200.0),

@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 
 class InteractionMenuButtonWidget extends StatefulWidget {
   const InteractionMenuButtonWidget(
-      {Key? key, required this.text, required this.onPressed})
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      required this.textColor})
       : super(key: key);
 
   final String text;
   final VoidCallback onPressed;
+  final Color textColor;
 
   @override
   State<InteractionMenuButtonWidget> createState() =>
@@ -32,8 +36,8 @@ class _InteractionMenuButtonWidgetState
       _textPositionAnimationWhenMouseEnterAndExitController;
   late Animation<Offset> _textPositionAnimationWhenMouseEnterAndExit;
 
-  final _textStyle =
-      const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400);
+  TextStyle get _textStyle => TextStyle(
+      color: widget.textColor, fontSize: 16, fontWeight: FontWeight.w400);
 
   final _hoverOffsetStreamController = StreamController<Offset>();
 
@@ -43,8 +47,8 @@ class _InteractionMenuButtonWidgetState
 
     _calculateSize();
 
-    _textPositionAnimationWhenMouseEnterAndExitController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
+    _textPositionAnimationWhenMouseEnterAndExitController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
     _textPositionAnimationWhenMouseEnterAndExit =
         ConstantTween<Offset>(Offset.zero)
             .animate(_textPositionAnimationWhenMouseEnterAndExitController);
