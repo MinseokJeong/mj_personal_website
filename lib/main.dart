@@ -18,6 +18,14 @@ final _routes = <String, Widget Function(BuildContext)>{
 
 void main() {
   usePathUrlStrategy();
+  //ForDebug
+  return runApp(
+    MaterialApp(
+      home: WorkPage(),
+      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
   return runApp(
     MaterialApp(
       //routes: _routes,
@@ -59,7 +67,7 @@ void main() {
         // Unknown route
         return MaterialPageRoute(builder: (_) => const UnknownPage());
       },
-      initialRoute: rn.rootPage,
+      initialRoute: rn.workPage,
       theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
       debugShowCheckedModeBanner: false,
     ),

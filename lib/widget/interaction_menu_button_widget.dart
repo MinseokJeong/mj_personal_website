@@ -74,6 +74,7 @@ class _InteractionMenuButtonWidgetState
   }
 
   bool isMouseEnterAndExitState = true;
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
