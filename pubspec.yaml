@@ -40,6 +40,7 @@ dependencies:
   google_fonts: ^4.0.4
   hexcolor: ^3.0.1
   animated_text_kit: ^4.2.2
+  url_launcher: ^6.1.11
 dev_dependencies:
   flutter_test:
     sdk: flutter

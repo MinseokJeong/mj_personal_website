@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_menu_button_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class WorkPage extends StatefulWidget {
   const WorkPage({Key? key}) : super(key: key);
@@ -403,7 +405,83 @@ class _WorkPageState extends State<WorkPage> {
                                     height: 12.0,
                                   ),
                                   Text(
-                                    '태그',
+                                    '관련링크',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  Wrap(
+                                    children: [
+                                      TextButton(
+                                        onPressed: () {
+                                          launchUrlString(
+                                              "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do");
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.link,
+                                              size: 20.0,
+                                              color: Colors.black,
+                                            ),
+                                            SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              '함정전투체계',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.0),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          launchUrlString(
+                                              "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu");
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.link,
+                                              size: 20.0,
+                                              color: Colors.black,
+                                            ),
+                                            SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              '대함레이더',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  height: 1.0),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 12.0,
+                                  ),
+                                  Text(
+                                    '키워드',
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                       color: Colors.grey,
