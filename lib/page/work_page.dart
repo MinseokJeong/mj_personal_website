@@ -5,6 +5,9 @@ import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../model/project_information.dart';
+import '../widget/work_experience_sub_project_widget.dart';
+
 class WorkPage extends StatefulWidget {
   const WorkPage({Key? key}) : super(key: key);
 
@@ -121,117 +124,118 @@ class _WorkPageState extends State<WorkPage> {
               SizedBox(
                 height: 120,
               ),
-              Row(
+              _workExperiencePlaceholder(),
+              _workExperiences(),
+              SizedBox(
+                height: 30,
+              ),
+              _footerWidget()
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container _footerWidget() {
+    //"Loosely designed in Figma and coded in Visual Studio Code by yours truly. Built with Next.js and Tailwind CSS, deployed with Vercel. All text is set in the Inter typeface."
+    return Container(
+      width: double.infinity,
+      height: 120.0,
+      decoration: BoxDecoration(color: Colors.white, border: Border.all()),
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "This website design is too much inspired by ",
+              style: TextStyle(color: Colors.grey, fontSize: 14),
+            ),
+            TextButton(
+                onPressed: () {
+                  launchUrlString("https://dennissnellenberg.com/");
+                },
+                child: Text(
+                  "Dennis Snellenberg",
+                  style: TextStyle(color: Colors.black, fontSize: 14),
+                ),
+                style: TextButton.styleFrom(padding: EdgeInsets.zero)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _workExperiences() {
+    return ExpansionPanelList(
+      expansionCallback: (panelIndex, isExpanded) {
+        print('idx:${panelIndex.toString()}, isExpanded:${isExpanded}');
+        setState(() {
+          _expandedTest = !isExpanded;
+        });
+      },
+      children: [
+        _workExperienceWidget(),
+      ],
+    );
+  }
+
+  ExpansionPanel _workExperienceWidget() {
+    return ExpansionPanel(
+      isExpanded: _expandedTest,
+      canTapOnHeader: true,
+      headerBuilder: (bc, _) {
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Flexible(
                     fit: FlexFit.tight,
                     child: Text(
-                      'Company',
-                      style: _textStyle1,
+                      '(주)미래시스템',
+                      style: _textStyle2,
                     ),
                   ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: Text(
-                      'Department',
-                      style: _textStyle1,
+                      '개발1부 SW팀',
+                      style: _textStyle2,
                     ),
                   ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: Text(
-                      'Rank',
-                      style: _textStyle1,
+                      '선임',
+                      style: _textStyle2,
                     ),
                   ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: Text(
-                      'Role',
-                      style: _textStyle1,
+                      '• 임베디드/펌웨어/응용소프트웨어 개발',
+                      style: _textStyle2,
                     ),
                   ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: Text(
-                      'Work Period',
-                      style: _textStyle1,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: SizedBox(
-                      width: 48.0,
+                      '2019.02 ~ 2022.03',
+                      style: _textStyle2,
                     ),
                   ),
                 ],
               ),
-              ExpansionPanelList(
-                expansionCallback: (panelIndex, isExpanded) {
-                  print(
-                      'idx:${panelIndex.toString()}, isExpanded:${isExpanded}');
-                  setState(() {
-                    _expandedTest = !isExpanded;
-                  });
-                },
-                children: [
-                  ExpansionPanel(
-                    isExpanded: _expandedTest,
-                    canTapOnHeader: true,
-                    headerBuilder: (bc, _) {
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  child: Text(
-                                    '(주)미래시스템',
-                                    style: _textStyle2,
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  child: Text(
-                                    '개발1부 SW팀',
-                                    style: _textStyle2,
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  child: Text(
-                                    '선임',
-                                    style: _textStyle2,
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  child: Text(
-                                    '• 임베디드/펌웨어 소프트웨어 개발\n• 응용소프트웨어 개발',
-                                    style: _textStyle2,
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  child: Text(
-                                    '2019.02 ~ 2022.03',
-                                    style: _textStyle2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                    body: Container(
-                      child: Column(children: [
-                        /*
-                         {
+            ),
+          ],
+        );
+      },
+      /*
+{
                     "projectName": "대함레이더 신호연동부 개발",
                     "projectDescription": "KDX-III Batch-II 함정 전투체계에 적용되는 대함레이더에서 이지스(Aegis)전투체계, 레이더전시기, GEDMS(Gigabit Ethernet Data Multiplex System)와 주고받는 연동신호를 변환하는 장치 개발 프로젝트",
                     "period": "2021년09월 ~ 2022년03월 (7개월)",
@@ -258,294 +262,107 @@ class _WorkPageState extends State<WorkPage> {
                     ],
                     "results": [],
                     "links": [
-                        "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do",
-                        "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu"
+                        {
+                            "textToDisplay": "대함레이더",
+                            "url": "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu"
+                        },
+                        {
+                            "textToDisplay": "함정전투체계",
+                            "url": "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do"
+                        }
                     ]
-                }
-                        */
-                        Row(
-                          children: [
-                            Flexible(
-                              flex: 3,
-                              fit: FlexFit.tight,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '프로젝트명',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    '대함레이더 신호연동부 개발',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Flexible(
-                              flex: 6,
-                              fit: FlexFit.tight,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '프로젝트 소개',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    'KDX-III Batch-II 함정 전투체계에 적용되는 대함레이더에서 Aegis전투체계, 레이더전시기, GEDMS(Gigabit Ethernet Data Multiplex System)와 주고받는 연동신호를 변환하는 장치 개발 프로젝트',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '프로젝트기간',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    '2021년09월 ~ 2022년03월 (7개월)',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '멤버구성',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    '소프트웨어 1명, 하드웨어 3명, 기계/기구 2명',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '기여도',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    '100%',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '상세업무',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    '''
-• Single Board Computer(이하 SBC)에 VxWorks 이미지 포팅 및 개발 환경 구축
-• VME, UART, GPIO, Ethernet 통신 기능 구현
-• SLIP(Serial Line Internet Protocol) 통신 기능 구현.(RFC 1055)
-• 네트워크 환경구축(VLAN, STP/RSTP, X-Ring Pro[Advantech])
-• 시제품 전용 시험장치(이하 시험치구) 임베디드 SW개발(Arm Cortex-M4 based MCU)
-• 시험치구 제어용 GUI SW개발(MFC)''',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '관련링크',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Wrap(
-                                    children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          launchUrlString(
-                                              "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do");
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.link,
-                                              size: 20.0,
-                                              color: Colors.black,
-                                            ),
-                                            SizedBox(
-                                              width: 4.0,
-                                            ),
-                                            Text(
-                                              '함정전투체계',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  height: 1.0),
-                                              textAlign: TextAlign.start,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          launchUrlString(
-                                              "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu");
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.link,
-                                              size: 20.0,
-                                              color: Colors.black,
-                                            ),
-                                            SizedBox(
-                                              width: 4.0,
-                                            ),
-                                            Text(
-                                              '대함레이더',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  height: 1.0),
-                                              textAlign: TextAlign.start,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Text(
-                                    '키워드',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Wrap(
-                                    direction: Axis.horizontal,
-                                    spacing: 8.0,
-                                    runSpacing: 8.0,
-                                    children: [
-                                      _projectTagWidget('C'),
-                                      _projectTagWidget('C++'),
-                                      _projectTagWidget('MFC'),
-                                      _projectTagWidget('VxWorks'),
-                                      _projectTagWidget('Visual Studio'),
-                                      _projectTagWidget('Wind River Workbench'),
-                                      _projectTagWidget('Code Composer Studio'),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ]),
-                    ),
-                  ),
+                },
+      */
+      body: Container(
+        child: Column(children: [
+          WorkExperienceSubProjectWidget(
+            projectInfo: ProjectInformation(
+                projectName: "대함레이더 신호연동부 개발",
+                projectDescription:
+                    "KDX-III Batch-II 함정 전투체계에 적용되는 대함레이더에서 이지스(Aegis)전투체계, 레이더전시기, GEDMS(Gigabit Ethernet Data Multiplex System)와 주고받는 연동신호를 변환하는 장치 개발 프로젝트",
+                projectPeriod: "2021년09월 ~ 2022년03월 (7개월)",
+                projectMembers: "소프트웨어 1명, 하드웨어 3명, 기계/기구 2명",
+                tags: [
+                  "VxWorks",
+                  "Wind River Workbench",
+                  "Code Composer Studio(Texas Instruments)",
+                  "Visual Studio",
+                  "MFC",
+                  "C++",
+                  "C"
                 ],
-              ),
-              Container(
-                width: double.infinity,
-                height: 120.0,
-                color: Colors.red,
-                child: Center(
-                  child: Text(
-                    'FOOTER AREA',
-                    style: TextStyle(fontSize: 80, color: Colors.yellow),
+                detailedWorks: [
+                  "Single Board Computer(이하 SBC)에 VxWorks 이미지 포팅 및 개발 환경 구축",
+                  "VME, UART, GPIO, Ethernet 통신 기능 구현",
+                  "SLIP(Serial Line Internet Protocol) 통신 기능 구현.(RFC 1055)",
+                  "네트워크 환경구축(VLAN, STP/RSTP, X-Ring Pro[Advantech])",
+                  "시제품 전용 시험장치(이하 시험치구) 임베디드 SW개발(Arm Cortex-M4 based MCU)",
+                  "시험치구 제어용 GUI SW개발(MFC)"
+                ],
+                urls: [
+                  (
+                    url:
+                        "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu",
+                    text: "대함레이더"
                   ),
-                ),
-              )
-            ],
+                  (
+                    url:
+                        "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do",
+                    text: "함정전투체계"
+                  ),
+                ]),
           ),
-        ),
+        ]),
       ),
     );
   }
 
-  Widget _projectTagWidget(String tag) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        tag,
-        style: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w500,
-          color: Colors.white,
+  Row _workExperiencePlaceholder() {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(
+            'Company',
+            style: _textStyle1,
+          ),
         ),
-      ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(
+            'Department',
+            style: _textStyle1,
+          ),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(
+            'Rank',
+            style: _textStyle1,
+          ),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(
+            'Role',
+            style: _textStyle1,
+          ),
+        ),
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(
+            'Work Period',
+            style: _textStyle1,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: SizedBox(
+            width: 48.0,
+          ),
+        ),
+      ],
     );
   }
 }
