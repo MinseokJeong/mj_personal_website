@@ -5,7 +5,7 @@ import 'tag_widget.dart';
 import 'url_link_button_widget.dart';
 
 class WorkExperienceSubProjectWidget extends StatelessWidget {
-  WorkExperienceSubProjectWidget({super.key, required this.projectInfo});
+  const WorkExperienceSubProjectWidget({super.key, required this.projectInfo});
   final ProjectInformation projectInfo;
 
   String get projectName => projectInfo.projectName;
@@ -16,6 +16,8 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   List<String> get detailedWorks => projectInfo.detailedWorks;
   List<String> get tags => projectInfo.tags;
   List<({String url, String text})> get urls => projectInfo.urls;
+
+  final _textIndentPadding = 8.0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,13 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
             Flexible(
               flex: 3,
               fit: FlexFit.tight,
-              child: _projectNameWidget(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  smallTextWidget('프로젝트명'),
+                  largeTextWidget(projectName),
+                ],
+              ),
             ),
             Flexible(
               flex: 6,
@@ -41,14 +49,67 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ..._projectDescriptionWidget(),
-                  ..._projectPeriodWidget(),
-                  ..._projectMembersWidget(),
-                  ..._projectContributionWidget(),
-                  ..._projectDetailedWorksWidget(),
-                  ..._projectDetailedWorksWidget(),
-                  ..._projectLinksWidget(),
-                  ..._projectTagsWidget(),
+                  smallTextWidget('프로젝트 소개'),
+                  mediumTextWidget(projectDescription),
+                  if (projectPeriod.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('프로젝트기간'),
+                    mediumTextWidget(projectPeriod),
+                  ],
+                  if (projectMembers.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('멤버구성'),
+                    mediumTextWidget(projectMembers!),
+                  ],
+                  if (contributionrate.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('기여도'),
+                    mediumTextWidget(contributionrate!),
+                  ],
+                  if (detailedWorks.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('상세업무'),
+                    ...detailedWorks!.map(
+                      (e) => mediumTextWidget(e),
+                    ),
+                  ],
+                  if (urls.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('관련링크'),
+                    Wrap(
+                      children: [
+                        ...urls.map(
+                          (e) => UrlLinkButtonWidget(url: e.url, text: e.text),
+                        )
+                      ],
+                    ),
+                  ],
+                  if (tags.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('키워드'),
+                    Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 8.0,
+                      runSpacing: 8.0,
+                      children: [
+                        ...tags.map(
+                          (e) => TagWidget(tag: e),
+                        )
+                      ],
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -58,226 +119,39 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
     );
   }
 
-  Widget _projectNameWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          '프로젝트명',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 12.0,
-            fontWeight: FontWeight.w300,
-          ),
-        ),
-        Text(
-          projectName,
-          textAlign: TextAlign.start,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 24.0,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
+  Widget smallTextWidget(String text) {
+    return Text(
+      text,
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: Colors.grey,
+        fontSize: 12.0,
+        fontWeight: FontWeight.w300,
+      ),
     );
   }
 
-  List<Widget> _projectDescriptionWidget() {
-    return [
-      Text(
-        '프로젝트 소개',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
+  Widget mediumTextWidget(String text) {
+    return Text(
+      text,
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w500,
       ),
-      Text(
-        projectDescription,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-        ),
-      )
-    ];
+    );
   }
 
-  List<Widget> _projectPeriodWidget() {
-    if (projectPeriod.isEmpty) {
-      return [];
-    }
-
-    return [
-      SizedBox(
-        height: 12.0,
+  Widget largeTextWidget(String text) {
+    return Text(
+      text,
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 24.0,
+        fontWeight: FontWeight.w700,
       ),
-      Text(
-        '프로젝트기간',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      Text(
-        projectPeriod!,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    ];
-  }
-
-  List<Widget> _projectMembersWidget() {
-    if (projectMembers.isEmpty) {
-      return [];
-    }
-    return [
-      SizedBox(
-        height: 12.0,
-      ),
-      Text(
-        '멤버구성',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      Text(
-        projectMembers!,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    ];
-  }
-
-  List<Widget> _projectContributionWidget() {
-    if (contributionrate.isEmpty) {
-      return [];
-    }
-    return [
-      SizedBox(
-        height: 12.0,
-      ),
-      Text(
-        '기여도',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      Text(
-        contributionrate!,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    ];
-  }
-
-  List<Widget> _projectDetailedWorksWidget() {
-    if (detailedWorks.isEmpty) {
-      return [];
-    }
-
-    return [
-      SizedBox(
-        height: 12.0,
-      ),
-      Text(
-        '상세업무',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      ...detailedWorks!.map(
-        (e) => Text(
-          e,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.0,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    ];
-  }
-
-  List<Widget> _projectLinksWidget() {
-    if (urls.isEmpty) {
-      return [];
-    }
-
-    return [
-      SizedBox(
-        height: 12.0,
-      ),
-      Text(
-        '관련링크',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      Wrap(
-        children: [
-          ...urls!.map(
-            (e) => UrlLinkButtonWidget(url: e.url, text: e.text),
-          )
-        ],
-      ),
-    ];
-  }
-
-  List<Widget> _projectTagsWidget() {
-    if (tags.isEmpty) {
-      return [];
-    }
-
-    return [
-      SizedBox(
-        height: 12.0,
-      ),
-      Text(
-        '키워드',
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-      Wrap(
-        direction: Axis.horizontal,
-        spacing: 8.0,
-        runSpacing: 8.0,
-        children: [
-          ...tags!.map(
-            (e) => TagWidget(tag: e),
-          )
-        ],
-      ),
-    ];
+    );
   }
 }

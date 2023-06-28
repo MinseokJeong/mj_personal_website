@@ -13,7 +13,7 @@ class WorkExperiencesWidget extends StatefulWidget {
 
 class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   final flexs = <int>[3, 1, 1, 2, 1];
-  final _workExperienceAndExpandStates = <WorkExperienceAndExpandState>[];
+  final _workExperienceAndExpandStates = <_WorkExperienceAndExpand>[];
 
   final topHeaderTextStyle = TextStyle(
     fontSize: 14.0,
@@ -29,7 +29,8 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
 
   void _updateWorkExperienceAndExpandStates() {
     widget.workExperiences.forEach((element) {
-      _workExperienceAndExpandStates.add(WorkExperienceAndExpandState(element));
+      _workExperienceAndExpandStates
+          .add(_WorkExperienceAndExpand(element, true));
     });
 
     setState(() {});
@@ -193,9 +194,9 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   }
 }
 
-class WorkExperienceAndExpandState {
+class _WorkExperienceAndExpand {
   final WorkExperience workExperience;
   bool isExpand = false;
 
-  WorkExperienceAndExpandState(this.workExperience, [this.isExpand = false]);
+  _WorkExperienceAndExpand(this.workExperience, [this.isExpand = false]);
 }
