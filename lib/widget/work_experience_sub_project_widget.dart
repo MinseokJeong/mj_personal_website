@@ -10,46 +10,57 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
 
   String get projectName => projectInfo.projectName;
   String get projectDescription => projectInfo.projectDescription;
-  String? get projectPeriod => projectInfo.projectPeriod;
-  String? get projectMembers => projectInfo.projectMembers;
-  String? get contributionrate => projectInfo.contributionrate;
-  List<String>? get detailedWorks => projectInfo.detailedWorks;
-  List<String>? get tags => projectInfo.tags;
-  List<({String url, String text})>? get urls => projectInfo.urls;
+  String get projectPeriod => projectInfo.projectPeriod;
+  String get projectMembers => projectInfo.projectMembers;
+  String get contributionrate => projectInfo.contributionrate;
+  List<String> get detailedWorks => projectInfo.detailedWorks;
+  List<String> get tags => projectInfo.tags;
+  List<({String url, String text})> get urls => projectInfo.urls;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Flexible(
-          flex: 3,
-          fit: FlexFit.tight,
-          child: _projectNameWidget(),
-        ),
-        Flexible(
-          flex: 6,
-          fit: FlexFit.tight,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ..._projectDescriptionWidget(),
-              ..._projectPeriodWidget(),
-              ..._projectMembersWidget(),
-              ..._projectContributionWidget(),
-              ..._projectDetailedWorksWidget(),
-              ..._projectDetailedWorksWidget(),
-              ..._projectLinksWidget(),
-              ..._projectTagsWidget(),
-            ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.black, width: 1.0),
           ),
         ),
-      ],
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Flexible(
+              flex: 3,
+              fit: FlexFit.tight,
+              child: _projectNameWidget(),
+            ),
+            Flexible(
+              flex: 6,
+              fit: FlexFit.tight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ..._projectDescriptionWidget(),
+                  ..._projectPeriodWidget(),
+                  ..._projectMembersWidget(),
+                  ..._projectContributionWidget(),
+                  ..._projectDetailedWorksWidget(),
+                  ..._projectDetailedWorksWidget(),
+                  ..._projectLinksWidget(),
+                  ..._projectTagsWidget(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _projectNameWidget() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           '프로젝트명',
@@ -96,7 +107,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectPeriodWidget() {
-    if (projectPeriod == null) {
+    if (projectPeriod.isEmpty) {
       return [];
     }
 
@@ -125,7 +136,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectMembersWidget() {
-    if (projectMembers == null) {
+    if (projectMembers.isEmpty) {
       return [];
     }
     return [
@@ -153,7 +164,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectContributionWidget() {
-    if (contributionrate == null) {
+    if (contributionrate.isEmpty) {
       return [];
     }
     return [
@@ -181,7 +192,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectDetailedWorksWidget() {
-    if (detailedWorks == null) {
+    if (detailedWorks.isEmpty) {
       return [];
     }
 
@@ -212,7 +223,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectLinksWidget() {
-    if (urls == null) {
+    if (urls.isEmpty) {
       return [];
     }
 
@@ -240,7 +251,7 @@ class WorkExperienceSubProjectWidget extends StatelessWidget {
   }
 
   List<Widget> _projectTagsWidget() {
-    if (tags == null) {
+    if (tags.isEmpty) {
       return [];
     }
 
