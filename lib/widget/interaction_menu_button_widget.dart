@@ -37,7 +37,7 @@ class _InteractionMenuButtonWidgetState
   late Animation<Offset> _textPositionAnimationWhenMouseEnterAndExit;
 
   TextStyle get _textStyle => TextStyle(
-      color: widget.textColor, fontSize: 16, fontWeight: FontWeight.w400);
+      color: widget.textColor, fontSize: 16, fontWeight: FontWeight.normal);
 
   final _hoverOffsetStreamController = StreamController<Offset>();
 

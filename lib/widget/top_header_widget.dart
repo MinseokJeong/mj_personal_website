@@ -21,7 +21,7 @@ class TopHeaderWidget extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16.0,
                   color: textColor,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.normal),
             ),
           ),
           const Spacer(),

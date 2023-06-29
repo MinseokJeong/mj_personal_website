@@ -19,7 +19,7 @@ class TagWidget extends StatelessWidget {
         tag,
         style: TextStyle(
           fontSize: 14.0,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.normal,
           color: Colors.white,
         ),
       ),

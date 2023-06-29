@@ -7,6 +7,7 @@ class WorkExperience {
   final String mainRole;
   final String workPeriod;
   final String companyWebsite;
+  final String aboutCompany;
   final List<ProjectInformation> projects;
 
   WorkExperience({
@@ -17,6 +18,7 @@ class WorkExperience {
     required this.workPeriod,
     required this.projects,
     required this.companyWebsite,
+    required this.aboutCompany,
   });
 
   factory WorkExperience.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class WorkExperience {
     final companyWebsite = json['website'] as String;
     final rank = json['rank'] as String;
     final mainRole = json['mainRole'] as String;
+    final aboutCompany = json['aboutCompany'] as String;
 
     final projects = <ProjectInformation>[];
     final jsonProjects = json['projects'] as List<dynamic>;
@@ -42,6 +45,7 @@ class WorkExperience {
       workPeriod: workPeriod,
       companyWebsite: companyWebsite,
       projects: projects,
+      aboutCompany: aboutCompany,
     );
   }
 }

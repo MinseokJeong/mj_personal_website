@@ -12,8 +12,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../model/project_information.dart';
-import '../widget/work_experience_sub_project_widget.dart';
+import '../widget/project_widget.dart';
 
+//TODO: WORK PAGE 의 처음 Keywords 버튼들을 어떻게 관리할지를 생각해봐야함.
 class WorkPage extends StatefulWidget {
   const WorkPage({Key? key}) : super(key: key);
 
@@ -84,7 +85,7 @@ class _WorkPageState extends State<WorkPage> {
                   style: TextStyle(
                       color: _colorTextBlack,
                       fontSize: 88.0,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.normal),
                 ),
               ),
               const SizedBox(

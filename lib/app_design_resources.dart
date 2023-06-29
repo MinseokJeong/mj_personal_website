@@ -31,4 +31,5 @@ enum FontName {
   NotoSans,
   NotoSansJapanese,
   NotoSansKorean,
+  NanumSquareNeo,
 }

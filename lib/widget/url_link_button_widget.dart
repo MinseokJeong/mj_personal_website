@@ -30,7 +30,7 @@ class UrlLinkButtonWidget extends StatelessWidget {
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 16.0,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.normal,
                 height: 1.0,
                 decoration: TextDecoration.underline),
             textAlign: TextAlign.start,

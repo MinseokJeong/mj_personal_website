@@ -26,7 +26,7 @@ class HangerWidget extends StatelessWidget {
             child: Text(
               'Located\nin the\nSouth Korea',
               style: ar.textStyleTopSectionRotateSphereSectionLeftText
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.w400),
+                  .copyWith(color: Colors.white, fontWeight: FontWeight.normal),
             ),
           ),
           const SizedBox(
