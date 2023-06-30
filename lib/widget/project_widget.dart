@@ -16,6 +16,7 @@ class ProjectWidget extends StatelessWidget {
   List<String> get detailedWorks => projectInfo.detailedWorks;
   List<String> get tags => projectInfo.tags;
   List<({String url, String text})> get urls => projectInfo.urls;
+  List<String> get results => projectInfo.results;
 
   final _textIndentPadding = 8.0;
 
@@ -39,7 +40,7 @@ class ProjectWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    smallTextWidget('프로젝트명'),
+                    smallTextWidget('Project Name'),
                     largeTextWidget(projectName),
                   ],
                 ),
@@ -51,35 +52,44 @@ class ProjectWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  smallTextWidget('프로젝트 소개'),
+                  smallTextWidget('Description'),
                   mediumTextWidget(projectDescription),
                   if (projectPeriod.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('프로젝트기간'),
+                    smallTextWidget('Period'),
                     mediumTextWidget(projectPeriod),
                   ],
                   if (projectMembers.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('멤버구성'),
+                    smallTextWidget('Member'),
                     mediumTextWidget(projectMembers!),
                   ],
                   if (contributionrate.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('기여도'),
+                    smallTextWidget('Contribution'),
                     mediumTextWidget(contributionrate),
                   ],
                   if (detailedWorks.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('상세업무'),
+                    smallTextWidget('Work Detail'),
                     ...detailedWorks.map(
+                      (e) => mediumTextWidget(e),
+                    ),
+                  ],
+                  if (results.isNotEmpty) ...[
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    smallTextWidget('Achievement'),
+                    ...results.map(
                       (e) => mediumTextWidget(e),
                     ),
                   ],
@@ -87,7 +97,7 @@ class ProjectWidget extends StatelessWidget {
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('관련링크'),
+                    smallTextWidget('URL'),
                     Wrap(
                       children: [
                         ...urls.map(
@@ -100,7 +110,7 @@ class ProjectWidget extends StatelessWidget {
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('키워드'),
+                    smallTextWidget('Keyword'),
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 8.0,
@@ -127,8 +137,8 @@ class ProjectWidget extends StatelessWidget {
       textAlign: TextAlign.start,
       style: TextStyle(
         color: Colors.grey,
-        fontSize: 12.0,
-        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+        fontWeight: FontWeight.w300,
       ),
     );
   }
@@ -142,7 +152,7 @@ class ProjectWidget extends StatelessWidget {
         style: TextStyle(
           color: Colors.black,
           fontSize: 18.0,
-          fontWeight: FontWeight.normal,
+          fontWeight: FontWeight.w400,
         ),
       ),
     );
@@ -156,8 +166,8 @@ class ProjectWidget extends StatelessWidget {
         textAlign: TextAlign.start,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 24.0,
-          fontWeight: FontWeight.bold,
+          fontSize: 26.0,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

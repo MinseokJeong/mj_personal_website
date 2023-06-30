@@ -95,8 +95,12 @@ flutter:
           weight: 700
     - family: NotoSansKorean
       fonts:
+        - asset: fonts/Noto_Sans_KR/NotoSansKR-Light.otf
+          weight: 300
         - asset: fonts/Noto_Sans_KR/NotoSansKR-Regular.otf
-          weight: 400
+          weight: 400        
+        - asset: fonts/Noto_Sans_KR/NotoSansKR-Medium.otf
+          weight: 500
         - asset: fonts/Noto_Sans_KR/NotoSansKR-Bold.otf
           weight: 700
     - family: NanumSquareNeo

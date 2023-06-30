@@ -78,14 +78,14 @@ class _WorkPageState extends State<WorkPage> {
               //가운데 큰 헤더 여기에 알맞은 텍스트를 넣어야겟지?
               Padding(
                 padding:
-                    EdgeInsets.symmetric(horizontal: windowSize.width * 0.16),
+                    EdgeInsets.symmetric(horizontal: windowSize.width * 0.1),
                 child: Text(
-                  'SHOW N PROVE\nMake it happen',
+                  'Software Development Experience',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: _colorTextBlack,
                       fontSize: 88.0,
-                      fontWeight: FontWeight.normal),
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               const SizedBox(
@@ -164,9 +164,21 @@ class _WorkPageState extends State<WorkPage> {
                 ],
               ),
               SizedBox(
-                height: 120,
+                height: 60,
               ),
-              WorkExperiencesWidget(workExperiences: _workExperiences),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                child: WorkExperiencesWidget(workExperiences: _workExperiences),
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Container(
+                width: double.infinity,
+                height: 300,
+                color: Color(0xffEEEFF3),
+              ),
+
               SizedBox(
                 height: 30,
               ),

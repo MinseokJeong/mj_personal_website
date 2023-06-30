@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/model/project_information.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
 
 import 'project_widget.dart';
 
-class WorkExperiencesWidget extends StatefulWidget {
-  const WorkExperiencesWidget({super.key, required this.workExperiences});
-  final List<WorkExperience> workExperiences;
+class SideProjectExperiencesWidget extends StatefulWidget {
+  const SideProjectExperiencesWidget(
+      {super.key, required this.sideProjectInformations});
+  final List<ProjectInformation> sideProjectInformations;
 
   @override
-  State<WorkExperiencesWidget> createState() => _WorkExperiencesWidgetState();
+  State<SideProjectExperiencesWidget> createState() =>
+      _SideProjectExperiencesWidgetState();
 }
 
-class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
+class _SideProjectExperiencesWidgetState
+    extends State<SideProjectExperiencesWidget> {
   final flexs = <int>[3, 1, 1, 2, 1];
-  final _workExperienceAndExpandStates = <_WorkExperienceAndExpand>[];
+  final _sideProjectExperienceAndExpandStates =
+      <_SideProjectExperienceAndExpand>[];
 
   @override
   void initState() {
@@ -24,18 +29,18 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   }
 
   void _updateWorkExperienceAndExpandStates() {
-    _workExperienceAndExpandStates.clear();
+    _sideProjectExperienceAndExpandStates.clear();
 
-    widget.workExperiences.forEach((element) {
-      _workExperienceAndExpandStates
-          .add(_WorkExperienceAndExpand(element, false));
+    widget.sideProjectInformations.forEach((element) {
+      _sideProjectExperienceAndExpandStates
+          .add(_SideProjectExperienceAndExpand(element, false));
     });
 
     setState(() {});
   }
 
   @override
-  void didUpdateWidget(covariant WorkExperiencesWidget oldWidget) {
+  void didUpdateWidget(covariant SideProjectExperiencesWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.hashCode != widget.hashCode) {
@@ -53,13 +58,14 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
           ExpansionPanelList(
             expansionCallback: (panelIndex, isExpanded) {
               setState(() {
-                _workExperienceAndExpandStates[panelIndex].isExpand =
+                _sideProjectExperienceAndExpandStates[panelIndex].isExpand =
                     !isExpanded;
               });
             },
             children: [
-              ..._workExperienceAndExpandStates.map(
-                (e) => _workExperienceWidget(e.workExperience, e.isExpand),
+              ..._sideProjectExperienceAndExpandStates.map(
+                (e) => _sideProjectExperienceWidget(
+                    e.projectInformation, e.isExpand),
               )
             ],
           ),
@@ -134,8 +140,8 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
     );
   }
 
-  ExpansionPanel _workExperienceWidget(
-      WorkExperience workExperience, bool isExapnded) {
+  ExpansionPanel _sideProjectExperienceWidget(
+      ProjectInformation projectInformation, bool isExapnded) {
     const mediumTextStyle = TextStyle(
         fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.w400);
 
@@ -156,7 +162,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
                 flex: flexs[0],
                 child: Center(
                   child: Text(
-                    workExperience.companyName,
+                    projectInformation.projectName,
                     style: largeTextStyle,
                   ),
                 ),
@@ -165,7 +171,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
                 fit: FlexFit.tight,
                 flex: flexs[1],
                 child: Text(
-                  workExperience.location,
+                  projectInformation.projectDescription,
                   style: mediumTextStyle,
                 ),
               ),
@@ -173,23 +179,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
                 fit: FlexFit.tight,
                 flex: flexs[2],
                 child: Text(
-                  workExperience.rank,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[3],
-                child: Text(
-                  workExperience.mainRole,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[4],
-                child: Text(
-                  workExperience.workPeriod,
+                  projectInformation.projectPeriod,
                   style: mediumTextStyle,
                 ),
               ),
@@ -201,42 +191,9 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 64.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (workExperience.aboutCompany.isNotEmpty) ...[
-                    _greySmallTextWidget('About Company'),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        workExperience.aboutCompany,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          // fontWeight: FontWeight.w100,
-                          // fontFamily: 'NotoSansKorean',
-                        ),
-                      ),
-                    ),
-                  ],
-                  if (workExperience.companyWebsite.isNotEmpty) ...[
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    _greySmallTextWidget('URL'),
-                    UrlLinkButtonWidget(
-                        url: workExperience.companyWebsite,
-                        text: workExperience.companyName)
-                  ],
-                ],
-              ),
+            ProjectWidget(
+              projectInfo: projectInformation,
             ),
-            ...workExperience.projects.map(
-              (e) => ProjectWidget(projectInfo: e),
-            )
           ],
         ),
       ),
@@ -244,9 +201,10 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   }
 }
 
-class _WorkExperienceAndExpand {
-  final WorkExperience workExperience;
+class _SideProjectExperienceAndExpand {
+  final ProjectInformation projectInformation;
   bool isExpand = false;
 
-  _WorkExperienceAndExpand(this.workExperience, [this.isExpand = false]);
+  _SideProjectExperienceAndExpand(this.projectInformation,
+      [this.isExpand = false]);
 }
