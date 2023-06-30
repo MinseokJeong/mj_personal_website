@@ -17,7 +17,7 @@ class SideProjectExperiencesWidget extends StatefulWidget {
 
 class _SideProjectExperiencesWidgetState
     extends State<SideProjectExperiencesWidget> {
-  final flexs = <int>[3, 1, 1, 2, 1];
+  final flexs = <int>[3, 4, 1];
   final _sideProjectExperienceAndExpandStates =
       <_SideProjectExperienceAndExpand>[];
 
@@ -106,27 +106,17 @@ class _SideProjectExperiencesWidgetState
             fit: FlexFit.tight,
             flex: flexs[0],
             child: Center(
-              child: _topHeaderTextWidget('Comapny'),
+              child: _topHeaderTextWidget('Project Name'),
             ),
           ),
           Flexible(
             fit: FlexFit.tight,
             flex: flexs[1],
-            child: _topHeaderTextWidget('Location'),
+            child: _topHeaderTextWidget('Description'),
           ),
           Flexible(
             fit: FlexFit.tight,
             flex: flexs[2],
-            child: _topHeaderTextWidget('Rank'),
-          ),
-          Flexible(
-            fit: FlexFit.tight,
-            flex: flexs[3],
-            child: _topHeaderTextWidget('Role'),
-          ),
-          Flexible(
-            fit: FlexFit.tight,
-            flex: flexs[4],
             child: _topHeaderTextWidget('Work Period'),
           ),
           Padding(

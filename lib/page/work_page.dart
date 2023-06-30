@@ -6,6 +6,7 @@ import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_menu_button_widget.dart';
+import 'package:mj_portfolio_web/widget/side_project_experience_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,6 +37,7 @@ class _WorkPageState extends State<WorkPage> {
   );
 
   List<WorkExperience> _workExperiences = [];
+  List<ProjectInformation> _sideProjectInformation = [];
 
   @override
   void initState() {
@@ -49,14 +51,22 @@ class _WorkPageState extends State<WorkPage> {
         await rootBundle.loadString('assets/resume_info.json', cache: false);
     final resumeJson = jsonDecode(resumeJsonString) as Map<String, dynamic>;
     final workExperiencesJson = resumeJson['workExperiences'] as List<dynamic>;
+    final sideProjectsJson = resumeJson['sideProjects'] as List<dynamic>;
 
     List<WorkExperience> workExperiences = [];
     for (var workExperienceJson in workExperiencesJson) {
       final workExperience = WorkExperience.fromJson(workExperienceJson);
       workExperiences.add(workExperience);
     }
+
+    List<ProjectInformation> sideProjects = [];
+    for (var sideprojectJson in sideProjectsJson) {
+      final sideproject = ProjectInformation.fromJson(sideprojectJson);
+      sideProjects.add(sideproject);
+    }
     setState(() {
       _workExperiences = workExperiences;
+      _sideProjectInformation = sideProjects;
     });
   }
 
@@ -72,9 +82,7 @@ class _WorkPageState extends State<WorkPage> {
               TopHeaderWidget(
                 textColor: Colors.black,
               ),
-              const SizedBox(
-                height: 120,
-              ),
+              verticalSpace(120),
               //가운데 큰 헤더 여기에 알맞은 텍스트를 넣어야겟지?
               Padding(
                 padding:
@@ -88,9 +96,7 @@ class _WorkPageState extends State<WorkPage> {
                       fontWeight: FontWeight.w700),
                 ),
               ),
-              const SizedBox(
-                height: 60,
-              ),
+              verticalSpace(60),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -163,30 +169,61 @@ class _WorkPageState extends State<WorkPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 60,
+              verticalSpace(60),
+              Padding(
+                padding: const EdgeInsets.only(left: 32.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'MAIN',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 32,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: WorkExperiencesWidget(workExperiences: _workExperiences),
               ),
-              SizedBox(
-                height: 60,
+              verticalSpace(60),
+              Padding(
+                padding: const EdgeInsets.only(left: 32.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'SIDE / ETC',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 32,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              Container(
-                width: double.infinity,
-                height: 300,
-                color: Color(0xffEEEFF3),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                child: SideProjectExperiencesWidget(
+                    sideProjectInformations: _sideProjectInformation),
               ),
-
-              SizedBox(
-                height: 30,
-              ),
+              verticalSpace(30),
               FooterWidget(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget verticalSpace(double verticalSpace) {
+    return SizedBox(
+      height: verticalSpace,
     );
   }
 }
