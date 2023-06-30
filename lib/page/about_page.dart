@@ -159,7 +159,7 @@ class _AboutPageState extends State<AboutPage>
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '나는 {',
+                      "'좋은 개발자' : ",
                       style: TextStyle(fontSize: 24, color: Colors.grey),
                     ),
                     Expanded(
@@ -176,11 +176,14 @@ class _AboutPageState extends State<AboutPage>
                       ),
                     ),
                     Text(
-                      '}',
+                      '',
                       style: TextStyle(fontSize: 24, color: Colors.grey),
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               FooterWidget(
                 highlightColor: Colors.white,
@@ -269,30 +272,238 @@ class _AboutPageState extends State<AboutPage>
 
   Widget _getAboutMeDetailWidget() {
     final texts = [
-      "미국 Los Angeles에서 Android 앱을 개발하면서 첫 시작을하여, 캐나다 Vancouver에 있는 회사에서 Windows 데스크탑 프로그램을 개발하였고, 스타트업회사에서 근무하며 Andoid/iOS 모바일 개발자로 일을 하였고, 방위산업체에서 근무하며 Embedded System/Firmware/Windows 개발자로 일을 한경험이 있습니다.",
-      "다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 이해가 넓고, 새로운 기술을 습득하는 능력이 뛰어납니다.",
-      "'To be good, and to do good, is all we have to do. - John Adams'의 말처럼 '선'에 관심이 있습니다.",
-      "아내의 젤라또 아이스크림집을 옆에서 도우면서 젤라또 아이스크림을 스페츌라와 스쿱을 이용해 이쁘게 담을수 있습니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
-      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      //" 대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에있는 회사에서 Android 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 Windows 개발자로 일을 하였고, 스타트업회사를 공동창업하며 Andoid/iOS 개발자로 일을 하였고, 방위산업체에서 근무하며 Embedded System/Firmware/Windows 개발자로 일을 한 경험이 있습니다.",
+      //" 다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 이해가 넓고 깊으며 새로운 기술을 습득하는 능력이 뛰어납니다.",
+      //" 위의 다양한 개발경험과 같이 가보지 않은 길로 도전하는것을 즐기며 실패를 겁내지 않습니다.",
+      //" 기업가정신을 추구하며 많은사람에게 가치가 있고 도움이되는 상품/서비스를 만드는것을 목표로 합니다.",
+      //" 언제나 '좋은 개발자'가 되기위해 최선을 다합니다.",
+      //" 국가/인종/나이와 상관없이 두루두루 원만한 인간관계를 가지고 있습니다.",
     ];
 
+    final greyTextStyle =
+        TextStyle(color: Colors.grey, fontSize: 20, height: 1.4);
+    final whiteTextStyle =
+        TextStyle(color: Colors.white, fontSize: 20, height: 1.4);
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...texts.map(
-          (e) => Padding(
-            padding: const EdgeInsets.only(top: 16.0),
-            child: Text(
-              e,
-              style: TextStyle(color: Colors.grey, fontSize: 20, height: 1.6),
-            ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: '대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에있는 회사에서 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Android',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: ' 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Windows',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: ' 개발자로 일을 하였고, 스타트업회사를 공동창업하며 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Andoid',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '/',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'iOS',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: ' 개발자로 일을 하였고, 방위산업체에서 근무하며 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Embedded System',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '/',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Firmware',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '/',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: 'Windows',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: ' 개발자로 일을 한 경험이 있습니다.',
+                style: greyTextStyle,
+              ),
+            ],
           ),
         ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: '다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '이해',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '가 넓고 깊으며 새로운',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '기술',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '을 습득하는 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '능력',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '이 뛰어납니다.',
+                style: greyTextStyle,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: '위의 다양한 개발경험과 같이 가보지 않은 길로 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '도전',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '하는것을 즐기며 실패를 겁내지 않습니다.',
+                style: greyTextStyle,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: '기업가정신',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: ' 을 추구하며 많은사람에게 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '가치',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '가 있고 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '도움',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '이되는 상품/서비스를 만드는것을 ',
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: '목표',
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: '로 합니다.',
+                style: greyTextStyle,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: "언제나 '",
+                style: greyTextStyle,
+              ),
+              TextSpan(
+                text: "좋은 개발자",
+                style: whiteTextStyle,
+              ),
+              TextSpan(
+                text: "'가 되기위해 최선을 다합니다.",
+                style: greyTextStyle,
+              ),
+            ],
+          ),
+        ),
+        // SizedBox(
+        //   height: 30.0,
+        // ),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: "국가/인종/나이와 상관없이 두루두루  ",
+        //         style: greyTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: "원만한 인간관계",
+        //         style: whiteTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: "를 가지고 있습니다.",
+        //         style: greyTextStyle,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // ...texts.map(
+        //   (e) => Padding(
+        //     padding: const EdgeInsets.only(top: 30.0),
+        //     child: Text(
+        //       e,
+        //       style: TextStyle(color: Colors.grey, fontSize: 20, height: 1.4),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

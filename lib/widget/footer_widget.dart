@@ -5,10 +5,11 @@ class FooterWidget extends StatelessWidget {
   Color defaultColor;
   Color highlightColor;
 
-  FooterWidget(
-      {super.key,
-      this.defaultColor = Colors.grey,
-      this.highlightColor = Colors.black});
+  FooterWidget({
+    super.key,
+    this.defaultColor = Colors.grey,
+    this.highlightColor = Colors.black,
+  });
 
   @override
   Widget build(BuildContext context) {
