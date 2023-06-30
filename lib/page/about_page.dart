@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
+import 'dart:math' as math;
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WhoAmIText {
   final int number;
@@ -16,8 +20,10 @@ class AboutPage extends StatefulWidget {
   State<AboutPage> createState() => _AboutPageState();
 }
 
-class _AboutPageState extends State<AboutPage> {
-  final double _translateY = 0.0;
+class _AboutPageState extends State<AboutPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _pictureRotateAnimationController;
+  late Animation<double> _pictureRotateAniamtion;
 
   final _whoAmITexts = <WhoAmIText>[
     WhoAmIText(1, "리더, 동료들과 의견을 맞추고 개인의 목표를 조직 목표와 정렬시킵니다.",
@@ -65,50 +71,363 @@ class _AboutPageState extends State<AboutPage> {
   @override
   void initState() {
     super.initState();
+
+    _pictureRotateAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 30),
+    );
+    _pictureRotateAniamtion = Tween(begin: 0.0, end: 2 * math.pi)
+        .animate(_pictureRotateAnimationController);
+    _pictureRotateAnimationController.repeat();
   }
 
   @override
   void dispose() {
     super.dispose();
+
+    _pictureRotateAnimationController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor("#1C1D20"),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          color: HexColor("#1C1D20"),
           child: Column(
             children: [
               const TopHeaderWidget(
                 textColor: Colors.white,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 32.0, horizontal: 200.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+              SizedBox(
+                height: 120,
+              ),
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Container(
+                            width: 500.0,
+                            child: _getProfileWidget(),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Container(
+                            width: 500.0,
+                            child: _getAboutMeDetailWidget(),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: AnimatedBuilder(
+                      animation: _pictureRotateAniamtion,
+                      builder: (bc, child) {
+                        return Transform.rotate(
+                          angle: _pictureRotateAniamtion.value,
+                          child: child,
+                        );
+                      },
+                      child: SvgPicture.asset(
+                        'assets/minseokjeong_rotate_text.svg',
+                        width: 500,
+                        height: 500,
+                        color: Color.fromARGB(15, 255, 255, 255),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 32.0,
+              ),
+              SizedBox(
+                height: 80,
+                width: 1000,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      'About\nMinseok Jeong',
-                      style: TextStyle(
-                          color: Colors.white, fontSize: 90.0, height: 1.0),
+                    Text(
+                      '나는 {',
+                      style: TextStyle(fontSize: 24, color: Colors.grey),
                     ),
-                    const SizedBox(
-                      height: 48.0,
+                    Expanded(
+                      child: AnimatedTextKit(
+                        repeatForever: true,
+                        animatedTexts: [
+                          ..._whoAmITexts.map(
+                            (e) => RotateAnimatedText(e.header,
+                                duration: Duration(seconds: 2),
+                                textStyle: TextStyle(
+                                    fontSize: 24.0, color: Colors.grey)),
+                          ),
+                        ],
+                      ),
                     ),
-                    for (final whoAmITextItem in _whoAmITexts)
-                      _describeItemWidget(whoAmITextItem.number,
-                          whoAmITextItem.header, whoAmITextItem.text),
+                    Text(
+                      '}',
+                      style: TextStyle(fontSize: 24, color: Colors.grey),
+                    ),
                   ],
                 ),
+              ),
+              FooterWidget(
+                highlightColor: Colors.white,
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _getActShowProveWidget() {
+    final texts = [
+      "DONT'T TALK JUST",
+      "ACT",
+      "DON'T SAY JUST",
+      "SHOW",
+      "DON'T PROMISE JUST",
+      "PROVE"
+    ];
+    const smallTextStyle = TextStyle(
+        color: Colors.grey,
+        fontSize: 12.0,
+        fontWeight: FontWeight.w300,
+        height: 1.0,
+        decoration: TextDecoration.lineThrough);
+    const largeTextStyle = TextStyle(
+        color: Colors.white,
+        fontSize: 64.0,
+        fontWeight: FontWeight.bold,
+        height: 1.0);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          texts[0],
+          style: smallTextStyle,
+        ),
+        Text(
+          texts[1],
+          style: largeTextStyle,
+        ),
+        Text(
+          texts[2],
+          style: smallTextStyle,
+        ),
+        Text(
+          texts[3],
+          style: largeTextStyle,
+        ),
+        Text(
+          texts[4],
+          style: smallTextStyle,
+        ),
+        Text(
+          texts[5],
+          style: largeTextStyle,
+        ),
+      ],
+    );
+  }
+
+  Widget _getAdamSmithQuoteWidget() {
+    return Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(
+              text: "\"To be good, and to do good, is all we have to do.\"",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 28.0,
+                fontWeight: FontWeight.w500,
+              )),
+          TextSpan(
+              text: " - John Adams",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 28.0,
+                fontWeight: FontWeight.w500,
+              )),
+        ],
+      ),
+    );
+  }
+
+  Widget _getAboutMeDetailWidget() {
+    final texts = [
+      "미국 Los Angeles에서 Android 앱을 개발하면서 첫 시작을하여, 캐나다 Vancouver에 있는 회사에서 Windows 데스크탑 프로그램을 개발하였고, 스타트업회사에서 근무하며 Andoid/iOS 모바일 개발자로 일을 하였고, 방위산업체에서 근무하며 Embedded System/Firmware/Windows 개발자로 일을 한경험이 있습니다.",
+      "다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 이해가 넓고, 새로운 기술을 습득하는 능력이 뛰어납니다.",
+      "'To be good, and to do good, is all we have to do. - John Adams'의 말처럼 '선'에 관심이 있습니다.",
+      "아내의 젤라또 아이스크림집을 옆에서 도우면서 젤라또 아이스크림을 스페츌라와 스쿱을 이용해 이쁘게 담을수 있습니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+      "컴퓨터 앞에 없을때면 도서관에 가는것을 좋아하고 철학/자기계발 과 관련된 책을 읽는 것을 좋아합니다.",
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        ...texts.map(
+          (e) => Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: Text(
+              e,
+              style: TextStyle(color: Colors.grey, fontSize: 20, height: 1.6),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _getProfileWidget() {
+    var fullNameInEnglish = 'Minseok Jeong';
+    var fullNameInHangeul = '정민석';
+    var developerTitle = 'Software Engineer & Developer';
+    var identity = "모바일 / 웹 / 데스크탑 / 임베디드 / 펌웨어 개발자";
+    const iconColor = Colors.grey;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          fullNameInEnglish,
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 60.0,
+              fontWeight: FontWeight.w700,
+              height: 1.0),
+        ),
+        Text(
+          fullNameInHangeul,
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 60.0,
+              fontWeight: FontWeight.w700,
+              height: 1.0),
+        ),
+        SizedBox(
+          height: 16.0,
+        ),
+        Text(
+          developerTitle,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        SizedBox(
+          height: 16.0,
+        ),
+        Text(
+          identity,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 60.0),
+          child: _getActShowProveWidget(),
+        ),
+        Row(
+          children: [
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+              ),
+              child: SvgPicture.asset(
+                'assets/github_icon.svg',
+                color: iconColor,
+                width: 30,
+                height: 30,
+              ),
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+              ),
+              child: SvgPicture.asset(
+                'assets/instagram_icon.svg',
+                color: iconColor,
+                width: 30,
+                height: 30,
+              ),
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+              ),
+              child: Icon(
+                Icons.email,
+                color: iconColor,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+              ),
+              child: Icon(
+                Icons.phone,
+                color: iconColor,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+              ),
+              child: SvgPicture.asset(
+                'assets/blogspot_icon.svg',
+                color: iconColor,
+                width: 30,
+                height: 30,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 

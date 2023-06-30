@@ -22,7 +22,7 @@ void main() {
   //ForDebug
   return runApp(
     MaterialApp(
-      home: WorkPage(),
+      home: AboutPage(),
       theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
       debugShowCheckedModeBanner: false,
     ),
@@ -68,7 +68,7 @@ void main() {
         // Unknown route
         return MaterialPageRoute(builder: (_) => const UnknownPage());
       },
-      initialRoute: rn.workPage,
+      initialRoute: rn.rootPage,
       theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
       debugShowCheckedModeBanner: false,
     ),
