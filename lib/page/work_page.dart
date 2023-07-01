@@ -7,15 +7,10 @@ import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
-import 'package:mj_portfolio_web/widget/interaction_menu_button_widget.dart';
 import 'package:mj_portfolio_web/widget/side_project_experience_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 import '../model/project_information.dart';
-import '../widget/project_widget.dart';
 
 //TODO: WORK PAGE 의 처음 Keywords 버튼들을 어떻게 관리할지를 생각해봐야함.
 class WorkPage extends StatefulWidget {
@@ -40,6 +35,29 @@ class _WorkPageState extends State<WorkPage> {
 
   List<WorkExperience> _workExperiences = [];
   List<ProjectInformation> _sideProjectInformation = [];
+
+  var sortingButtonInfoMap = <String, Map<String, dynamic>>{
+    'All': {
+      'badge': 32,
+    },
+    'Flutter/Dart': {
+      'badge': 16,
+    },
+    'Mobile App': {
+      'badge': 16,
+    },
+    'Web': {
+      'badge': 16,
+    },
+    'Embedded/Firmware': {
+      'badge': 16,
+    },
+    'Etc': {
+      'badge': 16,
+    },
+  };
+
+  String _selectedSortedButton = 'All';
 
   @override
   void initState() {
@@ -74,7 +92,6 @@ class _WorkPageState extends State<WorkPage> {
 
   @override
   Widget build(BuildContext context) {
-    final windowSize = ScreenSize.getScreenSize(context);
     final ratio = ScreenTypeExtension.calculateRatioWithContext(context);
 
     return Scaffold(
@@ -88,130 +105,23 @@ class _WorkPageState extends State<WorkPage> {
               ),
               verticalSpace(120),
               //가운데 큰 헤더 여기에 알맞은 텍스트를 넣어야겟지?
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: windowSize.width * 0.1),
-                child: Text(
-                  'Software Development Experience',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: _colorTextBlack,
-                      fontSize: 88.0 * ratio,
-                      fontWeight: FontWeight.w700),
-                ),
+              Text(
+                'Software Development Experience',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: _colorTextBlack,
+                    fontSize: 88.0 * ratio,
+                    fontWeight: FontWeight.w700),
               ),
               verticalSpace(60),
-              Wrap(
-                //mainAxisSize: MainAxisSize.min,
-                runSpacing: 8,
-                children: [
-                  InteractionCommonButtonWidget(
-                    text: 'All',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.white,
-                    backgroundNormalColor: Colors.black,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  InteractionCommonButtonWidget(
-                    text: 'Flutter/Dart',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.black,
-                    textFocusColor: Colors.white,
-                    backgroundNormalColor: Colors.white,
-                    backgroundFocusColor: Color(0xff4A5BE1),
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  InteractionCommonButtonWidget(
-                    text: 'Mobile App',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.black,
-                    textFocusColor: Colors.white,
-                    backgroundNormalColor: Colors.white,
-                    backgroundFocusColor: Color(0xff4A5BE1),
-                  ),
-                  const SizedBox(
-                    width: 16.0,
-                  ),
-                  InteractionCommonButtonWidget(
-                    text: 'Web',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.black,
-                    textFocusColor: Colors.white,
-                    backgroundNormalColor: Colors.white,
-                    backgroundFocusColor: Color(0xff4A5BE1),
-                  ),
-                  const SizedBox(
-                    width: 16.0,
-                  ),
-                  InteractionCommonButtonWidget(
-                    text: 'Embedded/Firmware',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.black,
-                    textFocusColor: Colors.white,
-                    backgroundNormalColor: Colors.white,
-                    backgroundFocusColor: Color(0xff4A5BE1),
-                  ),
-                  const SizedBox(
-                    width: 16.0,
-                  ),
-                  InteractionCommonButtonWidget(
-                    text: 'ETC',
-                    badge: '32',
-                    onPressed: () {},
-                    textNormalColor: Colors.black,
-                    textFocusColor: Colors.white,
-                    backgroundNormalColor: Colors.white,
-                    backgroundFocusColor: Color(0xff4A5BE1),
-                  ),
-                ],
-              ),
+              _sortingButtonsWidget(),
               verticalSpace(60),
-              Padding(
-                padding: EdgeInsets.only(left: 32.0 * ratio),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'MAIN',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 32 * ratio,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32.0 * ratio),
-                child: WorkExperiencesWidget(workExperiences: _workExperiences),
-              ),
+              _centerTextWithHorizontalBarWidget('Main'),
+              verticalSpace(30),
+              WorkExperiencesWidget(workExperiences: _workExperiences),
               verticalSpace(60),
-              Padding(
-                padding: const EdgeInsets.only(left: 32.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'SIDE / ETC',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 32 * ratio,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _centerTextWithHorizontalBarWidget('Other / Etc'),
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: SideProjectExperiencesWidget(
@@ -226,9 +136,87 @@ class _WorkPageState extends State<WorkPage> {
     );
   }
 
+  Widget _sortingButtonsWidget() {
+    const selectedTextNormalColor = Colors.white;
+    const selectedBackgroundColor = Colors.black;
+    const unSelectedTextNormalColor = Colors.black;
+    const unSelectedTextFocusColor = Colors.white;
+    const unSelectedBackgroundNormalColor = Colors.white;
+    const unSelectedBackgroundFocusColor = Color(0xff4A5BE1);
+
+    return Wrap(
+      //mainAxisSize: MainAxisSize.min,
+      spacing: 16,
+      runSpacing: 8,
+      children: [
+        ...sortingButtonInfoMap.map(
+          (key, value) {
+            final badge = value['badge'] as int;
+            final selected = (_selectedSortedButton.compareTo(key) == 0);
+            return MapEntry(
+              key,
+              InteractionCommonButtonWidget(
+                text: key,
+                badge: badge.toString(),
+                onPressed: () {
+                  setState(() {
+                    _selectedSortedButton = key;
+                  });
+                },
+                textNormalColor: (selected)
+                    ? selectedTextNormalColor
+                    : unSelectedTextNormalColor,
+                textFocusColor: (selected) ? null : unSelectedTextFocusColor,
+                backgroundNormalColor: (selected)
+                    ? selectedBackgroundColor
+                    : unSelectedBackgroundNormalColor,
+                backgroundFocusColor:
+                    (selected) ? null : unSelectedBackgroundFocusColor,
+              ),
+            );
+          },
+        ).values,
+      ],
+    );
+  }
+
   Widget verticalSpace(double verticalSpace) {
     return SizedBox(
       height: verticalSpace,
+    );
+  }
+
+  Widget _centerTextWithHorizontalBarWidget(String text) {
+    return Row(
+      children: [
+        Flexible(
+          child: Container(
+            width: double.infinity,
+            height: 2,
+            color: Colors.grey,
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 32,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+        ),
+        Flexible(
+          child: Container(
+            width: double.infinity,
+            height: 2,
+            color: Colors.grey,
+          ),
+        ),
+      ],
     );
   }
 }

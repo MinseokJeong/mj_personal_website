@@ -51,7 +51,7 @@ class _InteractionCommonButtonWidgetState
       },
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {},
+        onTap: widget.onPressed,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
           decoration: BoxDecoration(

@@ -15,13 +15,16 @@ class WorkExperiencesWidget extends StatefulWidget {
   const WorkExperiencesWidget({super.key, required this.workExperiences});
   final List<WorkExperience> workExperiences;
 
+  static const flexs = <int>[3, 1, 1, 2, 1];
+
   @override
   State<WorkExperiencesWidget> createState() => _WorkExperiencesWidgetState();
 }
 
 class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
-  final flexs = <int>[3, 1, 1, 2, 1];
   final _workExperienceAndExpandStates = <_WorkExperienceAndExpand>[];
+
+  List<int> get flexs => WorkExperiencesWidget.flexs;
 
   @override
   void initState() {

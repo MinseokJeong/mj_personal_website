@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
+import 'package:mj_portfolio_web/widget/work_experience_widget.dart';
 
 import '../model/size_variation.dart';
 import '../util/screen_size.dart';
@@ -9,44 +10,79 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
   WorkExperiencePanelHeaderWidget({super.key, required this.workExperience});
   WorkExperience workExperience;
 
-  @override
-  Widget build(BuildContext context) {
-    final largeFontSizeVariation = SizeVariation(
+  Widget _topHeaderTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 20.0, //Don't use
+      whenTypeLaptopLarge: 20.0, //Don't use
+      whenTypeLaptop: 12.0, //Don't use
+      whenTypeTablet: 12.0,
+      whenTypeMobileLarge: 10.0,
+      whenTypeMobileMedium: 10.0,
+      whenTypeMobileSmall: 10.0,
+    );
+
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
+        color: Colors.black,
+        fontWeight: FontWeight.w400);
+    return Text(
+      text,
+      style: textStyle,
+    );
+  }
+
+  Widget _largeTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
       whenType4K: 32,
       whenTypeLaptopLarge: 32.0,
       whenTypeLaptop: 24.0,
       whenTypeTablet: 24.0,
-      whenTypeMobileLarge: 24.0,
-      whenTypeMobileMedium: 24.0,
-      whenTypeMobileSmall: 24.0,
-    );
-    final smallFontSizeVariation = SizeVariation(
-      whenType4K: 20.0,
-      whenTypeLaptopLarge: 20.0,
-      whenTypeLaptop: 12.0,
-      whenTypeTablet: 12.0,
-      whenTypeMobileLarge: 12.0,
-      whenTypeMobileMedium: 12.0,
-      whenTypeMobileSmall: 12.0,
+      whenTypeMobileLarge: 20.0,
+      whenTypeMobileMedium: 20.0,
+      whenTypeMobileSmall: 20.0,
     );
 
-    final mediumTextStyle = TextStyle(
-        fontSize: smallFontSizeVariation.getSizeWithContext(context),
-        color: Colors.black,
-        fontWeight: FontWeight.w400);
-
-    final largeTextStyle = TextStyle(
-        fontSize: largeFontSizeVariation.getSizeWithContext(context),
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
         color: Colors.black,
         fontWeight: FontWeight.w500);
 
+    return Text(
+      text,
+      style: textStyle,
+    );
+  }
+
+  Widget _mediumTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 20.0,
+      whenTypeLaptopLarge: 20.0,
+      whenTypeLaptop: 18.0,
+      whenTypeTablet: 18.0,
+      whenTypeMobileLarge: 14.0,
+      whenTypeMobileMedium: 14.0,
+      whenTypeMobileSmall: 14.0,
+    );
+
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
+        color: Colors.black,
+        fontWeight: FontWeight.w400);
+    return Text(
+      text,
+      style: textStyle,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     const comapnyString = 'Comapny';
     const locationString = 'Location';
     const roleString = 'Role';
     const rankString = 'Rank';
     const periodString = 'Work Period';
 
-    final flexs = <int>[3, 1, 1, 2, 1];
+    const flexs = WorkExperiencesWidget.flexs;
 
     if (ScreenSize.isTabletScreenSize(context)) {
       return Padding(
@@ -63,14 +99,8 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        comapnyString,
-                        style: mediumTextStyle.copyWith(color: Colors.grey),
-                      ),
-                      Text(
-                        workExperience.companyName,
-                        style: largeTextStyle,
-                      ),
+                      _topHeaderTextWidget(comapnyString, context),
+                      _largeTextWidget(workExperience.companyName, context),
                     ],
                   ),
                 ),
@@ -84,47 +114,23 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      locationString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.location,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(locationString, context),
+                    _mediumTextWidget(workExperience.location, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      rankString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.rank,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(rankString, context),
+                    _mediumTextWidget(workExperience.rank, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      roleString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.mainRole,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(roleString, context),
+                    _mediumTextWidget(workExperience.mainRole, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      periodString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.workPeriod,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(periodString, context),
+                    _mediumTextWidget(workExperience.workPeriod, context),
                   ],
                 ),
               ),
@@ -144,58 +150,28 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      comapnyString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.companyName,
-                      style: largeTextStyle,
-                    ),
+                    _topHeaderTextWidget(comapnyString, context),
+                    _largeTextWidget(workExperience.companyName, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      locationString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.location,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(locationString, context),
+                    _mediumTextWidget(workExperience.location, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      rankString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.rank,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(rankString, context),
+                    _mediumTextWidget(workExperience.rank, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      roleString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.mainRole,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(roleString, context),
+                    _mediumTextWidget(workExperience.mainRole, context),
                     SizedBox(
                       height: 8.0,
                     ),
-                    Text(
-                      periodString,
-                      style: mediumTextStyle.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      workExperience.workPeriod,
-                      style: mediumTextStyle,
-                    ),
+                    _topHeaderTextWidget(periodString, context),
+                    _mediumTextWidget(workExperience.workPeriod, context),
                   ],
                 ),
               ),
@@ -213,42 +189,39 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
               fit: FlexFit.tight,
               flex: flexs[0],
               child: Center(
-                child: Text(
-                  workExperience.companyName,
-                  style: largeTextStyle,
-                ),
+                child: _largeTextWidget(workExperience.companyName, context),
               ),
             ),
             Flexible(
               fit: FlexFit.tight,
               flex: flexs[1],
-              child: Text(
-                workExperience.location,
-                style: mediumTextStyle,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: _mediumTextWidget(workExperience.location, context),
               ),
             ),
             Flexible(
               fit: FlexFit.tight,
               flex: flexs[2],
-              child: Text(
-                workExperience.rank,
-                style: mediumTextStyle,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: _mediumTextWidget(workExperience.rank, context),
               ),
             ),
             Flexible(
               fit: FlexFit.tight,
               flex: flexs[3],
-              child: Text(
-                workExperience.mainRole,
-                style: mediumTextStyle,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: _mediumTextWidget(workExperience.mainRole, context),
               ),
             ),
             Flexible(
               fit: FlexFit.tight,
               flex: flexs[4],
-              child: Text(
-                workExperience.workPeriod,
-                style: mediumTextStyle,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: _mediumTextWidget(workExperience.workPeriod, context),
               ),
             ),
           ],
