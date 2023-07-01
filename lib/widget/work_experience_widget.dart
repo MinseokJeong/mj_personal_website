@@ -55,8 +55,6 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    double ratio = ScreenTypeExtension.calculateRatioWithContext(context);
-
     return Container(
       color: Colors.white,
       child: Column(
@@ -110,17 +108,6 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
     );
   }
 
-  Widget _greySmallTextWidget(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 14.0,
-        color: Color(0xffAFAFB0),
-        fontWeight: FontWeight.w300,
-      ),
-    );
-  }
-
   Widget _topHeader() {
     if (ScreenSize.isTabletScreenSize(context) ||
         ScreenSize.isMobileScreenSize(context)) {
@@ -159,8 +146,8 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
             flex: flexs[4],
             child: _topHeaderTextWidget('Work Period'),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+          const Padding(
+            padding: EdgeInsets.only(right: 8.0),
             child: SizedBox(
               width: 48.0,
             ),

@@ -139,9 +139,9 @@ class OtherProjectExperiencePanelHeaderWidget extends StatelessWidget {
 
   Widget _topHeaderTextWidget(String text, BuildContext context) {
     final fontSizeVariation = SizeVariation(
-      whenType4K: 20.0, //Don't use
-      whenTypeLaptopLarge: 20.0, //Don't use
-      whenTypeLaptop: 12.0, //Don't use
+      whenType4K: 20.0,
+      whenTypeLaptopLarge: 20.0,
+      whenTypeLaptop: 12.0,
       whenTypeTablet: 12.0,
       whenTypeMobileLarge: 10.0,
       whenTypeMobileMedium: 10.0,
