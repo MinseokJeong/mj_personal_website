@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/project_information.dart';
-import 'package:mj_portfolio_web/model/work_experience.dart';
-import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
 
+import '../util/screen_size.dart';
+import 'other_project_experience_panel_header_widget.dart';
 import 'project_widget.dart';
 
-class SideProjectExperiencesWidget extends StatefulWidget {
-  const SideProjectExperiencesWidget(
+class OtherProjectExperiencesWidget extends StatefulWidget {
+  const OtherProjectExperiencesWidget(
       {super.key, required this.sideProjectInformations});
   final List<ProjectInformation> sideProjectInformations;
-
+  static const flexs = <int>[3, 4, 1];
   @override
-  State<SideProjectExperiencesWidget> createState() =>
-      _SideProjectExperiencesWidgetState();
+  State<OtherProjectExperiencesWidget> createState() =>
+      _OtherProjectExperiencesWidgetState();
 }
 
-class _SideProjectExperiencesWidgetState
-    extends State<SideProjectExperiencesWidget> {
-  final flexs = <int>[3, 4, 1];
+class _OtherProjectExperiencesWidgetState
+    extends State<OtherProjectExperiencesWidget> {
+  List<int> get flexs => OtherProjectExperiencesWidget.flexs;
   final _sideProjectExperienceAndExpandStates =
       <_SideProjectExperienceAndExpand>[];
 
@@ -40,7 +40,7 @@ class _SideProjectExperiencesWidgetState
   }
 
   @override
-  void didUpdateWidget(covariant SideProjectExperiencesWidget oldWidget) {
+  void didUpdateWidget(covariant OtherProjectExperiencesWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.hashCode != widget.hashCode) {
@@ -64,8 +64,24 @@ class _SideProjectExperiencesWidgetState
             },
             children: [
               ..._sideProjectExperienceAndExpandStates.map(
-                (e) => _sideProjectExperienceWidget(
-                    e.projectInformation, e.isExpand),
+                (e) => ExpansionPanel(
+                  isExpanded: e.isExpand,
+                  canTapOnHeader: true,
+                  headerBuilder: (bc, _) {
+                    return OtherProjectExperiencePanelHeaderWidget(
+                        projectInformation: e.projectInformation);
+                  },
+                  body: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ProjectWidget(
+                          projectInfo: e.projectInformation,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               )
             ],
           ),
@@ -97,6 +113,11 @@ class _SideProjectExperiencesWidgetState
   }
 
   Widget _topHeader() {
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
+      return SizedBox.shrink();
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
@@ -126,66 +147,6 @@ class _SideProjectExperiencesWidgetState
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  ExpansionPanel _sideProjectExperienceWidget(
-      ProjectInformation projectInformation, bool isExapnded) {
-    const mediumTextStyle = TextStyle(
-        fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.w400);
-
-    const largeTextStyle = TextStyle(
-        fontSize: 32.0, color: Colors.black, fontWeight: FontWeight.w500);
-
-    return ExpansionPanel(
-      isExpanded: isExapnded,
-      canTapOnHeader: true,
-      headerBuilder: (bc, _) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[0],
-                child: Center(
-                  child: Text(
-                    projectInformation.projectName,
-                    style: largeTextStyle,
-                  ),
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[1],
-                child: Text(
-                  projectInformation.projectDescription,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[2],
-                child: Text(
-                  projectInformation.projectPeriod,
-                  style: mediumTextStyle,
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ProjectWidget(
-              projectInfo: projectInformation,
-            ),
-          ],
-        ),
       ),
     );
   }

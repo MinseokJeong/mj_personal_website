@@ -7,7 +7,7 @@ import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
-import 'package:mj_portfolio_web/widget/side_project_experience_widget.dart';
+import 'package:mj_portfolio_web/widget/other_project_experience_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_widget.dart';
 import '../model/project_information.dart';
@@ -121,12 +121,8 @@ class _WorkPageState extends State<WorkPage> {
               WorkExperiencesWidget(workExperiences: _workExperiences),
               verticalSpace(60),
               _centerTextWithHorizontalBarWidget('Other / Etc'),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                child: SideProjectExperiencesWidget(
-                    sideProjectInformations: _sideProjectInformation),
-              ),
+              OtherProjectExperiencesWidget(
+                  sideProjectInformations: _sideProjectInformation),
               verticalSpace(30),
               FooterWidget(),
             ],
