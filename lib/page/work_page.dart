@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
+import 'package:mj_portfolio_web/util/screen_type.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_menu_button_widget.dart';
@@ -74,6 +75,8 @@ class _WorkPageState extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
     final windowSize = ScreenSize.getScreenSize(context);
+    final ratio = ScreenTypeUtil.calculateRatioWithContext(context);
+
     return Scaffold(
       backgroundColor: _colorBackground,
       body: SafeArea(
@@ -93,13 +96,14 @@ class _WorkPageState extends State<WorkPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: _colorTextBlack,
-                      fontSize: 88.0,
+                      fontSize: 88.0 * ratio,
                       fontWeight: FontWeight.w700),
                 ),
               ),
               verticalSpace(60),
-              Row(
-                mainAxisSize: MainAxisSize.min,
+              Wrap(
+                //mainAxisSize: MainAxisSize.min,
+                runSpacing: 8,
                 children: [
                   InteractionCommonButtonWidget(
                     text: 'All',
@@ -180,7 +184,7 @@ class _WorkPageState extends State<WorkPage> {
                       'MAIN',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 32,
+                        fontSize: 32 * ratio,
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -201,7 +205,7 @@ class _WorkPageState extends State<WorkPage> {
                       'SIDE / ETC',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 32,
+                        fontSize: 32 * ratio,
                         decoration: TextDecoration.underline,
                       ),
                     ),

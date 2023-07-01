@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (ScreenSize.isNotLargeScreenSize(context)) {}
+    final bool isNotLargeScreenSize = ScreenSize.isNotLargeScreenSize(context);
 
     final screenWidth = ScreenSize.getScreenWidth(context);
     final screenHeight = ScreenSize.getScreenHeight(context);
@@ -50,23 +50,34 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const Align(
-                alignment: Alignment.topCenter,
-                child: TopHeaderWidget(
-                  textColor: Colors.white,
-                )),
+              alignment: Alignment.topCenter,
+              child: TopHeaderWidget(
+                textColor: Colors.white,
+              ),
+            ),
             Align(
-                alignment: const Alignment(-1.0, 0.0),
-                child:
-                    HangerWidget(windowSize: Size(screenWidth, screenHeight))),
-            const Align(
-              alignment: Alignment(0.9, 0.0),
+              alignment: (isNotLargeScreenSize)
+                  ? const Alignment(-0.9, 0.9)
+                  : const Alignment(-1.0, 0.0),
+              child: HangerWidget(
+                windowSize: Size(screenWidth, screenHeight),
+              ),
+            ),
+            Align(
+              alignment: (isNotLargeScreenSize)
+                  ? const Alignment(0.9, 0.9)
+                  : const Alignment(0.9, 0.0),
               child: Text(
                 'Software\nEngineer & Developer',
+                textAlign:
+                    (isNotLargeScreenSize) ? TextAlign.end : TextAlign.start,
                 style: ar.textStyleTopSectionLarge,
               ),
             ),
             Align(
-              alignment: const Alignment(-1.0, 0.9),
+              alignment: (isNotLargeScreenSize)
+                  ? const Alignment(-1.0, 0.6)
+                  : const Alignment(-1.0, 0.9),
               child: HorizontalMovingTextWidget(
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
@@ -79,7 +90,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: const Alignment(0.6, -0.3),
+              alignment: (isNotLargeScreenSize)
+                  ? const Alignment(0.9, 0.7)
+                  : const Alignment(0.6, -0.3),
               child: StreamBuilder<Offset>(
                 stream: _mouseHoverStreamController.stream,
                 builder: (context, snapshot) {

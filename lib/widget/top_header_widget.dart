@@ -11,20 +11,26 @@ class TopHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double leftPadding = 40.0;
+    TextAlign textAlign = TextAlign.center;
 
-    if (ScreenSize.isLargeScreenSize(context)) {
+    var text = '@ Code by MinseokJeong';
+
+    if (ScreenSize.isNotLargeScreenSize(context)) {
       leftPadding = 8.0;
+      textAlign = TextAlign.left;
+      text = "@ Code by Minseok";
     }
 
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
             child: Text(
-              '@ Code by MinseokJeong',
-              textAlign: TextAlign.center,
+              text,
+              textAlign: textAlign,
               style: TextStyle(
                   fontSize: 16.0,
                   color: textColor,

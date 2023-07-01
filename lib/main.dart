@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mj_portfolio_web/util/screen_type.dart';
 import 'page/unknown_page.dart';
 import 'widget/slide_up_page_transition_widget.dart';
 import 'my_web_app.dart';
@@ -19,14 +20,17 @@ final _routes = <String, Widget Function(BuildContext)>{
 
 void main() {
   usePathUrlStrategy();
+
+  ScreenTypeUtil.baseScreenType = ScreenType.laptopLarge;
+
   //ForDebug
-  // return runApp(
-  //   MaterialApp(
-  //     home: AboutPage(),
-  //     theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
-  //     debugShowCheckedModeBanner: false,
-  //   ),
-  // );
+  return runApp(
+    MaterialApp(
+      home: WorkPage(),
+      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
   return runApp(
     MaterialApp(
       //routes: _routes,

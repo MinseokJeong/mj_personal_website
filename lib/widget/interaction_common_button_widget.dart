@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_type.dart';
 
 class InteractionCommonButtonWidget extends StatefulWidget {
   const InteractionCommonButtonWidget({
@@ -29,21 +30,14 @@ class InteractionCommonButtonWidget extends StatefulWidget {
 
 class _InteractionCommonButtonWidgetState
     extends State<InteractionCommonButtonWidget> with TickerProviderStateMixin {
-  @override
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   bool _isMouseHovered = false;
 
   @override
   Widget build(BuildContext context) {
+    double ratio = ScreenTypeUtil.calculateRatioWithContext(context);
+    if (ratio > 1.0) {
+      ratio = 1.0;
+    }
     return MouseRegion(
       onEnter: (event) {
         setState(() {
@@ -68,8 +62,8 @@ class _InteractionCommonButtonWidgetState
               borderRadius: BorderRadius.circular(32.0),
               border: Border.all(color: Colors.grey)),
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 18.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: 32.0 * ratio, vertical: 18.0 * ratio),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -83,7 +77,7 @@ class _InteractionCommonButtonWidgetState
                 ),
                 if (widget.badge != null)
                   Padding(
-                    padding: EdgeInsets.only(bottom: 12),
+                    padding: EdgeInsets.only(bottom: 12 * ratio),
                     child: Text(
                       widget.badge!,
                       style: TextStyle(color: Colors.grey, fontSize: 12),
