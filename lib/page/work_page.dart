@@ -183,6 +183,11 @@ class _WorkPageState extends State<WorkPage> {
   }
 
   Widget _centerTextWithHorizontalBarWidget(String text) {
+    final ratio = ScreenTypeExtension.calculateRatioWithContext(context);
+    double fontSize = 32.0 * ratio;
+    if (fontSize < 14.0) {
+      fontSize = 14.0;
+    }
     return Row(
       children: [
         Flexible(
@@ -199,7 +204,7 @@ class _WorkPageState extends State<WorkPage> {
               text,
               style: TextStyle(
                 color: Colors.grey,
-                fontSize: 32,
+                fontSize: fontSize,
                 fontWeight: FontWeight.w400,
               ),
             ),
