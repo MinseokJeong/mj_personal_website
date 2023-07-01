@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget.dart';
 import '../app_design_resources.dart' as ar;
@@ -24,7 +25,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final windowSize = MediaQuery.of(context).size;
+    if (ScreenSize.isNotLargeScreenSize(context)) {}
+
+    final screenWidth = ScreenSize.getScreenWidth(context);
+    final screenHeight = ScreenSize.getScreenHeight(context);
+
     return MouseRegion(
       onHover: (event) {
         _mouseHoverStreamController.add(event.position);
@@ -39,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                 clipBehavior: Clip.hardEdge,
                 child: Image.asset(
                   'assets/mj_image.png',
-                  height: windowSize.height * 1.0,
+                  height: screenHeight * 1.0,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -51,7 +56,8 @@ class _HomePageState extends State<HomePage> {
                 )),
             Align(
                 alignment: const Alignment(-1.0, 0.0),
-                child: HangerWidget(windowSize: windowSize)),
+                child:
+                    HangerWidget(windowSize: Size(screenWidth, screenHeight))),
             const Align(
               alignment: Alignment(0.9, 0.0),
               child: Text(
@@ -65,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
                   color: Colors.white,
-                  fontSize: windowSize.width * 0.18,
+                  fontSize: screenWidth * 0.18,
                   fontFamily: ar.FontName.NotoSansKorean.name,
                 ),
                 speed: 22000,

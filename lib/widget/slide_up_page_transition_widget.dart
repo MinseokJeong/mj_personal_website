@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 
 class SlideUpPageTransitionWidget extends StatefulWidget {
   const SlideUpPageTransitionWidget({required this.title, Key? key})
@@ -114,7 +115,7 @@ class _SlideUpPageTransitionWidgetState
   Widget build(BuildContext context) {
     _screenSlideUpAnimationController.forward();
 
-    final windowSize = MediaQuery.of(context).size;
+    final windowSize = ScreenSize.getScreenSize(context);
     const circularBoxHeight = 300.0;
 
     _screenSlideUpAnimation = TweenSequence([

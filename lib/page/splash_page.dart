@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../app_design_resources.dart' show FontName;
+import '../util/screen_size.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -86,7 +87,15 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       _aniContrl.forward();
     });
 
-    final windowSize = MediaQuery.of(context).size;
+    final windowSize = ScreenSize.getScreenSize(context);
+
+    double fontSizeLarge = 96.0;
+    double fontSizeSmall = 32.0;
+
+    if (ScreenSize.isNotLargeScreenSize(context)) {
+      fontSizeLarge /= 3.0;
+      fontSizeSmall /= 3.0;
+    }
 
     return Visibility(
       visible: _visibility,
@@ -147,7 +156,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       final font =
                           _helloTextsInDifferentLanguageTextAndFontMap[text];
                       final baseTextStyle = TextStyle(
-                          fontSize: 96.0,
+                          fontSize: fontSizeLarge,
                           color: Colors.white,
                           fontFamily: font);
                       final color1 = HexColor('#DADAAA');
@@ -159,21 +168,21 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         TextSpan(
                           text: 'print',
                           style: baseTextStyle.copyWith(
-                            fontSize: 32.0,
+                            fontSize: fontSizeSmall,
                             color: color1,
                           ),
                           children: [
                             TextSpan(
                               text: '(',
                               style: baseTextStyle.copyWith(
-                                fontSize: 32.0,
+                                fontSize: fontSizeSmall,
                                 color: color2,
                               ),
                             ),
                             TextSpan(
                               text: "'",
                               style: baseTextStyle.copyWith(
-                                fontSize: 32.0,
+                                fontSize: fontSizeSmall,
                                 color: color3,
                               ),
                             ),
@@ -186,21 +195,21 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                             TextSpan(
                               text: "'",
                               style: baseTextStyle.copyWith(
-                                fontSize: 32.0,
+                                fontSize: fontSizeSmall,
                                 color: color3,
                               ),
                             ),
                             TextSpan(
                               text: ')',
                               style: baseTextStyle.copyWith(
-                                fontSize: 32.0,
+                                fontSize: fontSizeSmall,
                                 color: color2,
                               ),
                             ),
                             TextSpan(
                               text: ';',
                               style: baseTextStyle.copyWith(
-                                fontSize: 32.0,
+                                fontSize: fontSizeSmall,
                                 color: color4,
                               ),
                             ),
@@ -208,13 +217,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         ),
                       );
                       return textToDisplay;
-                      // return Text(
-                      //   '"${text}"',
-                      //   style: TextStyle(
-                      //       fontSize: 96.0,
-                      //       color: Colors.white,
-                      //       fontFamily: font),
-                      // );
                     },
                   ),
                 ),

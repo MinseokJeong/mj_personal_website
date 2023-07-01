@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
 
@@ -9,12 +10,18 @@ class TopHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double leftPadding = 40.0;
+
+    if (ScreenSize.isLargeScreenSize(context)) {
+      leftPadding = 8.0;
+    }
+
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 40.0),
+            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
             child: Text(
               '@ Code by MinseokJeong',
               textAlign: TextAlign.center,

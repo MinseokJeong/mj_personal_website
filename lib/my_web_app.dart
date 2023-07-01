@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'page/splash_page.dart';
 import 'page/home_page.dart';
 
@@ -9,7 +10,8 @@ class MyWebApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _scrollController = ScrollController();
-    final windowSize = MediaQuery.of(context).size;
+    final screenWidth = ScreenSize.getScreenWidth(context);
+    final screenHeight = ScreenSize.getScreenHeight(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -18,8 +20,8 @@ class MyWebApp extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                width: windowSize.width,
-                height: windowSize.height,
+                width: screenWidth,
+                height: screenHeight,
                 child: const HomePage(),
               ),
             ],
@@ -28,8 +30,8 @@ class MyWebApp extends StatelessWidget {
             visible:
                 true, //TODO: DEBUG PURPOSE, IN RELEASE MODE REMOVE Visibility widget
             child: SizedBox(
-              width: windowSize.width,
-              height: windowSize.height,
+              width: screenWidth,
+              height: screenHeight,
               child: const SplashPage(),
             ),
           ),
