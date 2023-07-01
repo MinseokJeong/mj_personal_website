@@ -15,7 +15,8 @@ class TopHeaderWidget extends StatelessWidget {
 
     var text = '@ Code by MinseokJeong';
 
-    if (ScreenSize.isNotLargeScreenSize(context)) {
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
       leftPadding = 8.0;
       textAlign = TextAlign.left;
       text = "@ Code by Minseok";

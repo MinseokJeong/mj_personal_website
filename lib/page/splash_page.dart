@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/model/enum_screen_type.dart';
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import '../app_design_resources.dart' show FontName;
 import '../util/screen_size.dart';
 
@@ -92,7 +94,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     double fontSizeLarge = 96.0;
     double fontSizeSmall = 32.0;
 
-    if (ScreenSize.isNotLargeScreenSize(context)) {
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
       fontSizeLarge /= 3.0;
       fontSizeSmall /= 3.0;
     }

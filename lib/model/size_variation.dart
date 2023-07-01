@@ -8,11 +8,11 @@ class SizeVariation {
   double whenTypeMobileSmall;
 
   SizeVariation(
-      this.whenType4K,
-      this.whenTypeLaptopLarge,
-      this.whenTypeLaptop,
-      this.whenTypeTablet,
-      this.whenTypeMobileLarge,
-      this.whenTypeMobileMedium,
-      this.whenTypeMobileSmall);
+      {required this.whenType4K,
+      required this.whenTypeLaptopLarge,
+      required this.whenTypeLaptop,
+      required this.whenTypeTablet,
+      required this.whenTypeMobileLarge,
+      required this.whenTypeMobileMedium,
+      required this.whenTypeMobileSmall});
 }

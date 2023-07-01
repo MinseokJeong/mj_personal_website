@@ -13,7 +13,8 @@ class HangerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (ScreenSize.isNotLargeScreenSize(context)) {
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
       return const RotateGlobeWidget(
         width: 36,
         height: 36,

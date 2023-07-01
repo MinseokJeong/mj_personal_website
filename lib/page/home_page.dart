@@ -25,7 +25,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isNotLargeScreenSize = ScreenSize.isNotLargeScreenSize(context);
+    final bool isNotLargeScreenSize = ScreenSize.isLargeScreenSize(context) ||
+        ScreenSize.isLaptopScreenSize(context);
 
     final screenWidth = ScreenSize.getScreenWidth(context);
     final screenHeight = ScreenSize.getScreenHeight(context);

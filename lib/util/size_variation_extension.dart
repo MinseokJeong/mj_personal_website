@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/enum_screen_type.dart';
-import 'package:mj_portfolio_web/screen_type_enum.dart/size_variation.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
+
+import '../model/size_variation.dart';
 
 extension SizeVariationExtension on SizeVariation {
   double getSizeWithScreenType(ScreenType screenType) {

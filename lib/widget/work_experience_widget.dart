@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
-import 'package:mj_portfolio_web/util/screen_type_extension.dart';
-import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
+import 'package:mj_portfolio_web/util/size_variation_extension.dart';
+import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
+import 'package:mj_portfolio_web/widget/work_experience_panel_body_widget.dart';
+import 'package:mj_portfolio_web/widget/work_experience_panel_header_widget.dart';
+
+import '../model/size_variation.dart';
 import 'project_widget.dart';
 
 class WorkExperiencesWidget extends StatefulWidget {
@@ -62,7 +68,16 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
             },
             children: [
               ..._workExperienceAndExpandStates.map(
-                (e) => _workExperienceWidget(e.workExperience, e.isExpand),
+                (e) => ExpansionPanel(
+                  isExpanded: e.isExpand,
+                  canTapOnHeader: true,
+                  headerBuilder: (bc, _) {
+                    return WorkExperiencePanelHeaderWidget(
+                        workExperience: e.workExperience);
+                  },
+                  body: WorkExperiencePanelBodyWidget(
+                      workExperience: e.workExperience),
+                ),
               )
             ],
           ),
@@ -72,10 +87,20 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   }
 
   Widget _topHeaderTextWidget(String text) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 18.0,
+      whenTypeLaptopLarge: 18.0,
+      whenTypeLaptop: 12.0,
+      whenTypeTablet: 12.0,
+      whenTypeMobileLarge: 10.0,
+      whenTypeMobileMedium: 10.0,
+      whenTypeMobileSmall: 10.0,
+    );
+
     return Text(
       text,
       style: TextStyle(
-        fontSize: 18.0,
+        fontSize: fontSizeVariation.getSizeWithContext(context),
         color: Color(0xffAFAFB0),
         fontWeight: FontWeight.w400,
       ),
@@ -94,6 +119,11 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   }
 
   Widget _topHeader() {
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
+      return SizedBox.shrink();
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
@@ -133,120 +163,6 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  ExpansionPanel _workExperienceWidget(
-      WorkExperience workExperience, bool isExapnded) {
-    final ratio = ScreenTypeExtension.calculateRatioWithContext(context);
-    final mediumTextStyle = TextStyle(
-        fontSize: 20.0 * ratio,
-        color: Colors.black,
-        fontWeight: FontWeight.w400);
-
-    final largeTextStyle = TextStyle(
-        fontSize: 32.0 * ratio,
-        color: Colors.black,
-        fontWeight: FontWeight.w500);
-
-    return ExpansionPanel(
-      isExpanded: isExapnded,
-      canTapOnHeader: true,
-      headerBuilder: (bc, _) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[0],
-                child: Center(
-                  child: Text(
-                    workExperience.companyName,
-                    style: largeTextStyle,
-                  ),
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[1],
-                child: Text(
-                  workExperience.location,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[2],
-                child: Text(
-                  workExperience.rank,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[3],
-                child: Text(
-                  workExperience.mainRole,
-                  style: mediumTextStyle,
-                ),
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                flex: flexs[4],
-                child: Text(
-                  workExperience.workPeriod,
-                  style: mediumTextStyle,
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 64.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (workExperience.aboutCompany.isNotEmpty) ...[
-                    _greySmallTextWidget('About Company'),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        workExperience.aboutCompany,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          // fontWeight: FontWeight.w100,
-                          // fontFamily: 'NotoSansKorean',
-                        ),
-                      ),
-                    ),
-                  ],
-                  if (workExperience.companyWebsite.isNotEmpty) ...[
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    _greySmallTextWidget('URL'),
-                    UrlLinkButtonWidget(
-                        url: workExperience.companyWebsite,
-                        text: workExperience.companyName)
-                  ],
-                ],
-              ),
-            ),
-            ...workExperience.projects.map(
-              (e) => ProjectWidget(projectInfo: e),
-            )
-          ],
-        ),
       ),
     );
   }
