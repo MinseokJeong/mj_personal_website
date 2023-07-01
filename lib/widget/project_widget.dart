@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 
 import '../model/project_information.dart';
+import '../model/size_variation.dart';
 import 'tag_widget.dart';
 import 'url_link_button_widget.dart';
 
@@ -40,8 +42,8 @@ class ProjectWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    smallTextWidget('Project Name'),
-                    largeTextWidget(projectName),
+                    _smallTextWidget('Project Name', context),
+                    _largeTextWidget(projectName, context),
                   ],
                 ),
               ),
@@ -52,52 +54,52 @@ class ProjectWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  smallTextWidget('Description'),
-                  mediumTextWidget(projectDescription),
+                  _smallTextWidget('Description', context),
+                  _mediumTextWidget(projectDescription, context),
                   if (projectPeriod.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Period'),
-                    mediumTextWidget(projectPeriod),
+                    _smallTextWidget('Period', context),
+                    _mediumTextWidget(projectPeriod, context),
                   ],
                   if (projectMembers.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Member'),
-                    mediumTextWidget(projectMembers!),
+                    _smallTextWidget('Member', context),
+                    _mediumTextWidget(projectMembers!, context),
                   ],
                   if (contributionrate.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Contribution'),
-                    mediumTextWidget(contributionrate),
+                    _smallTextWidget('Contribution', context),
+                    _mediumTextWidget(contributionrate, context),
                   ],
                   if (detailedWorks.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Work Detail'),
+                    _smallTextWidget('Work Detail', context),
                     ...detailedWorks.map(
-                      (e) => mediumTextWidget(e),
+                      (e) => _mediumTextWidget(e, context),
                     ),
                   ],
                   if (results.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Achievement'),
+                    _smallTextWidget('Achievement', context),
                     ...results.map(
-                      (e) => mediumTextWidget(e),
+                      (e) => _mediumTextWidget(e, context),
                     ),
                   ],
                   if (urls.isNotEmpty) ...[
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('URL'),
+                    _smallTextWidget('URL', context),
                     Wrap(
                       children: [
                         ...urls.map(
@@ -110,7 +112,7 @@ class ProjectWidget extends StatelessWidget {
                     const SizedBox(
                       height: 12.0,
                     ),
-                    smallTextWidget('Keyword'),
+                    _smallTextWidget('Keyword', context),
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 8.0,
@@ -131,45 +133,71 @@ class ProjectWidget extends StatelessWidget {
     );
   }
 
-  Widget smallTextWidget(String text) {
+  Widget _largeTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 26.0,
+      whenTypeLaptopLarge: 26.0,
+      whenTypeLaptop: 20.0,
+      whenTypeTablet: 20.0,
+      whenTypeMobileLarge: 16.0,
+      whenTypeMobileMedium: 16.0,
+      whenTypeMobileSmall: 16.0,
+    );
+
+    final textStyle = TextStyle(
+      fontSize: fontSizeVariation.getSizeWithContext(context),
+      color: Colors.black,
+      fontWeight: FontWeight.w500,
+    );
+
     return Text(
       text,
-      textAlign: TextAlign.start,
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 14.0,
-        fontWeight: FontWeight.w300,
-      ),
+      style: textStyle,
     );
   }
 
-  Widget mediumTextWidget(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: Text(
-        text,
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
+  Widget _mediumTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 20.0,
+      whenTypeLaptopLarge: 20.0,
+      whenTypeLaptop: 18.0,
+      whenTypeTablet: 18.0,
+      whenTypeMobileLarge: 14.0,
+      whenTypeMobileMedium: 14.0,
+      whenTypeMobileSmall: 14.0,
+    );
+
+    final textStyle = TextStyle(
+      fontSize: fontSizeVariation.getSizeWithContext(context),
+      color: Colors.black,
+      fontWeight: FontWeight.w400,
+    );
+
+    return Text(
+      text,
+      style: textStyle,
     );
   }
 
-  Widget largeTextWidget(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: Text(
-        text,
-        textAlign: TextAlign.start,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 26.0,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
+  Widget _smallTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 14.0,
+      whenTypeLaptopLarge: 14.0,
+      whenTypeLaptop: 14.0,
+      whenTypeTablet: 14.0,
+      whenTypeMobileLarge: 10.0,
+      whenTypeMobileMedium: 10.0,
+      whenTypeMobileSmall: 10.0,
+    );
+
+    final textStyle = TextStyle(
+      fontSize: fontSizeVariation.getSizeWithContext(context),
+      color: Colors.grey,
+      fontWeight: FontWeight.w300,
+    );
+    return Text(
+      text,
+      style: textStyle,
     );
   }
 }
