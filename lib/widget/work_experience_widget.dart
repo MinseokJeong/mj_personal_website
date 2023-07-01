@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
 
 import 'project_widget.dart';
@@ -45,6 +46,8 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double ratio = ScreenTypeExtension.calculateRatioWithContext(context);
+
     return Container(
       color: Colors.white,
       child: Column(
@@ -136,11 +139,16 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
 
   ExpansionPanel _workExperienceWidget(
       WorkExperience workExperience, bool isExapnded) {
-    const mediumTextStyle = TextStyle(
-        fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.w400);
+    final ratio = ScreenTypeExtension.calculateRatioWithContext(context);
+    final mediumTextStyle = TextStyle(
+        fontSize: 20.0 * ratio,
+        color: Colors.black,
+        fontWeight: FontWeight.w400);
 
-    const largeTextStyle = TextStyle(
-        fontSize: 32.0, color: Colors.black, fontWeight: FontWeight.w500);
+    final largeTextStyle = TextStyle(
+        fontSize: 32.0 * ratio,
+        color: Colors.black,
+        fontWeight: FontWeight.w500);
 
     return ExpansionPanel(
       isExpanded: isExapnded,

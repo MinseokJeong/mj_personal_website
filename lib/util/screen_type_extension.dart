@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum ScreenType {
-  fourK, //2560
-  laptopLarge, //1440
-  laptop, //1024
-  tablet, //768
-  mobileLarge, //425
-  mobileMedium, //375
-  mobileSmall //320
-}
+import '../model/enum_screen_type.dart';
 
-extension ScreenTypeUtil on ScreenType {
+extension ScreenTypeExtension on ScreenType {
   static ScreenType? baseScreenType;
 
   double get width {

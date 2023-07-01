@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:mj_portfolio_web/util/screen_type.dart';
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 
 class InteractionCommonButtonWidget extends StatefulWidget {
   const InteractionCommonButtonWidget({
@@ -34,7 +34,7 @@ class _InteractionCommonButtonWidgetState
 
   @override
   Widget build(BuildContext context) {
-    double ratio = ScreenTypeUtil.calculateRatioWithContext(context);
+    double ratio = ScreenTypeExtension.calculateRatioWithContext(context);
     if (ratio > 1.0) {
       ratio = 1.0;
     }

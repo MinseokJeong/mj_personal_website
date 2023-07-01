@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
-import 'package:mj_portfolio_web/util/screen_type.dart';
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_menu_button_widget.dart';
@@ -75,7 +75,7 @@ class _WorkPageState extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
     final windowSize = ScreenSize.getScreenSize(context);
-    final ratio = ScreenTypeUtil.calculateRatioWithContext(context);
+    final ratio = ScreenTypeExtension.calculateRatioWithContext(context);
 
     return Scaffold(
       backgroundColor: _colorBackground,
@@ -176,7 +176,7 @@ class _WorkPageState extends State<WorkPage> {
               ),
               verticalSpace(60),
               Padding(
-                padding: const EdgeInsets.only(left: 32.0),
+                padding: EdgeInsets.only(left: 32.0 * ratio),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -192,7 +192,7 @@ class _WorkPageState extends State<WorkPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                padding: EdgeInsets.symmetric(horizontal: 32.0 * ratio),
                 child: WorkExperiencesWidget(workExperiences: _workExperiences),
               ),
               verticalSpace(60),
