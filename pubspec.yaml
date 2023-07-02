@@ -65,14 +65,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:    
+    - assets/mj_image.jpg    
     - assets/resume_info.json
-    - assets/mj_image.png
     - assets/github_icon.svg
     - assets/instagram_icon.svg
     - assets/minseokjeong_rotate_text.svg
     - assets/gmail_icon.svg
     - assets/blogspot_icon.svg
-    - assets/mj_circle_avatar.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -92,14 +91,14 @@ flutter:
       fonts:
         - asset: fonts/Noto_Sans/NotoSans-Regular.ttf     
           weight: 400     
-        - asset: fonts/Noto_Sans/NotoSans-Bold.ttf
-          weight: 700     
+        # - asset: fonts/Noto_Sans/NotoSans-Bold.ttf
+        #   weight: 700     
     - family: NotoSansJapanese
       fonts:
         - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Regular.ttf
           weight: 400
-        - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Bold.ttf
-          weight: 700
+        # - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Bold.ttf
+        #   weight: 700
     - family: NotoSansKorean
       fonts:
         - asset: fonts/Noto_Sans_KR/NotoSansKR-Light.otf
@@ -110,12 +109,12 @@ flutter:
           weight: 500
         - asset: fonts/Noto_Sans_KR/NotoSansKR-Bold.otf
           weight: 700
-    - family: NanumSquareNeo
-      fonts:
-        - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Rg.otf
-          weight: 400
-        - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Bd.otf
-          weight: 700
+    # - family: NanumSquareNeo
+    #   fonts:
+    #     - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Rg.otf
+    #       weight: 400
+    #     - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Bd.otf
+    #       weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:

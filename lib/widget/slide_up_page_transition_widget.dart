@@ -47,9 +47,18 @@ class _SlideUpPageTransitionWidgetState
     super.dispose();
   }
 
-  Widget _getTextWidget() {
-    const baseTextStyle = TextStyle(
-      fontSize: 96.0,
+  Widget _getTextWidget(BuildContext context) {
+    double fontSizeLarge = 96.0;
+    double fontSizeSmall = 32.0;
+
+    if (ScreenSize.isTabletScreenSize(context) ||
+        ScreenSize.isMobileScreenSize(context)) {
+      fontSizeLarge /= 3.0;
+      fontSizeSmall /= 3.0;
+    }
+
+    final baseTextStyle = TextStyle(
+      fontSize: fontSizeLarge,
       color: Colors.white,
     );
     final color1 = HexColor('#DADAAA');
@@ -61,21 +70,21 @@ class _SlideUpPageTransitionWidgetState
       TextSpan(
         text: 'print',
         style: baseTextStyle.copyWith(
-          fontSize: 32.0,
+          fontSize: fontSizeSmall,
           color: color1,
         ),
         children: [
           TextSpan(
             text: '(',
             style: baseTextStyle.copyWith(
-              fontSize: 32.0,
+              fontSize: fontSizeSmall,
               color: color2,
             ),
           ),
           TextSpan(
             text: "'",
             style: baseTextStyle.copyWith(
-              fontSize: 32.0,
+              fontSize: fontSizeSmall,
               color: color3,
             ),
           ),
@@ -88,21 +97,21 @@ class _SlideUpPageTransitionWidgetState
           TextSpan(
             text: "'",
             style: baseTextStyle.copyWith(
-              fontSize: 32.0,
+              fontSize: fontSizeSmall,
               color: color3,
             ),
           ),
           TextSpan(
             text: ')',
             style: baseTextStyle.copyWith(
-              fontSize: 32.0,
+              fontSize: fontSizeSmall,
               color: color2,
             ),
           ),
           TextSpan(
             text: ';',
             style: baseTextStyle.copyWith(
-              fontSize: 32.0,
+              fontSize: fontSizeSmall,
               color: color4,
             ),
           ),
@@ -199,7 +208,7 @@ class _SlideUpPageTransitionWidgetState
                 height: windowSize.height,
                 color: Colors.black,
                 child: Center(
-                  child: _getTextWidget(),
+                  child: _getTextWidget(context),
                 ),
               ),
             ),

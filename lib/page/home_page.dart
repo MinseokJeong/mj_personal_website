@@ -25,8 +25,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isNotLargeScreenSize = ScreenSize.isLargeScreenSize(context) ||
-        ScreenSize.isLaptopScreenSize(context);
+    final bool isSmallScreenSize = !(ScreenSize.isLargeScreenSize(context) ||
+        ScreenSize.isLaptopScreenSize(context));
 
     final screenWidth = ScreenSize.getScreenWidth(context);
     final screenHeight = ScreenSize.getScreenHeight(context);
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
               child: UnconstrainedBox(
                 clipBehavior: Clip.hardEdge,
                 child: Image.asset(
-                  'assets/mj_image.png',
+                  'assets/mj_image.jpg',
                   height: screenHeight * 1.0,
                   fit: BoxFit.fitHeight,
                 ),
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: (isNotLargeScreenSize)
+              alignment: (isSmallScreenSize)
                   ? const Alignment(-0.9, 0.9)
                   : const Alignment(-1.0, 0.0),
               child: HangerWidget(
@@ -65,18 +65,18 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: (isNotLargeScreenSize)
+              alignment: (isSmallScreenSize)
                   ? const Alignment(0.9, 0.9)
                   : const Alignment(0.9, 0.0),
               child: Text(
                 'Software\nEngineer & Developer',
                 textAlign:
-                    (isNotLargeScreenSize) ? TextAlign.end : TextAlign.start,
+                    (isSmallScreenSize) ? TextAlign.end : TextAlign.start,
                 style: ar.textStyleTopSectionLarge,
               ),
             ),
             Align(
-              alignment: (isNotLargeScreenSize)
+              alignment: (isSmallScreenSize)
                   ? const Alignment(-1.0, 0.6)
                   : const Alignment(-1.0, 0.9),
               child: HorizontalMovingTextWidget(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: (isNotLargeScreenSize)
+              alignment: (isSmallScreenSize)
                   ? const Alignment(0.9, 0.7)
                   : const Alignment(0.6, -0.3),
               child: StreamBuilder<Offset>(
