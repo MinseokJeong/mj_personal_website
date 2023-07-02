@@ -24,9 +24,32 @@ class _AboutPageState extends State<AboutPage>
   StreamController<Offset> _mousePointerPositionStreamController =
       StreamController();
 
+  final _backgroundColor = HexColor("#1C1D20");
+
+  //Below is resume related resource
+  String _eamilAddress = '';
+  String _githubUrl = '';
+  String _instagramUrl = '';
+  String _blogSpotUrl = '';
+  String _phoneNumber = '';
+  String _developerTitle = '';
+  String _developerCategory = '';
   List<String> _whatIsGoodDeveloper = [];
 
-  final _backgroundColor = HexColor("#1C1D20");
+  //Skillset related... I think it woulbe better??
+  List<String> _skillSetProgrammingLanguage = [];
+  List<String> _skillSetFrontEndSkill = [];
+  List<String> _skillSetFrontIDE = [];
+  List<String> _skillSetEmbeddedSkill = [];
+  List<String> _skillSetEmbeddedIDE = [];
+  List<String> _skillSetBackendSkill = [];
+  List<String> _skillSetBackendWebServer = [];
+  List<String> _skillSetBackendIDE = [];
+  List<String> _skillSetToolingDevops = [];
+  List<String> _skillSetEnvironment = [];
+  List<String> _skillSetDbRelational = [];
+  List<String> _skillSetDbNoSql = [];
+  List<String> _skillSetEtc = [];
 
   @override
   void initState() {
@@ -56,8 +79,15 @@ class _AboutPageState extends State<AboutPage>
     final introduction = resumeInfoJson['introduction'] as Map<String, dynamic>;
     final fullNameHangeul = introduction['fullNameHangeul'] as String;
     final mobile = introduction['mobile'];
+    final email = introduction['email'];
+    final website = introduction['website'];
+    final blogspot = introduction['blogspot'];
+    final instagram = introduction['instagram'];
+    final github = introduction['github'];
+
     final whatIsGoodDeveloper =
         List<String>.from(introduction['whatIsGoodDeveloper']);
+
     setState(() {
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
     });
