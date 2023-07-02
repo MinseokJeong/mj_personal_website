@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
@@ -67,9 +68,9 @@ class _WorkPageState extends State<WorkPage> {
   }
 
   Future<void> _loadWorkExperience() async {
-    final resumeJsonString =
-        await rootBundle.loadString('assets/resume_info.json', cache: false);
-    final resumeJson = jsonDecode(resumeJsonString) as Map<String, dynamic>;
+    final resumeInfoManger = ResumeInfoManager.getInstance();
+    final resumeJson = await resumeInfoManger.getResumeJson();
+
     final workExperiencesJson = resumeJson['workExperiences'] as List<dynamic>;
     final sideProjectsJson = resumeJson['sideProjects'] as List<dynamic>;
 
