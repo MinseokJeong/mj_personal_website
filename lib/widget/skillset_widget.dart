@@ -130,8 +130,6 @@ class _SkillSetWidgetState extends State<SkillSetWidget>
                         angle: e.rotation,
                         child: TagWidget(
                           tag: e.text,
-                          textColor: Colors.black,
-                          backgroundColor: Colors.white,
                         )),
                   ),
                 ),

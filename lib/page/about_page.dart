@@ -10,6 +10,7 @@ import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class _AboutPageState extends State<AboutPage>
   List<String> _skillSetDbNoSql = [];
   List<String> _skillSetEtc = [];
 
-  List<String> _skillSetsMerge = [];
+  Set<String> _skillSetsMerge = {};
 
   @override
   void initState() {
@@ -81,20 +82,70 @@ class _AboutPageState extends State<AboutPage>
     final resumeInfoJson = await resumeInfoManager.getResumeJson();
     final introduction = resumeInfoJson['introduction'] as Map<String, dynamic>;
     final fullNameHangeul = introduction['fullNameHangeul'] as String;
-    final mobile = introduction['mobile'];
-    final email = introduction['email'];
-    final website = introduction['website'];
-    final blogspot = introduction['blogspot'];
-    final instagram = introduction['instagram'];
-    final github = introduction['github'];
+    final mobile = introduction['mobile'] as String;
+    final email = introduction['email'] as String;
+    final website = introduction['website'] as String;
+    final blogspot = introduction['blogspot'] as String;
+    final instagram = introduction['instagram'] as String;
+    final github = introduction['github'] as String;
+    final devTitle = introduction['developerTitle'] as String;
+    final devCategory = introduction['developerCategory'] as String;
 
     final whatIsGoodDeveloper =
         List<String>.from(introduction['whatIsGoodDeveloper']);
 
+    final skillSets = resumeInfoJson['skillSet'] as Map<String, dynamic>;
+    final programmingLanguages =
+        List<String>.from(skillSets['Programming Languages']);
+
+    final frontEnd = skillSets['Front-End'] as Map<String, dynamic>;
+    final frontEndSkill = List<String>.from(frontEnd['Skill']);
+    final frontEndIde = List<String>.from(frontEnd['IDE']);
+
+    final embedded = skillSets['Embedded System'] as Map<String, dynamic>;
+    final embeddedSkill = List<String>.from(embedded['Skill']);
+    final embeddedIde = List<String>.from(embedded['IDE']);
+
+    final backend = skillSets['Back-End'] as Map<String, dynamic>;
+    final backendSkill = List<String>.from(backend['Skill']);
+    final backendIde = List<String>.from(backend['IDE']);
+    final backendWebserver = List<String>.from(backend['WebServer']);
+
+    final toolingDevOps = List<String>.from(skillSets['Tooling / DevOps']);
+    final environment = List<String>.from(skillSets['Environment']);
+
+    final db = skillSets['DB'] as Map<String, dynamic>;
+    final dbRelational = List<String>.from(db['Relational Database']);
+    final dbNoSql = List<String>.from(db['NoSQL']);
+
+    final etc = List<String>.from(skillSets['ETC']);
+
     setState(() {
+      _eamilAddress = email;
+      _githubUrl = github;
+      _instagramUrl = instagram;
+      _blogSpotUrl = blogspot;
+      _phoneNumber = mobile;
+      _developerTitle = devTitle;
+      _developerCategory = devCategory;
+
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
-      _skillSetsMerge = [
+      _skillSetProgrammingLanguage = programmingLanguages;
+      _skillSetFrontEndSkill = frontEndSkill;
+      _skillSetFrontIDE = frontEndIde;
+      _skillSetEmbeddedSkill = embeddedSkill;
+      _skillSetEmbeddedIDE = embeddedIde;
+      _skillSetBackendSkill = backendSkill;
+      _skillSetBackendWebServer = backendWebserver;
+      _skillSetBackendIDE = backendIde;
+      _skillSetToolingDevops = toolingDevOps;
+      _skillSetEnvironment = environment;
+      _skillSetDbRelational = dbRelational;
+      _skillSetDbNoSql = dbNoSql;
+      _skillSetEtc = etc;
+
+      _skillSetsMerge = {
         ..._skillSetProgrammingLanguage,
         ..._skillSetFrontEndSkill,
         ..._skillSetFrontIDE,
@@ -108,7 +159,7 @@ class _AboutPageState extends State<AboutPage>
         ..._skillSetDbRelational,
         ..._skillSetDbNoSql,
         ..._skillSetEtc,
-      ];
+      };
     });
   }
 
@@ -150,16 +201,16 @@ class _AboutPageState extends State<AboutPage>
                 ),
               ),
               _getMousePointerEffectWidget(),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  color: Colors.red,
-                  width: 1000,
-                  height: 500,
-                  child: SkillSetWidget(
-                      skills: [for (int i = 0; i < 50; ++i) '${i.toString()}']),
-                ),
-              )
+              if (_skillSetsMerge.isNotEmpty)
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    color: Colors.white,
+                    width: 1000,
+                    height: 500,
+                    child: SkillSetWidget(skills: _skillSetsMerge.toList()),
+                  ),
+                )
             ],
           ),
         ),
@@ -611,36 +662,6 @@ class _AboutPageState extends State<AboutPage>
             ],
           ),
         ),
-        // SizedBox(
-        //   height: 30.0,
-        // ),
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text: "국가/인종/나이와 상관없이 두루두루  ",
-        //         style: greyTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: "원만한 인간관계",
-        //         style: whiteTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: "를 가지고 있습니다.",
-        //         style: greyTextStyle,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // ...texts.map(
-        //   (e) => Padding(
-        //     padding: const EdgeInsets.only(top: 30.0),
-        //     child: Text(
-        //       e,
-        //       style: TextStyle(color: Colors.grey, fontSize: 20, height: 1.4),
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
@@ -699,7 +720,11 @@ class _AboutPageState extends State<AboutPage>
         Row(
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_githubUrl.isNotEmpty) {
+                  launchUrlString(_githubUrl);
+                }
+              },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
@@ -715,7 +740,11 @@ class _AboutPageState extends State<AboutPage>
               width: 16,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_githubUrl.isNotEmpty) {
+                  launchUrlString(_instagramUrl);
+                }
+              },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
@@ -731,7 +760,11 @@ class _AboutPageState extends State<AboutPage>
               width: 16,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_eamilAddress.isNotEmpty) {
+                  launchUrlString('mailto:${_eamilAddress}');
+                }
+              },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
@@ -746,7 +779,11 @@ class _AboutPageState extends State<AboutPage>
               width: 16,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_phoneNumber.isNotEmpty) {
+                  launchUrlString('tel:${_phoneNumber}');
+                }
+              },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
@@ -761,7 +798,11 @@ class _AboutPageState extends State<AboutPage>
               width: 16,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_blogSpotUrl.isNotEmpty) {
+                  launchUrlString(_blogSpotUrl);
+                }
+              },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
