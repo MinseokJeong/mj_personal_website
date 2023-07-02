@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
+import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -51,6 +52,8 @@ class _AboutPageState extends State<AboutPage>
   List<String> _skillSetDbNoSql = [];
   List<String> _skillSetEtc = [];
 
+  List<String> _skillSetsMerge = [];
+
   @override
   void initState() {
     super.initState();
@@ -90,6 +93,22 @@ class _AboutPageState extends State<AboutPage>
 
     setState(() {
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
+
+      _skillSetsMerge = [
+        ..._skillSetProgrammingLanguage,
+        ..._skillSetFrontEndSkill,
+        ..._skillSetFrontIDE,
+        ..._skillSetEmbeddedSkill,
+        ..._skillSetEmbeddedIDE,
+        ..._skillSetBackendSkill,
+        ..._skillSetBackendWebServer,
+        ..._skillSetBackendIDE,
+        ..._skillSetToolingDevops,
+        ..._skillSetEnvironment,
+        ..._skillSetDbRelational,
+        ..._skillSetDbNoSql,
+        ..._skillSetEtc,
+      ];
     });
   }
 
@@ -131,6 +150,16 @@ class _AboutPageState extends State<AboutPage>
                 ),
               ),
               _getMousePointerEffectWidget(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  color: Colors.red,
+                  width: 1000,
+                  height: 500,
+                  child: SkillSetWidget(
+                      skills: [for (int i = 0; i < 50; ++i) '${i.toString()}']),
+                ),
+              )
             ],
           ),
         ),

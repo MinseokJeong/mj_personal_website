@@ -49,4 +49,5 @@ app.*.map.json
 
 #ignore this file
 who_am_i.txt
+**/resume_info.json
 

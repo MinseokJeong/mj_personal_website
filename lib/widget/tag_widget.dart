@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class TagWidget extends StatelessWidget {
-  const TagWidget({
-    super.key,
-    required this.tag,
-  });
+  TagWidget(
+      {super.key, required this.tag, this.textColor, this.backgroundColor});
   final String tag;
+  Color? textColor;
+  Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: backgroundColor ?? Colors.black,
         borderRadius: BorderRadius.circular(8.0),
       ),
       padding: EdgeInsets.all(8.0),
@@ -20,7 +20,7 @@ class TagWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: 14.0,
           fontWeight: FontWeight.normal,
-          color: Colors.white,
+          color: textColor ?? Colors.white,
         ),
       ),
     );
