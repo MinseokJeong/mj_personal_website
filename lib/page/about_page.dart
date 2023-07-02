@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
@@ -96,6 +97,7 @@ class _AboutPageState extends State<AboutPage>
         child: Container(
           width: double.infinity,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const TopHeaderWidget(
                 textColor: Colors.white,
@@ -103,85 +105,11 @@ class _AboutPageState extends State<AboutPage>
               SizedBox(
                 height: 120,
               ),
-              Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            width: 500.0,
-                            child: _getProfileWidget(),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            width: 500.0,
-                            child: _getAboutMeDetailWidget(),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: AnimatedBuilder(
-                      animation: _pictureRotateAniamtion,
-                      builder: (bc, child) {
-                        return Transform.rotate(
-                          angle: _pictureRotateAniamtion.value,
-                          child: child,
-                        );
-                      },
-                      child: SvgPicture.asset(
-                        'assets/minseokjeong_rotate_text.svg',
-                        width: 500,
-                        height: 500,
-                        color: Color.fromARGB(15, 255, 255, 255),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              _getProfileAndAboutMeDetailWidget(),
               SizedBox(
                 height: 32.0,
               ),
-              SizedBox(
-                height: 80,
-                width: 1000,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "'좋은 개발자' : ",
-                      style: TextStyle(fontSize: 24, color: Colors.grey),
-                    ),
-                    Expanded(
-                      child: AnimatedTextKit(
-                        repeatForever: true,
-                        animatedTexts: [
-                          ..._whoAmITexts.map(
-                            (e) => RotateAnimatedText(e.header,
-                                duration: Duration(seconds: 2),
-                                textStyle: TextStyle(
-                                    fontSize: 24.0, color: Colors.grey)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Text(
-                      '',
-                      style: TextStyle(fontSize: 24, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
+              _getAnimatedGooDeveloperWidget(),
               SizedBox(
                 height: 30,
               ),
@@ -193,6 +121,162 @@ class _AboutPageState extends State<AboutPage>
         ),
       ),
     );
+  }
+
+  Widget _getAnimatedGooDeveloperWidget() {
+    if (ScreenSize.isMobileScreenSize(context)) {
+      return SizedBox(
+        height: 180,
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "'좋은 개발자' : ",
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              ),
+              AnimatedTextKit(
+                repeatForever: true,
+                animatedTexts: [
+                  ..._whoAmITexts.map(
+                    (e) => RotateAnimatedText(e.header,
+                        rotateOut: true,
+                        duration: Duration(milliseconds: 2000),
+                        transitionHeight: 20.0 * 10.0 / 3.0 * 2,
+                        textStyle:
+                            TextStyle(fontSize: 20.0, color: Colors.white)),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return SizedBox(
+        height: 160,
+        width: 1024,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              Text(
+                "'좋은 개발자' : ",
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              ),
+              Expanded(
+                child: AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    ..._whoAmITexts.map(
+                      (e) => RotateAnimatedText(e.header,
+                          rotateOut: true,
+                          duration: Duration(milliseconds: 2000),
+                          transitionHeight: 20.0 * 10.0 / 3.0 * 2,
+                          textStyle:
+                              TextStyle(fontSize: 20.0, color: Colors.white)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+  }
+
+  Widget _getProfileAndAboutMeDetailWidget() {
+    if (ScreenSize.isMobileScreenSize(context)) {
+      return Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: _getProfileWidget(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: _getAboutMeDetailWidget(),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: AnimatedBuilder(
+              animation: _pictureRotateAniamtion,
+              builder: (bc, child) {
+                return Transform.rotate(
+                  angle: _pictureRotateAniamtion.value,
+                  child: child,
+                );
+              },
+              child: SvgPicture.asset(
+                'assets/minseokjeong_rotate_text.svg',
+                width: 500,
+                height: 500,
+                color: Color.fromARGB(15, 255, 255, 255),
+              ),
+            ),
+          ),
+        ],
+      );
+    } else {
+      return Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 1024,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: _getProfileWidget(),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: _getAboutMeDetailWidget(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: AnimatedBuilder(
+              animation: _pictureRotateAniamtion,
+              builder: (bc, child) {
+                return Transform.rotate(
+                  angle: _pictureRotateAniamtion.value,
+                  child: child,
+                );
+              },
+              child: SvgPicture.asset(
+                'assets/minseokjeong_rotate_text.svg',
+                width: 500,
+                height: 500,
+                color: Color.fromARGB(15, 255, 255, 255),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
   }
 
   Widget _getActShowProveWidget() {
@@ -244,29 +328,6 @@ class _AboutPageState extends State<AboutPage>
           style: largeTextStyle,
         ),
       ],
-    );
-  }
-
-  Widget _getAdamSmithQuoteWidget() {
-    return Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(
-              text: "\"To be good, and to do good, is all we have to do.\"",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 28.0,
-                fontWeight: FontWeight.w500,
-              )),
-          TextSpan(
-              text: " - John Adams",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 28.0,
-                fontWeight: FontWeight.w500,
-              )),
-        ],
-      ),
     );
   }
 
@@ -639,57 +700,6 @@ class _AboutPageState extends State<AboutPage>
           ],
         ),
       ],
-    );
-  }
-
-  Container _describeItemWidget(int leftNumber, String header, String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 30.0),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        border: Border(
-          top: BorderSide(color: HexColor('#494A4D'), width: 1.0),
-        ),
-      ),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  leftNumber.toString(),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(color: HexColor('#494A4D'), fontSize: 14.0),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 9,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                header,
-                style: const TextStyle(color: Colors.white, fontSize: 24.0),
-              ),
-              Text(
-                text,
-                style: TextStyle(color: HexColor('#494A4D'), fontSize: 18.0),
-              ),
-            ],
-          ),
-        ),
-      ]),
     );
   }
 }
