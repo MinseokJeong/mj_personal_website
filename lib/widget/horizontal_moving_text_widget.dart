@@ -106,13 +106,9 @@ class _HorizontalMovingTextWidgetState extends State<HorizontalMovingTextWidget>
   }
 
   @override
-  void didUpdateWidget(covariant HorizontalMovingTextWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   Widget build(BuildContext context) {
     _prepareResources();
+
     return AnimatedBuilder(
         animation: _textOffsetAnimation,
         builder: (context, child) {
@@ -133,28 +129,51 @@ class _HorizontalMovingTextWidgetState extends State<HorizontalMovingTextWidget>
                 currentValue.dy);
           }
 
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Transform.translate(
-                offset: firstTextOffset,
-                child: Text(
-                  _textToRender,
-                  style: widget.textStyle,
-                  softWrap: false,
-                  overflow: TextOverflow.visible,
+          return Container(
+            //color: Colors.red,
+            child: Row(
+              children: [
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    // Column(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: [
+                    //     for (int i = 0; i < 5; ++i) ...[
+                    //       Container(
+                    //           height: _calculatedLineMetrics.height / 10.0,
+                    //           width: _calculatedLineMetrics.width,
+                    //           color: Colors.yellow.withAlpha(200)),
+                    //       Container(
+                    //           height: _calculatedLineMetrics.height / 10.0,
+                    //           width: _calculatedLineMetrics.width,
+                    //           color: Colors.black.withAlpha(200)),
+                    //     ]
+                    //   ],
+                    // ),
+
+                    Transform.translate(
+                      offset: firstTextOffset,
+                      child: Text(
+                        _textToRender,
+                        style: widget.textStyle,
+                        softWrap: false,
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
+                    Transform.translate(
+                      offset: secondTextOffset,
+                      child: Text(
+                        _textToRender,
+                        style: widget.textStyle,
+                        softWrap: false,
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              Transform.translate(
-                offset: secondTextOffset,
-                child: Text(
-                  _textToRender,
-                  style: widget.textStyle,
-                  softWrap: false,
-                  overflow: TextOverflow.visible,
-                ),
-              ),
-            ],
+              ],
+            ),
           );
         });
   }

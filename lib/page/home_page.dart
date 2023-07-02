@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
+import 'package:mj_portfolio_web/util/size_variation_extension.dart';
+import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget.dart';
 import '../app_design_resources.dart' as ar;
@@ -30,6 +32,16 @@ class _HomePageState extends State<HomePage> {
 
     final screenWidth = ScreenSize.getScreenWidth(context);
     final screenHeight = ScreenSize.getScreenHeight(context);
+
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 240,
+      whenTypeLaptopLarge: 240,
+      whenTypeLaptop: 240,
+      whenTypeTablet: 180,
+      whenTypeMobileLarge: 120.0,
+      whenTypeMobileMedium: 120.0,
+      whenTypeMobileSmall: 120.0,
+    );
 
     return MouseRegion(
       onHover: (event) {
@@ -83,7 +95,8 @@ class _HomePageState extends State<HomePage> {
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
                   color: Colors.white,
-                  fontSize: screenWidth * 0.18,
+                  fontSize: fontSizeVariation.getSizeWithContext(context),
+                  height: 1.0,
                   fontFamily: ar.FontName.NotoSansKorean.name,
                 ),
                 speed: 22000,
