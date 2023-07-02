@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
+import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
 import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
@@ -165,6 +166,9 @@ class _AboutPageState extends State<AboutPage>
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = ScreenSize.getScreenSize(context);
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
     return Scaffold(
       backgroundColor: _backgroundColor,
       body: SingleChildScrollView(
@@ -189,11 +193,21 @@ class _AboutPageState extends State<AboutPage>
                     SizedBox(
                       height: 32.0,
                     ),
-                    _getGoodDeveloperExpandedPanelWidget(),
-                    //_getAnimatedGooDeveloperWidget(),
+                    //_getGoodDeveloperExpandedPanelWidget(),
                     SizedBox(
                       height: 30,
                     ),
+                    if (_skillSetsMerge.isNotEmpty)
+                      SizedBox(
+                        width: double.infinity,
+                        height: screenHeight / 2.0 * 0.7,
+                        child: SkillSetWidget(skills: _skillSetsMerge.toList()),
+                      ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    GoodDeveloperWidget(
+                        whatIsGoodDeveloper: _whatIsGoodDeveloper),
                     FooterWidget(
                       highlightColor: Colors.white,
                     ),
@@ -201,16 +215,6 @@ class _AboutPageState extends State<AboutPage>
                 ),
               ),
               _getMousePointerEffectWidget(),
-              if (_skillSetsMerge.isNotEmpty)
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    color: Colors.white,
-                    width: 1000,
-                    height: 500,
-                    child: SkillSetWidget(skills: _skillSetsMerge.toList()),
-                  ),
-                )
             ],
           ),
         ),

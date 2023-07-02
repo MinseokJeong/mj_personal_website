@@ -25,13 +25,13 @@ void main() {
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
   //ForDebug
-  return runApp(
-    MaterialApp(
-      home: AboutPage(),
-      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
+  // return runApp(
+  //   MaterialApp(
+  //     home: AboutPage(),
+  //     theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+  //     debugShowCheckedModeBanner: false,
+  //   ),
+  // );
   return runApp(
     MaterialApp(
       //routes: _routes,

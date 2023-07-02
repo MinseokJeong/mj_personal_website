@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/widget/tag_widget.dart';
 
 class SkillSetWidget extends StatefulWidget {
-  SkillSetWidget({super.key, required this.skills});
-  List<String> skills;
+  const SkillSetWidget({super.key, required this.skills});
+  final List<String> skills;
 
   @override
   State<SkillSetWidget> createState() => _SkillSetWidgetState();
@@ -32,16 +32,16 @@ class _SkillSetWidgetState extends State<SkillSetWidget>
     _animationController.repeat();
 
     randomNumberGenerator = Random(DateTime.now().millisecondsSinceEpoch);
-    _setMovingTextModels();
+    //_setMovingTextModels();
   }
 
   @override
   void didUpdateWidget(covariant SkillSetWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (this.hashCode != oldWidget.hashCode) {
-      _setMovingTextModels();
-    }
+    // if (this.hashCode != oldWidget.hashCode) {
+    //   _setMovingTextModels();
+    // }
   }
 
   @override
@@ -52,14 +52,14 @@ class _SkillSetWidgetState extends State<SkillSetWidget>
   }
 
   void _setMovingTextModels() {
-    final defaultWidth = 1000.0;
-    final defaultHeight = 500.0;
+    final defaultWidth = widthBoundary;
+    final defaultHeight = heightBoundary;
     _movingTextModels = widget.skills
         .map(
           (e) => _MovingTextModel(
               e,
               Offset(randomNumberGenerator.nextDouble() * defaultWidth,
-                  randomNumberGenerator.nextDouble() * defaultWidth),
+                  randomNumberGenerator.nextDouble() * defaultHeight),
               randomNumberGenerator.nextDouble() * pi * 2.0,
               randomNumberGenerator.nextDouble() * pi * 2.0),
         )
@@ -112,6 +112,7 @@ class _SkillSetWidgetState extends State<SkillSetWidget>
     return LayoutBuilder(builder: (bc, constraints) {
       widthBoundary = constraints.constrainWidth();
       heightBoundary = constraints.constrainHeight();
+      _setMovingTextModels();
       return AnimatedBuilder(
           animation: _animationController,
           builder: (bc, _) {
@@ -127,10 +128,13 @@ class _SkillSetWidgetState extends State<SkillSetWidget>
                     left: e.translation.dx,
                     top: e.translation.dy,
                     child: Transform.rotate(
-                        angle: e.rotation,
-                        child: TagWidget(
-                          tag: e.text,
-                        )),
+                      angle: e.rotation,
+                      child: TagWidget(
+                        tag: e.text,
+                        textColor: Colors.white38,
+                        backgroundColor: Colors.black38,
+                      ),
+                    ),
                   ),
                 ),
               ]),
