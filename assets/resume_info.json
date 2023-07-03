@@ -1,0 +1,525 @@
+{
+    "introduction": {
+        "fullNameHangeul": "정민석",
+        "fullNameEnglish": "Minseok Jeong",
+        "developerTitle": "Software Engineer & Developer",
+        "developerCategory": "모바일 / 웹 / 데스크탑 / 임베디드 / 펌웨어 개발자",
+        "jobPosition": "Flutter Developer",
+        "birthDay": "1992.02.29",
+        "email": "minseok.jeong92@gmail.com",
+        "website": "https://www.minseokjeong.com/",
+        "github": "https://github.com/MinseokJeong/",
+        "instagram": "https://www.instagram.com/mj_minseok/",
+        "blogspot": "https://jeongminseok.blogspot.com/",
+        "mobile": "+82-10-2957-0229",
+        "address": "세종특별시 고운동",
+        "__comment1": "AboutMe에 들어가는 정보 작업은 추후 아래 데이터를 전부 만들고나서 작업하기로 함",
+        "motto": [
+            "Don't talk just ACT, Don't say just SHOW, Don't promise Just PROVE.",
+            "To be good, and to do good, is all we have to do. - John Adams"
+        ],
+        "aboutMe": [
+            "2016년 Android 개발자로 처음 개발을 시작하여, Windows 데스크탑, Android/iOS, Embedded System/Firmware 개발경험이 있습니다."
+        ],
+        
+        "whatIsGoodDeveloper": [
+            "리더, 동료들과 의견을 맞추고 개인의 목표를 조직 목표와 정렬시킵니다.",
+            "업무 목표와 과제에 몰입하고, 목표 달성을 위해 최선을 다합니다.",
+            "우리 개발 조직의 상황과 맥락을 이해하고 조직의 약속을 잘 따릅니다.",
+            "업무의 중요도에 따라 우선순위를 선정하고 순서에 맞게 처리합니다.",
+            "결과물이 목표와 구현 의도에 부합하는지 항상 점검하고, 다양한 대안을 고민합니다.",
+            "주어진 업무에 안주하지 않고 자신의 역할과 책임 범위를 확장합니다.",
+            "동료와 선배 개발자의 피드백을 긍정적으로 수용하여 더 좋은 결과를 만듭니다.",
+            "함께 일하는 동료들과의 분위기를 긍정적으로 만들고 사기를 높입니다.",
+            "동료들과 어려움을 함께 고민하고, 조언과 도움을 주고 받습니다.",
+            "동료들과 노하우를 공유하고 동료의 성장을 돕습니다.",
+            "문제의 원인을 파악하고 해결방안을 도출하는 능력이 매우 뛰어납니다.",
+            "자신의 성과와 행동을 객관적으로 회고하고, 나아지기 위해 노력합니다.",
+            "결과물의 품질을 높이기 위해 다양한 기술에 관심을 가지고 연구합니다.",
+            "새로운 기술을 습득하는 능력이 뛰어납니다.",
+            "다양한 기술을 목적에 맞게 사용하여 업무의 효율성을 높입니다.",
+            "동료들에게 기술적인 도움을 제공하여 팀 전체의 효율성을 높입니다.",
+            "비슷한 경력의 개발자들 중에서도 효율적으로 많은 양의 업무를 처리합니다.",
+            "업무 난이도와 상관없이 기대 이상의 결과물을 만들어 냅니다.",
+            "개발 결과물로 다양한 동료(개발/기획/디자인/QA)에게 인정 받습니다.",
+            "개발자로서 닮고 싶고, 배우고 싶은 마음이 드는 동료입니다."
+        ]
+    },
+    "skillSet": {
+        "Programming Languages": [
+            "Dart",
+            "C++",
+            "C",
+            "C#",
+            "Java",
+            "Swift",
+            "Python",
+            "Javascript"
+        ],
+        "Front-End": {
+            "Skill": [
+                "Flutter",
+                "MFC",
+                "Android",
+                "iOS",
+                "Winform",
+                "Unity",
+                "DirectX",
+                "OpenGL"
+            ],
+            "IDE": [
+                "Visual Studio Code",
+                "Visual Studio",
+                "Android Studio",
+                "Xcode",
+                "Unity"
+            ]
+        },
+        "Embedded System": {
+            "Skill": [
+                "Zynq Ultra Scale+ MPSoC",
+                "Arm Cortex-M4 based MCU",
+                "Single Board Computer(Curtiss-Wright)"
+            ],
+            "IDE": [
+                "Vitis(Xilinx)",
+                "Code Composer Studio(Texas Instruments)",
+                "Wind River Workbench"
+            ]
+        },
+        "Back-End": {
+            "Skill": [
+                "Dart(shelf)",
+                "FastAPI(Python)",
+                "TCP/IP Socket(C)"
+            ],
+            "WebServer": [
+                "Nginx"
+            ],
+            "IDE": [
+                "Visual Studio Code",
+                "Visual Studio"
+            ]
+        },
+        "Tooling / DevOps": [
+            "Docker",
+            "Git",
+            "Github"
+        ],
+        "Environment": [
+            "Windows",
+            "MacOS",
+            "Linux",
+            "AWS"
+        ],
+        "DB": {
+            "Relational Database": [
+                "MariaDB",
+                "SQLite",
+                "MySQL",
+                "PostgreSQL"
+            ],
+            "NoSQL": [
+                "MongoDB",
+                "Redis"
+            ]
+        },
+        "ETC": [
+            "Slack",
+            "Asana",
+            "Trello",
+            "Notion",
+            "Figma",
+            "Adobe XD"
+        ]
+    },
+    "__comment__": "잘보면 aboutCompany 쪽도 간략하게 수정할 필요가 있지 않을까? 방위산업체 기업, 3D 스캔닝 솔루션 기업, 이런식으로 한마디로 정의하는, 그런 것으로 대체할 필요가 있다고 생각함.",
+    "workExperiences": [
+        {
+            "company": "땡떙 코리아",
+            "website": "https://www.google.co.kr/",
+            "lengthOfService": "2022.01 ~ 2022.12",
+            "location": "서울",
+            "rank": "사원",
+            "mainRole": "백엔드 개발",
+            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "projects": [
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }                
+            ]
+        },
+        {
+            "company": "땡떙 코리아",
+            "website": "https://www.google.co.kr/",
+            "lengthOfService": "2022.01 ~ 2022.12",
+            "location": "서울",
+            "rank": "사원",
+            "mainRole": "백엔드 개발",
+            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "projects": [
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }                
+            ]
+        },
+        {
+            "company": "땡떙 코리아",
+            "website": "https://www.google.co.kr/",
+            "lengthOfService": "2022.01 ~ 2022.12",
+            "location": "서울",
+            "rank": "사원",
+            "mainRole": "백엔드 개발",
+            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "projects": [
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }                
+            ]
+        }
+    ],
+    "sideProjects": [
+        {
+            "projectName": "개인용 웹사이트 개발",
+            "projectDescription": "Flutter를 이용하여 개인 웹사이트 개발",
+            "period": "2023.04 ~ 2023.06",
+            "keywords": [
+                "Dart",
+                "Flutter",
+                "Visual Studio Code"
+            ],
+            "members": "소프트웨어 1",
+            "contribution": "100%",
+            "workDetail": [
+                "Vercel을 이용하여 웹사이트 배포 및 도메인 등록"
+            ],
+            "results": [],
+            "__comments__": "포트폴리오 웹사이트 개발 완료후 링크를 아래에다가 등록해야지, 도메인도 등록 필수",
+            "links": []
+        },
+        {
+            "projectName": "차트봄(CHART BOM)",
+            "projectDescription": "금, 석유, 환율 관련 데이터를 보여주는 웹사이트 개발 프로젝트",
+            "period": "2023.04 ~ 2023.06",
+            "keywords": [
+                "Dart",
+                "Flutter",
+                "Visual Studio Code",
+                "Dart Shelf",
+                "MongoDB",
+                "Docker",
+                "Nginx",
+                "AWS",
+                "Vercel"
+            ],
+            "members": "소프트웨어 1",
+            "contribution": "100%",
+            "workDetail": [
+                "Dart 언어로만으로 서비스 구축 프로젝트",
+                "Flutter로 웹사이트 프론트엔드 개발",
+                "Dart Shelf 패키지를 활용하여 백엔드 서버 개발",
+                "Dart 콘솔 프로젝트로 데이터 크로울링 프로그램 개발",
+                "Flutter Web 개발환경에서 Lightweight Charts(JS 라이브러리)를 이용하여 차트전시 기능 개발",
+                "Vercel을 이용하여 Flutter Web 배포",
+                "AWS EC2 서비스를 이용하여 백엔드 서버 구축"
+            ],
+            "results": [
+                "구글 플레이스토어에 앱 배포"
+            ],
+            "links": []
+        },
+        {
+            "projectName": "타임테일(TIME TAIL)",
+            "projectDescription": "여정 기록 모바일 어플리케이션 개발 프로젝트",
+            "period": "2023.01 ~ 2023.06",
+            "keywords": [
+                "Dart",
+                "Flutter",
+                "Visual Studio Code"
+            ],
+            "members": "소프트웨어 1, 디자이너 2",
+            "contribution": "100%",
+            "workDetail": [
+                "Riverpod과 GetIt 패키지를 활용하여 상태관리",
+                "Firestore Database 를 이용하여 DB 구축(Firebase)",
+                "Firebase Storage를 활용하여 이미지 저장소 구축",
+                "구글지도를 활용하여 지도화면 구현",
+                " - 지도 커스터마이징",
+                " - 지도위 마커 표시 및 폴리라인으로 경로 표시",
+                "백그라운드 동작으로 위치정보 저장 기능 구현"
+            ],
+            "results": [
+                "구글 플레이스토어에 앱 배포"
+            ],
+            "links": []
+        },
+        {
+            "projectName": "코인봄(COINBOM)",
+            "projectDescription": "가상화폐 코인 관련 매수/매도 지표를 보여주는 모바일 앱 개발 프로젝트",
+            "period": "2021.04 ~ 2021.06",
+            "keywords": [
+                "Dart",
+                "Flutter",
+                "Visual Studio Code"
+            ],
+            "members": "소프트웨어 1, 디자이너 1",
+            "contribution": "100%",
+            "workDetail": [
+                "안드로이드 모바일 앱 개발(Flutter for Android)",
+                "Upbit, Bithumb, Binance 거래소별 가격 및 RSI(Relative Strength Index)지표 통합 비교 기능 개발",
+                "모의투자 기능 개발",
+                "코인별 김치 프리미엄 비교 기능 개발",
+                "코인봄 웹버전 프로토타입 개발(Flutter for Web)",
+                "GetX 패키지를 이용하여 상태관리",
+                "isolate를 이용하여 퍼포먼스 개선"
+            ],
+            "results": [
+                "구글 플레이스토어에 앱 배포",
+                "배포 한달 안에 다운로드 수 100명 도달"
+            ],
+            "links": [
+                {
+                    "text": "코인봄 안드로이드 앱",
+                    "url": "https://play.google.com/store/apps/details?id=com.heybom.coinbom"
+                }
+            ]
+        },
+        {
+            "projectName": "파일럿 상태측정",
+            "projectDescription": "공군 파일럿 임무투여 전 상태 측정 앱개발 프로젝트",
+            "period": "2015.12 ~ 2016.02",
+            "keywords": [
+                "Android Studio",
+                "Java"
+            ],
+            "members": "소프트웨어 3",
+            "contribution": "30%",
+            "workDetail": [
+                "대학 인턴쉽 프로그램으로 당시 SCWORK 라는 기업에서 인턴 생활을 하며 진행한 프로젝트",
+                "Android 앱 개발",
+                "심박센서를 사용하여 상태 측정 알고리즘 부분 개발"
+            ],
+            "results": [],
+            "links": []
+        }
+    ]
+}
