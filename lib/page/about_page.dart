@@ -191,34 +191,35 @@ class _AboutPageState extends State<AboutPage>
           SizedBox(
             height: 32.0,
           ),
-          SkillSetWidget(
-            skills: [
-              ('Programming Language', [..._skillSetProgrammingLanguage]),
-              ('Front-End', [..._skillSetFrontend]),
-              ('Embedded System/Firmware', [..._skillSetEmbedded]),
-              ('Back-End', [..._skillSetBackend]),
-              ('Tooling / DevOps', [..._skillSetToolingDevops]),
-              ('Environment', [..._skillSetEnvironment]),
-              ('DB', [..._skillSetDB]),
-              ('ETC', [..._skillSetEtc]),
-            ],
+          SizedBox(
+            width: 1300,
+            child: Stack(
+              children: [
+                SkillSetWidget(
+                  skills: [
+                    ('Programming Language', [..._skillSetProgrammingLanguage]),
+                    ('Front-end', [..._skillSetFrontend]),
+                    ('Embedded / Firmware', [..._skillSetEmbedded]),
+                    ('Back-end', [..._skillSetBackend]),
+                    ('Tooling / DevOps', [..._skillSetToolingDevops]),
+                    ('Environment', [..._skillSetEnvironment]),
+                    ('DB', [..._skillSetDB]),
+                    ('ETC', [..._skillSetEtc]),
+                  ],
+                ),
+                if (_skillSetsMerge.isNotEmpty)
+                  SizedBox(
+                    width: 1300,
+                    height: screenHeight * 1.5,
+                    child:
+                        MovingAroundTagsWidget(tags: _skillSetsMerge.toList()),
+                  ),
+              ],
+            ),
           ),
           //_getGoodDeveloperExpandedPanelWidget(),
-          SizedBox(
-            height: 30,
-          ),
           //TODO: Should uncomment this
-          /*
-          if (_skillSetsMerge.isNotEmpty)
-            SizedBox(
-              width: double.infinity,
-              height: screenHeight / 2.0 * 0.7,
-              child: MovingAroundTagsWidget(tags: _skillSetsMerge.toList()),
-            ),
-          */
-          SizedBox(
-            height: 30,
-          ),
+
           GoodDeveloperWidget(whatIsGoodDeveloper: _whatIsGoodDeveloper),
           SizedBox(
             height: 160,
@@ -380,7 +381,7 @@ class _AboutPageState extends State<AboutPage>
           Align(
             alignment: Alignment.center,
             child: SizedBox(
-              width: 1024,
+              width: 1300,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,

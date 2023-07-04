@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                   height: 1.0,
                   fontFamily: ar.FontName.NotoSansKorean.name,
                 ),
-                speed: 80000,
+                speed: 140000,
                 direction: MovingTextDirection2.moving_left,
               ),
             ),

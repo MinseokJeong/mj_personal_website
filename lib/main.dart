@@ -25,7 +25,7 @@ void main() {
 
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
-  bool developmentMode = true;
+  bool developmentMode = false;
 
   if (developmentMode) {
     return runApp(

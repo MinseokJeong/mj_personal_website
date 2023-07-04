@@ -40,7 +40,7 @@ class GoodDeveloperWidget extends StatelessWidget {
           Flexible(
             flex: 1,
             fit: FlexFit.tight,
-            child: SizedBox.shrink(),
+            child: SizedBox(),
           ),
           Flexible(
             flex: 8,
@@ -79,12 +79,23 @@ class GoodDeveloperWidget extends StatelessWidget {
           ),
         ],
       );
-    } else {
+    } else if (screenWidth >= ScreenType.tablet.width) {
       return Column(
         children: [
           for (int i = 0; i < whatIsGoodDeveloper.length; ++i)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: _goodDeveloperTextWidget(i + 1, whatIsGoodDeveloper[i]),
+            ),
+        ],
+      );
+    } else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (int i = 0; i < whatIsGoodDeveloper.length; ++i)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
               child: _goodDeveloperTextWidget(i + 1, whatIsGoodDeveloper[i]),
             ),
         ],

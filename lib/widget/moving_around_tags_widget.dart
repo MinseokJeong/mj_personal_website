@@ -142,7 +142,7 @@ class _MovingAroundTagsWidgetState extends State<MovingAroundTagsWidget>
                     backgroundColor: Colors.black38,
                   ),
                 );
-              })
+              }),
             ],
           );
         }
