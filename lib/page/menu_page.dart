@@ -55,7 +55,8 @@ class MenuPage extends StatelessWidget {
             _CustomRowTextButton(
               text: 'Home',
               onPressed: () {
-                Navigator.pushNamed(context, rn.homePage);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, rn.homePage, (_) => false);
               },
             ),
             SizedBox(
@@ -64,7 +65,8 @@ class MenuPage extends StatelessWidget {
             _CustomRowTextButton(
               text: 'Work',
               onPressed: () {
-                Navigator.pushNamed(context, rn.workPage);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, rn.workPage, (_) => false);
               },
             ),
             SizedBox(
@@ -73,7 +75,8 @@ class MenuPage extends StatelessWidget {
             _CustomRowTextButton(
               text: 'About',
               onPressed: () {
-                Navigator.pushNamed(context, rn.aboutPage);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, rn.aboutPage, (_) => false);
               },
             ),
           ],
@@ -119,53 +122,59 @@ class __CustomRowTextButtonState extends State<_CustomRowTextButton>
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor:
-          (hoveredState) ? SystemMouseCursors.click : SystemMouseCursors.basic,
-      onEnter: (event) {
-        setState(() {
-          _animationController.reset();
-          _animationController.forward();
-          hoveredState = true;
-        });
-      },
-      onExit: (event) {
-        setState(() {
-          _animationController.reverse();
-          hoveredState = false;
-        });
-      },
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 12,
-            height: 12,
-            child: AnimatedBuilder(
-              animation: _animationController,
-              builder: (context, child) {
-                return Transform.scale(
-                  scale: _animationController.value,
-                  child: child,
-                );
-              },
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+    return GestureDetector(
+      onTap: widget.onPressed,
+      child: MouseRegion(
+        cursor: (hoveredState)
+            ? SystemMouseCursors.click
+            : SystemMouseCursors.basic,
+        onEnter: (event) {
+          setState(() {
+            _animationController.reset();
+            _animationController.forward();
+            hoveredState = true;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            _animationController.reverse();
+            hoveredState = false;
+          });
+        },
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 12,
+              height: 12,
+              child: AnimatedBuilder(
+                animation: _animationController,
+                builder: (context, child) {
+                  return Transform.scale(
+                    scale: _animationController.value,
+                    child: child,
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.white),
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 16,
-          ),
-          Text(
-            widget.text,
-            style: TextStyle(
-                fontSize: 48, color: Colors.white, fontWeight: FontWeight.w500),
-          )
-        ],
+            SizedBox(
+              width: 16,
+            ),
+            Text(
+              widget.text,
+              style: TextStyle(
+                  fontSize: 48,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500),
+            )
+          ],
+        ),
       ),
     );
   }

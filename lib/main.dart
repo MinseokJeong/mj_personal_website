@@ -25,59 +25,64 @@ void main() {
 
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
+  bool developmentMode = true;
+
+  if (developmentMode) {
+    return runApp(
+      MaterialApp(
+        home: WorkPage(),
+        theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  } else {
+    return runApp(
+      MaterialApp(
+        //routes: _routes,
+        //onGenerateInitialRoutes: ,
+        onGenerateRoute: (settings) {
+          if (settings.name == rn.rootPage) {
+            return MaterialPageRoute(builder: _routes[rn.rootPage]!);
+          } else if (settings.name == rn.aboutPage ||
+              settings.name == rn.workPage ||
+              settings.name == rn.homePage) {
+            return PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return _routes[settings.name!]!(context);
+              },
+              transitionDuration: const Duration(seconds: 1),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return Stack(children: [
+                  AnimatedBuilder(
+                      animation: animation,
+                      builder: (context, child) {
+                        final animationValue = animation.value;
+                        double opacity = 0.0;
+                        if (animationValue >= 1.0) {
+                          opacity = 1.0;
+                        }
+
+                        return Opacity(
+                          opacity: opacity,
+                          child: child,
+                        );
+                      },
+                      child: child),
+                  SlideUpPageTransitionWidget(title: settings.name!),
+                ]);
+              },
+            );
+          }
+          // Unknown route
+          return MaterialPageRoute(builder: (_) => const UnknownPage());
+        },
+        initialRoute: rn.rootPage,
+        theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+
   //ForDebug
-  return runApp(
-    MaterialApp(
-      home: HomePage(),
-      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
-
-  return runApp(
-    MaterialApp(
-      //routes: _routes,
-      //onGenerateInitialRoutes: ,
-      onGenerateRoute: (settings) {
-        if (settings.name == rn.rootPage) {
-          return MaterialPageRoute(builder: _routes[rn.rootPage]!);
-        } else if (settings.name == rn.aboutPage ||
-            settings.name == rn.workPage ||
-            settings.name == rn.homePage) {
-          return PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return _routes[settings.name!]!(context);
-            },
-            transitionDuration: const Duration(seconds: 1),
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return Stack(children: [
-                AnimatedBuilder(
-                    animation: animation,
-                    builder: (context, child) {
-                      final animationValue = animation.value;
-                      double opacity = 0.0;
-                      if (animationValue >= 1.0) {
-                        opacity = 1.0;
-                      }
-
-                      return Opacity(
-                        opacity: opacity,
-                        child: child,
-                      );
-                    },
-                    child: child),
-                SlideUpPageTransitionWidget(title: settings.name!),
-              ]);
-            },
-          );
-        }
-        // Unknown route
-        return MaterialPageRoute(builder: (_) => const UnknownPage());
-      },
-      initialRoute: rn.rootPage,
-      theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
 }

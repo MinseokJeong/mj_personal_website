@@ -3,6 +3,7 @@ import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/page/menu_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
+import 'package:mj_portfolio_web/widget/code_by_minseok_widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
@@ -36,18 +37,11 @@ class TopHeaderWidget extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
-            child: GestureDetector(
-              onTap: () {
+            child: CodeByMinseokWidget(
+              color: textColor,
+              onPressed: () {
                 Navigator.pushNamed(context, rn.rootPage);
               },
-              child: Text(
-                text,
-                textAlign: textAlign,
-                style: TextStyle(
-                    fontSize: 16.0,
-                    color: textColor,
-                    fontWeight: FontWeight.normal),
-              ),
             ),
           ),
           const Spacer(),
@@ -62,7 +56,7 @@ class TopHeaderWidget extends StatelessWidget {
               },
               icon: Icon(
                 Icons.menu,
-                color: Colors.white,
+                color: textColor,
                 size: 20,
               )),
         ],
@@ -90,18 +84,11 @@ class TopHeaderWidget extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
-            child: GestureDetector(
-              onTap: () {
+            child: CodeByMinseokWidget(
+              color: textColor,
+              onPressed: () {
                 Navigator.pushNamed(context, rn.rootPage);
               },
-              child: Text(
-                text,
-                textAlign: textAlign,
-                style: TextStyle(
-                    fontSize: 16.0,
-                    color: textColor,
-                    fontWeight: FontWeight.normal),
-              ),
             ),
           ),
           const Spacer(),
