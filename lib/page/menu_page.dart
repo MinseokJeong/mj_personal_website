@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../model/route_name.dart' as rn;
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -53,21 +54,27 @@ class MenuPage extends StatelessWidget {
             ),
             _CustomRowTextButton(
               text: 'Home',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, rn.homePage);
+              },
             ),
             SizedBox(
               height: 32,
             ),
             _CustomRowTextButton(
               text: 'Work',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, rn.workPage);
+              },
             ),
             SizedBox(
               height: 32,
             ),
             _CustomRowTextButton(
               text: 'About',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, rn.aboutPage);
+              },
             ),
           ],
         ),

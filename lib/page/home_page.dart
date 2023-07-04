@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget.dart';
 import '../app_design_resources.dart' as ar;
+import '../widget/horizontal_moving_text_widget2.dart';
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
 import '../widget/top_header_widget.dart';
 
@@ -91,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               alignment: (isSmallScreenSize)
                   ? const Alignment(-1.0, 0.6)
                   : const Alignment(-1.0, 0.9),
-              child: HorizontalMovingTextWidget(
+              child: HorizontalMovingTextWidget2(
                 text: "Minseok Jeong ",
                 textStyle: TextStyle(
                   color: Colors.white,
@@ -99,8 +101,8 @@ class _HomePageState extends State<HomePage> {
                   height: 1.0,
                   fontFamily: ar.FontName.NotoSansKorean.name,
                 ),
-                speed: 22000,
-                direction: MovingTextDirection.moving_left,
+                speed: 80000,
+                direction: MovingTextDirection2.moving_left,
               ),
             ),
             Align(

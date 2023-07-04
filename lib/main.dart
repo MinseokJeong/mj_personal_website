@@ -28,7 +28,7 @@ void main() {
   //ForDebug
   return runApp(
     MaterialApp(
-      home: AboutPage(),
+      home: HomePage(),
       theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
       debugShowCheckedModeBanner: false,
     ),
