@@ -56,51 +56,38 @@
             "Python",
             "Javascript"
         ],
-        "Front-End": {
-            "Skill": [
-                "Flutter",
-                "MFC",
-                "Android",
-                "iOS",
-                "Winform",
-                "Unity",
-                "DirectX",
-                "OpenGL"
-            ],
-            "IDE": [
-                "Visual Studio Code",
-                "Visual Studio",
-                "Android Studio",
-                "Xcode",
-                "Unity"
-            ]
-        },
-        "Embedded System": {
-            "Skill": [
+        "Front-End": [
+            "Flutter",
+            "MFC",
+            "Android",
+            "iOS",
+            "Winform",
+            "Unity",
+            "DirectX",
+            "OpenGL",
+            "Visual Studio Code",
+            "Visual Studio",
+            "Android Studio",
+            "Xcode",
+            "Unity"
+        ],
+        "Embedded System / Firmware":  [
                 "Zynq Ultra Scale+ MPSoC",
                 "Arm Cortex-M4 based MCU",
-                "Single Board Computer(Curtiss-Wright)"
-            ],
-            "IDE": [
+                "Single Board Computer(Curtiss-Wright)",
                 "Vitis(Xilinx)",
                 "Code Composer Studio(Texas Instruments)",
                 "Wind River Workbench"
-            ]
-        },
-        "Back-End": {
-            "Skill": [
+            ],
+        "Back-End": [
                 "Dart(shelf)",
                 "FastAPI(Python)",
-                "TCP/IP Socket(C)"
-            ],
-            "WebServer": [
-                "Nginx"
-            ],
-            "IDE": [
+                "TCP/IP Socket(C)",
+                "Nginx",
                 "Visual Studio Code",
                 "Visual Studio"
-            ]
-        },
+            ],
+        
         "Tooling / DevOps": [
             "Docker",
             "Git",
@@ -112,18 +99,16 @@
             "Linux",
             "AWS"
         ],
-        "DB": {
-            "Relational Database": [
+        "DB": 
+             [
                 "MariaDB",
                 "SQLite",
                 "MySQL",
-                "PostgreSQL"
-            ],
-            "NoSQL": [
+                "PostgreSQL",
                 "MongoDB",
                 "Redis"
-            ]
-        },
+            ],
+        
         "ETC": [
             "Slack",
             "Asana",

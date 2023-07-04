@@ -1,169 +1,170 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/widget/tag_widget.dart';
 
-class SkillSetWidget extends StatefulWidget {
-  const SkillSetWidget({super.key, required this.skills});
-  final List<String> skills;
-
+class SkillSetWidget extends StatelessWidget {
+  SkillSetWidget({super.key, required this.skills});
+  final _backgroundColor = Color(0xffE9EAEB);
+  List<(String category, List<String> list)> skills;
   @override
-  State<SkillSetWidget> createState() => _SkillSetWidgetState();
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      //color: tra,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 80,
+          ),
+          Text(
+            "Skills",
+            style: TextStyle(color: Colors.white, fontSize: 48),
+          ),
+          SizedBox(
+            height: 80,
+          ),
+          ..._getSkillSetSubSectionWidgets(),
+          SizedBox(
+            height: 160,
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _getSkillSetSubSectionWidgets() {
+    final widgets = <Widget>[];
+
+    for (int i = 0; i < skills.length ~/ 3; i += 1) {
+      widgets.add(Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _SkillSetSubSectionWidget(
+            number: 3 * i + 1,
+            header: skills[3 * i].$1,
+            tags: skills[3 * i].$2,
+          ),
+          _SkillSetSubSectionWidget(
+            number: 3 * i + 2,
+            header: skills[3 * i + 1].$1,
+            tags: skills[3 * i + 1].$2,
+          ),
+          _SkillSetSubSectionWidget(
+            number: 3 * i + 3,
+            header: skills[3 * i + 2].$1,
+            tags: skills[3 * i + 2].$2,
+          ),
+        ],
+      ));
+      widgets.add(SizedBox(
+        height: 60,
+      ));
+    }
+
+    //Code can be reduce by merge below code to above loop.
+    if (skills.length % 3 != 0) {
+      int i = (skills.length / 3).toInt();
+      final firstWidget = (skills.elementAtOrNull(i * 3) != null)
+          ? _SkillSetSubSectionWidget(
+              number: 3 * i + 1,
+              header: skills[3 * i].$1,
+              tags: skills[3 * i].$2,
+            )
+          : Flexible(flex: 1, fit: FlexFit.tight, child: SizedBox.shrink());
+
+      final secondWidget = (skills.elementAtOrNull(i * 3 + 1) != null)
+          ? _SkillSetSubSectionWidget(
+              number: 3 * i + 2,
+              header: skills[3 * i + 1].$1,
+              tags: skills[3 * i + 1].$2,
+            )
+          : Flexible(flex: 1, fit: FlexFit.tight, child: SizedBox.shrink());
+
+      final thirdWidget = (skills.elementAtOrNull(i * 3 + 2) != null)
+          ? _SkillSetSubSectionWidget(
+              number: 3 * i + 3,
+              header: skills[3 * i + 2].$1,
+              tags: skills[3 * i + 2].$2,
+            )
+          : Flexible(flex: 1, fit: FlexFit.tight, child: SizedBox.shrink());
+      widgets.add(Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [firstWidget, secondWidget, thirdWidget],
+      ));
+      widgets.add(SizedBox(
+        height: 60,
+      ));
+    }
+
+    return widgets;
+  }
 }
 
-class _SkillSetWidgetState extends State<SkillSetWidget>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-
-  List<_MovingTextModel> _movingTextModels = [];
-
-  late Random randomNumberGenerator;
-
-  double widthBoundary = 100;
-  double heightBoundary = 100;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(minutes: 1));
-    _animationController.reset();
-    _animationController.repeat();
-
-    randomNumberGenerator = Random(DateTime.now().millisecondsSinceEpoch);
-    //_setMovingTextModels();
-  }
-
-  @override
-  void didUpdateWidget(covariant SkillSetWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    // if (this.hashCode != oldWidget.hashCode) {
-    //   _setMovingTextModels();
-    // }
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-
-    super.dispose();
-  }
-
-  void _setMovingTextModels() {
-    final defaultWidth = widthBoundary;
-    final defaultHeight = heightBoundary;
-    _movingTextModels = widget.skills
-        .map(
-          (e) => _MovingTextModel(
-              e,
-              Offset(randomNumberGenerator.nextDouble() * defaultWidth,
-                  randomNumberGenerator.nextDouble() * defaultHeight),
-              randomNumberGenerator.nextDouble() * pi * 2.0,
-              randomNumberGenerator.nextDouble() * pi * 2.0),
-        )
-        .toList();
-  }
-
-  void _translateMovingText(_MovingTextModel model) {
-    model.translate(_getRandomDeltaOffset(model.azimuth));
-    bool boundaryTouched = false;
-    //left, right boundary check
-    if (model.translation.dx < 0.0) {
-      model.translation = Offset(0.0, model.translation.dy);
-
-      boundaryTouched = true;
-    } else if (model.translation.dx > widthBoundary) {
-      model.translation = Offset(widthBoundary, model.translation.dy);
-      boundaryTouched = true;
-    }
-
-    //top, bototm boundary check
-    if (model.translation.dy < 0.0) {
-      model.translation = Offset(model.translation.dx, 0.0);
-      boundaryTouched = true;
-    } else if (model.translation.dy > heightBoundary) {
-      model.translation = Offset(model.translation.dx, heightBoundary);
-      boundaryTouched = true;
-    }
-
-    if (boundaryTouched) {
-      model.azimuth += pi / 4.0;
-    }
-  }
-
-  Offset _getRandomDeltaOffset(double directionAngle) {
-    final double length = 1.0;
-    double deltaXvalue =
-        length * cos(directionAngle) * randomNumberGenerator.nextDouble() * 1.0;
-    double deltaYvalue =
-        length * sin(directionAngle) * randomNumberGenerator.nextDouble() * 1.0;
-
-    return Offset(deltaXvalue, deltaYvalue);
-  }
-
-  double _getRandomDeltaRotate() {
-    return randomNumberGenerator.nextDouble() * pi / 180.0;
-  }
+class _SkillSetSubSectionWidget extends StatelessWidget {
+  _SkillSetSubSectionWidget(
+      {super.key,
+      required this.number,
+      required this.header,
+      required this.tags});
+  int number;
+  String header;
+  List<String> tags;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (bc, constraints) {
-      widthBoundary = constraints.constrainWidth();
-      heightBoundary = constraints.constrainHeight();
-      _setMovingTextModels();
-      return AnimatedBuilder(
-          animation: _animationController,
-          builder: (bc, _) {
-            for (final movingTextModel in _movingTextModels) {
-              _translateMovingText(movingTextModel);
-              movingTextModel.rotate(_getRandomDeltaRotate());
-            }
+    final textStyle = TextStyle(color: Colors.white);
+    final textStyle2 = TextStyle(color: Colors.grey);
 
-            return Container(
-              child: Stack(clipBehavior: Clip.none, children: [
-                ..._movingTextModels.map(
-                  (e) => Positioned(
-                    left: e.translation.dx,
-                    top: e.translation.dy,
-                    child: Transform.rotate(
-                      angle: e.rotation,
-                      child: TagWidget(
-                        tag: e.text,
-                        textColor: Colors.white38,
-                        backgroundColor: Colors.black38,
-                      ),
-                    ),
-                  ),
-                ),
-              ]),
-            );
-          });
-    });
-  }
-}
-
-class _MovingTextModel {
-  String text;
-  Offset translation;
-  double rotation;
-  double azimuth;
-
-  _MovingTextModel(this.text, this.translation, this.rotation, this.azimuth);
-
-  void translate(Offset deltaOffset) {
-    translation += deltaOffset;
-  }
-
-  void rotate(double deltaRotateRadian) {
-    rotation += deltaRotateRadian;
-  }
-
-  Matrix4 getTransform() {
-    final mat = Matrix4.identity();
-    mat.rotateZ(rotation);
-    mat.translate(translation.dx, translation.dy);
-    return mat;
+    return Flexible(
+      flex: 1,
+      fit: FlexFit.tight,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${number}'.padLeft(2, '0'),
+              style: textStyle2.copyWith(fontSize: 14),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Container(
+              color: Color(0xffCDCED0),
+              height: 1,
+              width: double.infinity,
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            Text(
+              header,
+              style: textStyle.copyWith(fontSize: 32),
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            if (tags.isNotEmpty)
+              Wrap(
+                spacing: 16,
+                runSpacing: 8,
+                children: [
+                  ...tags.map((e) => TagWidget(
+                        tag: e,
+                        fontSize: 14,
+                        textColor: Colors.white,
+                        backgroundColor: Colors.transparent,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 6.0, vertical: 6.0),
+                        borderRadius: 6,
+                        borderColor: Colors.grey,
+                        borderWidth: 2.0,
+                      ))
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
   }
 }

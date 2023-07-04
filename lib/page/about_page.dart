@@ -9,6 +9,7 @@ import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
+import 'package:mj_portfolio_web/widget/moving_around_tags_widget.dart';
 import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
@@ -45,19 +46,13 @@ class _AboutPageState extends State<AboutPage>
 
   //Skillset related... I think it woulbe better??
   List<String> _skillSetProgrammingLanguage = [];
-  List<String> _skillSetFrontEndSkill = [];
-  List<String> _skillSetFrontIDE = [];
-  List<String> _skillSetEmbeddedSkill = [];
-  List<String> _skillSetEmbeddedIDE = [];
-  List<String> _skillSetBackendSkill = [];
-  List<String> _skillSetBackendWebServer = [];
-  List<String> _skillSetBackendIDE = [];
+  List<String> _skillSetFrontend = [];
+  List<String> _skillSetEmbedded = [];
+  List<String> _skillSetBackend = [];
   List<String> _skillSetToolingDevops = [];
   List<String> _skillSetEnvironment = [];
-  List<String> _skillSetDbRelational = [];
-  List<String> _skillSetDbNoSql = [];
+  List<String> _skillSetDB = [];
   List<String> _skillSetEtc = [];
-
   Set<String> _skillSetsMerge = {};
 
   @override
@@ -104,26 +99,12 @@ class _AboutPageState extends State<AboutPage>
     final programmingLanguages =
         List<String>.from(skillSets['Programming Languages']);
 
-    final frontEnd = skillSets['Front-End'] as Map<String, dynamic>;
-    final frontEndSkill = List<String>.from(frontEnd['Skill']);
-    final frontEndIde = List<String>.from(frontEnd['IDE']);
-
-    final embedded = skillSets['Embedded System'] as Map<String, dynamic>;
-    final embeddedSkill = List<String>.from(embedded['Skill']);
-    final embeddedIde = List<String>.from(embedded['IDE']);
-
-    final backend = skillSets['Back-End'] as Map<String, dynamic>;
-    final backendSkill = List<String>.from(backend['Skill']);
-    final backendIde = List<String>.from(backend['IDE']);
-    final backendWebserver = List<String>.from(backend['WebServer']);
-
+    final frontEnd = List<String>.from(skillSets['Front-End']);
+    final embedded = List<String>.from(skillSets['Embedded System / Firmware']);
+    final backend = List<String>.from(skillSets['Back-End']);
     final toolingDevOps = List<String>.from(skillSets['Tooling / DevOps']);
     final environment = List<String>.from(skillSets['Environment']);
-
-    final db = skillSets['DB'] as Map<String, dynamic>;
-    final dbRelational = List<String>.from(db['Relational Database']);
-    final dbNoSql = List<String>.from(db['NoSQL']);
-
+    final db = List<String>.from(skillSets['DB']);
     final etc = List<String>.from(skillSets['ETC']);
 
     setState(() {
@@ -140,32 +121,22 @@ class _AboutPageState extends State<AboutPage>
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
       _skillSetProgrammingLanguage = programmingLanguages;
-      _skillSetFrontEndSkill = frontEndSkill;
-      _skillSetFrontIDE = frontEndIde;
-      _skillSetEmbeddedSkill = embeddedSkill;
-      _skillSetEmbeddedIDE = embeddedIde;
-      _skillSetBackendSkill = backendSkill;
-      _skillSetBackendWebServer = backendWebserver;
-      _skillSetBackendIDE = backendIde;
+      _skillSetFrontend = frontEnd;
+      _skillSetEmbedded = embedded;
+      _skillSetBackend = backend;
       _skillSetToolingDevops = toolingDevOps;
       _skillSetEnvironment = environment;
-      _skillSetDbRelational = dbRelational;
-      _skillSetDbNoSql = dbNoSql;
+      _skillSetDB = db;
       _skillSetEtc = etc;
 
       _skillSetsMerge = {
         ..._skillSetProgrammingLanguage,
-        ..._skillSetFrontEndSkill,
-        ..._skillSetFrontIDE,
-        ..._skillSetEmbeddedSkill,
-        ..._skillSetEmbeddedIDE,
-        ..._skillSetBackendSkill,
-        ..._skillSetBackendWebServer,
-        ..._skillSetBackendIDE,
+        ..._skillSetFrontend,
+        ..._skillSetEmbedded,
+        ..._skillSetBackend,
         ..._skillSetToolingDevops,
         ..._skillSetEnvironment,
-        ..._skillSetDbRelational,
-        ..._skillSetDbNoSql,
+        ..._skillSetDB,
         ..._skillSetEtc,
       };
     });
@@ -212,6 +183,7 @@ class _AboutPageState extends State<AboutPage>
           const TopHeaderWidget(
             textColor: Colors.white,
           ),
+
           SizedBox(
             height: 120,
           ),
@@ -219,20 +191,38 @@ class _AboutPageState extends State<AboutPage>
           SizedBox(
             height: 32.0,
           ),
+          SkillSetWidget(
+            skills: [
+              ('Programming Language', [..._skillSetProgrammingLanguage]),
+              ('Front-End', [..._skillSetFrontend]),
+              ('Embedded System/Firmware', [..._skillSetEmbedded]),
+              ('Back-End', [..._skillSetBackend]),
+              ('Tooling / DevOps', [..._skillSetToolingDevops]),
+              ('Environment', [..._skillSetEnvironment]),
+              ('DB', [..._skillSetDB]),
+              ('ETC', [..._skillSetEtc]),
+            ],
+          ),
           //_getGoodDeveloperExpandedPanelWidget(),
           SizedBox(
             height: 30,
           ),
+          //TODO: Should uncomment this
+          /*
           if (_skillSetsMerge.isNotEmpty)
             SizedBox(
               width: double.infinity,
               height: screenHeight / 2.0 * 0.7,
-              child: SkillSetWidget(skills: _skillSetsMerge.toList()),
+              child: MovingAroundTagsWidget(tags: _skillSetsMerge.toList()),
             ),
+          */
           SizedBox(
             height: 30,
           ),
           GoodDeveloperWidget(whatIsGoodDeveloper: _whatIsGoodDeveloper),
+          SizedBox(
+            height: 160,
+          ),
           FooterWidget(
             highlightColor: Colors.white,
           ),
