@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 
 class InteractionMenuButtonWidget extends StatefulWidget {
   const InteractionMenuButtonWidget(
@@ -23,8 +24,9 @@ class InteractionMenuButtonWidget extends StatefulWidget {
 class _InteractionMenuButtonWidgetState
     extends State<InteractionMenuButtonWidget> with TickerProviderStateMixin {
   late LineMetrics _calculatedLineMetrics;
-  final double _horizontalPadding = 16.0;
-  final double _verticalPadding = 16.0;
+  double _horizontalPadding = 16.0;
+  double _verticalPadding = 16.0;
+  double _fontSize = 16.0;
 
   String get _text => widget.text;
   double get _containerWidth =>
@@ -37,7 +39,11 @@ class _InteractionMenuButtonWidgetState
   late Animation<Offset> _textPositionAnimationWhenMouseEnterAndExit;
 
   TextStyle get _textStyle => TextStyle(
-      color: widget.textColor, fontSize: 16, fontWeight: FontWeight.normal);
+        color: widget.textColor,
+        fontSize: _fontSize,
+        fontWeight: FontWeight.normal,
+        overflow: TextOverflow.visible,
+      );
 
   final _hoverOffsetStreamController = StreamController<Offset>();
 
@@ -77,6 +83,13 @@ class _InteractionMenuButtonWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (ScreenSize.isMobileScreenSize(context)) {
+      _horizontalPadding = 8.0;
+      _verticalPadding = 8.0;
+    } else {
+      _horizontalPadding = 16.0;
+      _verticalPadding = 16.0;
+    }
     return MouseRegion(
       onEnter: (event) {
         final localPosition = event.localPosition;
@@ -146,6 +159,7 @@ class _InteractionMenuButtonWidgetState
                         child: Text(
                           _text,
                           style: _textStyle,
+                          softWrap: false,
                         ),
                       ),
                     ),
@@ -170,6 +184,7 @@ class _InteractionMenuButtonWidgetState
                         child: Text(
                           _text,
                           style: _textStyle,
+                          softWrap: false,
                         ),
                       ),
                     ),
