@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
+import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
 import 'package:mj_portfolio_web/widget/skillset_widget.dart';
@@ -25,7 +27,7 @@ class _AboutPageState extends State<AboutPage>
   late Animation<double> _pictureRotateAniamtion;
 
   StreamController<Offset> _mousePointerPositionStreamController =
-      StreamController();
+      StreamController<Offset>.broadcast();
 
   final _backgroundColor = HexColor("#1C1D20");
 
@@ -37,6 +39,8 @@ class _AboutPageState extends State<AboutPage>
   String _phoneNumber = '';
   String _developerTitle = '';
   String _developerCategory = '';
+  String _fullNameHangeul = '';
+  String _fullNameEnglish = '';
   List<String> _whatIsGoodDeveloper = [];
 
   //Skillset related... I think it woulbe better??
@@ -83,6 +87,7 @@ class _AboutPageState extends State<AboutPage>
     final resumeInfoJson = await resumeInfoManager.getResumeJson();
     final introduction = resumeInfoJson['introduction'] as Map<String, dynamic>;
     final fullNameHangeul = introduction['fullNameHangeul'] as String;
+    final fullNameEnglish = introduction['fullNameEnglish'] as String;
     final mobile = introduction['mobile'] as String;
     final email = introduction['email'] as String;
     final website = introduction['website'] as String;
@@ -129,6 +134,8 @@ class _AboutPageState extends State<AboutPage>
       _phoneNumber = mobile;
       _developerTitle = devTitle;
       _developerCategory = devCategory;
+      _fullNameHangeul = fullNameHangeul;
+      _fullNameEnglish = fullNameEnglish;
 
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
@@ -166,58 +173,70 @@ class _AboutPageState extends State<AboutPage>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = ScreenSize.getScreenSize(context);
-    final screenHeight = screenSize.height;
-    final screenWidth = screenSize.width;
-    return Scaffold(
-      backgroundColor: _backgroundColor,
-      body: SingleChildScrollView(
-        child: MouseRegion(
-          onHover: (event) {
-            _mousePointerPositionStreamController.sink.add(event.localPosition);
-          },
-          child: Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const TopHeaderWidget(
-                      textColor: Colors.white,
-                    ),
-                    SizedBox(
-                      height: 120,
-                    ),
-                    _getProfileAndAboutMeDetailWidget(),
-                    SizedBox(
-                      height: 32.0,
-                    ),
-                    //_getGoodDeveloperExpandedPanelWidget(),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    if (_skillSetsMerge.isNotEmpty)
-                      SizedBox(
-                        width: double.infinity,
-                        height: screenHeight / 2.0 * 0.7,
-                        child: SkillSetWidget(skills: _skillSetsMerge.toList()),
-                      ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    GoodDeveloperWidget(
-                        whatIsGoodDeveloper: _whatIsGoodDeveloper),
-                    FooterWidget(
-                      highlightColor: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-              _getMousePointerEffectWidget(),
-            ],
+    final screenSize = ScreenSize.getScreenWidth(context);
+    if (screenSize >= ScreenType.laptop.width) {
+      return Scaffold(
+        backgroundColor: _backgroundColor,
+        body: SingleChildScrollView(
+          child: MouseRegion(
+            onHover: (event) {
+              _mousePointerPositionStreamController.sink
+                  .add(event.localPosition);
+            },
+            child: Stack(
+              children: [
+                _getMainWidget(),
+                _getMousePointerEffectWidget(),
+              ],
+            ),
           ),
         ),
+      );
+    } else {
+      return Scaffold(
+        backgroundColor: _backgroundColor,
+        body: SingleChildScrollView(
+          child: _getMainWidget(),
+        ),
+      );
+    }
+  }
+
+  Widget _getMainWidget() {
+    final screenHeight = ScreenSize.getScreenHeight(context);
+    return Container(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const TopHeaderWidget(
+            textColor: Colors.white,
+          ),
+          SizedBox(
+            height: 120,
+          ),
+          _getProfileAndAboutMeDetailWidget(),
+          SizedBox(
+            height: 32.0,
+          ),
+          //_getGoodDeveloperExpandedPanelWidget(),
+          SizedBox(
+            height: 30,
+          ),
+          if (_skillSetsMerge.isNotEmpty)
+            SizedBox(
+              width: double.infinity,
+              height: screenHeight / 2.0 * 0.7,
+              child: SkillSetWidget(skills: _skillSetsMerge.toList()),
+            ),
+          SizedBox(
+            height: 30,
+          ),
+          GoodDeveloperWidget(whatIsGoodDeveloper: _whatIsGoodDeveloper),
+          FooterWidget(
+            highlightColor: Colors.white,
+          ),
+        ],
       ),
     );
   }
@@ -671,16 +690,12 @@ class _AboutPageState extends State<AboutPage>
   }
 
   Widget _getProfileWidget() {
-    var fullNameInEnglish = 'Minseok Jeong';
-    var fullNameInHangeul = '정민석';
-    var developerTitle = 'Software Engineer & Developer';
-    var identity = "모바일 / 웹 / 데스크탑 / 임베디드 / 펌웨어 개발자";
     const iconColor = Colors.grey;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          fullNameInEnglish,
+          _fullNameEnglish,
           style: TextStyle(
               color: Colors.white,
               fontSize: 60.0,
@@ -688,7 +703,7 @@ class _AboutPageState extends State<AboutPage>
               height: 1.0),
         ),
         Text(
-          fullNameInHangeul,
+          _fullNameHangeul,
           style: TextStyle(
               color: Colors.white,
               fontSize: 60.0,
@@ -699,7 +714,7 @@ class _AboutPageState extends State<AboutPage>
           height: 16.0,
         ),
         Text(
-          developerTitle,
+          _developerTitle,
           style: TextStyle(
             color: Colors.white,
             fontSize: 25.0,
@@ -710,7 +725,7 @@ class _AboutPageState extends State<AboutPage>
           height: 16.0,
         ),
         Text(
-          identity,
+          _developerCategory,
           style: TextStyle(
             color: Colors.grey,
             fontSize: 20.0,

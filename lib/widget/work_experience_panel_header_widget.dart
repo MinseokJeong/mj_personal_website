@@ -10,69 +10,9 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
   WorkExperiencePanelHeaderWidget({super.key, required this.workExperience});
   WorkExperience workExperience;
 
-  Widget _topHeaderTextWidget(String text, BuildContext context) {
-    final fontSizeVariation = SizeVariation(
-      whenType4K: 20.0,
-      whenTypeLaptopLarge: 20.0,
-      whenTypeLaptop: 12.0,
-      whenTypeTablet: 12.0,
-      whenTypeMobileLarge: 10.0,
-      whenTypeMobileMedium: 10.0,
-      whenTypeMobileSmall: 10.0,
-    );
-
-    final textStyle = TextStyle(
-        fontSize: fontSizeVariation.getSizeWithContext(context),
-        color: Colors.grey,
-        fontWeight: FontWeight.w400);
-    return Text(
-      text,
-      style: textStyle,
-    );
-  }
-
-  Widget _largeTextWidget(String text, BuildContext context) {
-    final fontSizeVariation = SizeVariation(
-      whenType4K: 32,
-      whenTypeLaptopLarge: 32.0,
-      whenTypeLaptop: 24.0,
-      whenTypeTablet: 24.0,
-      whenTypeMobileLarge: 20.0,
-      whenTypeMobileMedium: 20.0,
-      whenTypeMobileSmall: 20.0,
-    );
-
-    final textStyle = TextStyle(
-        fontSize: fontSizeVariation.getSizeWithContext(context),
-        color: Colors.black,
-        fontWeight: FontWeight.w500);
-
-    return Text(
-      text,
-      style: textStyle,
-    );
-  }
-
-  Widget _mediumTextWidget(String text, BuildContext context) {
-    final fontSizeVariation = SizeVariation(
-      whenType4K: 20.0,
-      whenTypeLaptopLarge: 20.0,
-      whenTypeLaptop: 18.0,
-      whenTypeTablet: 18.0,
-      whenTypeMobileLarge: 14.0,
-      whenTypeMobileMedium: 14.0,
-      whenTypeMobileSmall: 14.0,
-    );
-
-    final textStyle = TextStyle(
-        fontSize: fontSizeVariation.getSizeWithContext(context),
-        color: Colors.black,
-        fontWeight: FontWeight.w400);
-    return Text(
-      text,
-      style: textStyle,
-    );
-  }
+  final _headerTextColor = Color(0xff747474);
+  final _largeTextColor = Color(0xff363533);
+  final _mediumTextColor = Color(0xff434343);
 
   @override
   Widget build(BuildContext context) {
@@ -228,5 +168,69 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
         ),
       );
     }
+  }
+
+  Widget _topHeaderTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 20.0,
+      whenTypeLaptopLarge: 20.0,
+      whenTypeLaptop: 12.0,
+      whenTypeTablet: 12.0,
+      whenTypeMobileLarge: 10.0,
+      whenTypeMobileMedium: 10.0,
+      whenTypeMobileSmall: 10.0,
+    );
+
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
+        color: _headerTextColor,
+        fontWeight: FontWeight.w400);
+    return Text(
+      text,
+      style: textStyle,
+    );
+  }
+
+  Widget _largeTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 32,
+      whenTypeLaptopLarge: 32.0,
+      whenTypeLaptop: 24.0,
+      whenTypeTablet: 24.0,
+      whenTypeMobileLarge: 20.0,
+      whenTypeMobileMedium: 20.0,
+      whenTypeMobileSmall: 20.0,
+    );
+
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
+        color: _largeTextColor,
+        fontWeight: FontWeight.w500);
+
+    return Text(
+      text,
+      style: textStyle,
+    );
+  }
+
+  Widget _mediumTextWidget(String text, BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 20.0,
+      whenTypeLaptopLarge: 20.0,
+      whenTypeLaptop: 18.0,
+      whenTypeTablet: 18.0,
+      whenTypeMobileLarge: 14.0,
+      whenTypeMobileMedium: 14.0,
+      whenTypeMobileSmall: 14.0,
+    );
+
+    final textStyle = TextStyle(
+        fontSize: fontSizeVariation.getSizeWithContext(context),
+        color: _mediumTextColor,
+        fontWeight: FontWeight.w400);
+    return Text(
+      text,
+      style: textStyle,
+    );
   }
 }

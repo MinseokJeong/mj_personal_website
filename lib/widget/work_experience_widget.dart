@@ -61,6 +61,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
         children: [
           _topHeader(),
           ExpansionPanelList(
+            elevation: 0,
             expansionCallback: (panelIndex, isExpanded) {
               setState(() {
                 _workExperienceAndExpandStates[panelIndex].isExpand =
@@ -118,6 +119,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Flexible(
             fit: FlexFit.tight,
