@@ -1164,8 +1164,7 @@
                 "Visual Studio Code"
             ],
             "category": [
-                "Flutter/Dart",
-                "Web"
+                "Flutter/Dart","Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
@@ -1192,8 +1191,7 @@
                 "Vercel"
             ],
             "category": [
-                "Flutter/Dart",
-                "Web"
+                "Flutter/Dart","Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
@@ -1249,8 +1247,7 @@
                 "Visual Studio Code"
             ],
             "category": [
-                "Mobile App",
-                "Web"
+                "Mobile App","Web"
             ],
             "members": "소프트웨어 1, 디자이너 1",
             "contribution": "100%",
