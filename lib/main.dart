@@ -19,6 +19,7 @@ final _routes = <String, Widget Function(BuildContext)>{
   rn.homePage: (bc) => const HomePage(),
   rn.aboutPage: (bc) => const AboutPage(),
   rn.workPage: (bc) => const WorkPage(),
+  rn.goodDeveloper: (bc) => const GoodDeveloperPage(),
 };
 
 void main() {
@@ -26,7 +27,7 @@ void main() {
 
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
-  bool developmentMode = true;
+  bool developmentMode = false;
 
   if (developmentMode) {
     return runApp(
@@ -44,7 +45,8 @@ void main() {
         onGenerateRoute: (settings) {
           if (settings.name == rn.rootPage) {
             return MaterialPageRoute(builder: _routes[rn.rootPage]!);
-          } else if (settings.name == rn.aboutPage ||
+          } else if (settings.name == rn.goodDeveloper ||
+              settings.name == rn.aboutPage ||
               settings.name == rn.workPage ||
               settings.name == rn.homePage) {
             return PageRouteBuilder(
@@ -70,7 +72,10 @@ void main() {
                         );
                       },
                       child: child),
-                  SlideUpPageTransitionWidget(title: settings.name!),
+                  SlideUpPageTransitionWidget(
+                      title: (settings.name == rn.goodDeveloper)
+                          ? '좋은 개발자'
+                          : settings.name!),
                 ]);
               },
             );

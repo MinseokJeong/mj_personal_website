@@ -16,6 +16,7 @@ import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import '../model/route_name.dart' as rn;
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -660,8 +661,7 @@ class _AboutPageState extends State<AboutPage>
             ),
             FloatingActionButton.extended(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (bc) => GoodDeveloperPage()));
+                Navigator.pushNamed(context, rn.goodDeveloper);
               },
               label: Text(
                 '좋은 개발자',
