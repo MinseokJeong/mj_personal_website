@@ -25,12 +25,12 @@ void main() {
 
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
-  bool developmentMode = false;
+  bool developmentMode = true;
 
   if (developmentMode) {
     return runApp(
       MaterialApp(
-        home: AboutPage(),
+        home: MenuPage(),
         theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
         debugShowCheckedModeBanner: false,
       ),

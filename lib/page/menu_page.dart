@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import '../model/route_name.dart' as rn;
 
 class MenuPage extends StatelessWidget {
@@ -8,8 +9,15 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const backgroundColor = Color(0xff1C1D20);
+    const dividerColor = Color(0xff4E4F51);
+    const smallTextColor = Color(0xff8C8C8E);
+    const largeTextColor = Color(0xffffffff);
+    const closeButtonBackgroundColor = Color(0xff4A5BE1);
+    const closeButtonIconColor = Colors.white;
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: Container(
         padding: EdgeInsets.all(20),
         width: double.infinity,
@@ -19,14 +27,22 @@ class MenuPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  iconSize: 48,
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(padding: EdgeInsets.zero),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
-                    Icons.close_sharp,
-                    color: Colors.white,
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: closeButtonBackgroundColor,
+                        shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.close_sharp,
+                      color: closeButtonIconColor,
+                    ),
                   ),
                 ),
               ],
@@ -38,7 +54,7 @@ class MenuPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 24.0),
               child: Text(
                 'Navigation',
-                style: TextStyle(color: Colors.grey, fontSize: 14),
+                style: TextStyle(color: smallTextColor, fontSize: 14),
               ),
             ),
             SizedBox(
@@ -49,7 +65,7 @@ class MenuPage extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: 1,
-                color: Colors.grey,
+                color: dividerColor,
               ),
             ),
             _CustomRowTextButton(
@@ -78,6 +94,11 @@ class MenuPage extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                     context, rn.aboutPage, (_) => false);
               },
+            ),
+            Expanded(child: SizedBox.shrink()),
+            FooterWidget(
+              defaultColor: Colors.grey,
+              highlightColor: Colors.white,
             ),
           ],
         ),
