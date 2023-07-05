@@ -126,37 +126,44 @@ class _WorkPageState extends State<WorkPage> {
       filteringButtonInfoMapKey.remove('Etc');
 
       for (final workExperience in _workExperiences) {
-        for (final project in workExperience.projects) {
-          bool hasKeyword = false;
+        final newWorkExperience = WorkExperience(
+            companyName: workExperience.companyName,
+            location: workExperience.location,
+            rank: workExperience.rank,
+            mainRole: workExperience.mainRole,
+            workPeriod: workExperience.workPeriod,
+            projects: [],
+            companyWebsite: workExperience.companyWebsite,
+            aboutCompany: workExperience.aboutCompany);
 
+        for (final project in workExperience.projects) {
+          bool hasKeyWord = false;
           for (final filteringKeyword in filteringButtonInfoMapKey) {
             if (project.category.contains(filteringKeyword)) {
-              hasKeyword = true;
+              hasKeyWord = true;
+
               break;
             }
           }
-
-          if (hasKeyword) {
-            continue;
-          } else {
-            filteredWorkExperiences.add(workExperience);
+          if (!hasKeyWord) {
+            newWorkExperience.projects.add(project);
           }
+        }
+        if (newWorkExperience.projects.isNotEmpty) {
+          filteredWorkExperiences.add(newWorkExperience);
         }
       }
 
       for (final project in _sideProjectInformation) {
-        bool hasKeyword = false;
-
+        bool hasKeyworkd = false;
         for (final filteringKeyword in filteringButtonInfoMapKey) {
           if (project.category.contains(filteringKeyword)) {
-            hasKeyword = true;
+            hasKeyworkd = true;
+
             break;
           }
         }
-
-        if (hasKeyword) {
-          continue;
-        } else {
+        if (!hasKeyworkd) {
           filteredSideProjects.add(project);
         }
       }
