@@ -10,7 +10,7 @@ class InteractWithMousePointerIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final renderObjectFound = context.findRenderObject() as RenderBox?;
-    double angle = 0.0;
+    double angle = math.pi * 0.75;
     if (renderObjectFound != null && mousePointerOffsetGlobal != null) {
       final localizedMousePointerOffset =
           renderObjectFound.globalToLocal(mousePointerOffsetGlobal!);

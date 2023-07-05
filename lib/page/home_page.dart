@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
+import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget.dart';
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Align(
               alignment: (isSmallScreenSize)
-                  ? const Alignment(-0.9, 0.9)
+                  ? const Alignment(-0.9, 0.8)
                   : const Alignment(-1.0, 0.0),
               child: HangerWidget(
                 windowSize: Size(screenWidth, screenHeight),
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Align(
               alignment: (isSmallScreenSize)
-                  ? const Alignment(0.9, 0.9)
+                  ? const Alignment(0.9, 0.8)
                   : const Alignment(0.9, 0.0),
               child: Text(
                 'Software\nEngineer & Developer',
@@ -91,7 +92,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Align(
               alignment: (isSmallScreenSize)
-                  ? const Alignment(-1.0, 0.6)
+                  ? const Alignment(-1.0, 0.5)
                   : const Alignment(-1.0, 0.9),
               child: HorizontalMovingTextWidget2(
                 text: "Minseok Jeong ",
@@ -107,7 +108,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Align(
               alignment: (isSmallScreenSize)
-                  ? const Alignment(0.9, 0.7)
+                  ? const Alignment(0.9, 0.6)
                   : const Alignment(0.6, -0.3),
               child: StreamBuilder<Offset>(
                 stream: _mouseHoverStreamController.stream,
@@ -117,6 +118,21 @@ class _HomePageState extends State<HomePage> {
                         (snapshot.hasData) ? snapshot.data! : null,
                   );
                 },
+              ),
+            ),
+            Align(
+              alignment: Alignment(0.0, 1.0),
+              child: SizedBox(
+                height: 120,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FooterWidget(
+                      defaultColor: Colors.white70,
+                      highlightColor: Colors.white,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

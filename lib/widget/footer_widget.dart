@@ -27,6 +27,7 @@ class FooterWidget extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Center(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Wrap(
                 children: [
@@ -75,6 +76,7 @@ class FooterWidget extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Center(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text.rich(TextSpan(style: defaultTextStyle, children: [
                 TextSpan(
