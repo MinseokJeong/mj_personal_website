@@ -138,8 +138,9 @@ class _MovingAroundTagsWidgetState extends State<MovingAroundTagsWidget>
                   },
                   child: TagWidget(
                     tag: e.text,
-                    textColor: Colors.white38,
-                    backgroundColor: Colors.black38,
+                    textColor: Colors.white24,
+                    backgroundColor: Colors.black26,
+                    fontSize: 32,
                   ),
                 );
               }),

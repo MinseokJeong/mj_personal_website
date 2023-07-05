@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mj_portfolio_web/page/good_developer_page.dart';
 import 'package:mj_portfolio_web/page/menu_page.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'model/enum_screen_type.dart';
@@ -25,12 +26,12 @@ void main() {
 
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
-  bool developmentMode = true;
+  bool developmentMode = false;
 
   if (developmentMode) {
     return runApp(
       MaterialApp(
-        home: HomePage(),
+        home: AboutPage(),
         theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
         debugShowCheckedModeBanner: false,
       ),

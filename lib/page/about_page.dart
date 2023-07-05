@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
+import 'package:mj_portfolio_web/page/good_developer_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
@@ -207,20 +208,12 @@ class _AboutPageState extends State<AboutPage>
                     ('ETC', [..._skillSetEtc]),
                   ],
                 ),
-                if (_skillSetsMerge.isNotEmpty)
-                  SizedBox(
-                    width: 1300,
-                    height: screenHeight * 1.5,
-                    child:
-                        MovingAroundTagsWidget(tags: _skillSetsMerge.toList()),
-                  ),
               ],
             ),
           ),
           //_getGoodDeveloperExpandedPanelWidget(),
           //TODO: Should uncomment this
 
-          GoodDeveloperWidget(whatIsGoodDeveloper: _whatIsGoodDeveloper),
           SizedBox(
             height: 160,
           ),
@@ -658,23 +651,34 @@ class _AboutPageState extends State<AboutPage>
         SizedBox(
           height: 30.0,
         ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: "언제나 '",
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: "좋은 개발자",
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            Text(
+              "언제나 ",
+              style: greyTextStyle,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (bc) => GoodDeveloperPage()));
+              },
+              label: Text(
+                '좋은 개발자',
                 style: whiteTextStyle,
               ),
-              TextSpan(
-                text: "'가 되기위해 최선을 다합니다.",
-                style: greyTextStyle,
+              icon: Icon(
+                Icons.thumb_up,
+                color: Colors.white,
               ),
-            ],
-          ),
+              //foregroundColor: Color(0xff4A5BE1),
+              backgroundColor: Color(0xff4A5BE1),
+            ),
+            Text(
+              "가 되기위해 최선을 다합니다.",
+              style: greyTextStyle,
+            ),
+          ],
         ),
       ],
     );
