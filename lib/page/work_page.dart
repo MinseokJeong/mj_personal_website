@@ -270,47 +270,53 @@ class _WorkPageState extends State<WorkPage> {
   }
 
   Widget _sortingButtonsWidget() {
-    const selectedTextNormalColor = Colors.white;
-    const selectedBackgroundColor = Colors.black;
-    const unSelectedTextNormalColor = Colors.black;
-    const unSelectedTextFocusColor = Colors.white;
-    const unSelectedBackgroundNormalColor = Colors.white;
-    const unSelectedBackgroundFocusColor = Color(0xff4A5BE1);
+    final filteringButtonInfoList = filteringButtonInfoMap.keys.toList();
+    filteringButtonInfoList.remove('All');
+    filteringButtonInfoList.remove('Etc');
+    final allBadge = filteringButtonInfoMap['All']!;
+    final etcBadge = filteringButtonInfoMap['Etc']!;
+    final selectedAll = (_selectedSortedButton.compareTo('All') == 0);
+    final selectedEtc = (_selectedSortedButton.compareTo('Etc') == 0);
 
     return Wrap(
       //mainAxisSize: MainAxisSize.min,
       spacing: 16,
       runSpacing: 8,
       children: [
-        ...filteringButtonInfoMap.map(
-          (key, value) {
-            final badge = value;
-            final selected = (_selectedSortedButton.compareTo(key) == 0);
-            return MapEntry(
-              key,
-              InteractionCommonButtonWidget(
-                text: key,
-                badge: badge.toString(),
-                onPressed: () {
-                  setState(() {
-                    _selectedSortedButton = key;
-                    _filteringWithKeyword(key);
-                  });
-                },
-                textNormalColor: (selected)
-                    ? selectedTextNormalColor
-                    : unSelectedTextNormalColor,
-                textFocusColor: (selected) ? null : unSelectedTextFocusColor,
-                backgroundNormalColor: (selected)
-                    ? selectedBackgroundColor
-                    : unSelectedBackgroundNormalColor,
-                backgroundFocusColor:
-                    (selected) ? null : unSelectedBackgroundFocusColor,
-              ),
-            );
-          },
-        ).values,
+        _filteringButtonWidget('All', allBadge, selectedAll),
+        ...filteringButtonInfoList.map((key) {
+          final badge = filteringButtonInfoMap[key]!;
+          final selected = (_selectedSortedButton.compareTo(key) == 0);
+          return _filteringButtonWidget(key, badge, selected);
+        }),
+        _filteringButtonWidget('Etc', etcBadge, selectedEtc),
       ],
+    );
+  }
+
+  Widget _filteringButtonWidget(String key, int badge, bool selected) {
+    const selectedTextNormalColor = Colors.white;
+    const selectedBackgroundColor = Colors.black;
+    const unSelectedTextNormalColor = Colors.black;
+    const unSelectedTextFocusColor = Colors.white;
+    const unSelectedBackgroundNormalColor = Colors.white;
+    const unSelectedBackgroundFocusColor = Color(0xff4A5BE1);
+    return InteractionCommonButtonWidget(
+      text: key,
+      badge: badge.toString(),
+      onPressed: () {
+        setState(() {
+          _selectedSortedButton = key;
+          _filteringWithKeyword(key);
+        });
+      },
+      textNormalColor:
+          (selected) ? selectedTextNormalColor : unSelectedTextNormalColor,
+      textFocusColor: (selected) ? null : unSelectedTextFocusColor,
+      backgroundNormalColor: (selected)
+          ? selectedBackgroundColor
+          : unSelectedBackgroundNormalColor,
+      backgroundFocusColor: (selected) ? null : unSelectedBackgroundFocusColor,
     );
   }
 
