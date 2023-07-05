@@ -113,6 +113,9 @@ class ProjectWidget extends StatelessWidget {
                       height: 12.0,
                     ),
                     _smallTextWidget('Keyword', context),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 8.0,

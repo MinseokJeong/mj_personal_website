@@ -61,7 +61,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
         children: [
           _topHeader(),
           ExpansionPanelList(
-            elevation: 0,
+            elevation: 2,
             expansionCallback: (panelIndex, isExpanded) {
               setState(() {
                 _workExperienceAndExpandStates[panelIndex].isExpand =
@@ -125,7 +125,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
             fit: FlexFit.tight,
             flex: flexs[0],
             child: Center(
-              child: _topHeaderTextWidget('Comapny'),
+              child: _topHeaderTextWidget('Company'),
             ),
           ),
           Flexible(

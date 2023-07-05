@@ -56,6 +56,7 @@ class _OtherProjectExperiencesWidgetState
         children: [
           _topHeader(),
           ExpansionPanelList(
+            elevation: 2,
             expansionCallback: (panelIndex, isExpanded) {
               setState(() {
                 _sideProjectExperienceAndExpandStates[panelIndex].isExpand =

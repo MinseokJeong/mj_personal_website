@@ -36,26 +36,16 @@ class _WorkPageState extends State<WorkPage> {
 
   List<WorkExperience> _workExperiences = [];
   List<ProjectInformation> _sideProjectInformation = [];
+  List<WorkExperience> _filteredWorkExperiences = [];
+  List<ProjectInformation> _filteredSideProjectInformation = [];
 
-  var sortingButtonInfoMap = <String, Map<String, dynamic>>{
-    'All': {
-      'badge': 32,
-    },
-    'Flutter/Dart': {
-      'badge': 16,
-    },
-    'Mobile App': {
-      'badge': 16,
-    },
-    'Web': {
-      'badge': 16,
-    },
-    'Embedded/Firmware': {
-      'badge': 16,
-    },
-    'Etc': {
-      'badge': 16,
-    },
+  var filteringButtonInfoMap = <String, int>{
+    'All': 0,
+    // 'Flutter/Dart':3,
+    // 'Mobile App': 2,
+    // 'Web': 2,
+    // 'Embedded/Firmware':2,
+    'Etc': 0,
   };
 
   String _selectedSortedButton = 'All';
@@ -65,6 +55,147 @@ class _WorkPageState extends State<WorkPage> {
     super.initState();
 
     _loadWorkExperience();
+  }
+
+  void _updateFilteringButtonInfoMap() {
+    Map<String, int> catergoryCountMap = {
+      'All': 0,
+      'Etc': 0,
+    };
+
+    for (final workExperience in _workExperiences) {
+      for (final project in workExperience.projects) {
+        catergoryCountMap.update(
+          'All',
+          (value) => value + 1,
+          ifAbsent: () => 1,
+        );
+        final category = project.category;
+        for (final categoryItem in category) {
+          catergoryCountMap.update(
+            categoryItem,
+            (value) => value + 1,
+            ifAbsent: () => 1,
+          );
+        }
+        if (category.isEmpty) {
+          catergoryCountMap.update(
+            'Etc',
+            (value) => value + 1,
+            ifAbsent: () => 1,
+          );
+        }
+      }
+    }
+
+    for (final project in _sideProjectInformation) {
+      catergoryCountMap.update(
+        'All',
+        (value) => value + 1,
+        ifAbsent: () => 1,
+      );
+      final category = project.category;
+      for (final categoryItem in category) {
+        catergoryCountMap.update(
+          categoryItem,
+          (value) => value + 1,
+          ifAbsent: () => 1,
+        );
+      }
+      if (category.isEmpty) {
+        catergoryCountMap.update(
+          'Etc',
+          (value) => value + 1,
+          ifAbsent: () => 1,
+        );
+      }
+    }
+
+    filteringButtonInfoMap = catergoryCountMap;
+  }
+
+  void _filteringWithKeyword(String keyword) {
+    final filteredWorkExperiences = <WorkExperience>[];
+    final filteredSideProjects = <ProjectInformation>[];
+    if (keyword == 'All') {
+      filteredWorkExperiences.addAll(_workExperiences);
+      filteredSideProjects.addAll(_sideProjectInformation);
+    } else if (keyword == 'Etc') {
+      final filteringButtonInfoMapKey = filteringButtonInfoMap.keys.toList();
+      filteringButtonInfoMapKey.remove('All');
+      filteringButtonInfoMapKey.remove('Etc');
+
+      for (final workExperience in _workExperiences) {
+        for (final project in workExperience.projects) {
+          bool hasKeyword = false;
+
+          for (final filteringKeyword in filteringButtonInfoMapKey) {
+            if (project.category.contains(filteringKeyword)) {
+              hasKeyword = true;
+              break;
+            }
+          }
+
+          if (hasKeyword) {
+            continue;
+          } else {
+            filteredWorkExperiences.add(workExperience);
+          }
+        }
+      }
+
+      for (final project in _sideProjectInformation) {
+        bool hasKeyword = false;
+
+        for (final filteringKeyword in filteringButtonInfoMapKey) {
+          if (project.category.contains(filteringKeyword)) {
+            hasKeyword = true;
+            break;
+          }
+        }
+
+        if (hasKeyword) {
+          continue;
+        } else {
+          filteredSideProjects.add(project);
+        }
+      }
+    } else {
+      for (final workExperience in _workExperiences) {
+        bool hasKeyword = false;
+        final newWorkExperience = WorkExperience(
+            companyName: workExperience.companyName,
+            location: workExperience.location,
+            rank: workExperience.rank,
+            mainRole: workExperience.mainRole,
+            workPeriod: workExperience.workPeriod,
+            projects: [],
+            companyWebsite: workExperience.companyWebsite,
+            aboutCompany: workExperience.aboutCompany);
+
+        for (final project in workExperience.projects) {
+          if (project.category.contains(keyword)) {
+            newWorkExperience.projects.add(project);
+            hasKeyword = true;
+          }
+        }
+
+        if (hasKeyword) {
+          filteredWorkExperiences.add(newWorkExperience);
+        }
+      }
+
+      for (final project in _sideProjectInformation) {
+        if (project.category.contains(keyword)) {
+          filteredSideProjects.add(project);
+        }
+      }
+    }
+
+    setState(() {
+      _filteredWorkExperiences = filteredWorkExperiences;
+      _filteredSideProjectInformation = filteredSideProjects;
+    });
   }
 
   Future<void> _loadWorkExperience() async {
@@ -88,6 +219,11 @@ class _WorkPageState extends State<WorkPage> {
     setState(() {
       _workExperiences = workExperiences;
       _sideProjectInformation = sideProjects;
+
+      _filteredWorkExperiences.addAll(_workExperiences);
+      _filteredSideProjectInformation.addAll(_sideProjectInformation);
+
+      _updateFilteringButtonInfoMap();
     });
   }
 
@@ -119,11 +255,11 @@ class _WorkPageState extends State<WorkPage> {
               verticalSpace(60),
               _centerTextWithHorizontalBarWidget('Main'),
               verticalSpace(30),
-              WorkExperiencesWidget(workExperiences: _workExperiences),
+              WorkExperiencesWidget(workExperiences: _filteredWorkExperiences),
               verticalSpace(60),
               _centerTextWithHorizontalBarWidget('Other / Etc'),
               OtherProjectExperiencesWidget(
-                  sideProjectInformations: _sideProjectInformation),
+                  sideProjectInformations: _filteredSideProjectInformation),
               verticalSpace(30),
               FooterWidget(),
             ],
@@ -146,9 +282,9 @@ class _WorkPageState extends State<WorkPage> {
       spacing: 16,
       runSpacing: 8,
       children: [
-        ...sortingButtonInfoMap.map(
+        ...filteringButtonInfoMap.map(
           (key, value) {
-            final badge = value['badge'] as int;
+            final badge = value;
             final selected = (_selectedSortedButton.compareTo(key) == 0);
             return MapEntry(
               key,
@@ -158,6 +294,7 @@ class _WorkPageState extends State<WorkPage> {
                 onPressed: () {
                   setState(() {
                     _selectedSortedButton = key;
+                    _filteringWithKeyword(key);
                   });
                 },
                 textNormalColor: (selected)

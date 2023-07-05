@@ -21,7 +21,6 @@
         "aboutMe": [
             "2016년 Android 개발자로 처음 개발을 시작하여, Windows 데스크탑, Android/iOS, Embedded System/Firmware 개발경험이 있습니다."
         ],
-        
         "whatIsGoodDeveloper": [
             "리더, 동료들과 의견을 맞추고 개인의 목표를 조직 목표와 정렬시킵니다.",
             "업무 목표와 과제에 몰입하고, 목표 달성을 위해 최선을 다합니다.",
@@ -71,23 +70,22 @@
             "Xcode",
             "Unity"
         ],
-        "Embedded System / Firmware":  [
-                "Zynq Ultra Scale+ MPSoC",
-                "Arm Cortex-M4 based MCU",
-                "Single Board Computer(Curtiss-Wright)",
-                "Vitis(Xilinx)",
-                "Code Composer Studio(Texas Instruments)",
-                "Wind River Workbench"
-            ],
+        "Embedded System / Firmware": [
+            "Zynq Ultra Scale+ MPSoC",
+            "Arm Cortex-M4 based MCU",
+            "Single Board Computer(Curtiss-Wright)",
+            "Vitis(Xilinx)",
+            "Code Composer Studio(Texas Instruments)",
+            "Wind River Workbench"
+        ],
         "Back-End": [
-                "Dart(shelf)",
-                "FastAPI(Python)",
-                "TCP/IP Socket(C)",
-                "Nginx",
-                "Visual Studio Code",
-                "Visual Studio"
-            ],
-        
+            "Dart(shelf)",
+            "FastAPI(Python)",
+            "TCP/IP Socket(C)",
+            "Nginx",
+            "Visual Studio Code",
+            "Visual Studio"
+        ],
         "Tooling / DevOps": [
             "Docker",
             "Git",
@@ -99,16 +97,14 @@
             "Linux",
             "AWS"
         ],
-        "DB": 
-             [
-                "MariaDB",
-                "SQLite",
-                "MySQL",
-                "PostgreSQL",
-                "MongoDB",
-                "Redis"
-            ],
-        
+        "DB": [
+            "MariaDB",
+            "SQLite",
+            "MySQL",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis"
+        ],
         "ETC": [
             "Slack",
             "Asana",
@@ -143,6 +139,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Flutter/Dart"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -150,7 +149,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -181,6 +180,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Web"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -188,7 +190,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -204,7 +206,173 @@
                             "url": "https://www.google.com/"
                         }
                     ]
-                }                
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Flutter/Dart",
+                        "Web"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App",
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -230,6 +398,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Flutter/Dart"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -237,7 +408,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -268,6 +439,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Web"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -275,7 +449,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -291,7 +465,173 @@
                             "url": "https://www.google.com/"
                         }
                     ]
-                }                
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Flutter/Dart",
+                        "Web"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App",
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -317,6 +657,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Flutter/Dart"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -324,7 +667,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -355,6 +698,9 @@
                         "Code Composer Studio",
                         "Embedded"
                     ],
+                    "category": [
+                        "Web"
+                    ],
                     "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
                     "contribution": "30%",
                     "workDetail": [
@@ -362,7 +708,7 @@
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
                         "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"                        
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
                     ],
                     "results": [
                         "어쩌구 저쩌구 성과를 내었습니다.",
@@ -378,7 +724,432 @@
                             "url": "https://www.google.com/"
                         }
                     ]
-                }                
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Flutter/Dart",
+                        "Web"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App",
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "땡떙 코리아",
+            "website": "https://www.google.co.kr/",
+            "lengthOfService": "2022.01 ~ 2022.12",
+            "location": "서울",
+            "rank": "사원",
+            "mainRole": "백엔드 개발",
+            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "projects": [
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Flutter/Dart"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Web"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Flutter/Dart",
+                        "Web"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "땡떙 프로젝트",
+                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
+                    "period": "2021.01 ~ 2022.06",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "MFC",
+                        "Visual Studio",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Embedded"
+                    ],
+                    "category": [
+                        "Mobile App",
+                        "Embedded/Firmware"
+                    ],
+                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "contribution": "30%",
+                    "workDetail": [
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현",
+                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                    ],
+                    "results": [
+                        "어쩌구 저쩌구 성과를 내었습니다.",
+                        "어쩌구 저쩌구 성과를 내었습니다."
+                    ],
+                    "links": [
+                        {
+                            "text": "땡땡링크",
+                            "url": "https://www.google.com/"
+                        },
+                        {
+                            "text": "탕탕링크",
+                            "url": "https://www.google.com/"
+                        }
+                    ]
+                }
             ]
         }
     ],
@@ -391,6 +1162,10 @@
                 "Dart",
                 "Flutter",
                 "Visual Studio Code"
+            ],
+            "category": [
+                "Flutter/Dart",
+                "Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
@@ -415,6 +1190,10 @@
                 "Nginx",
                 "AWS",
                 "Vercel"
+            ],
+            "category": [
+                "Flutter/Dart",
+                "Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
@@ -441,6 +1220,9 @@
                 "Flutter",
                 "Visual Studio Code"
             ],
+            "category": [
+                "Mobile App"
+            ],
             "members": "소프트웨어 1, 디자이너 2",
             "contribution": "100%",
             "workDetail": [
@@ -465,6 +1247,10 @@
                 "Dart",
                 "Flutter",
                 "Visual Studio Code"
+            ],
+            "category": [
+                "Mobile App",
+                "Web"
             ],
             "members": "소프트웨어 1, 디자이너 1",
             "contribution": "100%",
@@ -495,6 +1281,9 @@
             "keywords": [
                 "Android Studio",
                 "Java"
+            ],
+            "category": [
+                "Mobile App"
             ],
             "members": "소프트웨어 3",
             "contribution": "30%",

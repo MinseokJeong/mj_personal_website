@@ -7,7 +7,11 @@
         {
             "name": "mj_porfolio_web",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug",
+            "toolArgs": [
+                "--web-renderer canvaskit",
+            ]
         },
         {
             "name": "mj_porfolio_web (profile mode)",

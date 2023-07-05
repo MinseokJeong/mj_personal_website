@@ -8,6 +8,7 @@ class ProjectInformation {
   final List<String> tags;
   final List<({String url, String text})> urls;
   final List<String> results;
+  final List<String> category;
 
   ProjectInformation(
       {required this.projectName,
@@ -18,7 +19,8 @@ class ProjectInformation {
       required this.detailedWorks,
       required this.tags,
       required this.urls,
-      required this.results});
+      required this.results,
+      required this.category});
 
   factory ProjectInformation.fromJson(Map<String, dynamic> json) {
     final projectName = json['projectName'] as String;
@@ -30,6 +32,7 @@ class ProjectInformation {
     final contribution = json['contribution'] as String;
     final results = List<String>.from(json['results']);
     final urls = <({String url, String text})>[];
+    final category = List<String>.from(json['category']);
 
     for (final Map<String, dynamic> link in json['links'] as List<dynamic>) {
       final text = link['text'] as String;
@@ -46,6 +49,7 @@ class ProjectInformation {
         detailedWorks: workDetail,
         tags: keywords,
         urls: urls,
-        results: results);
+        results: results,
+        category: category);
   }
 }

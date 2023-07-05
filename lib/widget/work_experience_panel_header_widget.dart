@@ -16,7 +16,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const comapnyString = 'Comapny';
+    const companyString = 'Company';
     const locationString = 'Location';
     const roleString = 'Role';
     const rankString = 'Rank';
@@ -39,7 +39,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _topHeaderTextWidget(comapnyString, context),
+                      _topHeaderTextWidget(companyString, context),
                       _largeTextWidget(workExperience.companyName, context),
                     ],
                   ),
@@ -90,7 +90,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _topHeaderTextWidget(comapnyString, context),
+                    _topHeaderTextWidget(companyString, context),
                     _largeTextWidget(workExperience.companyName, context),
                     SizedBox(
                       height: 8.0,

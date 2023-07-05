@@ -69,48 +69,49 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
   }
 
   Widget _companyInfoWidget(BuildContext context) {
+    final screenWidth = ScreenSize.getScreenWidth(context);
     if (!ScreenSize.isMobileScreenSize(context)) {
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: (workExperience.aboutCompany.isNotEmpty)
-                ? Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _topHeaderTextWidget('About Company', context),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: _mediumTextWidget(
+      return Padding(
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.12),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              fit: FlexFit.tight,
+              child: (workExperience.aboutCompany.isNotEmpty)
+                  ? Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _topHeaderTextWidget('About Company', context),
+                          _mediumTextWidget(
                               workExperience.aboutCompany, context),
-                        ),
-                      ],
-                    ),
-                  )
-                : SizedBox.shrink(),
-          ),
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: workExperience.companyWebsite.isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        _topHeaderTextWidget('URL', context),
-                        UrlLinkButtonWidget(
-                            url: workExperience.companyWebsite,
-                            text: workExperience.companyName),
-                      ],
-                    ),
-                  )
-                : SizedBox.shrink(),
-          ),
-        ],
+                        ],
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ),
+            Flexible(
+              flex: 1,
+              fit: FlexFit.tight,
+              child: workExperience.companyWebsite.isNotEmpty
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          _topHeaderTextWidget('URL', context),
+                          UrlLinkButtonWidget(
+                              url: workExperience.companyWebsite,
+                              text: workExperience.companyName),
+                        ],
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ),
+          ],
+        ),
       );
     } else {
       return Column(
