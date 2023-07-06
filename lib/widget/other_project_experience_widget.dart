@@ -31,10 +31,10 @@ class _OtherProjectExperiencesWidgetState
   void _updateWorkExperienceAndExpandStates() {
     _sideProjectExperienceAndExpandStates.clear();
 
-    widget.sideProjectInformations.forEach((element) {
+    for (var element in widget.sideProjectInformations) {
       _sideProjectExperienceAndExpandStates
           .add(_SideProjectExperienceAndExpand(element, false));
-    });
+    }
 
     setState(() {});
   }
@@ -94,7 +94,7 @@ class _OtherProjectExperiencesWidgetState
   Widget _topHeaderTextWidget(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 18.0,
         color: Color(0xffAFAFB0),
         fontWeight: FontWeight.w400,
@@ -105,7 +105,7 @@ class _OtherProjectExperiencesWidgetState
   Widget _greySmallTextWidget(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 14.0,
         color: Color(0xffAFAFB0),
         fontWeight: FontWeight.w300,
@@ -116,7 +116,7 @@ class _OtherProjectExperiencesWidgetState
   Widget _topHeader() {
     if (ScreenSize.isTabletScreenSize(context) ||
         ScreenSize.isMobileScreenSize(context)) {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
 
     return Padding(
@@ -141,8 +141,8 @@ class _OtherProjectExperiencesWidgetState
             flex: flexs[2],
             child: _topHeaderTextWidget('Work Period'),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+          const Padding(
+            padding: EdgeInsets.only(right: 8.0),
             child: SizedBox(
               width: 48.0,
             ),

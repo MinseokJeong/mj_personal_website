@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mj_portfolio_web/model/enum_screen_type.dart';
-import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import '../app_design_resources.dart' show FontName;
 import '../util/screen_size.dart';
 

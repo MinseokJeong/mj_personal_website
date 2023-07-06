@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 
-import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
-import 'package:mj_portfolio_web/widget/url_link_button_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_panel_body_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_panel_header_widget.dart';
 
 import '../model/size_variation.dart';
-import 'project_widget.dart';
 
 class WorkExperiencesWidget extends StatefulWidget {
   const WorkExperiencesWidget({super.key, required this.workExperiences});
@@ -36,10 +33,10 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   void _updateWorkExperienceAndExpandStates() {
     _workExperienceAndExpandStates.clear();
 
-    widget.workExperiences.forEach((element) {
+    for (var element in widget.workExperiences) {
       _workExperienceAndExpandStates
           .add(_WorkExperienceAndExpand(element, false));
-    });
+    }
 
     setState(() {});
   }
@@ -103,7 +100,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
       text,
       style: TextStyle(
         fontSize: fontSizeVariation.getSizeWithContext(context),
-        color: Color(0xffAFAFB0),
+        color: const Color(0xffAFAFB0),
         fontWeight: FontWeight.w400,
       ),
     );
@@ -112,7 +109,7 @@ class _WorkExperiencesWidgetState extends State<WorkExperiencesWidget> {
   Widget _topHeader() {
     if (ScreenSize.isTabletScreenSize(context) ||
         ScreenSize.isMobileScreenSize(context)) {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
 
     return Padding(

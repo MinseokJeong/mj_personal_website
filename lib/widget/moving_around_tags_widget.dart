@@ -27,7 +27,7 @@ class _MovingAroundTagsWidgetState extends State<MovingAroundTagsWidget>
     super.initState();
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(minutes: 1));
+        AnimationController(vsync: this, duration: const Duration(minutes: 1));
     _animationController.reset();
     _animationController.repeat();
 
@@ -94,7 +94,7 @@ class _MovingAroundTagsWidgetState extends State<MovingAroundTagsWidget>
   }
 
   Offset _getRandomDeltaOffset(double directionAngle) {
-    final double length = 1.0;
+    const double length = 1.0;
     double deltaXvalue =
         length * cos(directionAngle) * randomNumberGenerator.nextDouble() * 1.0;
     double deltaYvalue =
@@ -116,7 +116,7 @@ class _MovingAroundTagsWidgetState extends State<MovingAroundTagsWidget>
         _setMovingTextModels();
 
         if (_movingTextModels.isEmpty) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         } else {
           return Stack(
             clipBehavior: Clip.none,

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
-import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 
 import '../model/resume_info_manager.dart';
-import '../widget/moving_around_tags_widget.dart';
 
 class GoodDeveloperPage extends StatefulWidget {
   const GoodDeveloperPage({super.key});
@@ -46,8 +44,8 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TopHeaderWidget(textColor: Colors.white),
-            SizedBox(
+            const TopHeaderWidget(textColor: Colors.white),
+            const SizedBox(
               height: 120,
             ),
             Padding(
@@ -57,13 +55,13 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
                   children: [
                     Column(
                       children: [
-                        Text.rich(
+                        const Text.rich(
                           TextSpan(children: [
                             TextSpan(text: '좋은 개발자'),
                           ]),
                           style: TextStyle(color: Colors.white, fontSize: 64),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 192,
                         ),
                         if (_whatIsGoodDeveloper.isNotEmpty)
@@ -75,9 +73,9 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
                                   Container(
                                     width: double.infinity,
                                     height: 1,
-                                    color: Color(0xFF494A4D),
+                                    color: const Color(0xFF494A4D),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 48,
                                   ),
                                   Text.rich(
@@ -85,13 +83,13 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
                                       children: [
                                         TextSpan(
                                           text: '${i + 1}'.padLeft(2, '0'),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Color(0xff676769)),
                                         ),
                                         TextSpan(
                                           text:
                                               '  ${_whatIsGoodDeveloper.elementAt(i)}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 24),
                                         ),
@@ -99,7 +97,7 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
                                     ),
                                     textAlign: TextAlign.left,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 48,
                                   ),
                                 ],
@@ -111,7 +109,7 @@ class _GoodDeveloperPageState extends State<GoodDeveloperPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             ),
             FooterWidget(

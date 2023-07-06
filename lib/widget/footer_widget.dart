@@ -24,7 +24,7 @@ class FooterWidget extends StatelessWidget {
     if (screenWidth < ScreenType.tablet.width) {
       return Container(
         width: double.infinity,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -32,35 +32,35 @@ class FooterWidget extends StatelessWidget {
               Wrap(
                 children: [
                   Text.rich(TextSpan(children: [
-                    TextSpan(text: "This website is built with "),
+                    const TextSpan(text: "This website is built with "),
                     _urlTextSpan(
                         'Flutter',
                         "https://flutter.dev/multi-platform/web",
                         highlightTextStyle),
-                    TextSpan(
+                    const TextSpan(
                       text: " framework and deployed with ",
                     ),
                     _urlTextSpan(
                         "Vercel", "https://vercel.com/", highlightTextStyle),
-                    TextSpan(
+                    const TextSpan(
                       text: ", all the code is written in ",
                     ),
                     _urlTextSpan(
                         "Dart", "https://dart.dev/", highlightTextStyle),
-                    TextSpan(
+                    const TextSpan(
                       text: " also using ",
                     ),
                     _urlTextSpan("Visual Studio Code",
                         "https://code.visualstudio.com/", highlightTextStyle),
-                    TextSpan(
+                    const TextSpan(
                       text: " for code editor.",
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: "Website design is too much inspired by ",
                     ),
                     _urlTextSpan("Dennis Snellenberg",
                         "https://dennissnellenberg.com/", highlightTextStyle),
-                    TextSpan(
+                    const TextSpan(
                       text: ". @Code by MinseokJeong. 2023 © Edition",
                     )
                   ], style: defaultTextStyle)),
@@ -73,44 +73,44 @@ class FooterWidget extends StatelessWidget {
     } else {
       return Container(
         width: double.infinity,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text.rich(TextSpan(style: defaultTextStyle, children: [
-                TextSpan(
+                const TextSpan(
                   text: "This website is built with ",
                 ),
                 _urlTextSpan(
                     "Flutter",
                     "https://flutter.dev/multi-platform/web",
                     highlightTextStyle),
-                TextSpan(
+                const TextSpan(
                   text: " framework and deployed with ",
                 ),
                 _urlTextSpan(
                     "Vercel", "https://vercel.com/", highlightTextStyle),
-                TextSpan(
+                const TextSpan(
                   text: ", all the code is written in ",
                 ),
                 _urlTextSpan("Dart", "https://dart.dev/", highlightTextStyle),
-                TextSpan(
+                const TextSpan(
                   text: " also using ",
                 ),
                 _urlTextSpan("Visual Studio Code",
                     "https://code.visualstudio.com/", highlightTextStyle),
-                TextSpan(
+                const TextSpan(
                   text: " for code editor.",
                 ),
               ])),
               Text.rich(TextSpan(style: defaultTextStyle, children: [
-                TextSpan(
+                const TextSpan(
                   text: "Website design is too much inspired by ",
                 ),
                 _urlTextSpan("Dennis Snellenberg",
                     "https://dennissnellenberg.com/", highlightTextStyle),
-                TextSpan(
+                const TextSpan(
                   text: ". @Code by MinseokJeong. 2023 © Edition",
                 )
               ])),

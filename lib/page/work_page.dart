@@ -1,10 +1,7 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
-import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/interaction_common_button_widget.dart';
@@ -30,7 +27,7 @@ class _WorkPageState extends State<WorkPage> {
   final _colorButtonColorWhite = const Color(0xFFFFFFFF);
   final _colorButtonColorBlack = const Color(0xff1C1D20);
 
-  final _textStyle1 = TextStyle(
+  final _textStyle1 = const TextStyle(
     fontSize: 14.0,
     color: Color(0xffAFAFB0),
   );
@@ -245,7 +242,7 @@ class _WorkPageState extends State<WorkPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              TopHeaderWidget(
+              const TopHeaderWidget(
                 textColor: Colors.black,
                 currentRoutePageName: rn.workPage,
               ),

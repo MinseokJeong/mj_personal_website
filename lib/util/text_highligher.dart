@@ -9,8 +9,8 @@ class TextHighlighter {
   }
 
   void _parse() {
-    final startSymbol = '<';
-    final endSymbol = '>';
+    const startSymbol = '<';
+    const endSymbol = '>';
 
     String tempString = '';
 

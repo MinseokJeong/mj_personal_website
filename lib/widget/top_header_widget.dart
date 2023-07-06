@@ -4,7 +4,6 @@ import 'package:mj_portfolio_web/page/menu_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/code_by_minseok_widget.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
 

@@ -10,27 +10,27 @@ import '../model/size_variation.dart';
 
 class SkillSetWidget extends StatelessWidget {
   SkillSetWidget({super.key, required this.skills});
-  final _backgroundColor = Color(0xffE9EAEB);
+  final _backgroundColor = const Color(0xffE9EAEB);
   List<(String category, List<String> list)> skills;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       //color: tra,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
-          Text(
+          const Text(
             "Skills",
             style: TextStyle(color: Colors.white, fontSize: 48),
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           ..._getSkillSetSubSectionWidgets(context),
-          SizedBox(
+          const SizedBox(
             height: 160,
           ),
         ],
@@ -44,7 +44,7 @@ class SkillSetWidget extends StatelessWidget {
     }
     final widgets = <Widget>[];
     final lengthOfSkills = skills.length;
-    final emptySpaceWidget =
+    const emptySpaceWidget =
         Flexible(flex: 1, fit: FlexFit.tight, child: SizedBox.shrink());
     int rowPerItemCount = 3;
 
@@ -70,7 +70,7 @@ class SkillSetWidget extends StatelessWidget {
                 : emptySpaceWidget,
           ],
         ));
-        widgets.add(SizedBox(
+        widgets.add(const SizedBox(
           height: 60,
         ));
       }
@@ -102,7 +102,7 @@ class SkillSetWidget extends StatelessWidget {
                 : emptySpaceWidget,
           ],
         ));
-        widgets.add(SizedBox(
+        widgets.add(const SizedBox(
           height: 60,
         ));
       }
@@ -114,8 +114,7 @@ class SkillSetWidget extends StatelessWidget {
 
 class _SkillSetSubSectionWidget extends StatelessWidget {
   _SkillSetSubSectionWidget(
-      {super.key,
-      required this.number,
+      {required this.number,
       required this.header,
       required this.tags});
   int number;
@@ -124,8 +123,8 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(color: Colors.white);
-    final textStyle2 = TextStyle(color: Colors.grey);
+    const textStyle = TextStyle(color: Colors.white);
+    const textStyle2 = TextStyle(color: Colors.grey);
 
     final fontSizeVariation = SizeVariation(
       whenType4K: 32,
@@ -151,7 +150,7 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '${number}'.padLeft(2, '0'),
+                        text: '$number'.padLeft(2, '0'),
                         style: textStyle2.copyWith(fontSize: 14),
                       ),
                       TextSpan(
@@ -167,18 +166,18 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
-              color: Color(0xffCDCED0),
+              color: const Color(0xffCDCED0),
               height: 1,
               width: double.infinity,
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             if (tags.isNotEmpty)
@@ -191,7 +190,7 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
                         fontSize: 14,
                         textColor: Colors.white,
                         backgroundColor: Colors.transparent,
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 6.0, vertical: 6.0),
                         borderRadius: 6,
                         borderColor: Colors.grey,

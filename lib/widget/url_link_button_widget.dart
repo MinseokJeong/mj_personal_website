@@ -17,17 +17,17 @@ class UrlLinkButtonWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.link,
             size: 20.0,
             color: Colors.black,
           ),
-          SizedBox(
+          const SizedBox(
             width: 4.0,
           ),
           Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.black,
                 fontSize: 16.0,
                 fontWeight: FontWeight.normal,

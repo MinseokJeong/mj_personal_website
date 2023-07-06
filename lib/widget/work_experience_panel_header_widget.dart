@@ -10,9 +10,9 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
   WorkExperiencePanelHeaderWidget({super.key, required this.workExperience});
   WorkExperience workExperience;
 
-  final _headerTextColor = Color(0xff747474);
-  final _largeTextColor = Color(0xff363533);
-  final _mediumTextColor = Color(0xff434343);
+  final _headerTextColor = const Color(0xff747474);
+  final _largeTextColor = const Color(0xff363533);
+  final _mediumTextColor = const Color(0xff434343);
 
   @override
   Widget build(BuildContext context) {
@@ -56,17 +56,17 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                   children: [
                     _topHeaderTextWidget(locationString, context),
                     _mediumTextWidget(workExperience.location, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(rankString, context),
                     _mediumTextWidget(workExperience.rank, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(roleString, context),
                     _mediumTextWidget(workExperience.mainRole, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(periodString, context),
@@ -92,22 +92,22 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                   children: [
                     _topHeaderTextWidget(companyString, context),
                     _largeTextWidget(workExperience.companyName, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(locationString, context),
                     _mediumTextWidget(workExperience.location, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(rankString, context),
                     _mediumTextWidget(workExperience.rank, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(roleString, context),
                     _mediumTextWidget(workExperience.mainRole, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(periodString, context),

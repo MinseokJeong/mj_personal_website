@@ -16,9 +16,9 @@ class OtherProjectExperiencePanelHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const flexs = OtherProjectExperiencesWidget.flexs;
 
-    final projectNameString = 'Project Name';
-    final descriptionStirng = 'Description';
-    final workPeriodString = 'Work Period';
+    const projectNameString = 'Project Name';
+    const descriptionStirng = 'Description';
+    const workPeriodString = 'Work Period';
 
     if (ScreenSize.isTabletScreenSize(context)) {
       return Padding(
@@ -53,7 +53,7 @@ class OtherProjectExperiencePanelHeaderWidget extends StatelessWidget {
                     _topHeaderTextWidget(descriptionStirng, context),
                     _mediumTextWidget(
                         projectInformation.projectDescription, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(workPeriodString, context),
@@ -80,13 +80,13 @@ class OtherProjectExperiencePanelHeaderWidget extends StatelessWidget {
                   children: [
                     _topHeaderTextWidget(projectNameString, context),
                     _largeTextWidget(projectInformation.projectName, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(descriptionStirng, context),
                     _mediumTextWidget(
                         projectInformation.projectDescription, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(workPeriodString, context),

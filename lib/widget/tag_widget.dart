@@ -29,7 +29,7 @@ class TagWidget extends StatelessWidget {
           border: Border.all(
               color: borderColor ?? backgroundColor ?? Colors.black,
               width: borderWidth ?? 0.0)),
-      padding: padding ?? EdgeInsets.all(8.0),
+      padding: padding ?? const EdgeInsets.all(8.0),
       child: Text(
         tag,
         style: TextStyle(

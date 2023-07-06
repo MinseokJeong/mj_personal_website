@@ -1,13 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
-import '../widget/horizontal_moving_text_widget.dart';
 import '../app_design_resources.dart' as ar;
 import '../widget/horizontal_moving_text_widget2.dart';
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
@@ -123,7 +121,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: Alignment(0.0, 1.0),
+              alignment: const Alignment(0.0, 1.0),
               child: SizedBox(
                 height: 120,
                 child: Column(

@@ -27,7 +27,7 @@ class ProjectWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(
             top: BorderSide(color: Colors.black, width: 1.0),
           ),
@@ -68,7 +68,7 @@ class ProjectWidget extends StatelessWidget {
                       height: 12.0,
                     ),
                     _smallTextWidget('Member', context),
-                    _mediumTextWidget(projectMembers!, context),
+                    _mediumTextWidget(projectMembers, context),
                   ],
                   if (contributionrate.isNotEmpty) ...[
                     const SizedBox(

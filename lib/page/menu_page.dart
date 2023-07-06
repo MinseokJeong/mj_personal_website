@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import '../model/route_name.dart' as rn;
 
@@ -19,7 +17,7 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,11 +33,11 @@ class MenuPage extends StatelessWidget {
                   child: Container(
                     width: 48,
                     height: 48,
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
                         color: closeButtonBackgroundColor,
                         shape: BoxShape.circle),
-                    child: Icon(
+                    child: const Icon(
                       Icons.close_sharp,
                       color: closeButtonIconColor,
                     ),
@@ -47,17 +45,17 @@ class MenuPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 24.0),
+            const Padding(
+              padding: EdgeInsets.only(left: 24.0),
               child: Text(
                 'Navigation',
                 style: TextStyle(color: smallTextColor, fontSize: 14),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Padding(
@@ -75,7 +73,7 @@ class MenuPage extends StatelessWidget {
                     context, rn.homePage, (_) => false);
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             _CustomRowTextButton(
@@ -85,7 +83,7 @@ class MenuPage extends StatelessWidget {
                     context, rn.workPage, (_) => false);
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             _CustomRowTextButton(
@@ -95,7 +93,7 @@ class MenuPage extends StatelessWidget {
                     context, rn.aboutPage, (_) => false);
               },
             ),
-            Expanded(child: SizedBox.shrink()),
+            const Expanded(child: SizedBox.shrink()),
             FooterWidget(
               defaultColor: Colors.grey,
               highlightColor: Colors.white,
@@ -109,7 +107,7 @@ class MenuPage extends StatelessWidget {
 
 class _CustomRowTextButton extends StatefulWidget {
   _CustomRowTextButton(
-      {super.key, required this.text, required this.onPressed});
+      {required this.text, required this.onPressed});
 
   void Function() onPressed;
   String text;
@@ -130,7 +128,7 @@ class __CustomRowTextButtonState extends State<_CustomRowTextButton>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
   }
 
@@ -179,17 +177,17 @@ class __CustomRowTextButtonState extends State<_CustomRowTextButton>
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Colors.white),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             Text(
               widget.text,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 48,
                   color: Colors.white,
                   fontWeight: FontWeight.w500),

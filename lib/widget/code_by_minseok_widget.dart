@@ -23,7 +23,7 @@ class _CodeByMinseokWidgetState extends State<CodeByMinseokWidget>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
 
     _textOpacityAnimation =

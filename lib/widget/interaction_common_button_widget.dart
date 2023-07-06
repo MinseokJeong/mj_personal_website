@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
@@ -53,7 +51,7 @@ class _InteractionCommonButtonWidgetState
       child: GestureDetector(
         onTap: widget.onPressed,
         child: AnimatedContainer(
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
               color: _isMouseHovered
                   ? (widget.backgroundFocusColor ??
@@ -80,7 +78,7 @@ class _InteractionCommonButtonWidgetState
                     padding: EdgeInsets.only(bottom: 12 * ratio),
                     child: Text(
                       widget.badge!,
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                      style: const TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                   ),
               ],

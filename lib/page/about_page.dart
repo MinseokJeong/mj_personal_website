@@ -1,17 +1,15 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
-import 'package:mj_portfolio_web/page/good_developer_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/util/text_highligher.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
-import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
-import 'package:mj_portfolio_web/widget/moving_around_tags_widget.dart';
 import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
@@ -30,7 +28,7 @@ class _AboutPageState extends State<AboutPage>
   late AnimationController _pictureRotateAnimationController;
   late Animation<double> _pictureRotateAniamtion;
 
-  StreamController<Offset> _mousePointerPositionStreamController =
+  final StreamController<Offset> _mousePointerPositionStreamController =
       StreamController<Offset>.broadcast();
 
   final _backgroundColor = HexColor("#1C1D20");
@@ -67,7 +65,7 @@ class _AboutPageState extends State<AboutPage>
 
     _pictureRotateAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 30),
+      duration: const Duration(seconds: 30),
     );
     _pictureRotateAniamtion = Tween(begin: 0.0, end: 2 * math.pi)
         .animate(_pictureRotateAnimationController);
@@ -122,7 +120,17 @@ class _AboutPageState extends State<AboutPage>
       _developerCategory = devCategory;
       _fullNameHangeul = fullNameHangeul;
       _fullNameEnglish = fullNameEnglish;
-      _aboutMe = aboutMe;
+
+      //_aboutMe = aboutMe;
+      //TODO: DELETE BELOW CODE
+      _aboutMe = [
+        "대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에 있는 회사에서 <Kickstarter> 프로젝트에 참여하면서 <Android> 앱을 개발하였고, 그 후 한국으로 돌아와 캐나다 Vancouver에 있는 3D 스캐너 회사와 재택근무를 하며 <Windows Desktop> 프로그램을 개발하였고, 지인과 둘이서 스타트업 회사를 창업하여 <Android/iOS> 개발자로 일을 하였고 <사회적 기업 국가지원 사업에 선정>되고 프로젝트 관련 <특허 등록>경험이 있으며 창업 경진대회에서 <창업 아이디어 부문 대상 수상>한 경험이 있고, 방위산업체에서 근무하며 군에 납품하는 장비 및 프로그램을 개발하며 <Embedded System/Firmware>, <Windows Desktop> 개발자로 일을 하였습니다.",
+        "<Mobile App> 및 <Desktop App> 그리고 <Embedded System/Firmware>와 같이 다양한 실무 경험과 <Web> 관련 사이드 프로젝트 경험 및 이런 <경험>을 바탕으로 전반적인 컴퓨터 및 <프로그래밍에 대한 이해>가 넓으며 새로운 기술을 <습득하는 능력>이 뛰어납니다.",
+        "다양한 경험이 말해주듯이 <가보지 않은 길>로 가는것을 겁내지 않고 <도전>하며 걸어왔습니다.",
+        "현재는 '<Write once, run anywhere>' 라는 표어를 갖는 <Flutter>에 관심이 많으며 보고 있는 웹사이트 또한 Flutter를 이용하여 만들었습니다.",
+        "컴퓨터 앞에 앉아 있지 않을 때는 아내가 운영하는 <젤라뚱>으로가서 매장일을 도우며 <젤라또 아이스크림>을 먹거나, <도서관>에가서 무엇인가에 열중하는 사람들을 바라보는 것을 좋아합니다.",
+        "언제나 좋은 개발자가 되기 위해 최선을 다합니다."
+      ];
 
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
@@ -181,7 +189,7 @@ class _AboutPageState extends State<AboutPage>
 
   Widget _getMainWidget() {
     final screenHeight = ScreenSize.getScreenHeight(context);
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -191,11 +199,11 @@ class _AboutPageState extends State<AboutPage>
             currentRoutePageName: rn.aboutPage,
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 120,
           ),
           _getProfileAndAboutMeDetailWidget(),
-          SizedBox(
+          const SizedBox(
             height: 160.0,
           ),
           SizedBox(
@@ -220,7 +228,7 @@ class _AboutPageState extends State<AboutPage>
           //_getGoodDeveloperExpandedPanelWidget(),
           //TODO: Should uncomment this
 
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           FooterWidget(
@@ -233,7 +241,7 @@ class _AboutPageState extends State<AboutPage>
 
   Widget _getMousePointerEffectWidget() {
     final color = HexColor('#43953E');
-    final double widgetSize = 240;
+    const double widgetSize = 240;
     return StreamBuilder<Offset>(
       stream: _mousePointerPositionStreamController.stream,
       builder: (bc, snapshot) {
@@ -252,7 +260,7 @@ class _AboutPageState extends State<AboutPage>
                     BoxShadow(
                         blurStyle: BlurStyle.normal,
                         color: color.withAlpha(24),
-                        offset: Offset(0, 0),
+                        offset: const Offset(0, 0),
                         blurRadius: widgetSize,
                         spreadRadius: widgetSize / 2),
                   ],
@@ -261,7 +269,7 @@ class _AboutPageState extends State<AboutPage>
             ),
           );
         } else {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
       },
     );
@@ -277,7 +285,7 @@ class _AboutPageState extends State<AboutPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "'좋은 개발자' : ",
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
@@ -289,10 +297,10 @@ class _AboutPageState extends State<AboutPage>
                       (e) => RotateAnimatedText(
                         e,
                         rotateOut: true,
-                        duration: Duration(milliseconds: 2000),
+                        duration: const Duration(milliseconds: 2000),
                         transitionHeight: 20.0 * 10.0 / 3.0 * 2,
                         textStyle:
-                            TextStyle(fontSize: 20.0, color: Colors.white),
+                            const TextStyle(fontSize: 20.0, color: Colors.white),
                       ),
                     ),
                   ],
@@ -309,22 +317,22 @@ class _AboutPageState extends State<AboutPage>
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
-              Text(
+              const Text(
                 "'좋은 개발자' : ",
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
               Expanded(
                 child: _whatIsGoodDeveloper.isEmpty
-                    ? SizedBox.shrink()
+                    ? const SizedBox.shrink()
                     : AnimatedTextKit(
                         repeatForever: true,
                         animatedTexts: [
                           ..._whatIsGoodDeveloper.map(
                             (e) => RotateAnimatedText(e,
                                 rotateOut: true,
-                                duration: Duration(milliseconds: 2000),
+                                duration: const Duration(milliseconds: 2000),
                                 transitionHeight: 20.0 * 10.0 / 3.0 * 2,
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontSize: 20.0, color: Colors.white)),
                           ),
                         ],
@@ -368,7 +376,7 @@ class _AboutPageState extends State<AboutPage>
                 'assets/minseokjeong_rotate_text.svg',
                 width: 500,
                 height: 500,
-                color: Color.fromARGB(15, 255, 255, 255),
+                color: const Color.fromARGB(15, 255, 255, 255),
               ),
             ),
           ),
@@ -419,7 +427,7 @@ class _AboutPageState extends State<AboutPage>
                 'assets/minseokjeong_rotate_text.svg',
                 width: 500,
                 height: 500,
-                color: Color.fromARGB(15, 255, 255, 255),
+                color: const Color.fromARGB(15, 255, 255, 255),
               ),
             ),
           ),
@@ -480,207 +488,81 @@ class _AboutPageState extends State<AboutPage>
     );
   }
 
-  Widget _getAboutMeDetailWidget() {
-    final defaultTextStyle =
+  List<Widget> _getAboutMeTextWidgetList() {
+    const defaultTextStyle =
         TextStyle(color: Colors.grey, fontSize: 20, height: 1.4);
-    final highlightTextStyle =
+    const highlightTextStyle =
+        TextStyle(color: Colors.white, fontSize: 20, height: 1.4);
+
+    final retVal = <Widget>[];
+    for (final aboutMeText in _aboutMe) {
+      final textHighlighter = TextHighlighter(aboutMeText);
+      final highlightTextModels = textHighlighter.getTexthighlightModel();
+
+      if (aboutMeText.contains('좋은 개발자')) {
+        continue;
+      }
+
+      final textSpans = <TextSpan>[];
+      for (final highlightTextModel in highlightTextModels) {
+        var finalHighlightTextStyle = highlightTextStyle;
+
+        final text = highlightTextModel.text;
+        final highlight = highlightTextModel.highlight;
+
+        TapGestureRecognizer? gestureRecognizer;
+        if (text == 'Flutter') {
+          finalHighlightTextStyle =
+              highlightTextStyle.copyWith(color: const Color(0xff027DFD));
+        } else if (text == '젤라뚱') {
+          // finalHighlightTextStyle =
+          //     highlightTextStyle.copyWith(color: Color(0xffE94190));
+          gestureRecognizer = TapGestureRecognizer()
+            ..onTap =
+                () => launchUrlString('https://www.instagram.com/gelato_dd/');
+        }
+
+        final currentTextSpan = TextSpan(
+          text: text,
+          style: (highlight) ? finalHighlightTextStyle : defaultTextStyle,
+          recognizer: gestureRecognizer,
+        );
+
+        textSpans.add(currentTextSpan);
+      }
+
+      final columnWidget = Column(
+        children: [
+          Text.rich(
+            TextSpan(
+              children: textSpans,
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+        ],
+      );
+      retVal.add(columnWidget);
+    }
+
+    return retVal;
+  }
+
+  Widget _getAboutMeDetailWidget() {
+    const defaultTextStyle =
+        TextStyle(color: Colors.grey, fontSize: 20, height: 1.4);
+    const highlightTextStyle =
         TextStyle(color: Colors.white, fontSize: 20, height: 1.4);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ..._aboutMe.map((e) {
-          final textHighlighter = TextHighlighter(e);
-          final highlightTextModels = textHighlighter.getTexthighlightModel();
-          return Column(
-            children: [
-              Text.rich(
-                TextSpan(children: [
-                  ...highlightTextModels.map((e) => TextSpan(
-                      text: e.text,
-                      style: (e.highlight)
-                          ? highlightTextStyle
-                          : defaultTextStyle))
-                ]),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
-          );
-        }),
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text: '대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에있는 회사에서 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Android',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: ' 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Windows',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: ' 개발자로 일을 하였고, 스타트업회사를 공동창업하며 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Andoid',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '/',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'iOS',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: ' 개발자로 일을 하였고, 방위산업체에서 근무하며 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Embedded System',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '/',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Firmware',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '/',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: 'Windows',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: ' 개발자로 일을 한 경험이 있습니다.',
-        //         style: defaultTextStyle,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 30.0,
-        // ),
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text: '다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '이해',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '가 넓고 깊으며 새로운',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '기술',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '을 습득하는 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '능력',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '이 뛰어납니다.',
-        //         style: defaultTextStyle,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 30.0,
-        // ),
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text: '위의 다양한 개발경험과 같이 가보지 않은 길로 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '도전',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '하는것을 즐기며 실패를 겁내지 않습니다.',
-        //         style: defaultTextStyle,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 30.0,
-        // ),
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text: '기업가정신',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: ' 을 추구하며 많은사람에게 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '가치',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '가 있고 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '도움',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '이되는 상품/서비스를 만드는것을 ',
-        //         style: defaultTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '목표',
-        //         style: highlightTextStyle,
-        //       ),
-        //       TextSpan(
-        //         text: '로 합니다.',
-        //         style: defaultTextStyle,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 30.0,
-        // ),
+        ..._getAboutMeTextWidgetList(),
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text(
+            const Text(
               "언제나 ",
               style: defaultTextStyle,
             ),
@@ -688,19 +570,19 @@ class _AboutPageState extends State<AboutPage>
               onPressed: () {
                 Navigator.pushNamed(context, rn.goodDeveloper);
               },
-              label: Text(
+              label: const Text(
                 '좋은 개발자',
                 style: highlightTextStyle,
               ),
-              icon: Icon(
+              icon: const Icon(
                 Icons.thumb_up,
                 color: Colors.white,
               ),
               //foregroundColor: Color(0xff4A5BE1),
-              backgroundColor: Color(0xff4A5BE1),
+              backgroundColor: const Color(0xff4A5BE1),
             ),
-            Text(
-              "가 되기위해 최선을 다합니다.",
+            const Text(
+              " 가 되기위해 최선을 다합니다.",
               style: defaultTextStyle,
             ),
           ],
@@ -716,7 +598,7 @@ class _AboutPageState extends State<AboutPage>
       children: [
         Text(
           _fullNameEnglish,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white,
               fontSize: 60.0,
               fontWeight: FontWeight.w700,
@@ -724,29 +606,29 @@ class _AboutPageState extends State<AboutPage>
         ),
         Text(
           _fullNameHangeul,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white,
               fontSize: 60.0,
               fontWeight: FontWeight.w700,
               height: 1.0),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16.0,
         ),
         Text(
           _developerTitle,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 25.0,
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16.0,
         ),
         Text(
           _developerCategory,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.grey,
             fontSize: 20.0,
             fontWeight: FontWeight.w400,
@@ -775,7 +657,7 @@ class _AboutPageState extends State<AboutPage>
                 height: 30,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             TextButton(
@@ -795,45 +677,45 @@ class _AboutPageState extends State<AboutPage>
                 height: 30,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             TextButton(
               onPressed: () {
                 if (_eamilAddress.isNotEmpty) {
-                  launchUrlString('mailto:${_eamilAddress}');
+                  launchUrlString('mailto:$_eamilAddress');
                 }
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.email,
                 color: iconColor,
                 size: 30,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             TextButton(
               onPressed: () {
                 if (_phoneNumber.isNotEmpty) {
-                  launchUrlString('tel:${_phoneNumber}');
+                  launchUrlString('tel:$_phoneNumber');
                 }
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 minimumSize: Size.zero,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.phone,
                 color: iconColor,
                 size: 30,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             TextButton(
@@ -861,7 +743,7 @@ class _AboutPageState extends State<AboutPage>
 
   Widget _getGoodDeveloperExpandedPanelWidget() {
     if (_whatIsGoodDeveloper.isEmpty) {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
 
     return ExpansionPanelList.radio(
@@ -881,8 +763,8 @@ class _AboutPageState extends State<AboutPage>
                   ),
                   borderRadius: BorderRadius.circular(24),
                 ),
-                padding: EdgeInsets.all(8.0),
-                child: Text(
+                padding: const EdgeInsets.all(8.0),
+                child: const Text(
                   '좋은 개발자',
                   style: TextStyle(
                       fontSize: 24,
@@ -903,14 +785,14 @@ class _AboutPageState extends State<AboutPage>
                     children: [
                       Text(
                         '${(i + 1).toString()}. ',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 20,
                         ),
                       ),
                       Text(
-                        '${_whatIsGoodDeveloper[i]}',
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        _whatIsGoodDeveloper[i],
+                        style: const TextStyle(color: Colors.white, fontSize: 24),
                       ),
                     ],
                   ),

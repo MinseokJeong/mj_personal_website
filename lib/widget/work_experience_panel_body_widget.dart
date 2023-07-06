@@ -37,7 +37,7 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
 
     final textStyle = TextStyle(
       fontSize: fontSizeVariation.getSizeWithContext(context),
-      color: Color(0xffAFAFB0),
+      color: const Color(0xffAFAFB0),
       fontWeight: FontWeight.w300,
     );
     return Text(
@@ -91,7 +91,7 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
                         ],
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ),
             Flexible(
               flex: 1,
@@ -108,7 +108,7 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
                         ],
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ),
           ],
         ),
@@ -124,7 +124,7 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
             ),
           ],
           if (workExperience.companyWebsite.isNotEmpty) ...[
-            SizedBox(
+            const SizedBox(
               height: 12.0,
             ),
             _topHeaderTextWidget('URL', context),

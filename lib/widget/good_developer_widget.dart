@@ -16,8 +16,8 @@ class GoodDeveloperWidget extends StatelessWidget {
       color: backgroundColor,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 32.0),
             child: Center(
               child: Text(
                 "'좋은 개발자'",
@@ -37,7 +37,7 @@ class GoodDeveloperWidget extends StatelessWidget {
     if (screenWidth >= lapTopLargeWidth) {
       return Row(
         children: [
-          Flexible(
+          const Flexible(
             flex: 1,
             fit: FlexFit.tight,
             child: SizedBox(),
@@ -61,7 +61,7 @@ class GoodDeveloperWidget extends StatelessWidget {
             fit: FlexFit.tight,
             child: Column(
               children: [
-                for (int i = (whatIsGoodDeveloper.length / 2).toInt();
+                for (int i = whatIsGoodDeveloper.length ~/ 2;
                     i < whatIsGoodDeveloper.length;
                     ++i)
                   Padding(
@@ -72,7 +72,7 @@ class GoodDeveloperWidget extends StatelessWidget {
               ],
             ),
           ),
-          Flexible(
+          const Flexible(
             flex: 1,
             fit: FlexFit.tight,
             child: SizedBox.shrink(),
@@ -104,8 +104,8 @@ class GoodDeveloperWidget extends StatelessWidget {
   }
 
   Widget _goodDeveloperTextWidget(int number, String text) {
-    final smallTextColor = Colors.grey;
-    final normalTextColor = Colors.white;
+    const smallTextColor = Colors.grey;
+    const normalTextColor = Colors.white;
 
     return Wrap(
       children: [
@@ -113,15 +113,15 @@ class GoodDeveloperWidget extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: '${number}. ',
-                style: TextStyle(
+                text: '$number. ',
+                style: const TextStyle(
                   color: smallTextColor,
                   fontSize: 14,
                 ),
               ),
               TextSpan(
                 text: text,
-                style: TextStyle(color: normalTextColor, fontSize: 18),
+                style: const TextStyle(color: normalTextColor, fontSize: 18),
               )
             ],
           ),

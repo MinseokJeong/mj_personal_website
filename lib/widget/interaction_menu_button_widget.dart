@@ -28,7 +28,7 @@ class _InteractionMenuButtonWidgetState
   late LineMetrics _calculatedLineMetrics;
   double _horizontalPadding = 16.0;
   double _verticalPadding = 16.0;
-  double _fontSize = 16.0;
+  final double _fontSize = 16.0;
 
   String get _text => widget.text;
   double get _containerWidth =>
@@ -166,7 +166,7 @@ class _InteractionMenuButtonWidgetState
                               softWrap: false,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 4,
                           ),
                           SizedBox(
@@ -212,7 +212,7 @@ class _InteractionMenuButtonWidgetState
                               softWrap: false,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 4,
                           ),
                           SizedBox(
