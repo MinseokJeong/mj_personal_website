@@ -5,16 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 
 class InteractionMenuButtonWidget extends StatefulWidget {
-  const InteractionMenuButtonWidget(
-      {Key? key,
-      required this.text,
-      required this.onPressed,
-      required this.textColor})
-      : super(key: key);
+  const InteractionMenuButtonWidget({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+    required this.textColor,
+    this.selected = false,
+  }) : super(key: key);
 
   final String text;
   final VoidCallback onPressed;
   final Color textColor;
+  final bool selected;
 
   @override
   State<InteractionMenuButtonWidget> createState() =>
@@ -154,13 +156,34 @@ class _InteractionMenuButtonWidgetState
                     visible: isMouseEnterAndExitState,
                     child: Transform.translate(
                       offset: _textPositionAnimationWhenMouseEnterAndExit.value,
-                      child: TextButton(
-                        onPressed: widget.onPressed,
-                        child: Text(
-                          _text,
-                          style: _textStyle,
-                          softWrap: false,
-                        ),
+                      child: Column(
+                        children: [
+                          TextButton(
+                            onPressed: widget.onPressed,
+                            child: Text(
+                              _text,
+                              style: _textStyle,
+                              softWrap: false,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          SizedBox(
+                            height: 6,
+                            width: 6,
+                            child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: (widget.selected)
+                                    ? widget.textColor
+                                    : Colors.transparent,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
@@ -179,13 +202,34 @@ class _InteractionMenuButtonWidgetState
                     visible: !isMouseEnterAndExitState,
                     child: Transform.translate(
                       offset: moveOffset,
-                      child: TextButton(
-                        onPressed: widget.onPressed,
-                        child: Text(
-                          _text,
-                          style: _textStyle,
-                          softWrap: false,
-                        ),
+                      child: Column(
+                        children: [
+                          TextButton(
+                            onPressed: widget.onPressed,
+                            child: Text(
+                              _text,
+                              style: _textStyle,
+                              softWrap: false,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          SizedBox(
+                            height: 6,
+                            width: 6,
+                            child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: (widget.selected)
+                                    ? widget.textColor
+                                    : Colors.transparent,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );

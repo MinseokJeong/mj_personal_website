@@ -12,6 +12,7 @@ import 'package:mj_portfolio_web/widget/other_project_experience_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'package:mj_portfolio_web/widget/work_experience_widget.dart';
 import '../model/project_information.dart';
+import '../model/route_name.dart' as rn;
 
 //TODO: WORK PAGE 의 처음 Keywords 버튼들을 어떻게 관리할지를 생각해봐야함.
 class WorkPage extends StatefulWidget {
@@ -246,6 +247,7 @@ class _WorkPageState extends State<WorkPage> {
             children: [
               TopHeaderWidget(
                 textColor: Colors.black,
+                currentRoutePageName: rn.workPage,
               ),
               verticalSpace(120),
               //가운데 큰 헤더 여기에 알맞은 텍스트를 넣어야겟지?

@@ -184,6 +184,7 @@ class _AboutPageState extends State<AboutPage>
         children: [
           const TopHeaderWidget(
             textColor: Colors.white,
+            currentRoutePageName: rn.aboutPage,
           ),
 
           SizedBox(
@@ -191,7 +192,7 @@ class _AboutPageState extends State<AboutPage>
           ),
           _getProfileAndAboutMeDetailWidget(),
           SizedBox(
-            height: 32.0,
+            height: 160.0,
           ),
           SizedBox(
             width: 1300,
@@ -216,7 +217,7 @@ class _AboutPageState extends State<AboutPage>
           //TODO: Should uncomment this
 
           SizedBox(
-            height: 160,
+            height: 80,
           ),
           FooterWidget(
             highlightColor: Colors.white,

@@ -9,9 +9,12 @@ import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
 
 class TopHeaderWidget extends StatelessWidget {
-  const TopHeaderWidget({Key? key, required this.textColor}) : super(key: key);
+  const TopHeaderWidget(
+      {Key? key, required this.textColor, this.currentRoutePageName = ''})
+      : super(key: key);
 
   final Color textColor;
+  final String currentRoutePageName;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +101,7 @@ class TopHeaderWidget extends StatelessWidget {
               Navigator.pushNamed(context, rn.homePage);
             },
             textColor: textColor,
+            selected: (currentRoutePageName == rn.homePage) ? true : false,
           ),
           InteractionMenuButtonWidget(
             text: 'Work',
@@ -106,6 +110,7 @@ class TopHeaderWidget extends StatelessWidget {
               //pt.slideUpPageTransition(context, WorkPage(), 'Work');
             },
             textColor: textColor,
+            selected: (currentRoutePageName == rn.workPage) ? true : false,
           ),
           InteractionMenuButtonWidget(
             text: 'About',
@@ -113,6 +118,7 @@ class TopHeaderWidget extends StatelessWidget {
               Navigator.pushNamed(context, rn.aboutPage);
             },
             textColor: textColor,
+            selected: (currentRoutePageName == rn.aboutPage) ? true : false,
           ),
         ],
       ),

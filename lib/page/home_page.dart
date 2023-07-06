@@ -12,6 +12,7 @@ import '../app_design_resources.dart' as ar;
 import '../widget/horizontal_moving_text_widget2.dart';
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
 import '../widget/top_header_widget.dart';
+import '../model/route_name.dart' as rn;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -69,6 +70,7 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.topCenter,
               child: TopHeaderWidget(
                 textColor: Colors.white,
+                currentRoutePageName: rn.homePage,
               ),
             ),
             Align(
