@@ -8,6 +8,7 @@ import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/page/good_developer_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
+import 'package:mj_portfolio_web/util/text_highligher.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/good_developer_widget.dart';
 import 'package:mj_portfolio_web/widget/moving_around_tags_widget.dart';
@@ -45,6 +46,7 @@ class _AboutPageState extends State<AboutPage>
   String _fullNameHangeul = '';
   String _fullNameEnglish = '';
   List<String> _whatIsGoodDeveloper = [];
+  List<String> _aboutMe = [];
 
   //Skillset related... I think it woulbe better??
   List<String> _skillSetProgrammingLanguage = [];
@@ -93,6 +95,7 @@ class _AboutPageState extends State<AboutPage>
     final github = introduction['github'] as String;
     final devTitle = introduction['developerTitle'] as String;
     final devCategory = introduction['developerCategory'] as String;
+    final aboutMe = List<String>.from(introduction['aboutMe']);
 
     final whatIsGoodDeveloper =
         List<String>.from(introduction['whatIsGoodDeveloper']);
@@ -119,6 +122,7 @@ class _AboutPageState extends State<AboutPage>
       _developerCategory = devCategory;
       _fullNameHangeul = fullNameHangeul;
       _fullNameEnglish = fullNameEnglish;
+      _aboutMe = aboutMe;
 
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
@@ -477,188 +481,208 @@ class _AboutPageState extends State<AboutPage>
   }
 
   Widget _getAboutMeDetailWidget() {
-    final greyTextStyle =
+    final defaultTextStyle =
         TextStyle(color: Colors.grey, fontSize: 20, height: 1.4);
-    final whiteTextStyle =
+    final highlightTextStyle =
         TextStyle(color: Colors.white, fontSize: 20, height: 1.4);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text.rich(
-          TextSpan(
+        ..._aboutMe.map((e) {
+          final textHighlighter = TextHighlighter(e);
+          final highlightTextModels = textHighlighter.getTexthighlightModel();
+          return Column(
             children: [
-              TextSpan(
-                text: '대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에있는 회사에서 ',
-                style: greyTextStyle,
+              Text.rich(
+                TextSpan(children: [
+                  ...highlightTextModels.map((e) => TextSpan(
+                      text: e.text,
+                      style: (e.highlight)
+                          ? highlightTextStyle
+                          : defaultTextStyle))
+                ]),
               ),
-              TextSpan(
-                text: 'Android',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: ' 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'Windows',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: ' 개발자로 일을 하였고, 스타트업회사를 공동창업하며 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'Andoid',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '/',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'iOS',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: ' 개발자로 일을 하였고, 방위산업체에서 근무하며 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'Embedded System',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '/',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'Firmware',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '/',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: 'Windows',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: ' 개발자로 일을 한 경험이 있습니다.',
-                style: greyTextStyle,
+              SizedBox(
+                height: 30,
               ),
             ],
-          ),
-        ),
-        SizedBox(
-          height: 30.0,
-        ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '이해',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '가 넓고 깊으며 새로운',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '기술',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '을 습득하는 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '능력',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '이 뛰어납니다.',
-                style: greyTextStyle,
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 30.0,
-        ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '위의 다양한 개발경험과 같이 가보지 않은 길로 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '도전',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '하는것을 즐기며 실패를 겁내지 않습니다.',
-                style: greyTextStyle,
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 30.0,
-        ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '기업가정신',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: ' 을 추구하며 많은사람에게 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '가치',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '가 있고 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '도움',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '이되는 상품/서비스를 만드는것을 ',
-                style: greyTextStyle,
-              ),
-              TextSpan(
-                text: '목표',
-                style: whiteTextStyle,
-              ),
-              TextSpan(
-                text: '로 합니다.',
-                style: greyTextStyle,
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 30.0,
-        ),
+          );
+        }),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: '대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에있는 회사에서 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Android',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: ' 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Windows',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: ' 개발자로 일을 하였고, 스타트업회사를 공동창업하며 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Andoid',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '/',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'iOS',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: ' 개발자로 일을 하였고, 방위산업체에서 근무하며 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Embedded System',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '/',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Firmware',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '/',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: 'Windows',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: ' 개발자로 일을 한 경험이 있습니다.',
+        //         style: defaultTextStyle,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: 30.0,
+        // ),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: '다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '이해',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '가 넓고 깊으며 새로운',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '기술',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '을 습득하는 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '능력',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '이 뛰어납니다.',
+        //         style: defaultTextStyle,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: 30.0,
+        // ),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: '위의 다양한 개발경험과 같이 가보지 않은 길로 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '도전',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '하는것을 즐기며 실패를 겁내지 않습니다.',
+        //         style: defaultTextStyle,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: 30.0,
+        // ),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text: '기업가정신',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: ' 을 추구하며 많은사람에게 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '가치',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '가 있고 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '도움',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '이되는 상품/서비스를 만드는것을 ',
+        //         style: defaultTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '목표',
+        //         style: highlightTextStyle,
+        //       ),
+        //       TextSpan(
+        //         text: '로 합니다.',
+        //         style: defaultTextStyle,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: 30.0,
+        // ),
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             Text(
               "언제나 ",
-              style: greyTextStyle,
+              style: defaultTextStyle,
             ),
             FloatingActionButton.extended(
               onPressed: () {
@@ -666,7 +690,7 @@ class _AboutPageState extends State<AboutPage>
               },
               label: Text(
                 '좋은 개발자',
-                style: whiteTextStyle,
+                style: highlightTextStyle,
               ),
               icon: Icon(
                 Icons.thumb_up,
@@ -677,7 +701,7 @@ class _AboutPageState extends State<AboutPage>
             ),
             Text(
               "가 되기위해 최선을 다합니다.",
-              style: greyTextStyle,
+              style: defaultTextStyle,
             ),
           ],
         ),
