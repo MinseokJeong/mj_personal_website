@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
@@ -34,10 +36,6 @@ class _SlideUpPageTransitionWidgetState
       }
     });
     _screenSlideUpAnimationController.reset();
-    // _screenSlideUpAnimation2 = Tween(begin: 0.0, end: 1.0).animate(
-    //     CurvedAnimation(
-    //         curve: Curves.easeInOutQuart,
-    //         parent: _screenSlideUpAnimationController2));
   }
 
   @override
@@ -125,35 +123,38 @@ class _SlideUpPageTransitionWidgetState
     _screenSlideUpAnimationController.forward();
 
     final windowSize = ScreenSize.getScreenSize(context);
-    const circularBoxHeight = 300.0;
+    final windowHeight = windowSize.height;
+    final windowWidth = windowSize.width;
+    final upperBelowBoxHeight = windowHeight * 0.33;
+    final backgroundColor = Colors.black;
 
     _screenSlideUpAnimation = TweenSequence([
       TweenSequenceItem(
         tween: Tween(
-          begin: Offset(0.0, windowSize.height),
-          end: const Offset(0.0, -circularBoxHeight),
+          begin: Offset(0.0, windowHeight + upperBelowBoxHeight),
+          end: const Offset(0.0, 0.0),
         ).chain(
           CurveTween(curve: Curves.easeInOutQuart),
         ),
-        weight: 0.4,
+        weight: 0.3,
       ),
       TweenSequenceItem(
         tween: ConstantTween(
-          const Offset(0.0, -circularBoxHeight),
+          const Offset(0.0, 0.0),
         ),
         weight: 0.6,
       ),
       TweenSequenceItem(
         tween: Tween(
-          begin: const Offset(0.0, -circularBoxHeight),
+          begin: const Offset(0.0, 0.0),
           end: Offset(
             0.0,
-            -(circularBoxHeight * 2.0 + windowSize.height),
+            -(upperBelowBoxHeight + windowHeight),
           ),
         ).chain(
           CurveTween(curve: Curves.easeInOutQuart),
         ),
-        weight: 0.4,
+        weight: 0.3,
       ),
     ]).animate(_screenSlideUpAnimationController);
 
@@ -166,52 +167,132 @@ class _SlideUpPageTransitionWidgetState
             AnimatedBuilder(
               animation: _screenSlideUpAnimation,
               builder: (context, child) {
+                final currentCenterBoxSlideUpAnimationOffset =
+                    _screenSlideUpAnimation.value;
+                final upperBoxOffset = Offset(
+                    0,
+                    currentCenterBoxSlideUpAnimationOffset.dy -
+                        upperBelowBoxHeight +
+                        2.0);
                 return Transform.translate(
-                  offset: _screenSlideUpAnimation.value,
-                  child: UnconstrainedBox(
-                    alignment: Alignment.topCenter,
-                    clipBehavior: Clip.none,
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      Container(
-                        width: windowSize.width,
-                        height: circularBoxHeight,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.elliptical(
-                                windowSize.width / 2.0, circularBoxHeight),
-                            topRight: Radius.elliptical(
-                                windowSize.width / 2.0, circularBoxHeight),
-                          ),
-                        ),
-                      ),
-                      child!,
-                      Container(
-                        width: windowSize.width,
-                        height: circularBoxHeight,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.elliptical(
-                                windowSize.width / 2.0, circularBoxHeight),
-                            bottomRight: Radius.elliptical(
-                                windowSize.width / 2.0, circularBoxHeight),
-                          ),
-                        ),
-                      ),
-                    ]),
-                  ),
+                  offset: upperBoxOffset,
+                  child: child!,
                 );
               },
               child: Container(
-                width: windowSize.width,
-                height: windowSize.height,
-                color: Colors.black,
+                width: windowWidth,
+                height: upperBelowBoxHeight,
+                decoration: BoxDecoration(
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.elliptical(
+                        windowSize.width / 2.0, upperBelowBoxHeight),
+                    topRight: Radius.elliptical(
+                        windowSize.width / 2.0, upperBelowBoxHeight),
+                  ),
+                ),
+              ),
+            ),
+            AnimatedBuilder(
+              animation: _screenSlideUpAnimation,
+              builder: (context, child) {
+                final currentCenterBoxSlideUpAnimationOffset =
+                    _screenSlideUpAnimation.value;
+                final belowBoxOffset = Offset(
+                    0,
+                    currentCenterBoxSlideUpAnimationOffset.dy +
+                        windowHeight -
+                        2.0);
+                return Transform.translate(
+                  offset: belowBoxOffset,
+                  child: child!,
+                );
+              },
+              child: Container(
+                width: windowWidth,
+                height: upperBelowBoxHeight,
+                decoration: BoxDecoration(
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.elliptical(
+                        windowSize.width / 2.0, upperBelowBoxHeight),
+                    bottomRight: Radius.elliptical(
+                        windowSize.width / 2.0, upperBelowBoxHeight),
+                  ),
+                ),
+              ),
+            ),
+
+            AnimatedBuilder(
+              animation: _screenSlideUpAnimation,
+              builder: (context, child) {
+                return Transform.translate(
+                  offset: _screenSlideUpAnimation.value,
+                  child: child!,
+                );
+              },
+              child: Container(
+                width: windowWidth,
+                height: windowHeight,
+                color: backgroundColor,
                 child: Center(
                   child: _getTextWidget(context),
                 ),
               ),
             ),
+            //   AnimatedBuilder(
+            //     animation: _screenSlideUpAnimation,
+            //     builder: (context, child) {
+            //       return Transform.translate(
+            //         offset: _screenSlideUpAnimation.value,
+            //         child: UnconstrainedBox(
+            //           alignment: Alignment.topCenter,
+            //           clipBehavior: Clip.none,
+            //           child: Column(
+            //             mainAxisSize: MainAxisSize.min,
+            //             children: [
+            //               Container(
+            //                 width: windowSize.width,
+            //                 height: circularBoxHeight,
+            //                 decoration: BoxDecoration(
+            //                   color: Colors.black,
+            //                   borderRadius: BorderRadius.only(
+            //                     topLeft: Radius.elliptical(
+            //                         windowSize.width / 2.0, circularBoxHeight),
+            //                     topRight: Radius.elliptical(
+            //                         windowSize.width / 2.0, circularBoxHeight),
+            //                   ),
+            //                 ),
+            //               ),
+            //               child!,
+            //               Container(
+            //                 width: windowSize.width,
+            //                 height: circularBoxHeight,
+            //                 decoration: BoxDecoration(
+            //                   color: Colors.black,
+            //                   borderRadius: BorderRadius.only(
+            //                     bottomLeft: Radius.elliptical(
+            //                         windowSize.width / 2.0, circularBoxHeight),
+            //                     bottomRight: Radius.elliptical(
+            //                         windowSize.width / 2.0, circularBoxHeight),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       );
+            //     },
+            //     child: Container(
+            //       width: windowSize.width,
+            //       height: windowSize.height,
+            //       color: Colors.black,
+            //       child: Center(
+            //         child: _getTextWidget(context),
+            //       ),
+            //     ),
+            //   ),
+            //
           ],
         ),
       ),
