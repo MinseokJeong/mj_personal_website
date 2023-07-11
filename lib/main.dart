@@ -30,7 +30,7 @@ void main() {
   if (developmentMode) {
     return runApp(
       MaterialApp(
-        home: const AboutPage(),
+        home: const WorkPage(),
         theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
         debugShowCheckedModeBanner: false,
       ),

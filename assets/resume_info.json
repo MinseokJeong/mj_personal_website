@@ -3,7 +3,7 @@
         "fullNameHangeul": "정민석",
         "fullNameEnglish": "Minseok Jeong",
         "developerTitle": "Software Engineer & Developer",
-        "developerCategory": "모바일 / 웹 / 데스크탑 / 임베디드 / 펌웨어 개발자",
+        "developerCategory": "좋은 개발자",
         "jobPosition": "Flutter Developer",
         "birthDay": "1992.02.29",
         "email": "minseok.jeong92@gmail.com",
@@ -13,17 +13,16 @@
         "blogspot": "https://jeongminseok.blogspot.com/",
         "mobile": "+82-10-2957-0229",
         "address": "세종특별시 고운동",
-        "__comment1": "AboutMe에 들어가는 정보 작업은 추후 아래 데이터를 전부 만들고나서 작업하기로 함",
         "motto": [
             "Don't talk just ACT, Don't say just SHOW, Don't promise Just PROVE.",
             "To be good, and to do good, is all we have to do. - John Adams"
         ],
         "aboutMe": [
-            "대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에 있는 회사에서 <Android> 개발자로서 인턴생활을 하였으며, 캐나다 Vancouver에 있는 회사에서 재택근무를 하며 Windows 개발자로 일을 하였고, 스타트업 회사를 공동창업하며 Android/iOS 개발자로 일을 하였고, 방위산업체에서 근무하며 Embedded System/Firmware/Windows 개발자로 일을 한 경험이 있습니다.",
-            "다양한 플랫폼을 경험하면서 컴퓨터 및 프로그래밍에 대한 이해가 넓고 깊으며 새로운 기술을 습득하는 능력이 뛰어납니다.",
-            "위의 다양한 개발 경험과 같이 가보지 않은 길로 도전하는것을 즐기며 실패를 겁내지 않습니다.",
-            "기업가 정신을 추구하며 많은 사람에게 가치가 있고 도움이 되는 상품/서비스를 만드는것을 목표로 합니다.",
-            "언제나 좋은 개발자가 되기 위해 최선을 다합니다."            
+            "안녕하세요, <좋은 개발자>를 추구하는 정민석 입니다.",
+            "컴퓨터 프로그램 개발에 대한 욕심이 많아 <Embedded System>/Firmware, <Desktop> Application(Windows), <Mobile> Application(Android/iOS), <Web>(Full Stack) 개발 경험이 있습니다.",
+            "해외 근무(미국과 캐나다), Kickstarter 참여, 회사 창업멤버로도 일하며 특허 등록, 창업 경진대회 대상, 사회적 기업가 육성사업 선정 경험 등 <다양한 개발 경험> 처럼, <다양한 도전 경험>도 갖고 있습니다.",
+            "Embedded System/Firmware 개발을 처음 시작할 당시 각각 수백쪽에 달하는 Datasheet, Reference, Programmer Guide 문서를 전부 프린트해 밤늦게까지 보면서 끝까지 <맡겨진 일을 해결>하였으며 그런 모습들로 인해 <같이 일하고 싶은 동료>로 인정받았습니다.",
+            "현재는 <Flutter>를 중점으로 개발하고 있습니다. 이 웹사이트 또한 Flutter를 이용하여 만들었습니다."
         ],
         "whatIsGoodDeveloper": [
             "리더, 동료들과 의견을 맞추고 개인의 목표를 조직 목표와 정렬시킵니다.",
@@ -51,39 +50,50 @@
     "skillSet": {
         "Programming Languages": [
             "Dart",
-            "C++",
             "C",
+            "C++",
             "C#",
             "Java",
             "Swift",
             "Python",
             "Javascript"
         ],
-        "Front-End": [
-            "Flutter",
+        "Embedded System / Firmware": [
+            "VxWorks",
+            "Zynq Ultra Scale+ MPSoC",
+            "Arm Cortex-M4 based MCU",
+            "Single Board Computer",
+            "Xilinx IP Core",
+            "Analog Devices",
+            "Texas Instruments",
+            "Arduino",
+            "Raspberry pi",
+            "Vitis",
+            "Code Composer Studio",
+            "Wind River Workbench"
+        ],
+        "Desktop Application(Windows)": [
             "MFC",
-            "Android",
-            "iOS",
             "Winform",
             "Unity",
             "DirectX",
             "OpenGL",
-            "Visual Studio Code",
-            "Visual Studio",
-            "Android Studio",
-            "Xcode",
-            "Unity"
+            "Visual Studio"
         ],
-        "Embedded System / Firmware": [
-            "Zynq Ultra Scale+ MPSoC",
-            "Arm Cortex-M4 based MCU",
-            "Single Board Computer(Curtiss-Wright)",
-            "Vitis(Xilinx)",
-            "Code Composer Studio(Texas Instruments)",
-            "Wind River Workbench"
+        "Mobile(Android/iOS)": [
+            "Flutter",
+            "Android",
+            "iOS",
+            "Android Studio",
+            "Xcode"
+        ],
+        "Front-End(Web)": [
+            "Flutter(Web)",
+            "HTML/CSS/JS",
+            "Visual Studio Code"
         ],
         "Back-End": [
-            "Dart(shelf)",
+            "Shelf(Dart)",
             "FastAPI(Python)",
             "TCP/IP Socket(C)",
             "Nginx",
@@ -94,12 +104,6 @@
             "Docker",
             "Git",
             "Github"
-        ],
-        "Environment": [
-            "Windows",
-            "MacOS",
-            "Linux",
-            "AWS"
         ],
         "DB": [
             "MariaDB",
@@ -118,1039 +122,614 @@
             "Adobe XD"
         ]
     },
-    "__comment__": "잘보면 aboutCompany 쪽도 간략하게 수정할 필요가 있지 않을까? 방위산업체 기업, 3D 스캔닝 솔루션 기업, 이런식으로 한마디로 정의하는, 그런 것으로 대체할 필요가 있다고 생각함.",
     "workExperiences": [
         {
-            "company": "땡떙 코리아",
-            "website": "https://www.google.co.kr/",
-            "lengthOfService": "2022.01 ~ 2022.12",
-            "location": "서울",
-            "rank": "사원",
-            "mainRole": "백엔드 개발",
-            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "company": "미래시스템",
+            "companyFullName": "(주)미래시스템",
+            "website": "https://www.mrsys.co.kr/",
+            "lengthOfService": "2019.02 ~ 2022.03",
+            "location": "대전",
+            "rank": "사원/주임/선임",
+            "developmentCategory": "Embedded System/Firmware, Windows Desktop",
+            "companyCategory": "방위산업체",
+            "aboutCompany": "방위산업체로서 육,해,공군의 첨단 무기체계 개발에 참여하며 아날로그/디지털신호처리/임베디드시스템과 관련된 다양한 제품을 개발 및 생산",
+            "myRoleInCompany": "군납용 장비/제품 안에 들어가는 임베디드시스템/펌웨어 개발 및 실운용자가 사용하는 Windows Desktop 응용 프로그램을 개발하였습니다. 실제 만든 프로그램이 현재 군에서 사용되고 있고, 대한민국 국방에 보탬이 되었다는 자부심이 있습니다.",
             "projects": [
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "대함레이더 신호연동부 개발",
+                    "projectDescription": "K3B2 함정 전투체계에 적용되는 대함레이더에서 다른 장비 및 시스템들과 주고받는 연동신호를 변환하는 장치 개발 프로젝트.\n  -K3B2: KDX-III Batch-II",
+                    "period": "2021.09 ~ 2022.03",
                     "keywords": [
                         "C",
                         "C++",
                         "VxWorks",
+                        "RTOS",
                         "MFC",
+                        "Arm Cortex-M4 based MCU",
                         "Visual Studio",
                         "Wind River Workbench",
                         "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "Embedded System/Firmware"
                     ],
                     "category": [
                         "Embedded/Firmware"
                     ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
+                    "members": "소프트웨어 1, 하드웨어 3, 기계/기구 2",
+                    "contribution": "100%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• 제품 설계 참여(Embedded SW 파트)",
+                        "• Single Board Computer 개발환경 구축",
+                        "  -Product: Curtis Wright Product",
+                        "  -RTOS: VxWorks 7.0",
+                        "  -IDE: Windrive Workbench",
+                        "• FPGA와 통신 및 제어기능 구현",
+                        "  -VME, UART, GPIO",
+                        "  -Xilinx IP Core",
+                        "• Ethernet 통신 기능 구현",
+                        "  -UDP/TCP",
+                        "• RFC 1055 문서를 보며 SLIP 기능 구현",
+                        "  -SLIP: Serial Line Internet Protocol",
+                        "• 산업용 네트워크 스위치 환경설정",
+                        "  -요구사항 조건에 맞는 스위치 제품 선정",
+                        "  -VLAN, STP/RSTP, X-Ring Pro[Advantech]",
+                        "• 제품 시험용 시험장치에 들어가는 MCU 및 시험장치 제어용 Windows Desktop 프로그램 개발",
+                        "  -MCU: Arm Cortex-M4 based MCU"
                     ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
+                    "results": [],
                     "links": [
                         {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
+                            "text": "대함레이더",
+                            "url": "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu"
                         },
                         {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
+                            "text": "함정전투체계",
+                            "url": "https://www.hanwhasystems.com/kr/business/defense/naval/combat_index.do"
                         }
                     ]
                 },
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "고출력 송수신 장치 개발",
+                    "projectDescription": "레이더 관련 고출력 송수신 장치 연구 개발 프로젝트",
+                    "period": "2021.07 ~ 2021.12",
                     "keywords": [
                         "C",
                         "C++",
-                        "VxWorks",
-                        "MFC",
+                        "Zynq Ultra Scale+ MPSoC",
+                        "Xilinx IP Core",
+                        "Analog Devices",
+                        "Vitis",
+                        "Vivado",
                         "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "MFC",
+                        "SoC",
+                        "Embedded System/Firmware"
                     ],
                     "category": [
-                        "Flutter/Dart",
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App",
                         "Embedded/Firmware"
                     ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
+                    "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1",
+                    "contribution": "100%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• 개발 장치 내 System on Chip의 Processor 파트 개발 및 장치 제어용 Windows Desktop 응용소프트웨어 개발 담당.",
+                        "  -SoC: Zynq UltraScale+ MPSoC",
+                        "• 회사에서 Zynq SoC 도입시 첫 SW 담당 개발자 배정",
+                        "• SoC 개발 환경 구축",
+                        "  -SW Type: Bare Metal Application",
+                        "  -Bootloader Configuration 작업",
+                        "  -SPI, UART, Ethernet 통신과 같은 통신 환경 설정 작업",
+                        "• 무선송수신 칩의 Linux HAL(Hardware Abstraction Layer)드라이버를 no-OS(Bare Metal) 버전으로 수정하여 적용",
+                        "  -무선송수신 칩: ARDV9026",
+                        "• SoC내 Programmable Logic(FPGA)과 무선 송수신 칩간의 초기화 기능을 구현",
+                        "  -FPGA에 사용된 Xilinx IP Cores 및 Custom Cores 초기화 작업",
+                        "  -FPGA와 무선송수신 칩간의 JESD204B 통신 인터페이스 초기화 작업",
+                        "• 디버깅용 쉘 프로그램 구현"
+                    ],
+                    "results": [],
+                    "links": []
+                },
+                {
+                    "projectName": "대함레이더 하위 모듈 점검 장치 개발",
+                    "projectDescription": "대함레이더 내 특정장치들의 하위 모듈들을 점검하는 장치 개발 프로젝트",
+                    "period": "2021.06 ~ 2021.08",
+                    "keywords": [
+                        "Arm Cortex-M4 based MCU",
+                        "Code Composer Studio"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "소프트웨어 2, 하드웨어 1, 기계/기구 1",
+                    "contribution": "50%",
+                    "workDetail": [
+                        "• 프로젝트는 장치내 탑재되는 MCU 개발과 운용자가 사용하는 Windows Desktop 프로그램 개발이 있으며 그중 MCU 개발을 담당",
+                        "  -MCU: Arm Cortex-M4 based MCU",
+                        "• MCU는 외부 장치로부터 GPIO, UART, SPI 신호를 주고받으며, Timer와 Interrupt를 사용하여 비지니스 로직을 구현'",
+                        "• MCU는 FPGA와 EPI통신을 하며, 프로젝트 ICD문서에 맞게 FPGA를 제어",
+                        "• MCU는 운용자 프로그램으로부터 Serial, Ethernet 통신으로 데이터를 주고 받으며 제어됨",
+                        "• MCU는 Flash Memory에 운용자프로그램으로 부터 받은 데이터를 저장 하고 저장된 데이터를 바탕으로 FPGA를 제어",
+                        "  -Flash Memory: Spansion Memory",
+                        "  -SPI를 이용하여 Flash Memory Read/Write 기능 구현"
+                    ],
+                    "results": [],
+                    "links": []
+                },
+                {
+                    "projectName": "사내 양산용 시험장비 개발",
+                    "projectDescription": "사내 양산부서에서 사용하는 특정장치의 구성품을 시험할 수 있는 장비 개발 프로젝트",
+                    "period": "2021.05 ~ 2021.07",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "Arm Cortex-M4 based MCU",
+                        "MFC",
+                        "Code Composer Studio",
+                        "Visual Studio"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• 점검 장치의 MCU 개발 및 실운용자용 Windows Desktop 응용소프트웨어 개발",
+                        "  -MCU: Arm Cortex-M4 based MCU",
+                        "  -Timer, GPIO, UART, GPIO, Ethernet 모듈등을 사용하여 MCU 개발",
+                        "• FPGA와 EPI(External Peripheral Interface) 통신 기능 구현",
+                        "• 운용자용 SW는 이더넷, 시리얼 통신을 사용하여 장치를 제어하고 MFC로 개발"
+                    ],
+                    "results": [],
+                    "links": []
+                },
+                {
+                    "projectName": "미사일 점검 장비 개발",
+                    "projectDescription": "미사일 점검 장비 개발 프로젝트",
+                    "period": "2021.03 ~ 2021.09",
+                    "keywords": [
+                        "MFC",
+                        "C++",
+                        "OpenGL",
+                        "OpenSSL",
+                        "MIL-STD-1553B",
+                        "Visual Studio"
+                    ],
+                    "category": [],
+                    "members": "소프트웨어 2, 하드웨어 2, 기계/기구 2, 디자이너 1",
+                    "contribution": "50%",
+                    "workDetail": [
+                        "• 프로젝트에는 미사일을 점검하는 주 소프트웨어 개발과 점검과정에서 오고가는 모든 데이터를 모니터링하는 소프트웨어 개발이 있고 그중 모니터링 소프트웨어를 담당 하여 개발.",
+                        "• 미사일 내부의 1553B 버스를 통하여 오고가는 모든 데이터들을 실시간 으로 전시 및 암호화 하여 저장을 하는 기능 구현",
+                        "  -OpenSSL 라이브러리를 이용하여 비대칭키 암호화 알고리즘 사용",
+                        "  -프로젝트 내 양 소프트웨어에서 사용되는 암복호화 모듈 구현(비대칭키 암호화)",
+                        "  -1553B 버스중 BM(Bus-Monitor)모드를 이용하여 데이터 수집 하는 기능 개발",
+                        "• 암호화된 저장 데이터를 복호화 하여 시뮬레이션 기능 및 전시 그리고 분석 기능을 구현"
+                    ],
+                    "results": [],
+                    "links": [
+                        {
+                            "text": "미사일",
+                            "url": "https://lignex1.com/web/kor/product/product.do?category=01&part=02&model=06#categoryMenu"
+                        },
+                        {
+                            "text": "관련기사",
+                            "url": "https://news.g-enews.com/ko-kr/news/article/news_all/20210102215115498c5557f8da8_1/article.html?md=20210102222254_U"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "가상화 시스템 구축",
+                    "projectDescription": "기존 다량의 워크스테이션을 이용하는 시스템 환경을, 서버급 장비를 이용하여 가상화 시스템으로 구축하여 전체적인 시스템 부피를 줄이는 프로젝트",
+                    "period": "2021.03 ~ 2021.09",
+                    "keywords": [
+                        "VMware Horizon",
+                        "VDI(Virtual Desktop Infrastructure)",
+                        "ESXi(Type-1 Hypervisor)",
+                        "vGPU",
+                        "vSwitch"
+                    ],
+                    "category": [],
+                    "members": "소프트웨어 1, 하드웨어 1, 기계/기구 3",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• 초기 프로젝트 설계부터 참여 하여 실제 가상화 시스템 구축과 관련하여 솔루션업체 선정 및 전반적인 관리, 감독, 교육 업무 수행",
+                        "• Vmware Horizon 솔루션을 이용하여 VDI 구축",
+                        "  -VDI: Virtual Desktop Infrastructure",
+                        "  -Hypervisor: Type 1",
+                        "  -고가용성(HA: High Availability)",
+                        "  -Thin Clients 단말기 도입",
+                        "  -SAN 도입(Storage Area Network)",
+                        "• 실 운용환경에 맞는 네트워크 환경 및 서버장비 이외 장비들의 환경설정 수행",
+                        "  -VMware 네트워크 가상화 관련 네트워크 설계 (vSwitch)",
+                        "• High Performance 데스크톱 가상화를 위해 고성능 서버급 그래픽카드를 도입",
+                        "  -NVIDIA Tesla v100급의 GPU를 이용하여 vGPU 사용",
+                        "• 인스턴스화된 가상머신들의 퍼포먼스 벤치마킹 테스트 진행",
+                        "  -PC Mark 및 3D Mark를 이용하여 벤치마킹 테스트"
                     ],
                     "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
+                        "• 수십대의 워크스테이션, 모니터, 그외 컴퓨터 악세사리 등 실제 물리적 부피가 가상화시스템 구축으로 인하여 기존의 20% 수준으로 감소"
                     ],
                     "links": [
                         {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
+                            "text": "VMware Horizon - Virtual Desktop Infrastructure",
+                            "url": "https://www.vmware.com/products/horizon.html"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "대함레이더 시뮬레이터 개발",
+                    "projectDescription": "K3B2 함정 전투체계에 적용되는 대함레이더의 기능을 모의하는 시뮬레이터 장비 개발 프로젝트",
+                    "period": "2020.07 ~ 2021.02",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "VxWorks",
+                        "Arm Cortex-M4 based MCU",
+                        "MFC",
+                        "OpenGL",
+                        "Windows",
+                        "Wind River Workbench",
+                        "Code Composer Studio",
+                        "Visual Studio",
+                        "RTOS"
+                    ],
+                    "category": [
+                        "Embedded/Firmware"
+                    ],
+                    "members": "소프트웨어 2, 하드웨어 2, 기구팀 2, 디자이너 1",
+                    "contribution": "50%",
+                    "workDetail": [
+                        "• 프로젝트는 레이더를 모의하는 장비에 들어가는 Embedded System 개발과 레이더시뮬레이터 전용 Windows Desktop 응용소프트웨어 개발로 나뉘며 이 둘에 각각 개발에 참여.",
+                        "• 레이더를 모의하는 장비에 들어가는 SBC의 초기 환경 설정 및 개발환경 구축",
+                        "  -SBC: Single Board Computer",
+                        "  -Product: Curtis Wright Product",
+                        "  -RTOS: VxWorks(6.9, 7.0)",
+                        "• SBC와 FPGA는 PCI-E, VME를 이용여 데이터 송수신 기능을 구현하였고 GPIO Interrupt를 이용하여 비지니스로직을 구현",
+                        "• 외부 장치와는 UART, Ethernet으로 데이터를 송수신 하는 기능과 GPIO를 이용한 인터럽트를 구현",
+                        "• 레이더 시뮬레이터 전용 Windows Desktop 응용 소프트웨어 개발",
+                        "  -OpenGL을 이용하여 레이더 표적정보 화면에 렌더링 기능 구현",
+                        "  -프로젝트 ICD에 맞는 네트워크 패킷 데이터 송수신 및 파싱 기능 및 전반적인 네트워크 통신을 담당하여 구현(UDP/TCP)",
+                        "  -네트워크 통신 로깅 하위 프로그램 프로젝트 ICD에 맞는 네트워크 패킷 데이터 송수신 및 파싱 기능 및 전반적인 네트워크 통신을 담당하여 구현(UDP/TCP)",
+                        "  -영어/한글 다중어 지원",
+                        "  -Wireshark와 유사한 장비와 통신하는 모든 네트워킹 통신을 로깅 및 모니터링 전용 SW 개발",
+                        "• 장비 시험용 시험장치에 들어가는 MCU 및 시험장치 제어용 Windows Desktop 프로그램 개발",
+                        "  -MCU: Arm Cortex-M4 based MCU",
+                        "  -시험장치 제어용 소프트웨어는 이더넷통신으로 시험장치를 제어(MFC)"
+                    ],
+                    "results": [],
+                    "links": [
                         {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
+                            "text": "대함레이더",
+                            "url": "https://lignex1.com/web/kor/product/product.do?category=02&part=01&model=08#categoryMenu"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "무인수색 통신장치 시뮬레이터",
+                    "projectDescription": "무인으로 운영되는 수색차량안에 탑제되는 통신장치를 제어하며 실제 무인차량을 모의하는 시뮬레이터 개발 프로젝트",
+                    "period": "2019.09 ~ 2020.06",
+                    "keywords": [
+                        "MFC",
+                        "OpenGL",
+                        "C++",
+                        "Visual Studio"
+                    ],
+                    "category": [],
+                    "members": "소프트웨어 1, 하드웨어 1",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• 연동통제문서(Interface Control Document)를 바탕으로 통신 인터페이스 구현",
+                        "• UDP/TCP 네트워크 통신을 이용하여 통신장치 제어 기능 구현",
+                        "• 무인차량을 모의하는 기능 구현(차량의 각종 상태를 모의 하는 기능)",
+                        "• USB 시리얼로 연결된 GPS동글이로부터 GPS정보(NMEA Protocol) 수신 및 화면 내 지도에 실시간 위치 전시 기능 구현",
+                        "• Gstreamer를 활용한 실시간 카메라 영상 전시"
+                    ],
+                    "results": [],
+                    "links": [
+                        {
+                            "text": "무인수색차량 통신장치",
+                            "url": "https://www.lignex1.com/web/kor/product/product.do?category=06&part=02&model=02"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "함정 저장장치 개발",
+                    "projectDescription": "DDH급 함정내의 CCTV 및 함정 콘솔 화면 및 레이더 데이데 표적 데이터를 저장하는 장치 개발프로젝트",
+                    "period": "2019.04 ~ 2020.03",
+                    "keywords": [
+                        "C",
+                        "C++",
+                        "MFC",
+                        "OpenGL",
+                        "MariaDB",
+                        "pcap",
+                        "Visual Studio",
+                        "NAS",
+                        "DVR"
+                    ],
+                    "category": [],
+                    "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1명",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• 레이더에서 함정 전투시스템으로 오는 표적데이터를 Packet Sniffing을 이용하여 캡쳐하여 NAS의 DB로 저장하는 console 프로그램 개발",
+                        "  -NAS: Network Attached Storage",
+                        "  -pcap 라이브러리를 이용하여 Packet Sniffing 기능 구현",
+                        "  -MariaDB C/C++ Connector를 이용하여 DB 연결",
+                        "  -Windows 부팅시 자동 실행 및 화면 우측 하단 작업표시줄에 프로그램 등록",
+                        "  -동일한 프로그램이 중복으로 실행되지 않도록 방지하는 기능 구현",
+                        "• NAS의 DB에 저장된 레이더 표적데이터를 불러와 전시/분석 하는 Windows Desktop 프로그램 개발",
+                        "  -OpenGL을 이용하여 레이더 표적데이터 렌더링 기능 구현",                        
+                        "• NAS 환경설정 작업",
+                        "  -전반적인 스토리지 볼륨 및 NAS의 환경 설정",
+                        "  -CCTV영상이 저장될 수 있도록 DVR의 iSCSI 저장소로 설정가능 하도록 환경 설정",
+                        "  -콘솔 화면 녹화 영상을 저장하도록 환경 설정",
+                        "  -Database 환경 설정(MariaDB)",
+                        "• DVR 환경설정 작업",
+                        "  -iSCSI를 이용하여 NAS와 iSCSI연동 할수 있도록 환경 설정",
+                        "  -영상 녹화관련 전반적인 시스템 환경설정",
+                        "• 장비 운용매뉴얼 작성 및 실 운용자 교육 진행"
+                    ],
+                    "results": [
+                        "• 광개토대왕급(DDH-I)함정 3척, 충무공이순신급(DDH-II)함정 6척 총 9척 함정에 설치 완료"
+                    ],
+                    "links": [
+                        {
+                            "text": "관련기사",
+                            "url": "https://namu.wiki/w/%EC%9D%BC%EB%B3%B8%20%ED%95%B4%EC%83%81%EC%B4%88%EA%B3%84%EA%B8%B0%20%EC%A0%80%EA%B3%B5%EC%9C%84%ED%98%91%20%EB%B9%84%ED%96%89%20%EC%82%AC%EA%B1%B4"
+                        }
+                    ]
+                },
+                {
+                    "projectName": "레이더 분석 프로그램",
+                    "projectDescription": "레이더 데이터 분석 프로그램 유지 보수 및 개발",
+                    "period": "2019.04 ~ 2019.05",
+                    "keywords": [
+                        "C++",
+                        "MFC",
+                        "OpenGL",
+                        "Visual Studio"
+                    ],
+                    "category": [],
+                    "members": "소프트웨어 2",
+                    "contribution": "50%",
+                    "workDetail": [
+                        "• 레이더로부터 수신된 데이터를 기반으로 성능 및 만족도 분석을 위한 소프트웨어 유지보수",
+                        "• 기존 벡터 선으로만 그려진 지도화면에 실제 축척지도 이미지를 렌더링 기능 구현",
+                        "  -기존 SW 화면 렌더링 성능 개선"
+                    ],
+                    "results": [
+                        "• 기존 항적 데이터를 렌더링하는 프로세스를 개선하여 화면 렌더링 속도 개선(15fps -> 30fps)"
+                    ],
+                    "links": [
+                        {
+                            "text": "레이더데이터 분석 프로그램",
+                            "url": "https://www.mrsys.co.kr/report_sw"
                         }
                     ]
                 }
             ]
         },
         {
-            "company": "땡떙 코리아",
-            "website": "https://www.google.co.kr/",
-            "lengthOfService": "2022.01 ~ 2022.12",
-            "location": "서울",
-            "rank": "사원",
-            "mainRole": "백엔드 개발",
-            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "company": "제이인터렉션",
+            "companyFullName": "J-Interaction Inc.",
+            "website": "https://jinteraction.com/",
+            "lengthOfService": "2018.06 ~ 2019.02",
+            "location": "세종",
+            "rank": "창업멤버",
+            "developmentCategory": "Android/iOS",
+            "aboutCompany": "-",
+            "companyCategory": "-",
+            "myRoleInCompany": "창업멤버로서 Native Anroid/iOS 개발 및 Arduino를 이용한 시험 장비를 개발하였습니다.",
             "projects": [
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "Pre-School Bus Monitoring",
+                    "projectDescription": "어린아이 승하차 모니터링 시스템 개발 프로젝트",
+                    "period": "2018.09-2019.01",
                     "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Embedded/Firmware"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart",
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "Java",
+                        "Swift",
+                        "Android",
+                        "iOS",
+                        "Arduino"
                     ],
                     "category": [
                         "Mobile App",
                         "Embedded/Firmware"
                     ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
+                    "members": "소프트웨어 1, 비지니스/디자이너 1",
+                    "contribution": "100%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• Beacon을 이용하여 어린아이 승합차 여부 알림 시스템 개발 및 특허 등록",
+                        "• Native Android/iOS 개발",
+                        "  -Android: Java, Android Studio",
+                        "  -iOS: Swift, Xcode",
+                        "• Firebase 를 이용하여 DB 구축(Firestore)",
+                        "• Naver Map을 사용하여 지도 화면 구현",
+                        "• Arduino를 이용하여 시험용 비콘 장치 개발"
                     ],
                     "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
+                        "• 사회적기업 재정 지원사업 선정",
+                        "• '통학 차량의 원생 관리 시스템' 특허 등록(등록번호: 10-2000554)"
                     ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
+                    "links": []
+                },
+                {
+                    "projectName": "Basic RC Car",
+                    "projectDescription": "휴대폰 앱과 장갑을 이용하여 알씨카를 제어하는 프로젝트",
+                    "period": "2018.07-2018.08",
+                    "keywords": [
+                        "Java",
+                        "Swift",
+                        "C/C++",
+                        "Android Studio",
+                        "XCode",
+                        "Arduino"
+                    ],
+                    "category": [
+                        "Mobile App",
+                        "Embedded/Firmware"
+                    ],
+                    "members": "소프트웨어 1, 디자이너 1",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• 아두이노를 이용하여 알씨카 시스템 제작",
+                        "• 블루투스(Bluetooth Low Energy)를 이용하여 알씨카 제어",
+                        "• 3축가속도 센서를 이용하여 알씨카 조향 제어(장갑에 장착)",
+                        "• DC모터 및 서보모터를 이용하여 움직임 제어",
+                        "• 알씨카를 제어하기위한 Android/iOS 각각의 앱 개발"
+                    ],
+                    "results": [],
+                    "links": []
+                },
+                {
+                    "projectName": "창업 경진대회 참여",
+                    "projectDescription": "2018 스마트시티 서비스 및 창업 경진대회 참여 프로젝트",
+                    "period": "2018.06-2018.08",
+                    "keywords": [],
+                    "category": [],
+                    "members": "소프트웨어 1, 비지니스/디자이너 1",
+                    "contribution": "100%",
+                    "workDetail": [
+                        "• Object Following 관련 아이디어로 창업경진 대회에 참여",
+                        "  -소프트웨어 및 IT관련 자료 조사"
+                    ],
+                    "results": [
+                        "• 2018 스마트시티 서비스 및 창업 경진대회 대상 수상(창업 아이디어 부문)",
+                        "  -국토교통부장관상",
+                        "  -초기 사업지원 자금 1억원 바우처"
+                    ],
+                    "links": []
                 }
             ]
         },
         {
-            "company": "땡떙 코리아",
-            "website": "https://www.google.co.kr/",
-            "lengthOfService": "2022.01 ~ 2022.12",
-            "location": "서울",
+            "company": "Polyga",
+            "companyFullName": "Polyga Inc.",
+            "website": "https://www.polyga.com/",
+            "lengthOfService": "2017.12 ~ 2018.06",
+            "location": "벤쿠버(캐나다)",
             "rank": "사원",
-            "mainRole": "백엔드 개발",
-            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "developmentCategory": "Windows Desktop",
+            "aboutCompany": "3D Scanning Hardware and Software",
+            "companyCategory": "3D Imaging Solutions",
+            "myRoleInCompany": "3D Scanner용 Windows Desktop 프로그램을 유지보수/개발 하는 일을 하였으며, Unity를 이용하여 VR시스템에서 데모용 프로그램을 개발 하였습니다.",
             "projects": [
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "FlexScan3D Software for 3D Scanners",
+                    "projectDescription": "3D 스캐닝 프로그램 유지보수",
+                    "period": "2017.12 ~ 2018.06",
                     "keywords": [
                         "C",
                         "C++",
-                        "VxWorks",
-                        "MFC",
+                        "C#",
                         "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "Winform",
+                        "DirectX"
                     ],
-                    "category": [
-                        "Flutter/Dart"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
+                    "category": [],
+                    "members": "소프트웨어 2 하드웨어 1",
                     "contribution": "30%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• 프로그램은 Winform 기반의 UI에 DirectX로 3D 렌더링을 하며, 각 컴포넌트는 dll 기반으로 모듈화",
+                        "• Circle Measurement 기능 개발",
+                        "• Plane Measurement 기능 개발",
+                        "• Z-Axis Moving 기능 개발",
+                        "• World Plane 기능 개발",
+                        "• Automated 3D Inspection 기능 개발",
+                        "• Automated deviation analysis 기능 개발"
                     ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
+                    "results": [],
                     "links": [
                         {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
+                            "text": "FlexScan3D",
+                            "url": "https://www.polyga.com/flexscan3d/"
                         },
                         {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
+                            "text": "Co-Ordinate Tools",
+                            "url": "https://www.youtube.com/watch?v=t1oTiFjYkvc"
+                        },
+                        {
+                            "text": "Plane Measurement",
+                            "url": "https://www.youtube.com/watch?v=qYLTak7S2Ug"
+                        },
+                        {
+                            "text": "Co-Ordinate Tools / World Plane",
+                            "url": "https://www.youtube.com/watch?v=1QUBucWlqkU"
                         }
                     ]
                 },
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "VR Measurement",
+                    "projectDescription": "VR환경에서 길이 측정 프로그램 개발",
+                    "period": "2018.04 ~ 2018.04",
                     "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "C#",
+                        "Unity",
+                        "HTC VIVE",
+                        "SteamVR"
                     ],
-                    "category": [
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
+                    "category": [],
+                    "members": "소프트웨어 1",
+                    "contribution": "100%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• HTC VIVE 컨트롤러에 회사 자체제작 기다란 봉을 부착하여 가상 VR환경에서 정밀한 길이를 측정하는 데모용 프로그램 개발",
+                        "  -Unity SteamVR 라이브러리를 이용해 프로그램 제작"
                     ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Embedded/Firmware"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart",
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App",
-                        "Embedded/Firmware"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
+                    "results": [],
+                    "links": []
                 }
             ]
         },
         {
-            "company": "땡떙 코리아",
-            "website": "https://www.google.co.kr/",
-            "lengthOfService": "2022.01 ~ 2022.12",
-            "location": "서울",
-            "rank": "사원",
-            "mainRole": "백엔드 개발",
-            "aboutCompany": "땡땡 하는 땡떙 회사에서 땡떙과 땡땡 업무를 하였습니다.",
+            "company": "Pressure Profile Systems",
+            "companyFullName": "Pressure Profile Systems, Inc.",
+            "website": "https://pressureprofile.com/",
+            "lengthOfService": "2016.08 ~ 2017.11",
+            "location": "로스앤젤레스(미국)",
+            "rank": "인턴/사원",
+            "developmentCategory": "Android",
+            "aboutCompany": "Tactile Pressure measurement and mapping solutions",
+            "companyCategory": "Tactile Sensing Soultions",
+            "__comments__": "아래 MY role을 끝내보도록 하자",
+            "myRoleInCompany": "GoSmart 라는 소비자용 제품을 개발하는 자회사에서 Android 개발을 담당 하였으며 그외 킥스타터 프로젝트에도 참여한 경험이 있습니다.",
             "projects": [
                 {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
+                    "projectName": "SleepSmart Pillow",
+                    "projectDescription": "SleepSmart: The Smart Adjustable Pillow for Side Sleepers\nSide Sleeper를 위한 스마트 배게 KickStarter 프로젝트",
+                    "period": "2016.08 ~ 2017.11",
                     "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
+                        "Java",
+                        "Python",
+                        "Raspberry Pi",
+                        "Android Studio",
+                        "Arduino"
                     ],
                     "category": [
                         "Mobile App"
                     ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
+                    "members": "소프트웨어 2, 비지니스 1, 디자이너 1, 하드웨어 1",
+                    "contribution": "60%",
                     "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
+                        "• 수면 모니터링 및 코칭 어플리케이션 개발",
+                        "• Android 파트 개발 담당",
+                        "• 블루투스(Bluetooth Low Energy)를 이용하여 배게 데이터 취합 기능 개발",
+                        "• 수면 데이터 분석 알고리즘 개발",
+                        "  -GNU Octave를 이용하여 분석",
+                        "  -Android NDK를 사용하여 데이터 분석 구현(Android/iOS 동시 대응)",
+                        "• 수면 데이터를 모으기 위한 소형 장치 개발(Only for LAB)",
+                        "  -라즈베리파이를 이용하여 수면 영상/음성 녹화 하는 장치",
+                        "  -아두이노를 이용하여 시험용 베개 내 압력센서 데이터를 SD카드에 저장하는 장치"
                     ],
                     "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
+                        "• 킥스타터 초기 목표 금액 대비 약 180% 초과 달성",
+                        "• 안드로이드 앱 플레이스토어 배포"
                     ],
                     "links": [
                         {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
+                            "text": "킥스타터 프로젝트 링크",
+                            "url": "https://www.kickstarter.com/projects/drjaeson/sleepsmart-the-smart-adjustable-pillow-for-side-sl"
                         },
                         {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Embedded/Firmware"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Flutter/Dart",
-                        "Web"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
-                        }
-                    ]
-                },
-                {
-                    "projectName": "땡떙 프로젝트",
-                    "projectDescription": "사람들에게 땡떙 하는 땡땡떙 어쩌구 저쩌구 프로젝트 입니다.",
-                    "period": "2021.01 ~ 2022.06",
-                    "keywords": [
-                        "C",
-                        "C++",
-                        "VxWorks",
-                        "MFC",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded"
-                    ],
-                    "category": [
-                        "Mobile App",
-                        "Embedded/Firmware"
-                    ],
-                    "members": "프론트엔드 3, 백엔드 3, 디자이너 2",
-                    "contribution": "30%",
-                    "workDetail": [
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현",
-                        "땡땡땡 어쩌구 저쩌구 기능 구현"
-                    ],
-                    "results": [
-                        "어쩌구 저쩌구 성과를 내었습니다.",
-                        "어쩌구 저쩌구 성과를 내었습니다."
-                    ],
-                    "links": [
-                        {
-                            "text": "땡땡링크",
-                            "url": "https://www.google.com/"
-                        },
-                        {
-                            "text": "탕탕링크",
-                            "url": "https://www.google.com/"
+                            "text": "SleepSmart Coach 안드로이드 앱",
+                            "url": "https://play.google.com/store/apps/details?id=com.gosmart.sleepsmart.sleepsmartcoach"
                         }
                     ]
                 }
@@ -1159,8 +738,8 @@
     ],
     "sideProjects": [
         {
-            "projectName": "개인용 웹사이트 개발",
-            "projectDescription": "Flutter를 이용하여 개인 웹사이트 개발",
+            "projectName": "Personal Website",
+            "projectDescription": "개인용 웹사이트 개발 프로젝트",
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
@@ -1168,20 +747,31 @@
                 "Visual Studio Code"
             ],
             "category": [
-                "Flutter/Dart","Web"
+                "Flutter/Dart",
+                "Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "Vercel을 이용하여 웹사이트 배포 및 도메인 등록"
+                "• 페이지 전환시 Custom Route Transition Animation으로 개발",
+                "• 프로그램에 전시되는 모든 내용들은 json 파일로 분리하여 개발",
+                "• Custom Painter를 이용하여 특정 위젯 직접 drawing",
+                "• 화면 상단 메뉴버튼들에 Custom Animation 적용",
+                "• 화면의 애니메이션들을 직접 구현하여 개발",
+                "• Vercel을 이용하여 웹사이트 배포 및 개인 도메인 등록"
             ],
             "results": [],
             "__comments__": "포트폴리오 웹사이트 개발 완료후 링크를 아래에다가 등록해야지, 도메인도 등록 필수",
-            "links": []
+            "links": [
+                {
+                    "text": "Minseokjeong.com",
+                    "url": "https://minseokjeong.com/"
+                }
+            ]
         },
         {
             "projectName": "차트봄(CHART BOM)",
-            "projectDescription": "금, 석유, 환율 관련 데이터를 보여주는 웹사이트 개발 프로젝트",
+            "projectDescription": "금, 석유, 환율 데이터를 차트로 보여주는 웹사이트 개발 프로젝트",
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
@@ -1191,27 +781,69 @@
                 "MongoDB",
                 "Docker",
                 "Nginx",
-                "AWS",
-                "Vercel"
+                "AWS"
             ],
             "category": [
-                "Flutter/Dart","Web"
+                "Flutter/Dart",
+                "Web"
             ],
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "Dart 언어로만으로 서비스 구축 프로젝트",
-                "Flutter로 웹사이트 프론트엔드 개발",
-                "Dart Shelf 패키지를 활용하여 백엔드 서버 개발",
-                "Dart 콘솔 프로젝트로 데이터 크로울링 프로그램 개발",
-                "Flutter Web 개발환경에서 Lightweight Charts(JS 라이브러리)를 이용하여 차트전시 기능 개발",
-                "Vercel을 이용하여 Flutter Web 배포",
-                "AWS EC2 서비스를 이용하여 백엔드 서버 구축"
+                "• Dart 언어만을 사용하여 Back-end, Front-end, console 프로그램 개발",
+                "• Dart Shelf 패키지를 활용하여 Back-end 개발",
+                "• Flutter를 이용하여 Front-end 개발",
+                "  -Lightweight Charts JS 라이브러리를 Flutter 환경으로 임포트하여 차트전시 기능 개발",
+                "• 주기적으로 데 금,석유,환율 데이터를 crawling하는 console 프로그램 개발",
+                "  -cron 서비스를 이용",
+                "• AWS EC2 서비스를 이용하여 프로젝트 배포",
+                "  -Google Domain 연결",
+                "  -AWS Elastic IP 등록",
+                "  -Nginx를 이용하여 static 파일로 Front-end를 배포하고, proxy 기능을 이용하여 Back-end 연결",
+                "  -Back-end 및 console 프로그램은 Docker-compose 를 통해 배포"
             ],
-            "results": [
-                "구글 플레이스토어에 앱 배포"
+            "results": [],
+            "links": [
+                {
+                    "text": "chartbom.com",
+                    "url": "https://chartbom.com/"
+                }
+            ]
+        },
+        {
+            "projectName": "대똥여지도",
+            "projectDescription": "현재 내주변 공공화장실 위치를 알려주는 앱 개발 프로젝트",
+            "period": "2023.03 ~ 2023.03",
+            "keywords": [
+                "Dart",
+                "Flutter",
+                "Python",
+                "SQLite",
+                "Visual Studio Code"
             ],
-            "links": []
+            "category": [
+                "Flutter/Dart",
+                "Mobile App"
+            ],
+            "members": "소프트웨어 1",
+            "contribution": "100%",
+            "workDetail": [
+                "• 국가에서 운영중인 공공데이터에서 공공화장실정보를 가지고 SQLite 데이터베이스 구축",
+                "• Python 및 Naver Map Geocode API를 이용하여 각 화장실의 GPS위치 정보 저장",
+                "• Naver Map을 사용하여 지도 화면 구현",
+                "• Python으로 구축된 SQLite DB 파일을 앱의 리소스 파일로 등록하여 In App DB로 활용"
+            ],
+            "results": [],
+            "links": [
+                {
+                    "text": "개발일지#1",
+                    "url": "https://jeongminseok.blogspot.com/2023/03/1.html"
+                },
+                {
+                    "text": "개발일지#2",
+                    "url": "https://jeongminseok.blogspot.com/2023/03/2.html"
+                }
+            ]
         },
         {
             "projectName": "타임테일(TIME TAIL)",
@@ -1220,25 +852,29 @@
             "keywords": [
                 "Dart",
                 "Flutter",
+                "Android",
                 "Visual Studio Code"
             ],
             "category": [
-                "Mobile App"
+                "Mobile App",
+                "Flutter/Dart"
             ],
             "members": "소프트웨어 1, 디자이너 2",
             "contribution": "100%",
             "workDetail": [
-                "Riverpod과 GetIt 패키지를 활용하여 상태관리",
-                "Firestore Database 를 이용하여 DB 구축(Firebase)",
-                "Firebase Storage를 활용하여 이미지 저장소 구축",
-                "구글지도를 활용하여 지도화면 구현",
-                " - 지도 커스터마이징",
-                " - 지도위 마커 표시 및 폴리라인으로 경로 표시",
-                "백그라운드 동작으로 위치정보 저장 기능 구현"
+                "• 백그라운드 동작으로 상시 위치정보 저장 기능 구현",
+                "• Riverpod과 GetIt 패키지를 활용하여 상태관리",
+                "• Firestore Database 를 이용하여 DB 구축(Firebase)",
+                "  -Firebase 무료 사용량만을 고려하여, DB의 Read/Write를 최소한으로 할수 있도록 설계 및 개발",
+                "• Firebase Storage를 활용하여 이미지 저장소 구축",
+                "• 구글지도를 활용하여 지도화면 구현",
+                "  -지도위 마커 표시 및 폴리라인으로 경로 표시",
+                "  -지도 커스터마이징 적용"
             ],
             "results": [
-                "구글 플레이스토어에 앱 배포"
+                "• 구글 플레이스토어에 앱 배포"
             ],
+            "__comments__": "앱을 배포후 플레이스토어 주소를 여기다가 등록해야겟지?",
             "links": []
         },
         {
@@ -1248,25 +884,28 @@
             "keywords": [
                 "Dart",
                 "Flutter",
+                "Android",
                 "Visual Studio Code"
             ],
             "category": [
-                "Mobile App","Web"
+                "Mobile App",
+                "Web",
+                "Flutter/Dart"
             ],
             "members": "소프트웨어 1, 디자이너 1",
             "contribution": "100%",
             "workDetail": [
-                "안드로이드 모바일 앱 개발(Flutter for Android)",
-                "Upbit, Bithumb, Binance 거래소별 가격 및 RSI(Relative Strength Index)지표 통합 비교 기능 개발",
-                "모의투자 기능 개발",
-                "코인별 김치 프리미엄 비교 기능 개발",
-                "코인봄 웹버전 프로토타입 개발(Flutter for Web)",
-                "GetX 패키지를 이용하여 상태관리",
-                "isolate를 이용하여 퍼포먼스 개선"
+                "• 안드로이드 모바일 앱 개발(Flutter for Android)",
+                "• Upbit, Bithumb, Binance 거래소별 가격 및 RSI(Relative Strength Index)지표 통합 비교 기능 개발",
+                "• 모의투자 기능 개발",
+                "• 코인별 김치 프리미엄 비교 기능 개발",
+                "• 코인봄 웹버전 프로토타입 개발(Flutter for Web)",
+                "• GetX 패키지를 이용하여 상태관리",
+                "• isolate를 이용하여 네트워크 퍼포먼스 개선"
             ],
             "results": [
-                "구글 플레이스토어에 앱 배포",
-                "배포 한달 안에 다운로드 수 100명 도달"
+                "• 구글 플레이스토어에 앱 배포",
+                "• 배포 한달 안에 다운로드 수 100명 도달"
             ],
             "links": [
                 {
@@ -1280,8 +919,8 @@
             "projectDescription": "공군 파일럿 임무투여 전 상태 측정 앱개발 프로젝트",
             "period": "2015.12 ~ 2016.02",
             "keywords": [
-                "Android Studio",
-                "Java"
+                "Java",
+                "Android Studio"
             ],
             "category": [
                 "Mobile App"
@@ -1289,9 +928,9 @@
             "members": "소프트웨어 3",
             "contribution": "30%",
             "workDetail": [
-                "대학 인턴쉽 프로그램으로 당시 SCWORK 라는 기업에서 인턴 생활을 하며 진행한 프로젝트",
-                "Android 앱 개발",
-                "심박센서를 사용하여 상태 측정 알고리즘 부분 개발"
+                "• 대학 인턴쉽 프로그램에 참여할 당시 인턴으로 활동하며 진행한 프로젝트",
+                "• Android 앱 개발",
+                "• 심박센서를 사용하여 상태 측정 알고리즘 부분 개발"
             ],
             "results": [],
             "links": []

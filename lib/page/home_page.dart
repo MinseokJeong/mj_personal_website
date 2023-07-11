@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
+import 'package:mj_portfolio_web/widget/moving_around_tags_widget.dart';
 import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
 import '../app_design_resources.dart' as ar;
