@@ -136,7 +136,7 @@ class _SlideUpPageTransitionWidgetState
         ).chain(
           CurveTween(curve: Curves.easeInOutQuart),
         ),
-        weight: 0.3,
+        weight: 0.4,
       ),
       TweenSequenceItem(
         tween: ConstantTween(
@@ -154,7 +154,7 @@ class _SlideUpPageTransitionWidgetState
         ).chain(
           CurveTween(curve: Curves.easeInOutQuart),
         ),
-        weight: 0.3,
+        weight: 0.4,
       ),
     ]).animate(_screenSlideUpAnimationController);
 
@@ -222,7 +222,6 @@ class _SlideUpPageTransitionWidgetState
                 ),
               ),
             ),
-
             AnimatedBuilder(
               animation: _screenSlideUpAnimation,
               builder: (context, child) {
@@ -240,59 +239,6 @@ class _SlideUpPageTransitionWidgetState
                 ),
               ),
             ),
-            //   AnimatedBuilder(
-            //     animation: _screenSlideUpAnimation,
-            //     builder: (context, child) {
-            //       return Transform.translate(
-            //         offset: _screenSlideUpAnimation.value,
-            //         child: UnconstrainedBox(
-            //           alignment: Alignment.topCenter,
-            //           clipBehavior: Clip.none,
-            //           child: Column(
-            //             mainAxisSize: MainAxisSize.min,
-            //             children: [
-            //               Container(
-            //                 width: windowSize.width,
-            //                 height: circularBoxHeight,
-            //                 decoration: BoxDecoration(
-            //                   color: Colors.black,
-            //                   borderRadius: BorderRadius.only(
-            //                     topLeft: Radius.elliptical(
-            //                         windowSize.width / 2.0, circularBoxHeight),
-            //                     topRight: Radius.elliptical(
-            //                         windowSize.width / 2.0, circularBoxHeight),
-            //                   ),
-            //                 ),
-            //               ),
-            //               child!,
-            //               Container(
-            //                 width: windowSize.width,
-            //                 height: circularBoxHeight,
-            //                 decoration: BoxDecoration(
-            //                   color: Colors.black,
-            //                   borderRadius: BorderRadius.only(
-            //                     bottomLeft: Radius.elliptical(
-            //                         windowSize.width / 2.0, circularBoxHeight),
-            //                     bottomRight: Radius.elliptical(
-            //                         windowSize.width / 2.0, circularBoxHeight),
-            //                   ),
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       );
-            //     },
-            //     child: Container(
-            //       width: windowSize.width,
-            //       height: windowSize.height,
-            //       color: Colors.black,
-            //       child: Center(
-            //         child: _getTextWidget(context),
-            //       ),
-            //     ),
-            //   ),
-            //
           ],
         ),
       ),

@@ -13,7 +13,6 @@ import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import 'package:mj_portfolio_web/widget/skillset_widget.dart';
 import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../model/route_name.dart' as rn;
 
@@ -273,76 +272,6 @@ class _AboutPageState extends State<AboutPage>
         }
       },
     );
-  }
-
-  Widget _getAnimatedGooDeveloperWidget() {
-    if (ScreenSize.isMobileScreenSize(context)) {
-      return SizedBox(
-        height: 180,
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "'좋은 개발자' : ",
-                style: TextStyle(fontSize: 20, color: Colors.grey),
-              ),
-              if (_whatIsGoodDeveloper.isNotEmpty)
-                AnimatedTextKit(
-                  repeatForever: true,
-                  animatedTexts: [
-                    ..._whatIsGoodDeveloper.map(
-                      (e) => RotateAnimatedText(
-                        e,
-                        rotateOut: true,
-                        duration: const Duration(milliseconds: 2000),
-                        transitionHeight: 20.0 * 10.0 / 3.0 * 2,
-                        textStyle:
-                            const TextStyle(fontSize: 20.0, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-            ],
-          ),
-        ),
-      );
-    } else {
-      return SizedBox(
-        height: 160,
-        width: 1024,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            children: [
-              const Text(
-                "'좋은 개발자' : ",
-                style: TextStyle(fontSize: 20, color: Colors.grey),
-              ),
-              Expanded(
-                child: _whatIsGoodDeveloper.isEmpty
-                    ? const SizedBox.shrink()
-                    : AnimatedTextKit(
-                        repeatForever: true,
-                        animatedTexts: [
-                          ..._whatIsGoodDeveloper.map(
-                            (e) => RotateAnimatedText(e,
-                                rotateOut: true,
-                                duration: const Duration(milliseconds: 2000),
-                                transitionHeight: 20.0 * 10.0 / 3.0 * 2,
-                                textStyle: const TextStyle(
-                                    fontSize: 20.0, color: Colors.white)),
-                          ),
-                        ],
-                      ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
   }
 
   Widget _getProfileAndAboutMeDetailWidget() {
@@ -792,7 +721,8 @@ class _AboutPageState extends State<AboutPage>
                       ),
                       Text(
                         _whatIsGoodDeveloper[i],
-                        style: const TextStyle(color: Colors.white, fontSize: 24),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 24),
                       ),
                     ],
                   ),
