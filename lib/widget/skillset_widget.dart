@@ -114,9 +114,7 @@ class SkillSetWidget extends StatelessWidget {
 
 class _SkillSetSubSectionWidget extends StatelessWidget {
   _SkillSetSubSectionWidget(
-      {required this.number,
-      required this.header,
-      required this.tags});
+      {required this.number, required this.header, required this.tags});
   int number;
   String header;
   List<String> tags;
@@ -127,8 +125,8 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
     const textStyle2 = TextStyle(color: Colors.grey);
 
     final fontSizeVariation = SizeVariation(
-      whenType4K: 32,
-      whenTypeLaptopLarge: 32,
+      whenType4K: 24,
+      whenTypeLaptopLarge: 24,
       whenTypeLaptop: 24,
       whenTypeTablet: 24,
       whenTypeMobileLarge: 24.0,

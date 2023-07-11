@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/model/work_experience.dart';
@@ -125,14 +124,18 @@ class _WorkPageState extends State<WorkPage> {
 
       for (final workExperience in _workExperiences) {
         final newWorkExperience = WorkExperience(
-            companyName: workExperience.companyName,
-            location: workExperience.location,
-            rank: workExperience.rank,
-            mainRole: workExperience.mainRole,
-            workPeriod: workExperience.workPeriod,
-            projects: [],
-            companyWebsite: workExperience.companyWebsite,
-            aboutCompany: workExperience.aboutCompany);
+          company: workExperience.company,
+          companyFullName: workExperience.companyFullName,
+          location: workExperience.location,
+          rank: workExperience.rank,
+          developmentCategory: workExperience.developmentCategory,
+          lengthOfService: workExperience.lengthOfService,
+          website: workExperience.website,
+          aboutCompany: workExperience.aboutCompany,
+          myRoleInCompany: workExperience.myRoleInCompany,
+          companyCategory: workExperience.companyCategory,
+          projects: [],
+        );
 
         for (final project in workExperience.projects) {
           bool hasKeyWord = false;
@@ -169,14 +172,18 @@ class _WorkPageState extends State<WorkPage> {
       for (final workExperience in _workExperiences) {
         bool hasKeyword = false;
         final newWorkExperience = WorkExperience(
-            companyName: workExperience.companyName,
-            location: workExperience.location,
-            rank: workExperience.rank,
-            mainRole: workExperience.mainRole,
-            workPeriod: workExperience.workPeriod,
-            projects: [],
-            companyWebsite: workExperience.companyWebsite,
-            aboutCompany: workExperience.aboutCompany);
+          company: workExperience.company,
+          companyFullName: workExperience.companyFullName,
+          location: workExperience.location,
+          rank: workExperience.rank,
+          developmentCategory: workExperience.developmentCategory,
+          lengthOfService: workExperience.lengthOfService,
+          website: workExperience.website,
+          aboutCompany: workExperience.aboutCompany,
+          myRoleInCompany: workExperience.myRoleInCompany,
+          companyCategory: workExperience.companyCategory,
+          projects: [],
+        );
 
         for (final project in workExperience.projects) {
           if (project.category.contains(keyword)) {
@@ -257,7 +264,10 @@ class _WorkPageState extends State<WorkPage> {
                     fontWeight: FontWeight.w700),
               ),
               verticalSpace(60),
-              _sortingButtonsWidget(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: _sortingButtonsWidget(),
+              ),
               verticalSpace(60),
               _centerTextWithHorizontalBarWidget('Main'),
               verticalSpace(30),

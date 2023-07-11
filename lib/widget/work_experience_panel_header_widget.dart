@@ -40,7 +40,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _topHeaderTextWidget(companyString, context),
-                      _largeTextWidget(workExperience.companyName, context),
+                      _largeTextWidget(workExperience.company, context),
                     ],
                   ),
                 ),
@@ -65,12 +65,13 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(roleString, context),
-                    _mediumTextWidget(workExperience.mainRole, context),
+                    _mediumTextWidget(
+                        workExperience.developmentCategory, context),
                     const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(periodString, context),
-                    _mediumTextWidget(workExperience.workPeriod, context),
+                    _mediumTextWidget(workExperience.lengthOfService, context),
                   ],
                 ),
               ),
@@ -91,7 +92,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _topHeaderTextWidget(companyString, context),
-                    _largeTextWidget(workExperience.companyName, context),
+                    _largeTextWidget(workExperience.company, context),
                     const SizedBox(
                       height: 8.0,
                     ),
@@ -106,12 +107,13 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(roleString, context),
-                    _mediumTextWidget(workExperience.mainRole, context),
+                    _mediumTextWidget(
+                        workExperience.developmentCategory, context),
                     const SizedBox(
                       height: 8.0,
                     ),
                     _topHeaderTextWidget(periodString, context),
-                    _mediumTextWidget(workExperience.workPeriod, context),
+                    _mediumTextWidget(workExperience.lengthOfService, context),
                   ],
                 ),
               ),
@@ -129,7 +131,7 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
               fit: FlexFit.tight,
               flex: flexs[0],
               child: Center(
-                child: _largeTextWidget(workExperience.companyName, context),
+                child: _largeTextWidget(workExperience.company, context),
               ),
             ),
             Flexible(
@@ -153,7 +155,8 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
               flex: flexs[3],
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: _mediumTextWidget(workExperience.mainRole, context),
+                child: _mediumTextWidget(
+                    workExperience.developmentCategory, context),
               ),
             ),
             Flexible(
@@ -161,7 +164,8 @@ class WorkExperiencePanelHeaderWidget extends StatelessWidget {
               flex: flexs[4],
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: _mediumTextWidget(workExperience.workPeriod, context),
+                child:
+                    _mediumTextWidget(workExperience.lengthOfService, context),
               ),
             ),
           ],

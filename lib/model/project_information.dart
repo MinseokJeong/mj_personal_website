@@ -2,37 +2,28 @@ class ProjectInformation {
   final String projectName;
   final String projectDescription;
   final String projectPeriod;
-  final String projectMembers;
-  final String contributionrate;
-  final List<String> detailedWorks;
-  final List<String> tags;
-  final List<({String url, String text})> urls;
-  final List<String> results;
+  final List<String> keywords;
   final List<String> category;
+  final String members;
+  final String contributionrate;
+  final List<String> workDetail;
+  final List<String> results;
+  final List<({String url, String text})> links;
 
   ProjectInformation(
       {required this.projectName,
       required this.projectDescription,
       required this.projectPeriod,
-      required this.projectMembers,
+      required this.members,
       required this.contributionrate,
-      required this.detailedWorks,
-      required this.tags,
-      required this.urls,
+      required this.workDetail,
+      required this.keywords,
+      required this.links,
       required this.results,
       required this.category});
 
   factory ProjectInformation.fromJson(Map<String, dynamic> json) {
-    final projectName = json['projectName'] as String;
-    final projectDescription = json['projectDescription'] as String;
-    final period = json['period'] as String;
-    final keywords = List<String>.from(json['keywords']);
-    final workDetail = List<String>.from(json['workDetail']);
-    final members = json['members'] as String;
-    final contribution = json['contribution'] as String;
-    final results = List<String>.from(json['results']);
     final urls = <({String url, String text})>[];
-    final category = List<String>.from(json['category']);
 
     for (final Map<String, dynamic> link in json['links'] as List<dynamic>) {
       final text = link['text'] as String;
@@ -41,15 +32,16 @@ class ProjectInformation {
     }
 
     return ProjectInformation(
-        projectName: projectName,
-        projectDescription: projectDescription,
-        projectPeriod: period,
-        projectMembers: members,
-        contributionrate: contribution,
-        detailedWorks: workDetail,
-        tags: keywords,
-        urls: urls,
-        results: results,
-        category: category);
+      projectName: json['projectName'] as String,
+      projectDescription: json['projectDescription'] as String,
+      projectPeriod: json['period'] as String,
+      keywords: List<String>.from(json['keywords']),
+      category: List<String>.from(json['category']),
+      members: json['members'] as String,
+      contributionrate: json['contribution'] as String,
+      workDetail: List<String>.from(json['workDetail']),
+      results: List<String>.from(json['results']),
+      links: urls,
+    );
   }
 }

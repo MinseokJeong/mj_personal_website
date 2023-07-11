@@ -46,6 +46,7 @@ class _AboutPageState extends State<AboutPage>
   List<String> _aboutMe = [];
 
   //Skillset related... I think it woulbe better??
+  List<(String, List<String>)> _skillSet = [];
   List<String> _skillSetProgrammingLanguage = [];
   List<String> _skillSetFrontend = [];
   List<String> _skillSetEmbedded = [];
@@ -54,7 +55,6 @@ class _AboutPageState extends State<AboutPage>
   List<String> _skillSetEnvironment = [];
   List<String> _skillSetDB = [];
   List<String> _skillSetEtc = [];
-  Set<String> _skillSetsMerge = {};
 
   @override
   void initState() {
@@ -98,16 +98,21 @@ class _AboutPageState extends State<AboutPage>
         List<String>.from(introduction['whatIsGoodDeveloper']);
 
     final skillSets = resumeInfoJson['skillSet'] as Map<String, dynamic>;
-    final programmingLanguages =
-        List<String>.from(skillSets['Programming Languages']);
+    final skillSetList = <(String, List<String>)>[];
+    for (final category in skillSets.keys) {
+      final skills = List<String>.from(skillSets[category]);
+      skillSetList.add((category, skills));
+    }
+    // final programmingLanguages =
+    //     List<String>.from(skillSets['Programming Languages']);
 
-    final frontEnd = List<String>.from(skillSets['Front-End']);
-    final embedded = List<String>.from(skillSets['Embedded System / Firmware']);
-    final backend = List<String>.from(skillSets['Back-End']);
-    final toolingDevOps = List<String>.from(skillSets['Tooling / DevOps']);
-    final environment = List<String>.from(skillSets['Environment']);
-    final db = List<String>.from(skillSets['DB']);
-    final etc = List<String>.from(skillSets['ETC']);
+    // final frontEnd = List<String>.from(skillSets['Front-End']);
+    // final embedded = List<String>.from(skillSets['Embedded System / Firmware']);
+    // final backend = List<String>.from(skillSets['Back-End']);
+    // final toolingDevOps = List<String>.from(skillSets['Tooling / DevOps']);
+    // final environment = List<String>.from(skillSets['Environment']);
+    // final db = List<String>.from(skillSets['DB']);
+    // final etc = List<String>.from(skillSets['ETC']);
 
     setState(() {
       _eamilAddress = email;
@@ -120,38 +125,19 @@ class _AboutPageState extends State<AboutPage>
       _fullNameHangeul = fullNameHangeul;
       _fullNameEnglish = fullNameEnglish;
 
-      //_aboutMe = aboutMe;
-      //TODO: DELETE BELOW CODE
-      _aboutMe = [
-        "대학생 시절 해외 인턴십 프로그램에 선발되어 미국 LA에 있는 회사에서 <Kickstarter> 프로젝트에 참여하면서 <Android> 앱을 개발하였고, 그 후 한국으로 돌아와 캐나다 Vancouver에 있는 3D 스캐너 회사와 재택근무를 하며 <Windows Desktop> 프로그램을 개발하였고, 지인과 둘이서 스타트업 회사를 창업하여 <Android/iOS> 개발자로 일을 하였고 <사회적 기업 국가지원 사업에 선정>되고 프로젝트 관련 <특허 등록>경험이 있으며 창업 경진대회에서 <창업 아이디어 부문 대상 수상>한 경험이 있고, 방위산업체에서 근무하며 군에 납품하는 장비 및 프로그램을 개발하며 <Embedded System/Firmware>, <Windows Desktop> 개발자로 일을 하였습니다.",
-        "<Mobile App> 및 <Desktop App> 그리고 <Embedded System/Firmware>와 같이 다양한 실무 경험과 <Web> 관련 사이드 프로젝트 경험 및 이런 <경험>을 바탕으로 전반적인 컴퓨터 및 <프로그래밍에 대한 이해>가 넓으며 새로운 기술을 <습득하는 능력>이 뛰어납니다.",
-        "다양한 경험이 말해주듯이 <가보지 않은 길>로 가는것을 겁내지 않고 <도전>하며 걸어왔습니다.",
-        "현재는 '<Write once, run anywhere>' 라는 표어를 갖는 <Flutter>에 관심이 많으며 보고 있는 웹사이트 또한 Flutter를 이용하여 만들었습니다.",
-        "컴퓨터 앞에 앉아 있지 않을 때는 아내가 운영하는 <젤라뚱>으로가서 매장일을 도우며 <젤라또 아이스크림>을 먹거나, <도서관>에가서 무엇인가에 열중하는 사람들을 바라보는 것을 좋아합니다.",
-        "언제나 좋은 개발자가 되기 위해 최선을 다합니다."
-      ];
+      _aboutMe = aboutMe;
 
       _whatIsGoodDeveloper = whatIsGoodDeveloper;
 
-      _skillSetProgrammingLanguage = programmingLanguages;
-      _skillSetFrontend = frontEnd;
-      _skillSetEmbedded = embedded;
-      _skillSetBackend = backend;
-      _skillSetToolingDevops = toolingDevOps;
-      _skillSetEnvironment = environment;
-      _skillSetDB = db;
-      _skillSetEtc = etc;
-
-      _skillSetsMerge = {
-        ..._skillSetProgrammingLanguage,
-        ..._skillSetFrontend,
-        ..._skillSetEmbedded,
-        ..._skillSetBackend,
-        ..._skillSetToolingDevops,
-        ..._skillSetEnvironment,
-        ..._skillSetDB,
-        ..._skillSetEtc,
-      };
+      _skillSet = skillSetList;
+      // _skillSetProgrammingLanguage = programmingLanguages;
+      // _skillSetFrontend = frontEnd;
+      // _skillSetEmbedded = embedded;
+      // _skillSetBackend = backend;
+      // _skillSetToolingDevops = toolingDevOps;
+      // _skillSetEnvironment = environment;
+      // _skillSetDB = db;
+      // _skillSetEtc = etc;
     });
   }
 
@@ -210,16 +196,7 @@ class _AboutPageState extends State<AboutPage>
             child: Stack(
               children: [
                 SkillSetWidget(
-                  skills: [
-                    ('Programming Language', [..._skillSetProgrammingLanguage]),
-                    ('Front-end', [..._skillSetFrontend]),
-                    ('Embedded / Firmware', [..._skillSetEmbedded]),
-                    ('Back-end', [..._skillSetBackend]),
-                    ('Tooling / DevOps', [..._skillSetToolingDevops]),
-                    ('Environment', [..._skillSetEnvironment]),
-                    ('DB', [..._skillSetDB]),
-                    ('ETC', [..._skillSetEtc]),
-                  ],
+                  skills: _skillSet,
                 ),
               ],
             ),
@@ -275,7 +252,9 @@ class _AboutPageState extends State<AboutPage>
   }
 
   Widget _getProfileAndAboutMeDetailWidget() {
-    if (ScreenSize.isMobileScreenSize(context)) {
+    final screenWidth = ScreenSize.getScreenWidth(context);
+
+    if (screenWidth < ScreenType.tablet.width) {
       return Stack(
         children: [
           Column(
@@ -428,9 +407,9 @@ class _AboutPageState extends State<AboutPage>
       final textHighlighter = TextHighlighter(aboutMeText);
       final highlightTextModels = textHighlighter.getTexthighlightModel();
 
-      if (aboutMeText.contains('좋은 개발자')) {
-        continue;
-      }
+      // if (aboutMeText.contains('좋은 개발자')) {
+      //   continue;
+      // }
 
       final textSpans = <TextSpan>[];
       for (final highlightTextModel in highlightTextModels) {
@@ -440,16 +419,16 @@ class _AboutPageState extends State<AboutPage>
         final highlight = highlightTextModel.highlight;
 
         TapGestureRecognizer? gestureRecognizer;
-        if (text == 'Flutter') {
-          finalHighlightTextStyle =
-              highlightTextStyle.copyWith(color: const Color(0xff027DFD));
-        } else if (text == '젤라뚱') {
-          // finalHighlightTextStyle =
-          //     highlightTextStyle.copyWith(color: Color(0xffE94190));
-          gestureRecognizer = TapGestureRecognizer()
-            ..onTap =
-                () => launchUrlString('https://www.instagram.com/gelato_dd/');
-        }
+        // if (text == 'Flutter') {
+        //   finalHighlightTextStyle =
+        //       highlightTextStyle.copyWith(color: const Color(0xff027DFD));
+        // } else if (text == '젤라뚱') {
+        //   // finalHighlightTextStyle =
+        //   //     highlightTextStyle.copyWith(color: Color(0xffE94190));
+        //   gestureRecognizer = TapGestureRecognizer()
+        //     ..onTap =
+        //         () => launchUrlString('https://www.instagram.com/gelato_dd/');
+        // }
 
         final currentTextSpan = TextSpan(
           text: text,

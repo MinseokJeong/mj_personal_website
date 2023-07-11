@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 
 import '../model/project_information.dart';
@@ -13,11 +14,11 @@ class ProjectWidget extends StatelessWidget {
   String get projectName => projectInfo.projectName;
   String get projectDescription => projectInfo.projectDescription;
   String get projectPeriod => projectInfo.projectPeriod;
-  String get projectMembers => projectInfo.projectMembers;
+  String get projectMembers => projectInfo.members;
   String get contributionrate => projectInfo.contributionrate;
-  List<String> get detailedWorks => projectInfo.detailedWorks;
-  List<String> get tags => projectInfo.tags;
-  List<({String url, String text})> get urls => projectInfo.urls;
+  List<String> get detailedWorks => projectInfo.workDetail;
+  List<String> get tags => projectInfo.keywords;
+  List<({String url, String text})> get urls => projectInfo.links;
   List<String> get results => projectInfo.results;
 
   final _textIndentPadding = 8.0;
@@ -34,6 +35,7 @@ class ProjectWidget extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(8.0),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(
               flex: 3,
@@ -83,7 +85,10 @@ class ProjectWidget extends StatelessWidget {
                     ),
                     _smallTextWidget('Work Detail', context),
                     ...detailedWorks.map(
-                      (e) => _mediumTextWidget(e, context),
+                      (e) => Padding(
+                        padding: const EdgeInsets.only(bottom: 4.0),
+                        child: _mediumTextWidget(e, context),
+                      ),
                     ),
                   ],
                   if (results.isNotEmpty) ...[
@@ -116,16 +121,7 @@ class ProjectWidget extends StatelessWidget {
                     const SizedBox(
                       height: 4.0,
                     ),
-                    Wrap(
-                      direction: Axis.horizontal,
-                      spacing: 8.0,
-                      runSpacing: 8.0,
-                      children: [
-                        ...tags.map(
-                          (e) => TagWidget(tag: e),
-                        )
-                      ],
-                    ),
+                    _getKeywordsWidgets(context),
                   ],
                 ],
               ),
@@ -133,6 +129,45 @@ class ProjectWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Wrap _getKeywordsWidgets(BuildContext context) {
+    final fontSizeVariation = SizeVariation(
+      whenType4K: 16.0,
+      whenTypeLaptopLarge: 16.0,
+      whenTypeLaptop: 14.0,
+      whenTypeTablet: 14.0,
+      whenTypeMobileLarge: 12.0,
+      whenTypeMobileMedium: 12.0,
+      whenTypeMobileSmall: 12.0,
+    );
+
+    final paddingSizeVariation = SizeVariation(
+      whenType4K: 8.0,
+      whenTypeLaptopLarge: 8.0,
+      whenTypeLaptop: 8.0,
+      whenTypeTablet: 6.0,
+      whenTypeMobileLarge: 4.0,
+      whenTypeMobileMedium: 4.0,
+      whenTypeMobileSmall: 4.0,
+    );
+
+    final padding =
+        EdgeInsets.all(paddingSizeVariation.getSizeWithContext(context));
+    return Wrap(
+      direction: Axis.horizontal,
+      spacing: 8.0,
+      runSpacing: 8.0,
+      children: [
+        ...tags.map(
+          (e) => TagWidget(
+            tag: e,
+            fontSize: fontSizeVariation.getSizeWithContext(context),
+            padding: padding,
+          ),
+        )
+      ],
     );
   }
 

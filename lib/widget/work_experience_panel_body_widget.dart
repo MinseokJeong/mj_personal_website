@@ -70,70 +70,50 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
 
   Widget _companyInfoWidget(BuildContext context) {
     final screenWidth = ScreenSize.getScreenWidth(context);
-    if (!ScreenSize.isMobileScreenSize(context)) {
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.12),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              flex: 1,
-              fit: FlexFit.tight,
-              child: (workExperience.aboutCompany.isNotEmpty)
-                  ? Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _topHeaderTextWidget('About Company', context),
-                          _mediumTextWidget(
-                              workExperience.aboutCompany, context),
-                        ],
-                      ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
-            Flexible(
-              flex: 1,
-              fit: FlexFit.tight,
-              child: workExperience.companyWebsite.isNotEmpty
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          _topHeaderTextWidget('URL', context),
-                          UrlLinkButtonWidget(
-                              url: workExperience.companyWebsite,
-                              text: workExperience.companyName),
-                        ],
-                      ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
-          ],
-        ),
-      );
-    } else {
-      return Column(
+
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (workExperience.aboutCompany.isNotEmpty) ...[
-            _topHeaderTextWidget('About Company', context),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: _mediumTextWidget(workExperience.aboutCompany, context),
+          Flexible(
+            flex: 1,
+            fit: FlexFit.tight,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (workExperience.website.isNotEmpty) ...[
+                    _topHeaderTextWidget('URL', context),
+                    UrlLinkButtonWidget(
+                        url: workExperience.website,
+                        text: workExperience.companyFullName),
+                    SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                  if (workExperience.aboutCompany.isNotEmpty) ...[
+                    _topHeaderTextWidget('About Company', context),
+                    _mediumTextWidget(workExperience.aboutCompany, context),
+                    SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                  if (workExperience.myRoleInCompany.isNotEmpty) ...[
+                    _topHeaderTextWidget('My Role', context),
+                    _mediumTextWidget(workExperience.myRoleInCompany, context),
+                    SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                ],
+              ),
             ),
-          ],
-          if (workExperience.companyWebsite.isNotEmpty) ...[
-            const SizedBox(
-              height: 12.0,
-            ),
-            _topHeaderTextWidget('URL', context),
-            UrlLinkButtonWidget(
-                url: workExperience.companyWebsite,
-                text: workExperience.companyName)
-          ],
+          ),
         ],
-      );
-    }
+      ),
+    );
   }
 }
