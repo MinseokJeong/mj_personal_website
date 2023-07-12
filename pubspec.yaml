@@ -84,19 +84,29 @@ flutter:
   #
   #
   fonts:
-    - family: NotoSansKorean
-      fonts:
-        - asset: fonts/Noto_Sans_KR/NotoSansKR-Light.otf
+    # - family: NotoSansKorean
+    #   fonts:
+    #     - asset: fonts/Noto_Sans_KR/NotoSansKR-Light.otf
+    #       weight: 300
+    #     - asset: fonts/Noto_Sans_KR/NotoSansKR-Regular.otf
+    #       weight: 400        
+    #     - asset: fonts/Noto_Sans_KR/NotoSansKR-Medium.otf
+    #       weight: 500
+    #     - asset: fonts/Noto_Sans_KR/NotoSansKR-Bold.otf
+    #       weight: 700
+    - family: MaruBuri
+      fonts:      
+        - asset: fonts/MaruBuriOTF/MaruBuri-Light.otf
           weight: 300
-        - asset: fonts/Noto_Sans_KR/NotoSansKR-Regular.otf
+        - asset: fonts/MaruBuriOTF/MaruBuri-Regular.otf
           weight: 400        
-        - asset: fonts/Noto_Sans_KR/NotoSansKR-Medium.otf
+        - asset: fonts/MaruBuriOTF/MaruBuri-SemiBold.otf
           weight: 500
-        - asset: fonts/Noto_Sans_KR/NotoSansKR-Bold.otf
-          weight: 700
+        - asset: fonts/MaruBuriOTF/MaruBuri-Bold.otf
+          weight: 700        
     # - family: NanumSquareNeo
     #   fonts:
-    #     - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Rg.otf
+    #     - asset: fonts/NanumSquareNeo/NanumSquareNeo-Variable.ttf
     #       weight: 400
     #     - asset: fonts/NanumSquareNeo/OTF/NanumSquareNeoOTF-Bd.otf
     #       weight: 700

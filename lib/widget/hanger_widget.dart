@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../app_design_resources.dart' as ar;
+import 'package:hexcolor/hexcolor.dart';
 import '../util/screen_size.dart';
 import 'rotate_globe_widget.dart';
 
@@ -23,7 +23,7 @@ class HangerWidget extends StatelessWidget {
     } else {
       return Container(
         decoration: BoxDecoration(
-            color: ar.topSectionHangerBackgroundColor,
+            color: HexColor('#1C1D20'),
             borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(64.0),
                 bottomRight: Radius.circular(64.0))),
@@ -35,9 +35,10 @@ class HangerWidget extends StatelessWidget {
                   const EdgeInsets.only(left: 40.0, top: 16.0, bottom: 16.0),
               child: Text(
                 'Located\nin the\nSouth Korea',
-                style: ar.textStyleTopSectionRotateSphereSectionLeftText
-                    .copyWith(
-                        color: Colors.white, fontWeight: FontWeight.normal),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.normal),
               ),
             ),
             const SizedBox(
@@ -46,7 +47,7 @@ class HangerWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: CircleAvatar(
-                backgroundColor: ar.topSectionBackgroundColor,
+                backgroundColor: HexColor('#999D9D'),
                 radius: 32,
                 child: const RotateGlobeWidget(
                   width: 36,

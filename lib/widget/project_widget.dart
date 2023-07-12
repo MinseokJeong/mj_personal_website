@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 
 import '../model/project_information.dart';

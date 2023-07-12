@@ -1,6 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      color: #fff;
+      font-size: 10px;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      position: relative;
+      text-indent: -9999em;
+      animation: mulShdSpin 1.3s infinite linear;
+      transform: translateZ(0);
+      text-align: center;
+      display: block;
+
+    }
+
+    @keyframes mulShdSpin {
+
+      0%,
+      100% {
+        box-shadow: 0 -3em 0 0.2em,
+          2em -2em 0 0em, 3em 0 0 -1em,
+          2em 2em 0 -1em, 0 3em 0 -1em,
+          -2em 2em 0 -1em, -3em 0 0 -1em,
+          -2em -2em 0 0;
+      }
+
+      12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+          3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+          -2em 2em 0 -1em, -3em 0 0 -1em,
+          -2em -2em 0 -1em;
+      }
+
+      25% {
+        box-shadow: 0 -3em 0 -0.5em,
+          2em -2em 0 0, 3em 0 0 0.2em,
+          2em 2em 0 0, 0 3em 0 -1em,
+          -2em 2em 0 -1em, -3em 0 0 -1em,
+          -2em -2em 0 -1em;
+      }
+
+      37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+          3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+          -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+          3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+          -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+          3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+          -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+      }
+
+      75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+          3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+          -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+      }
+
+      87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+          3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+          -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+      }
+    }
+  </style>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -23,32 +109,49 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="mj_portfolio_web">
+  <meta name="apple-mobile-web-app-title" content="flutter_web_for_test">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon Generated with https://www.favicon-generator.org/-->
-  <title>mj_portfolio_web</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body style="background-color: black;">
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
-      }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-    loadMainDartJs();    
+  <title>flutter_web_for_test</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+
+
+ 
+</head>
+
+<body style="background-color: black;">
+
+  <div class="loading" id="mj_loader">
+    <span class="loader"></span>
+  </div>
+
+
+  <script>
+    window.addEventListener('load', function (ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
+            document.getElementById('mj_loader').remove();
+            appRunner.runApp();            
+          });
+        }
+      });
+    });
   </script>
 </body>
+
 </html>

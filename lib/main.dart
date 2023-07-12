@@ -8,7 +8,6 @@ import 'my_web_app.dart';
 import 'page/about_page.dart';
 import 'page/work_page.dart';
 import 'page/home_page.dart';
-import 'app_design_resources.dart' show FontName;
 import 'model/route_name.dart' as rn;
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -26,12 +25,14 @@ void main() {
   ScreenTypeExtension.baseScreenType = ScreenType.laptopLarge;
 
   bool developmentMode = false;
-
+  //final appFontFamily = 'NotoSansKorean';
+  //final appFontFamily = 'NanumSquareNeo';
+  final appFontFamily = 'MaruBuri';
   if (developmentMode) {
     return runApp(
       MaterialApp(
         home: const WorkPage(),
-        theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+        theme: ThemeData(fontFamily: appFontFamily),
         debugShowCheckedModeBanner: false,
       ),
     );
@@ -82,7 +83,7 @@ void main() {
           return MaterialPageRoute(builder: (_) => const UnknownPage());
         },
         initialRoute: rn.rootPage,
-        theme: ThemeData(fontFamily: FontName.NotoSansKorean.name),
+        theme: ThemeData(fontFamily: appFontFamily),
         debugShowCheckedModeBanner: false,
       ),
     );

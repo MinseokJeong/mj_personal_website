@@ -256,7 +256,7 @@ class _WorkPageState extends State<WorkPage> {
               verticalSpace(120),
               //가운데 큰 헤더 여기에 알맞은 텍스트를 넣어야겟지?
               Text(
-                'Software Development Experience',
+                'Software Development\nExperience',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: _colorTextBlack,

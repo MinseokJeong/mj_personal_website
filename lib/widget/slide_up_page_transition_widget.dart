@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -126,7 +125,7 @@ class _SlideUpPageTransitionWidgetState
     final windowHeight = windowSize.height;
     final windowWidth = windowSize.width;
     final upperBelowBoxHeight = windowHeight * 0.33;
-    final backgroundColor = Colors.black;
+    const backgroundColor = Colors.black;
 
     _screenSlideUpAnimation = TweenSequence([
       TweenSequenceItem(

@@ -47,14 +47,6 @@ class _AboutPageState extends State<AboutPage>
 
   //Skillset related... I think it woulbe better??
   List<(String, List<String>)> _skillSet = [];
-  List<String> _skillSetProgrammingLanguage = [];
-  List<String> _skillSetFrontend = [];
-  List<String> _skillSetEmbedded = [];
-  List<String> _skillSetBackend = [];
-  List<String> _skillSetToolingDevops = [];
-  List<String> _skillSetEnvironment = [];
-  List<String> _skillSetDB = [];
-  List<String> _skillSetEtc = [];
 
   @override
   void initState() {
@@ -407,10 +399,6 @@ class _AboutPageState extends State<AboutPage>
       final textHighlighter = TextHighlighter(aboutMeText);
       final highlightTextModels = textHighlighter.getTexthighlightModel();
 
-      // if (aboutMeText.contains('좋은 개발자')) {
-      //   continue;
-      // }
-
       final textSpans = <TextSpan>[];
       for (final highlightTextModel in highlightTextModels) {
         var finalHighlightTextStyle = highlightTextStyle;
@@ -419,24 +407,28 @@ class _AboutPageState extends State<AboutPage>
         final highlight = highlightTextModel.highlight;
 
         TapGestureRecognizer? gestureRecognizer;
-        // if (text == 'Flutter') {
-        //   finalHighlightTextStyle =
-        //       highlightTextStyle.copyWith(color: const Color(0xff027DFD));
-        // } else if (text == '젤라뚱') {
-        //   // finalHighlightTextStyle =
-        //   //     highlightTextStyle.copyWith(color: Color(0xffE94190));
-        //   gestureRecognizer = TapGestureRecognizer()
-        //     ..onTap =
-        //         () => launchUrlString('https://www.instagram.com/gelato_dd/');
-        // }
+        if (text == '좋은 개발자') {
+          gestureRecognizer = TapGestureRecognizer()
+            ..onTap = () => Navigator.pushNamed(context, rn.goodDeveloper);
+          final currentTextSpan = TextSpan(
+            text: text,
+            style: finalHighlightTextStyle.copyWith(
+                color: HexColor('#FEA53C'),
+                fontWeight: FontWeight.bold,
+                fontSize: finalHighlightTextStyle.fontSize! + 2.0),
+            recognizer: gestureRecognizer,
+          );
 
-        final currentTextSpan = TextSpan(
-          text: text,
-          style: (highlight) ? finalHighlightTextStyle : defaultTextStyle,
-          recognizer: gestureRecognizer,
-        );
+          textSpans.add(currentTextSpan);
+        } else {
+          final currentTextSpan = TextSpan(
+            text: text,
+            style: (highlight) ? finalHighlightTextStyle : defaultTextStyle,
+            recognizer: gestureRecognizer,
+          );
 
-        textSpans.add(currentTextSpan);
+          textSpans.add(currentTextSpan);
+        }
       }
 
       final columnWidget = Column(
@@ -458,43 +450,10 @@ class _AboutPageState extends State<AboutPage>
   }
 
   Widget _getAboutMeDetailWidget() {
-    const defaultTextStyle =
-        TextStyle(color: Colors.grey, fontSize: 20, height: 1.4);
-    const highlightTextStyle =
-        TextStyle(color: Colors.white, fontSize: 20, height: 1.4);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ..._getAboutMeTextWidgetList(),
-        Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            const Text(
-              "언제나 ",
-              style: defaultTextStyle,
-            ),
-            FloatingActionButton.extended(
-              onPressed: () {
-                Navigator.pushNamed(context, rn.goodDeveloper);
-              },
-              label: const Text(
-                '좋은 개발자',
-                style: highlightTextStyle,
-              ),
-              icon: const Icon(
-                Icons.thumb_up,
-                color: Colors.white,
-              ),
-              //foregroundColor: Color(0xff4A5BE1),
-              backgroundColor: const Color(0xff4A5BE1),
-            ),
-            const Text(
-              " 가 되기위해 최선을 다합니다.",
-              style: defaultTextStyle,
-            ),
-          ],
-        ),
       ],
     );
   }
@@ -504,21 +463,23 @@ class _AboutPageState extends State<AboutPage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          _fullNameEnglish,
+        Text.rich(
+          TextSpan(children: [
+            TextSpan(
+              text: _fullNameEnglish,
+            ),
+            TextSpan(
+              text: '\n',
+            ),
+            TextSpan(
+              text: _fullNameHangeul,
+            ),
+          ]),
           style: const TextStyle(
               color: Colors.white,
               fontSize: 60.0,
               fontWeight: FontWeight.w700,
-              height: 1.0),
-        ),
-        Text(
-          _fullNameHangeul,
-          style: const TextStyle(
-              color: Colors.white,
-              fontSize: 60.0,
-              fontWeight: FontWeight.w700,
-              height: 1.0),
+              height: 1.3),
         ),
         const SizedBox(
           height: 16.0,

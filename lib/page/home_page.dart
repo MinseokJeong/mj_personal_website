@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
-import 'package:mj_portfolio_web/widget/moving_around_tags_widget.dart';
 import '../model/size_variation.dart';
 import '../widget/hanger_widget.dart';
-import '../app_design_resources.dart' as ar;
 import '../widget/horizontal_moving_text_widget2.dart';
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';
 import '../widget/top_header_widget.dart';
@@ -51,7 +50,7 @@ class _HomePageState extends State<HomePage> {
         _mouseHoverStreamController.add(event.position);
       },
       child: Scaffold(
-        backgroundColor: ar.topSectionBackgroundColor,
+        backgroundColor: HexColor('#999D9D'),
         body: Stack(
           children: [
             Align(
@@ -84,11 +83,34 @@ class _HomePageState extends State<HomePage> {
               alignment: (isSmallScreenSize)
                   ? const Alignment(0.9, 0.8)
                   : const Alignment(0.9, 0.0),
-              child: Text(
-                'Software\nEngineer & Developer',
-                textAlign:
-                    (isSmallScreenSize) ? TextAlign.end : TextAlign.start,
-                style: ar.textStyleTopSectionLarge,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: (isSmallScreenSize)
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
+                children: [
+                  StreamBuilder<Offset>(
+                    stream: _mouseHoverStreamController.stream,
+                    builder: (context, snapshot) {
+                      return InteractWithMousePointerIconWidget(
+                        mousePointerOffsetGlobal:
+                            (snapshot.hasData) ? snapshot.data! : null,
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    'Software\nEngineer & Developer',
+                    textAlign:
+                        (isSmallScreenSize) ? TextAlign.end : TextAlign.start,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28.0,
+                    ),
+                  ),
+                ],
               ),
             ),
             Align(
@@ -101,26 +123,26 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   fontSize: fontSizeVariation.getSizeWithContext(context),
                   height: 1.0,
-                  fontFamily: ar.FontName.NotoSansKorean.name,
+                  //fontFamily: 'NotoSansKorean',
                 ),
                 speed: 140000,
                 direction: MovingTextDirection2.moving_left,
               ),
             ),
-            Align(
-              alignment: (isSmallScreenSize)
-                  ? const Alignment(0.9, 0.6)
-                  : const Alignment(0.6, -0.3),
-              child: StreamBuilder<Offset>(
-                stream: _mouseHoverStreamController.stream,
-                builder: (context, snapshot) {
-                  return InteractWithMousePointerIconWidget(
-                    mousePointerOffsetGlobal:
-                        (snapshot.hasData) ? snapshot.data! : null,
-                  );
-                },
-              ),
-            ),
+            // Align(
+            //   alignment: (isSmallScreenSize)
+            //       ? const Alignment(0.9, 0.6)
+            //       : const Alignment(0.6, -0.3),
+            //   child: StreamBuilder<Offset>(
+            //     stream: _mouseHoverStreamController.stream,
+            //     builder: (context, snapshot) {
+            //       return InteractWithMousePointerIconWidget(
+            //         mousePointerOffsetGlobal:
+            //             (snapshot.hasData) ? snapshot.data! : null,
+            //       );
+            //     },
+            //   ),
+            // ),
             Align(
               alignment: const Alignment(0.0, 1.0),
               child: SizedBox(

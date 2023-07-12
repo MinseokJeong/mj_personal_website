@@ -90,21 +90,21 @@ class WorkExperiencePanelBodyWidget extends StatelessWidget {
                     UrlLinkButtonWidget(
                         url: workExperience.website,
                         text: workExperience.companyFullName),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                   ],
                   if (workExperience.aboutCompany.isNotEmpty) ...[
                     _topHeaderTextWidget('About Company', context),
                     _mediumTextWidget(workExperience.aboutCompany, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                   ],
                   if (workExperience.myRoleInCompany.isNotEmpty) ...[
                     _topHeaderTextWidget('My Role', context),
                     _mediumTextWidget(workExperience.myRoleInCompany, context),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                   ],

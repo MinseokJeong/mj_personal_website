@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
-import '../app_design_resources.dart' show FontName;
 import '../util/screen_size.dart';
 
 class SplashPage extends StatefulWidget {
@@ -135,7 +133,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 width: windowSize.width,
                 height: windowSize.height,
                 color: Colors.black,
-                padding: EdgeInsets.all(32.0),
+                padding: const EdgeInsets.all(32.0),
                 child: Center(
                   child: AnimatedBuilder(
                     animation: _textIndexAnimation,
@@ -146,7 +144,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
                       return SvgPicture.asset(
                         currentHelloTextSvgFilePath,
-                        height: windowSize.width * 0.1,
+                        height: windowSize.width * 0.07,
                         fit: BoxFit.fitHeight,
                       );
                     },
