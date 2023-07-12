@@ -28,7 +28,7 @@ class _InteractionMenuButtonWidgetState
   late LineMetrics _calculatedLineMetrics;
   double _horizontalPadding = 16.0;
   double _verticalPadding = 16.0;
-  final double _fontSize = 16.0;
+  final double _fontSize = 20.0;
 
   String get _text => widget.text;
   double get _containerWidth =>
@@ -43,7 +43,7 @@ class _InteractionMenuButtonWidgetState
   TextStyle get _textStyle => TextStyle(
         color: widget.textColor,
         fontSize: _fontSize,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         overflow: TextOverflow.visible,
       );
 

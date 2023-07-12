@@ -57,41 +57,41 @@ class _CodeByMinseokWidgetState extends State<CodeByMinseokWidget>
           builder: (context, child) {
             final rotateValue = _animationController.value * 2.0 * pi;
             final textStyle = TextStyle(
-                fontSize: 16.0,
+                fontSize: 20,
                 color: widget.color,
                 fontWeight: FontWeight.normal);
 
             //final rotate
-            return SizedBox(
-              child: Row(
-                children: [
-                  Transform.rotate(
-                    angle: rotateValue,
-                    child: Text(
-                      '@',
-                      style: textStyle,
-                    ),
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Transform.rotate(
+                  angle: rotateValue,
+                  child: Text(
+                    '@',
+                    style: textStyle,
                   ),
-                  Stack(
-                    children: [
-                      FadeTransition(
-                        opacity: _textOpacityReverseAnimation,
-                        child: Text(
-                          " Code by Minseok",
-                          style: textStyle,
-                        ),
+                ),
+                Stack(
+                  children: [
+                    FadeTransition(
+                      opacity: _textOpacityReverseAnimation,
+                      child: Text(
+                        " Code by Minseok",
+                        style: textStyle,
                       ),
-                      FadeTransition(
-                        opacity: _textOpacityAnimation,
-                        child: Text(
-                          " Minseok Jeong",
-                          style: textStyle,
-                        ),
+                    ),
+                    FadeTransition(
+                      opacity: _textOpacityAnimation,
+                      child: Text(
+                        " Minseok Jeong",
+                        style: textStyle,
                       ),
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                  ],
+                )
+              ],
             );
           },
         ),

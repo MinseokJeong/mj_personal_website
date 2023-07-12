@@ -1,11 +1,11 @@
 {
-    "name": "mj_portfolio_web",
-    "short_name": "mj_portfolio_web",
+    "name": "Minseok Jeong",
+    "short_name": "MJ",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Code by MinseokJeong",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

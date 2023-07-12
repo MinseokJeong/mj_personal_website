@@ -18,107 +18,64 @@ class TopHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSizeWidth = ScreenSize.getScreenWidth(context);
-    if (screenSizeWidth >= ScreenType.tablet.width) {
-      return _forDefaultScreenSizeWidget(context);
-    } else {
-      return _forSmallScreenSizeWidget(context);
-    }
-  }
-
-  Widget _forSmallScreenSizeWidget(BuildContext context) {
-    double leftPadding = 8.0;
-    TextAlign textAlign = TextAlign.left;
-    var text = "@ Code by Minseok";
-
-    //final screenSizeWidth = ScreenSize.getScreenHeight(context);
+    bool isScreenSizeSmallerThanTablet =
+        (screenSizeWidth >= ScreenType.tablet.width);
 
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
-            child: CodeByMinseokWidget(
-              color: textColor,
-              onPressed: () {
-                Navigator.pushNamed(context, rn.rootPage);
-              },
-            ),
+          CodeByMinseokWidget(
+            color: textColor,
+            onPressed: () {
+              Navigator.pushNamed(context, rn.rootPage);
+            },
           ),
           const Spacer(),
-          IconButton(
+          if (isScreenSizeSmallerThanTablet) ...[
+            InteractionMenuButtonWidget(
+              text: 'Home',
               onPressed: () {
-                Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const MenuPage(),
-                  ),
-                );
+                Navigator.pushNamed(context, rn.homePage);
               },
-              icon: Icon(
-                Icons.menu,
-                color: textColor,
-                size: 20,
-              )),
-        ],
-      ),
-    );
-  }
-
-  Widget _forDefaultScreenSizeWidget(BuildContext context) {
-    double leftPadding = 40.0;
-    TextAlign textAlign = TextAlign.center;
-
-    var text = '@ Code by MinseokJeong';
-    final screenSizeWidth = ScreenSize.getScreenHeight(context);
-
-    if (screenSizeWidth <= ScreenType.tablet.width) {
-      leftPadding = 8.0;
-      textAlign = TextAlign.left;
-      text = "@ Code by Minseok";
-    }
-
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: leftPadding),
-            child: CodeByMinseokWidget(
-              color: textColor,
-              onPressed: () {
-                Navigator.pushNamed(context, rn.rootPage);
-              },
+              textColor: textColor,
+              selected: (currentRoutePageName == rn.homePage) ? true : false,
             ),
-          ),
-          const Spacer(),
-          InteractionMenuButtonWidget(
-            text: 'Home',
-            onPressed: () {
-              Navigator.pushNamed(context, rn.homePage);
-            },
-            textColor: textColor,
-            selected: (currentRoutePageName == rn.homePage) ? true : false,
-          ),
-          InteractionMenuButtonWidget(
-            text: 'Work',
-            onPressed: () {
-              Navigator.pushNamed(context, rn.workPage);
-              //pt.slideUpPageTransition(context, WorkPage(), 'Work');
-            },
-            textColor: textColor,
-            selected: (currentRoutePageName == rn.workPage) ? true : false,
-          ),
-          InteractionMenuButtonWidget(
-            text: 'About',
-            onPressed: () {
-              Navigator.pushNamed(context, rn.aboutPage);
-            },
-            textColor: textColor,
-            selected: (currentRoutePageName == rn.aboutPage) ? true : false,
-          ),
+            InteractionMenuButtonWidget(
+              text: 'Work',
+              onPressed: () {
+                Navigator.pushNamed(context, rn.workPage);
+                //pt.slideUpPageTransition(context, WorkPage(), 'Work');
+              },
+              textColor: textColor,
+              selected: (currentRoutePageName == rn.workPage) ? true : false,
+            ),
+            InteractionMenuButtonWidget(
+              text: 'About',
+              onPressed: () {
+                Navigator.pushNamed(context, rn.aboutPage);
+              },
+              textColor: textColor,
+              selected: (currentRoutePageName == rn.aboutPage) ? true : false,
+            ),
+          ],
+          if (!isScreenSizeSmallerThanTablet)
+            IconButton(
+                onPressed: () {
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const MenuPage(),
+                    ),
+                  );
+                },
+                icon: Icon(
+                  Icons.menu,
+                  color: textColor,
+                  size: 24,
+                )),
         ],
       ),
     );

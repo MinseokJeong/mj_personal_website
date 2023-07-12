@@ -31,7 +31,7 @@ void main() {
   if (developmentMode) {
     return runApp(
       MaterialApp(
-        home: const WorkPage(),
+        home: const AboutPage(),
         theme: ThemeData(fontFamily: appFontFamily),
         debugShowCheckedModeBanner: false,
       ),

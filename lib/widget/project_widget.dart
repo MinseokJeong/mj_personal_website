@@ -207,7 +207,7 @@ class ProjectWidget extends StatelessWidget {
     final textStyle = TextStyle(
       fontSize: fontSizeVariation.getSizeWithContext(context),
       color: Colors.black,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     );
 
     return Text(
@@ -230,7 +230,7 @@ class ProjectWidget extends StatelessWidget {
     final textStyle = TextStyle(
       fontSize: fontSizeVariation.getSizeWithContext(context),
       color: Colors.grey,
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w400,
     );
     return Text(
       text,
