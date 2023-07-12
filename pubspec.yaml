@@ -68,6 +68,7 @@ flutter:
     - assets/minseokjeong_rotate_text.svg
     - assets/gmail_icon.svg
     - assets/blogspot_icon.svg
+    - assets/hello/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -83,18 +84,6 @@ flutter:
   #
   #
   fonts:
-    - family: NotoSans
-      fonts:
-        - asset: fonts/Noto_Sans/NotoSans-Regular.ttf     
-          weight: 400     
-        # - asset: fonts/Noto_Sans/NotoSans-Bold.ttf
-        #   weight: 700     
-    - family: NotoSansJapanese
-      fonts:
-        - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Regular.ttf
-          weight: 400
-        # - asset: fonts/Noto_Sans_JP/static/NotoSansJP-Bold.ttf
-        #   weight: 700
     - family: NotoSansKorean
       fonts:
         - asset: fonts/Noto_Sans_KR/NotoSansKR-Light.otf
