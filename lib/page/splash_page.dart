@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../util/screen_size.dart';
@@ -144,7 +146,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
                       return SvgPicture.asset(
                         currentHelloTextSvgFilePath,
-                        height: windowSize.width * 0.07,
+                        height: max(windowSize.width * 0.06, 24),
                         fit: BoxFit.fitHeight,
                       );
                     },
