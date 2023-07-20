@@ -294,6 +294,23 @@ class _WorkPageState extends State<WorkPage> {
     final selectedAll = (_selectedSortedButton.compareTo('All') == 0);
     final selectedEtc = (_selectedSortedButton.compareTo('Etc') == 0);
 
+    //Flutter first...
+    int flutterTextIndex = -1;
+    for (int i = 0; i < filteringButtonInfoList.length; ++i) {
+      final flutterText = filteringButtonInfoList.elementAt(i);
+      final lowerCase = flutterText.toLowerCase();
+      if (lowerCase.contains('flutter')) {
+        flutterTextIndex = i;
+        break;
+      }
+    }
+
+    if (flutterTextIndex > -1) {
+      final flutterText = filteringButtonInfoList.elementAt(flutterTextIndex);
+      filteringButtonInfoList.removeAt(flutterTextIndex);
+      filteringButtonInfoList.insert(0, flutterText);
+    }
+
     return Wrap(
       //mainAxisSize: MainAxisSize.min,
       spacing: 16,
