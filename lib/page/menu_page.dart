@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../model/route_name.dart' as rn;
 
 class MenuPage extends StatelessWidget {
@@ -67,10 +68,10 @@ class MenuPage extends StatelessWidget {
               ),
             ),
             _CustomRowTextButton(
-              text: 'Home',
+              text: 'About',
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, rn.homePage, (_) => false);
+                    context, rn.aboutPage, (_) => false);
               },
             ),
             const SizedBox(
@@ -87,10 +88,9 @@ class MenuPage extends StatelessWidget {
               height: 32,
             ),
             _CustomRowTextButton(
-              text: 'About',
+              text: 'Blog',
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, rn.aboutPage, (_) => false);
+                launchUrlString('https://minseokjeong.github.io');
               },
             ),
             const Expanded(child: SizedBox.shrink()),
@@ -106,8 +106,7 @@ class MenuPage extends StatelessWidget {
 }
 
 class _CustomRowTextButton extends StatefulWidget {
-  _CustomRowTextButton(
-      {required this.text, required this.onPressed});
+  _CustomRowTextButton({required this.text, required this.onPressed});
 
   void Function() onPressed;
   String text;

@@ -584,26 +584,6 @@ class _AboutPageState extends State<AboutPage>
                 size: 30,
               ),
             ),
-            const SizedBox(
-              width: 16,
-            ),
-            TextButton(
-              onPressed: () {
-                if (_blogSpotUrl.isNotEmpty) {
-                  launchUrlString(_blogSpotUrl);
-                }
-              },
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                minimumSize: Size.zero,
-              ),
-              child: SvgPicture.asset(
-                'assets/blogspot_icon.svg',
-                color: iconColor,
-                width: 30,
-                height: 30,
-              ),
-            ),
           ],
         ),
       ],

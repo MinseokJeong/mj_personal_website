@@ -146,7 +146,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
                       return SvgPicture.asset(
                         currentHelloTextSvgFilePath,
-                        height: max(windowSize.width * 0.06, 24),
+                        height: max(windowSize.width * 0.06, 24.0),
                         fit: BoxFit.fitHeight,
                       );
                     },

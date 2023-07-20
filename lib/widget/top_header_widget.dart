@@ -4,6 +4,7 @@ import 'package:mj_portfolio_web/page/menu_page.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/screen_type_extension.dart';
 import 'package:mj_portfolio_web/widget/code_by_minseok_widget.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'interaction_menu_button_widget.dart';
 import '../model/route_name.dart' as rn;
 
@@ -36,12 +37,12 @@ class TopHeaderWidget extends StatelessWidget {
           const Spacer(),
           if (isScreenSizeSmallerThanTablet) ...[
             InteractionMenuButtonWidget(
-              text: 'Home',
+              text: 'About',
               onPressed: () {
-                Navigator.pushNamed(context, rn.homePage);
+                Navigator.pushNamed(context, rn.aboutPage);
               },
               textColor: textColor,
-              selected: (currentRoutePageName == rn.homePage) ? true : false,
+              selected: (currentRoutePageName == rn.aboutPage) ? true : false,
             ),
             InteractionMenuButtonWidget(
               text: 'Work',
@@ -53,29 +54,30 @@ class TopHeaderWidget extends StatelessWidget {
               selected: (currentRoutePageName == rn.workPage) ? true : false,
             ),
             InteractionMenuButtonWidget(
-              text: 'About',
+              text: 'Blog',
               onPressed: () {
-                Navigator.pushNamed(context, rn.aboutPage);
+                launchUrlString('https://minseokjeong.github.io');
               },
               textColor: textColor,
-              selected: (currentRoutePageName == rn.aboutPage) ? true : false,
+              selected: false,
             ),
           ],
           if (!isScreenSizeSmallerThanTablet)
             IconButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const MenuPage(),
-                    ),
-                  );
-                },
-                icon: Icon(
-                  Icons.menu,
-                  color: textColor,
-                  size: 24,
-                )),
+              onPressed: () {
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => const MenuPage(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.menu,
+                color: textColor,
+                size: 24,
+              ),
+            ),
         ],
       ),
     );
