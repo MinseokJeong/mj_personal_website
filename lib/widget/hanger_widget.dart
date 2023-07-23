@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import '../util/screen_size.dart';
 import 'rotate_globe_widget.dart';
+import '../util/hex_color.dart';
 
 class HangerWidget extends StatelessWidget {
   const HangerWidget({

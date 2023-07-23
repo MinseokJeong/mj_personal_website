@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/model/resume_info_manager.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
@@ -15,6 +14,7 @@ import 'package:mj_portfolio_web/widget/top_header_widget.dart';
 import 'dart:math' as math;
 import 'package:url_launcher/url_launcher_string.dart';
 import '../model/route_name.dart' as rn;
+import '../util/hex_color.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _AboutPageState extends State<AboutPage>
   String _blogSpotUrl = '';
   String _phoneNumber = '';
   String _developerTitle = '';
-  String _developerCategory = '';
+  String _developerTitleSub = '';
   String _fullNameHangeul = '';
   String _fullNameEnglish = '';
   List<String> _whatIsGoodDeveloper = [];
@@ -83,7 +83,7 @@ class _AboutPageState extends State<AboutPage>
     final instagram = introduction['instagram'] as String;
     final github = introduction['github'] as String;
     final devTitle = introduction['developerTitle'] as String;
-    final devCategory = introduction['developerCategory'] as String;
+    final devCategory = introduction['developerTitleSub'] as String;
     final aboutMe = List<String>.from(introduction['aboutMe']);
 
     final whatIsGoodDeveloper =
@@ -99,7 +99,7 @@ class _AboutPageState extends State<AboutPage>
     //     List<String>.from(skillSets['Programming Languages']);
 
     // final frontEnd = List<String>.from(skillSets['Front-End']);
-    // final embedded = List<String>.from(skillSets['Embedded System / Firmware']);
+    // final embedded = List<String>.from(skillSets['Embedded System']);
     // final backend = List<String>.from(skillSets['Back-End']);
     // final toolingDevOps = List<String>.from(skillSets['Tooling / DevOps']);
     // final environment = List<String>.from(skillSets['Environment']);
@@ -113,7 +113,7 @@ class _AboutPageState extends State<AboutPage>
       _blogSpotUrl = blogspot;
       _phoneNumber = mobile;
       _developerTitle = devTitle;
-      _developerCategory = devCategory;
+      _developerTitleSub = devCategory;
       _fullNameHangeul = fullNameHangeul;
       _fullNameEnglish = fullNameEnglish;
 
@@ -496,7 +496,7 @@ class _AboutPageState extends State<AboutPage>
           height: 16.0,
         ),
         Text(
-          _developerCategory,
+          _developerTitleSub,
           style: const TextStyle(
             color: Colors.grey,
             fontSize: 20.0,

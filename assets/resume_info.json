@@ -3,7 +3,7 @@
         "fullNameHangeul": "정민석",
         "fullNameEnglish": "Minseok Jeong",
         "developerTitle": "Software Engineer & Developer",
-        "developerCategory": "좋은 개발자",
+        "developerTitleSub": "Flutter 개발자",
         "jobPosition": "Flutter Developer",
         "birthDay": "1992.02.29",
         "email": "minseok.jeong92@gmail.com",
@@ -18,11 +18,11 @@
             "To be good, and to do good, is all we have to do. - John Adams"
         ],
         "aboutMe": [
-            "안녕하세요, <좋은 개발자>를 추구하는 정민석 입니다.",
-            "임베디드 시스템, 윈도우즈 데스크톱, 모바일, 웹 과 같이 <다양한 분야에서 개발 경험>을 갖고 있어 다양한 프로젝트에 대처할 수 있으며, 현재는 <Flutter>를 이용하여 크로스플랫폼 앱을 개발하고 있습니다",
+            "안녕하세요, <Flutter 개발자> 정민석 입니다.",
+            "<Cross-platform>의 의미처럼 임베디드 시스템, 윈도우즈 데스크톱, 모바일, 웹 과 같이 <다양한 분야에서 개발 경험>을 갖고 있어 다양한 프로젝트에 대처할 수 있습니다.",
             "Kickstarter 참여, 사회적 기업가 육성사업 선정, 특허 등록, 창업 경진대회 대상을 수상하는 등 <개발 이외 다양한 경험>이 있습니다.",
             "미국과 캐나다에서 해외 근무 경험 덕분에 국제적인 업무 환경에 적응할 수 있고 다양한 문화와 사람들과 협업하는 능력을 갖추고 있습니다.",
-            "임베디드시스템 개발을 할당시 수백장의 데이터시트, 레퍼런스 문서를 출력해 밤늦게 까지 연구 하면서 <책임지고 맡겨진 일을 해결> 하였으며 이러한 모습들로 인해 주변 동료들로부터 <같이 일하고 싶은 개발자>로 인정 받았습니다.",
+            "임베디드 시스템 개발 일을 할당시 수백장의 데이터시트, 레퍼런스 문서를 출력해 밤늦게 까지 연구 하면서 <책임지고 맡겨진 일을 해결> 하였으며 이러한 모습들로 인해 주변 동료들로부터 <같이 일하고 싶은 개발자>로 인정 받았습니다.",
             "언제나 <좋은 개발자>가 되기 위해 최선을 다합니다."
         ],
         "whatIsGoodDeveloper": [
@@ -59,13 +59,12 @@
             "Python",
             "Javascript"
         ],
-        "Embedded System / Firmware": [
+        "Embedded System": [
+            "Arm Cortex-M4 based MCU",
             "VxWorks",
             "Zynq Ultra Scale+ MPSoC",
-            "Arm Cortex-M4 based MCU",
             "Single Board Computer",
             "Xilinx IP Core",
-            "Analog Devices",
             "Texas Instruments",
             "Arduino",
             "Raspberry pi",
@@ -73,7 +72,7 @@
             "Code Composer Studio",
             "Wind River Workbench"
         ],
-        "Desktop Application(Windows)": [
+        "Desktop Application": [
             "MFC",
             "Winform",
             "Unity",
@@ -89,7 +88,7 @@
             "Xcode"
         ],
         "Front-End(Web)": [
-            "Flutter(Web)",
+            "Flutter for Web",
             "HTML/CSS/JS",
             "Visual Studio Code"
         ],
@@ -131,7 +130,7 @@
             "lengthOfService": "2019.02 ~ 2022.03",
             "location": "대전",
             "rank": "사원/주임/선임",
-            "developmentCategory": "Embedded System/Firmware, Windows Desktop",
+            "developmentCategory": "Embedded System, Windows Desktop",
             "companyCategory": "방위산업체",
             "aboutCompany": "방위산업체로서 육,해,공군의 첨단 무기체계 개발에 참여하며 아날로그/디지털신호처리/임베디드시스템과 관련된 다양한 제품을 개발 및 생산",
             "myRoleInCompany": "군납용 장비/제품 안에 들어가는 임베디드시스템/펌웨어 개발 및 실운용자가 사용하는 윈도우즈 데스크톱 응용 프로그램을 개발하였습니다. 실제 만든 프로그램이 현재 군에서 사용되고 있고, 대한민국 국방에 보탬이 되었다는 자부심이 있습니다.",
@@ -150,10 +149,10 @@
                         "Visual Studio",
                         "Wind River Workbench",
                         "Code Composer Studio",
-                        "Embedded System/Firmware"
+                        "Embedded System"
                     ],
                     "category": [
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 1, 하드웨어 3, 기계/기구 2",
                     "contribution": "100%",
@@ -203,10 +202,10 @@
                         "Visual Studio",
                         "MFC",
                         "SoC",
-                        "Embedded System/Firmware"
+                        "Embedded System"
                     ],
                     "category": [
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1",
                     "contribution": "100%",
@@ -239,7 +238,7 @@
                         "Code Composer Studio"
                     ],
                     "category": [
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 2, 하드웨어 1, 기계/기구 1",
                     "contribution": "50%",
@@ -269,7 +268,7 @@
                         "Visual Studio"
                     ],
                     "category": [
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1",
                     "contribution": "100%",
@@ -375,7 +374,7 @@
                         "RTOS"
                     ],
                     "category": [
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 2, 하드웨어 2, 기구팀 2, 디자이너 1",
                     "contribution": "50%",
@@ -539,7 +538,7 @@
                     ],
                     "category": [
                         "Mobile App",
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 1, 비지니스/디자이너 1",
                     "contribution": "100%",
@@ -574,7 +573,7 @@
                     ],
                     "category": [
                         "Mobile App",
-                        "Embedded/Firmware"
+                        "Embedded System"
                     ],
                     "members": "소프트웨어 1, 디자이너 1",
                     "contribution": "100%",
@@ -747,12 +746,12 @@
     ],
     "sideProjects": [
         {
-            "projectName": "Personal Website",
+            "projectName": "MinseokJeong Website",
             "projectDescription": "개인용 웹사이트 개발 프로젝트",
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
-                "Flutter",
+                "Flutter",                
                 "Visual Studio Code"
             ],
             "category": [
@@ -762,12 +761,13 @@
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "• 페이지 전환시 Custom Route Transition Animation 구현",
-                "• 프로그램에 전시되는 모든 내용들은 json 파일로 분리하여 개발",
-                "• Custom Painter를 이용하여 특정 위젯 직접 drawing",
-                "• 화면 상단 메뉴버튼들에 Custom Animation 적용",
-                "• 화면의 애니메이션들을 직접 구현하여 개발",
-                "• Vercel을 이용하여 웹사이트 배포 및 개인 도메인 등록"
+                "• 오픈소스 flutter 패키지 의존을 최소한으로 줄이고 순수 flutter 프레임워크로 개발",
+                "• 네비게이터 페이지 전환시 Custom Route Transition Animation 구현",
+                "• 메인 화면의 돌아가는 지구본 형태의 위젯을 CustomPainter를 상속받아 직접 구현",
+                "• 웹사이트의 보여지는 텍스트들을 하드코딩이 아닌 json 파일로 분리",
+                "• Animation 기능을 이용하여 메인 화면의 움직이는 텍스트, 상단의 반응형 버튼, 그외 움직이는 이미지를 구현",                
+                "• Custom Font적용",
+                "• 개인 도메인 구매후 Vercel을 이용하여 웹사이트 배포"
             ],
             "results": [],
             "links": [
@@ -779,7 +779,7 @@
         },
         {
             "projectName": "차트봄(Chart Bom)",
-            "projectDescription": "금, 석유, 환율 데이터를 차트로 보여주는 웹사이트 개발 프로젝트",
+            "projectDescription": "금, 석유, 환율 정보를 차트로 보여주는 웹사이트 개발 프로젝트",
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
@@ -798,30 +798,37 @@
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "• Dart 언어만을 사용하여 Back-end, Front-end, console 프로그램 개발",
-                "• Dart Shelf 패키지를 활용하여 Back-end 개발",
-                "  -MongoDB를 이용하여 REST API 설계",
-                "• Flutter를 이용하여 Front-end 개발",
-                "  -Lightweight Charts JS 라이브러리를 Flutter 환경으로 임포트하여 차트전시 기능 개발",
-                "• 주기적으로 금,석유,환율 정보를 crawling하는 dart console 프로그램 개발",
-                "  -docker container에 cron을 설치하여 주기적으로 실행하도록 설정",
+                "• Dart 언어만을 사용하여 Back-end, Front-end, Web Crawling Console 프로그램 개발",
+                "• 배포 환경을 쉽게 하기 위하여 Docker-compose를 이용하여 Back-end, Web Crawling Console 프로그램 배포",
+                "• Back-end 개발",
+                "  -Dart Shelf 패키지를 이용하여 백엔드 REST API 서버 구현 및 데이터베이스는 MongoDB를 사용",
+                "• Front-end 개발",
+                "  -Flutter Web을 이용하여 화면단 구현",                
+                "  -Platform View를 이용하여 JS로 작성된 Lightweight Charts 라이브러리를 연동하여 차트 UI 구현",                
+                "  -Dart JS 라이브러리를 이용하여 Dart-JS interoperation을 수행하며 Lightweight Charts 연동",                
+                "• Web Crawling Console 프로그램 개발",
+                "  -공공데이터 포털에서 제공하는 금,석유,환율 정보를 crawling하여 Back-end 서버에 저장하는 dart console 프로그램 구현",
+                "  -Docker 컨테이너를 빌드시 cron 설치 및 설정하여 12시간 주기로 실행 crawling 하도록 설정",
                 "• AWS EC2 서비스를 이용하여 프로젝트 배포",
-                "  -Google Domain 연결",
+                "  -Nginx를 이용하여 Front-end는 정적 파일로 배포하고, proxy_pass 기능을 이용하여 Back-end 서버 연동",
                 "  -AWS Elastic IP 등록",
-                "  -Nginx를 이용하여 static 파일로 Front-end를 배포하고, proxy 기능을 이용하여 Back-end 연결",
-                "  -Back-end 및 console 프로그램은 Docker-compose 를 통해 배포",
-                "  -AWS EC2는 certbot을 이용하여 인증서를 발급받아 nginx에 인증서를 등록하여 https 적용"
+                "  -Google Domain을 이용해서 구매한 도메인과 AWS EC2 도메인 연결",
+                "  -certbot을 이용하여 인증서를 발급받아 nginx에 https 적용"
             ],
             "results": [],
             "links": [
                 {
                     "text": "chartbom.com",
                     "url": "https://chartbom.com/"
+                },
+                {
+                    "text": "Lightweight Charts",
+                    "url": "https://www.tradingview.com/lightweight-charts/"
                 }
             ]
         },
         {
-            "projectName": "대똥여지도",
+            "projectName": "공공화장실 지도",
             "projectDescription": "내주변 공공화장실 위치를 알려주는 앱 개발 프로젝트",
             "period": "2023.03 ~ 2023.03",
             "keywords": [
@@ -838,10 +845,13 @@
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "• 국가에서 운영중인 공공데이터에서 공공화장실정보를 가지고 SQLite 데이터베이스 구축",
+                "• 공공데이터 포털에서 공공화장실정보를 가지고 SQLite 데이터베이스 구축",
                 "• Python 및 Naver Map Geocode API를 이용하여 각 화장실의 GPS위치 정보 저장",
+                "   -공공화장실 정보는 Excel 파일로 저장되어 있어 python을 이용하면 손쉽게 Excel파일을 다룰 수 있어 python 사용",
+                "   -공공화장실 정보는 주소만 제공하기 때문에 Naver Map Geocode API를 이용하여 주소를 GPS 위치 정보로 변환하여 저장",
                 "• Naver Map을 사용하여 지도 화면 구현",
-                "• Python으로 구축된 SQLite DB 파일을 앱의 리소스 파일로 등록하여 In App DB로 활용"
+                "• Python으로 구축된 SQLite DB 파일을 앱의 리소스 파일로 등록하여 In App DB로 활용",
+                "   -1년에 한번 업데이트되는 공공화장실정보 이기에 백엔드 서버를 구현하지 않고 앱에 DB를 내장하기로 결정"
             ],
             "results": [],
             "links": [
@@ -872,18 +882,16 @@
             "members": "소프트웨어 1, 디자이너 2",
             "contribution": "100%",
             "workDetail": [
-                "• 백그라운드 동작으로 상시 위치정보 저장 기능 구현",
+                "• 백그라운드에서 동작하는 상시 위치정보 저장 기능 구현",
                 "• Riverpod과 GetIt 패키지를 활용하여 상태관리",
-                "• Firestore Database 를 이용하여 DB 구축(Firebase)",
-                "  -Firebase 무료 사용량만을 고려하여, DB의 Read/Write를 최소한으로 할수 있도록 설계 및 개발",
+                "• Firebase Firestore Database 를 이용하여 데이터베이스 구축",
+                "  -Firebase 무료 사용량만을 고려하여, DB의 Read/Write를 최소한으로 할수 있도록 Collection 및 Document 설계",
                 "• Firebase Storage를 활용하여 이미지 저장소 구축",
                 "• 구글지도를 활용하여 지도화면 구현",
                 "  -지도위 마커 표시 및 폴리라인으로 경로 표시",
                 "  -지도 커스터마이징 적용"
             ],
-            "results": [
-                "• 구글 플레이스토어에 앱 배포"
-            ],
+            "results": [],
             "__comments__": "앱을 배포후 플레이스토어 주소를 여기다가 등록해야겟지?",
             "links": []
         },

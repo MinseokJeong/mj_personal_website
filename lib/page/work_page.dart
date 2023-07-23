@@ -41,7 +41,7 @@ class _WorkPageState extends State<WorkPage> {
     // 'Flutter/Dart':3,
     // 'Mobile App': 2,
     // 'Web': 2,
-    // 'Embedded/Firmware':2,
+    // 'Embedded System':2,
     'Etc': 0,
   };
 

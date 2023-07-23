@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
 import 'package:mj_portfolio_web/util/size_variation_extension.dart';
 import 'package:mj_portfolio_web/widget/footer_widget.dart';
 import '../model/size_variation.dart';
+import '../util/hex_color.dart';
 import '../widget/hanger_widget.dart';
 import '../widget/horizontal_moving_text_widget2.dart';
 import '../widget/interact_with_mouse_pointer_icon_widget.dart';

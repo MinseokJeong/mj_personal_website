@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
+
+import '../util/hex_color.dart';
 
 class SlideUpPageTransitionWidget extends StatefulWidget {
   const SlideUpPageTransitionWidget({required this.title, Key? key})

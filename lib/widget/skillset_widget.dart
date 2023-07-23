@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mj_portfolio_web/model/enum_screen_type.dart';
 import 'package:mj_portfolio_web/util/screen_size.dart';
@@ -144,7 +143,7 @@ class _SkillSetSubSectionWidget extends StatelessWidget {
           children: [
             Wrap(
               children: [
-                AutoSizeText.rich(
+                Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
