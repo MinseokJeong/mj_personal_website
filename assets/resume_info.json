@@ -20,7 +20,7 @@
         "aboutMe": [
             "안녕하세요, <Flutter 개발자> 정민석 입니다.",
             "<Flutter Cross-platform>의 의미처럼 실제 임베디드 시스템, 윈도우즈 데스크톱, 모바일, 웹 과 같이 <다양한 분야에서 개발 경험>을 갖고 있어 다양한 프로젝트에 대처할 수 있습니다.",
-            "Kickstarter 참여, 사회적 기업가 육성사업 선정, 특허 등록, 창업 경진대회 대상을 수상하는 등 <개발 이외 다양한 경험>이 있습니다.",
+            "Kickstarter 프로젝트 참여, 사회적 기업가 육성사업 선정, 특허 등록, 창업 경진대회 대상을 수상하는 등 <개발 이외 다양한 경험>이 있습니다.",
             "미국과 캐나다에서 해외 근무 경험 덕분에 국제적인 업무 환경에 적응할 수 있고 다양한 문화의 사람들과 협업하는 능력을 갖추고 있습니다.",
             "임베디드 시스템 개발 일을 할당시 수백장의 데이터시트, 레퍼런스 문서를 출력해 밤늦게 까지 연구 하면서 <책임지고 맡겨진 일을 해결> 하였으며 이러한 모습들로 인해 주변 동료들로부터 <같이 일하고 싶은 개발자>로 인정 받았습니다.",
             "언제나 <좋은 개발자>가 되기 위해 최선을 다합니다."
@@ -143,13 +143,10 @@
                         "C",
                         "C++",
                         "VxWorks",
+                        "Single Board Computer",
                         "RTOS",
                         "MFC",
-                        "Arm Cortex-M4 based MCU",
-                        "Visual Studio",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Embedded System"
+                        "Arm Cortex-M4 based MCU"
                     ],
                     "category": [
                         "Embedded System"
@@ -197,12 +194,8 @@
                         "Zynq Ultra Scale+ MPSoC",
                         "Xilinx IP Core",
                         "Analog Devices",
-                        "Vitis",
-                        "Vivado",
-                        "Visual Studio",
                         "MFC",
-                        "SoC",
-                        "Embedded System"
+                        "SoC"
                     ],
                     "category": [
                         "Embedded System"
@@ -211,14 +204,12 @@
                     "contribution": "100%",
                     "workDetail": [
                         "• 개발 장치 내 System on Chip의 Processor 파트 개발 및 장치 제어용 Windows Desktop 응용소프트웨어 개발 담당.",
-                        "  -SoC: Zynq UltraScale+ MPSoC",
-                        "• 사내 처음 Zynq SoC 개발자 배정",
+                        "  -SoC: Zynq UltraScale+ MPSoC",                        
                         "• SoC 개발 환경 구축",
                         "  -SW Type: Bare Metal Application",
                         "  -Bootloader Configuration 작업",
                         "  -SPI, UART, Ethernet 통신과 같은 통신 환경 설정 작업",
-                        "• 무선송수신 칩의 Linux HAL(Hardware Abstraction Layer)드라이버를 no-OS(Bare Metal) 버전으로 수정하여 적용",
-                        "  -무선송수신 칩: ARDV9026",
+                        "• ARDV9026 무선송수신 칩의 Linux HAL(Hardware Abstraction Layer)드라이버를 no-OS(Bare Metal) 버전으로 포팅",
                         "• SoC내 Programmable Logic(FPGA)과 무선 송수신 칩간의 초기화 기능을 구현",
                         "  -FPGA에 사용된 Xilinx IP Cores 및 Custom Cores 초기화 작업",
                         "  -FPGA와 무선송수신 칩간의 JESD204B 통신 인터페이스 초기화 작업",
@@ -234,8 +225,8 @@
                     "projectDescription": "대함레이더 내 특정장치들의 하위 모듈들을 점검하는 장치 개발 프로젝트",
                     "period": "2021.06 ~ 2021.08",
                     "keywords": [
-                        "Arm Cortex-M4 based MCU",
-                        "Code Composer Studio"
+                        "C",
+                        "Arm Cortex-M4 based MCU"
                     ],
                     "category": [
                         "Embedded System"
@@ -263,9 +254,7 @@
                         "C",
                         "C++",
                         "Arm Cortex-M4 based MCU",
-                        "MFC",
-                        "Code Composer Studio",
-                        "Visual Studio"
+                        "MFC"
                     ],
                     "category": [
                         "Embedded System"
@@ -287,12 +276,11 @@
                     "projectDescription": "미사일 점검 장비 개발 프로젝트",
                     "period": "2021.03 ~ 2021.09",
                     "keywords": [
-                        "MFC",
                         "C++",
+                        "MFC",
                         "OpenGL",
                         "OpenSSL",
-                        "MIL-STD-1553B",
-                        "Visual Studio"
+                        "MIL-STD-1553B"
                     ],
                     "category": [],
                     "members": "소프트웨어 2, 하드웨어 2, 기계/기구 2, 디자이너 1",
@@ -364,14 +352,11 @@
                         "C",
                         "C++",
                         "VxWorks",
+                        "RTOS",
+                        "Single Board Computer",
                         "Arm Cortex-M4 based MCU",
                         "MFC",
-                        "OpenGL",
-                        "Windows",
-                        "Wind River Workbench",
-                        "Code Composer Studio",
-                        "Visual Studio",
-                        "RTOS"
+                        "OpenGL"
                     ],
                     "category": [
                         "Embedded System"
@@ -412,7 +397,8 @@
                         "C++",
                         "MFC",
                         "OpenGL",
-                        "Visual Studio"
+                        "GPS",
+                        "Realtime Video Streaming"
                     ],
                     "category": [],
                     "members": "소프트웨어 1, 하드웨어 1",
@@ -443,9 +429,8 @@
                         "OpenGL",
                         "MariaDB",
                         "pcap",
-                        "Visual Studio",
-                        "NAS",
-                        "DVR"
+                        "Network Attached Storage",
+                        "Digital Video Recorder"
                     ],
                     "category": [],
                     "members": "소프트웨어 1, 하드웨어 1, 기계/기구 1명",
@@ -486,8 +471,7 @@
                     "keywords": [
                         "C++",
                         "MFC",
-                        "OpenGL",
-                        "Visual Studio"
+                        "OpenGL"
                     ],
                     "category": [],
                     "members": "소프트웨어 2",
@@ -531,7 +515,6 @@
                         "Android",
                         "iOS",
                         "Arduino",
-                        "Android Studio",
                         "Xcode",
                         "Beacon",
                         "BLE"
@@ -567,8 +550,8 @@
                         "Swift",
                         "C",
                         "C++",
-                        "Android Studio",
-                        "XCode",
+                        "Android",
+                        "iOS",
                         "Arduino"
                     ],
                     "category": [
@@ -618,7 +601,7 @@
             "developmentCategory": "Windows Desktop",
             "aboutCompany": "3D Scanning Hardware and Software",
             "companyCategory": "3D Imaging Solutions",
-            "myRoleInCompany": "3D 스캐너용 윈도우즈 데스크톱 프로그램을 유지보수 및 기능을 추가하는 일을 하였으며 Unity를 이용하여 VR시스템에서 데모용 프로그램을 개발 하였습니다.",
+            "myRoleInCompany": "기 개발된 3D 스캐너용 윈도우즈 데스크톱 프로그램 기능 추가 및 Unity를 이용하여 VR용 데모프로그램을 개발 하였습니다.",
             "projects": [
                 {
                     "projectName": "FlexScan3D Software for 3D Scanners",
@@ -629,14 +612,13 @@
                         "C#",
                         "Windows forms",
                         "DevExpress",
-                        "DirectX",
-                        "Visual Studio"
+                        "DirectX"
                     ],
                     "category": [],
                     "members": "소프트웨어 2 하드웨어 1",
                     "contribution": "30%",
                     "workDetail": [
-                        "• Winform기반 DevExpress 라이브러리를 이용하여 UI화면 유지보수 개발 (C#)",
+                        "• Winforms기반 DevExpress 라이브러리를 이용하여 UI화면 유지보수 개발 (C#)",
                         "• DirectX를 이용하여 3D 화면 렌더링 기능 개발(C++)",
                         "  -Circle Measurement 기능 구현",
                         "  -Plane Measurement 기능 구현",
@@ -667,7 +649,7 @@
                 },
                 {
                     "projectName": "VR Measurement",
-                    "projectDescription": "VR환경에서 길이 측정 프로그램 개발",
+                    "projectDescription": "VR환경에서 길이 측정 프로그램 개발(데모용)",
                     "period": "2018.04 ~ 2018.04",
                     "keywords": [
                         "C#",
@@ -697,7 +679,7 @@
             "developmentCategory": "Android",
             "aboutCompany": "Tactile Pressure measurement and mapping solutions",
             "companyCategory": "Tactile Sensing Soultions",
-            "myRoleInCompany": "GoSmart 라는 소비자용 제품을 개발하는 자회사에서 Android 개발을 담당 하였으며 Kickstarter 프로젝트에 참여하였습니다.",
+            "myRoleInCompany": "Kickstarter 프로젝트에 참여하여 Android 개발을 하였습니다.",
             "projects": [
                 {
                     "projectName": "SleepSmart Pillow",
@@ -705,9 +687,10 @@
                     "period": "2016.08 ~ 2017.10",
                     "keywords": [
                         "Java",
+                        "Android",
+                        "GNU Octave",
                         "Python",
                         "Raspberry Pi",
-                        "Android Studio",
                         "Arduino"
                     ],
                     "category": [
@@ -751,8 +734,7 @@
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
-                "Flutter",                
-                "Visual Studio Code"
+                "Flutter for Web"                
             ],
             "category": [
                 "Flutter/Dart",
@@ -761,14 +743,14 @@
             "members": "소프트웨어 1",
             "contribution": "100%",
             "workDetail": [
-                "• 오픈소스 flutter 패키지 의존을 최소한으로 줄이고 순수 flutter 프레임워크로 개발",
-                "• 네비게이터 페이지 전환시 Custom Route Transition Animation 구현",
-                "• 메인 화면의 돌아가는 지구본 형태의 위젯을 CustomPainter를 상속받아 직접 구현",
-                "• 웹사이트의 보여지는 텍스트들을 하드코딩이 아닌 json 파일로 분리",
-                "• Animation 기능을 이용하여 메인 화면의 움직이는 텍스트, 상단의 반응형 버튼, 그외 움직이는 이미지를 구현",                
-                "• Custom Font적용",                
+                "• 3rd party 패키지 의존을 최소한으로 줄이고 순수 flutter 프레임워크로 개발",
                 "• 화면 해상도별 Responsive Layout 적용",                
-                "• 개인 도메인 구매후 Vercel을 이용하여 웹사이트 배포"
+                "• CustomPainter를 사용하여 메인 화면의 움직이는 지구본 위젯 구현",
+                "• 네비게이터 페이지 전환시 Custom Route Transition Animation 구현",
+                "• Animation 기능을 이용하여 메인 화면의 움직이는 텍스트, 화면 상단의 반응형 메뉴 버튼, 움직이는 이미지 구현",                
+                "• Custom Font적용",                
+                "• 화면의 텍스트를 하드코딩이 아닌 json 파일로 분리 하여 개발",
+                "• Vercel을 이용하여 웹사이트 배포 및 개인 도메인 연결"
             ],
             "results": [],
             "links": [
@@ -784,8 +766,8 @@
             "period": "2023.04 ~ 2023.06",
             "keywords": [
                 "Dart",
-                "Flutter",
-                "Visual Studio Code",
+                "Flutter for Web",
+                "dart interoperation with JavaScript",
                 "Dart Shelf",
                 "MongoDB",
                 "Docker",
@@ -834,10 +816,9 @@
             "period": "2023.03 ~ 2023.03",
             "keywords": [
                 "Dart",
-                "Flutter",
+                "Flutter for Mobile",
                 "Python",
-                "SQLite",
-                "Visual Studio Code"
+                "SQLite"
             ],
             "category": [
                 "Flutter/Dart",
@@ -872,9 +853,10 @@
             "period": "2023.01 ~ 2023.06",
             "keywords": [
                 "Dart",
-                "Flutter",
+                "Flutter for Mobile",
                 "Android",
-                "Visual Studio Code"
+                "Firebase Firestore",
+                "Firebase Storage"
             ],
             "category": [
                 "Mobile App",
@@ -902,9 +884,10 @@
             "period": "2021.04 ~ 2021.06",
             "keywords": [
                 "Dart",
-                "Flutter",
+                "Flutter for Mobile",
+                "Flutter for Web",
                 "Android",
-                "Visual Studio Code"
+                "Cryptocurrency"                
             ],
             "category": [
                 "Mobile App",
@@ -943,7 +926,7 @@
             "period": "2015.12 ~ 2016.02",
             "keywords": [
                 "Java",
-                "Android Studio"
+                "Android"                
             ],
             "category": [
                 "Mobile App"
