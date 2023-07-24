@@ -19,9 +19,9 @@
         ],
         "aboutMe": [
             "안녕하세요, <Flutter 개발자> 정민석 입니다.",
-            "<Cross-platform>의 의미처럼 임베디드 시스템, 윈도우즈 데스크톱, 모바일, 웹 과 같이 <다양한 분야에서 개발 경험>을 갖고 있어 다양한 프로젝트에 대처할 수 있습니다.",
+            "<Flutter Cross-platform>의 의미처럼 실제 임베디드 시스템, 윈도우즈 데스크톱, 모바일, 웹 과 같이 <다양한 분야에서 개발 경험>을 갖고 있어 다양한 프로젝트에 대처할 수 있습니다.",
             "Kickstarter 참여, 사회적 기업가 육성사업 선정, 특허 등록, 창업 경진대회 대상을 수상하는 등 <개발 이외 다양한 경험>이 있습니다.",
-            "미국과 캐나다에서 해외 근무 경험 덕분에 국제적인 업무 환경에 적응할 수 있고 다양한 문화와 사람들과 협업하는 능력을 갖추고 있습니다.",
+            "미국과 캐나다에서 해외 근무 경험 덕분에 국제적인 업무 환경에 적응할 수 있고 다양한 문화의 사람들과 협업하는 능력을 갖추고 있습니다.",
             "임베디드 시스템 개발 일을 할당시 수백장의 데이터시트, 레퍼런스 문서를 출력해 밤늦게 까지 연구 하면서 <책임지고 맡겨진 일을 해결> 하였으며 이러한 모습들로 인해 주변 동료들로부터 <같이 일하고 싶은 개발자>로 인정 받았습니다.",
             "언제나 <좋은 개발자>가 되기 위해 최선을 다합니다."
         ],
@@ -59,46 +59,38 @@
             "Python",
             "Javascript"
         ],
-        "Embedded System": [
-            "Arm Cortex-M4 based MCU",
-            "VxWorks",
-            "Zynq Ultra Scale+ MPSoC",
-            "Single Board Computer",
-            "Xilinx IP Core",
-            "Texas Instruments",
-            "Arduino",
-            "Raspberry pi",
-            "Vitis",
-            "Code Composer Studio",
-            "Wind River Workbench"
+        "Mobile(Android/iOS)": [
+            "Flutter for Mobile",
+            "Native Android",
+            "Native iOS"
+        ],
+        "Front-End(Web)": [
+            "Flutter for Web",
+            "HTML/CSS/JS"
+        ],
+        "Back-End(Web)": [
+            "Shelf(Dart)",
+            "FastAPI(Python)",
+            "TCP/IP Socket(C)",
+            "Nginx"
+        ],
+        "Cloud Computing": [
+            "Amazon Web Services"
         ],
         "Desktop Application": [
             "MFC",
             "Winform",
             "Unity",
             "DirectX",
-            "OpenGL",
-            "Visual Studio"
+            "OpenGL"
         ],
-        "Mobile(Android/iOS)": [
-            "Flutter",
-            "Android",
-            "iOS",
-            "Android Studio",
-            "Xcode"
-        ],
-        "Front-End(Web)": [
-            "Flutter for Web",
-            "HTML/CSS/JS",
-            "Visual Studio Code"
-        ],
-        "Back-End(Web)": [
-            "Shelf(Dart)",
-            "FastAPI(Python)",
-            "TCP/IP Socket(C)",
-            "Nginx",
-            "Visual Studio Code",
-            "Visual Studio"
+        "Embedded System": [
+            "Arm Cortex-M4 based MCU",
+            "Single Board Computer",
+            "VxWorks",
+            "Zynq Ultra Scale+ MPSoC",
+            "Arduino",
+            "Raspberry pi"
         ],
         "Tooling / DevOps": [
             "Docker",
@@ -106,18 +98,26 @@
             "Github"
         ],
         "DB": [
-            "MariaDB",
             "SQLite",
-            "MySQL",
-            "PostgreSQL",
+            "Firebase(Firestore, Storage)",
+            "MariaDB",
             "MongoDB",
+            "PostgreSQL",
             "Redis"
+        ],
+        "Code Editor / IDE": [
+            "Visual Studio Code",
+            "Visual Studio",
+            "Android Studio",
+            "Xcode",
+            "Code Composer Studio",
+            "Wind River Workbench",
+            "Vitis"
         ],
         "ETC": [
             "Slack",
             "Asana",
-            "Trello",
-            "Notion",
+            "Trello",            
             "Figma",
             "Adobe XD"
         ]
@@ -133,7 +133,7 @@
             "developmentCategory": "Embedded System, Windows Desktop",
             "companyCategory": "방위산업체",
             "aboutCompany": "방위산업체로서 육,해,공군의 첨단 무기체계 개발에 참여하며 아날로그/디지털신호처리/임베디드시스템과 관련된 다양한 제품을 개발 및 생산",
-            "myRoleInCompany": "군납용 장비/제품 안에 들어가는 임베디드시스템/펌웨어 개발 및 실운용자가 사용하는 윈도우즈 데스크톱 응용 프로그램을 개발하였습니다. 실제 만든 프로그램이 현재 군에서 사용되고 있고, 대한민국 국방에 보탬이 되었다는 자부심이 있습니다.",
+            "myRoleInCompany": "군사장비 임베디드시스템 개발 및 운용자용 윈도우즈 데스크톱 프로그램을 개발하였습니다. 실제 만든 프로그램이 현재 군에서 사용되고 있습니다.",
             "projects": [
                 {
                     "projectName": "대함레이더 신호연동부 개발",
@@ -766,7 +766,8 @@
                 "• 메인 화면의 돌아가는 지구본 형태의 위젯을 CustomPainter를 상속받아 직접 구현",
                 "• 웹사이트의 보여지는 텍스트들을 하드코딩이 아닌 json 파일로 분리",
                 "• Animation 기능을 이용하여 메인 화면의 움직이는 텍스트, 상단의 반응형 버튼, 그외 움직이는 이미지를 구현",                
-                "• Custom Font적용",
+                "• Custom Font적용",                
+                "• 화면 해상도별 Responsive Layout 적용",                
                 "• 개인 도메인 구매후 Vercel을 이용하여 웹사이트 배포"
             ],
             "results": [],
