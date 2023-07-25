@@ -67,19 +67,19 @@ void _printProjectInfo(ProjectInformation project, [String subTitle = '']) {
   }
 
   if (project.projectDescription.isNotEmpty) {
-    stringBuffer.writeln('프로젝트 소개: ' + project.projectDescription);
+    stringBuffer.writeln('프로젝트 소개:\n' + project.projectDescription);
   }
 
   if (project.members.isNotEmpty) {
-    stringBuffer.writeln('프로젝트 소개: ' + project.members);
+    stringBuffer.writeln('멤버구성:\n' + project.members);
   }
 
   if (project.contributionrate.isNotEmpty) {
-    stringBuffer.writeln('SW구현 기여도: ' + project.contributionrate);
+    stringBuffer.writeln('SW구현 기여도:\n' + project.contributionrate);
   }
 
   if (project.keywords.isNotEmpty) {
-    stringBuffer.writeln('기술스택: ' +
+    stringBuffer.writeln('기술스택:\n' +
         project.keywords.reduce((value, element) => '$value, $element'));
   }
 

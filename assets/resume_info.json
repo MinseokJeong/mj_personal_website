@@ -478,11 +478,10 @@
                     "contribution": "50%",
                     "workDetail": [
                         "• 레이더로부터 수신된 데이터를 기반으로 성능 및 만족도 분석을 위한 소프트웨어 유지보수",
-                        "• 기존 벡터 선으로만 그려진 지도화면에 실제 축척지도 이미지를 렌더링 기능 구현",
-                        "  -기존 SW 화면 렌더링 성능 개선"
-                    ],
-                    "results": [
+                        "• 기존 벡터 선으로만 그려진 지도화면에 실제 축척지도 이미지를 화면에 오버레이 하는 기능 구현",
                         "• 기존 항적 데이터를 렌더링하는 프로세스를 개선하여 화면 렌더링 속도 개선(15fps -> 30fps)"
+                    ],
+                    "results": [                        
                     ],
                     "links": [
                         {
@@ -839,11 +838,11 @@
             "links": [
                 {
                     "text": "개발일지#1",
-                    "url": "https://jeongminseok.blogspot.com/2023/03/1.html"
+                    "url": "https://minseokjeong.github.io/daeddongyeojido1.html"
                 },
                 {
                     "text": "개발일지#2",
-                    "url": "https://jeongminseok.blogspot.com/2023/03/2.html"
+                    "url": "https://minseokjeong.github.io/daeddongyeojido2.html"
                 }
             ]
         },
@@ -887,7 +886,7 @@
                 "Flutter for Mobile",
                 "Flutter for Web",
                 "Android",
-                "Cryptocurrency"                
+                "Cryptocurrency"               
             ],
             "category": [
                 "Mobile App",
@@ -903,7 +902,8 @@
                 "• 코인별 김치 프리미엄 비교 기능 개발",
                 "• 코인봄 웹버전 프로토타입 개발(Flutter for Web)",
                 "• GetX 패키지를 이용하여 상태관리",
-                "• isolate를 이용하여 네트워크 퍼포먼스 개선"
+                "• isolate를 이용하여 퍼포먼스 개선",
+                "  -네트워크 작업 및 데이터 파싱을 분리된 isolate에서 처리하여 UI 퍼포먼스 및 전체적인 성능 개선"              
             ],
             "results": [
                 "• 구글 플레이스토어에 앱 배포",
@@ -921,7 +921,7 @@
             ]
         },
         {
-            "projectName": "파일럿 상태측정",
+            "projectName": "파일럿 상태측정 안드로이드 앱 개발",
             "projectDescription": "공군 파일럿 임무투여 전 상태 측정 앱개발 프로젝트",
             "period": "2015.12 ~ 2016.02",
             "keywords": [
